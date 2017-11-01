@@ -63,7 +63,9 @@ To release a new version:
 
 ## Contributing
 
-[Bug reports](https://github.com/archivesunleashed/auk/issues) and [pull requests](https://github.com/archivesunleashed/auk/pulls) are welcome on WarcLight -- see [CONTRIBUTING.md](https://github.com/archivesunleashed/auk/blob/master/CONTRIBUTING.md) for details.
+Please see contributing guidelines @ [CONTRIBUTING.md](https://github.com/archivesunleashed/auk/blob/master/CONTRIBUTING.md) for details.
+* [Bug reports](https://github.com/archivesunleashed/auk/issues)
+* [Pull requests](https://github.com/archivesunleashed/auk/pulls) are welcome on AUK
 
 ## License
 
