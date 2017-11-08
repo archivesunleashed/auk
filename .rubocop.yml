@@ -1,0 +1,29 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - '.internal_test_app/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'lib/generators/warclight/templates/**/*'
+    - 'vendor/**/*'
+  TargetRubyVersion: 2.4
+  DisplayCopNames: true
+
+Rails:
+  Enabled: true
+
+RSpec/NestedGroups:
+  Max: 4
+
+Rails/FilePath:
+  Exclude:
+    - config/environments/development.rb
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - config/spring.rb
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - test/test_helper.rb

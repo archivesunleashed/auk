@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# User model methods.
 class User < ApplicationRecord
   def self.find_or_create_from_auth_hash(auth_hash)
     user = where(
