@@ -45,10 +45,12 @@ $ bundle exec rake
 ### Run a development server
 
 ```sh
-$ bundle exec rake auk:server
+$ rails s
 ```
 
 Then visit http://localhost:3000.
+
+**N.B.** This application makes use of the [dotenv-rails](https://github.com/bkeepers/dotenv) gem. You will need a `.env` file in the root of the application with `TWITTER_KEY`, `TWITTER_SECRET`, `GITHUB_KEY`, and `GITHUB_SECRET` set in order to login.
 
 ### Run a console
 

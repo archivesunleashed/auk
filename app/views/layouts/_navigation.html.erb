@@ -8,17 +8,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Archives Unleashed</a>
+      <a class="navbar-brand" href="#">Archives Unleashed Cloud</a>
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Home', root_path %></li>
         <% if current_user %>
           <li>Signed in as <%= current_user.name %></li>
           <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "Sign in with Twitter", "/auth/twitter" %></li>
-          <li><%= link_to "Sign in with GitHub", "/auth/github" %></li>
+          <li>Sign in with: </li>
+          <li>
+            <%= link_to "/auth/twitter" do %>
+              <%= fa_icon "twitter 2x" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "/auth/github" do %>
+              <%= fa_icon "github 2x" %>
+            <% end %>
+          </li>
         <% end %>
         </ul>
     </div>

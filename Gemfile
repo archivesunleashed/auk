@@ -58,3 +58,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'bootstrap-sass'
+gem 'font-awesome-rails'
