@@ -44,6 +44,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.48.1'
   gem 'rubocop-rspec', '~> 1.15.0'
   gem 'selenium-webdriver'
+  gem 'simplecov'
 end
 
 group :development do
@@ -58,6 +59,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 ## AUK
 gem 'bootstrap-sass'
+gem 'codecov', require: false, group: :test
 gem 'font-awesome-rails'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
