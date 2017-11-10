@@ -8,10 +8,15 @@ class User < ApplicationRecord
     ).first_or_create
     user.update(
       name: auth_hash.info.nickname,
-      profile_image: auth_hash.info.image,
       token: auth_hash.credentials.token,
       secret: auth_hash.credentials.secret
     )
     user
   end
+
+  validates :provider, presence: true
+  validates :uid, presence: true
+  validates :name, presence: true
+  validates :token, presence: true
+  validates :secret, presence: true
 end

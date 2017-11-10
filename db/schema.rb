@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107213449) do
+ActiveRecord::Schema.define(version: 20171110183618) do
 
   create_table "users", force: :cascade do |t|
     t.string "provider"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20171107213449) do
     t.datetime "updated_at", null: false
     t.string "token"
     t.string "secret"
-    t.string "profile_image"
   end
 
 end
