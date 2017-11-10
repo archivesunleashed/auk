@@ -18,5 +18,4 @@ class User < ApplicationRecord
   validates :uid, presence: true
   validates :name, presence: true
   validates :token, presence: true
-  validates :secret, presence: true
 end

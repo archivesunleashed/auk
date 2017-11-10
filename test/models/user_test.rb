@@ -31,9 +31,4 @@ class UserTest < ActiveSupport::TestCase
     @user.token = ''
     assert_not @user.valid?
   end
-
-  test 'secret should be present' do
-    @user.secret = ''
-    assert_not @user.valid?
-  end
 end
