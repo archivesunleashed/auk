@@ -59,6 +59,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 ## AUK
 gem 'bootstrap-sass'
+gem 'bootstrap_form'
 gem 'codecov', require: false, group: :test
 gem 'font-awesome-rails'
 gem 'omniauth-github'
