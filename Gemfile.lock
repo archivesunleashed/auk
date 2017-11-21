@@ -42,8 +42,11 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     ast (2.3.0)
+    attr_encrypted (3.0.3)
+      encryptor (~> 3.0.0)
     autoprefixer-rails (7.1.6)
       execjs
+    bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -78,6 +81,7 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
+    encryptor (3.0.0)
     erubi (1.7.0)
     execjs (2.7.0)
     faraday (0.12.2)
@@ -246,6 +250,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  attr_encrypted
+  bcrypt (~> 3.1.7)
   bootstrap-sass
   bootstrap_form
   byebug

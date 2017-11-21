@@ -32,6 +32,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :institution, :wasapi_username,
-                                 :wasapi_password_digest)
+                                 :wasapi_password)
   end
 end

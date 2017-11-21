@@ -14,5 +14,10 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>Archive-It Username:</strong>
+  <%= @user.wasapi_username %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', user_path %>

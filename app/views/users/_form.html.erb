@@ -13,5 +13,7 @@
 
   <%= f.text_field :email %>
   <%= f.text_field :institution %>
+  <%= f.text_field :wasapi_username, label: 'Archive-It Username' %>
+  <%= f.password_field :wasapi_password, label: 'Archive-It Password' %>
   <%= f.submit %>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110183618) do
+ActiveRecord::Schema.define(version: 20171110192718) do
 
   create_table "users", force: :cascade do |t|
     t.string "provider"
@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(version: 20171110183618) do
     t.datetime "updated_at", null: false
     t.string "token"
     t.string "secret"
+    t.string "encrypted_wasapi_username"
+    t.string "encrypted_wasapi_password"
+    t.string "encrypted_wasapi_username_iv"
+    t.string "encrypted_wasapi_password_iv"
   end
 
 end
