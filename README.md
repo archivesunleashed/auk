@@ -4,7 +4,7 @@
 [![Contribution Guidelines](http://img.shields.io/badge/CONTRIBUTING-Guidelines-blue.svg)](./CONTRIBUTING.md)
 [![LICENSE](https://img.shields.io/badge/license-Apache-blue.svg?style=flat-square)](./LICENSE.txt)
 
-![King Auk](https://thumbs.dreamstime.com/b/king-auks-92136782.jpg)
+![King Auk](https://camo.githubusercontent.com/148a43ac461f352346f8cd894af8bb5845a831fb/68747470733a2f2f7777772e6f6c64626f6f6b696c6c757374726174696f6e732e636f6d2f77702d636f6e74656e742f686967682d7265732f313836372f6772616e6476696c6c652d61756b2d313630302e6a7067)
 
 Rails application for the Archives Unleashed Cloud.
 
@@ -31,7 +31,7 @@ $ rails s
 
 Then visit http://localhost:3000.
 
-**N.B.** This application makes use of the [dotenv-rails](https://github.com/bkeepers/dotenv) gem. You will need a `.env` file in the root of the application with `TWITTER_KEY`, `TWITTER_SECRET`, `GITHUB_KEY`, and `GITHUB_SECRET` set in order to login.
+**N.B.** This application makes use of the [dotenv-rails](https://github.com/bkeepers/dotenv) gem. You will need a `.env` file in the root of the application with `TWITTER_KEY`, `TWITTER_SECRET`, `GITHUB_KEY`, and `GITHUB_SECRET` set in order to login. You will also need a 32bit `WASAPI_KEY` declared in that file for Archive-It credential encryption.
 
 ### Run a console
 
