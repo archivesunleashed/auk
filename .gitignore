@@ -25,3 +25,4 @@
 vendor/cache
 .env
 *.swp
+coverage
