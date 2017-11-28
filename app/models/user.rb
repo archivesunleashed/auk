@@ -2,6 +2,7 @@
 
 # User model methods.
 class User < ApplicationRecord
+  has_many :wasapi_files
   def self.find_or_create_from_auth_hash(auth_hash)
     # OmniAuth.
     user = where(

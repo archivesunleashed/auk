@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li>Signed in as <%= current_user.name %></li>
+          <li>Signed in as <%= link_to current_user.name, current_user  %></li>
           <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
         <% else %>
           <li>Sign in with: </li>

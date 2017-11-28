@@ -1,0 +1,2 @@
+class WasapiFile < ApplicationRecord
+end
