@@ -3,9 +3,14 @@
 # Application Controller methods.
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  include SessionsHelper
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  private
+
+  # Confirms logged in user.
+  def logged_in_user
+    return false if logged_in?
+    flash[:danger] = 'Please log in.'
+    redirect_to root_path
   end
-  helper_method :current_user
 end
