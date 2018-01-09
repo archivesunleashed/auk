@@ -62,6 +62,8 @@ gem 'attr_encrypted'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'codecov', require: false, group: :test
+gem 'delayed_job_active_record'
 gem 'font-awesome-rails'
+gem 'http'
 gem 'omniauth-github'
 gem 'omniauth-twitter'

@@ -4,13 +4,13 @@ one:
   checksum_md5: MyString
   checksum_sha1: MyString
   filetype: MyString
-  size: 1
+  size: 2388654180
   filename: MyString
   crawl_time: MyString
   crawl_start: MyString
   crawl: 1
   account: 1
-  collection: 1
+  collection_id: 1
   location_archive_it: MyString
   location_internet_archive: MyString
 
@@ -18,12 +18,12 @@ two:
   checksum_md5: MyString
   checksum_sha1: MyString
   filetype: MyString
-  size: 1
+  size: 2388654180
   filename: MyString
   crawl_time: MyString
   crawl_start: MyString
   crawl: 1
   account: 1
-  collection: 1
+  collection_id: 1
   location_archive_it: MyString
   location_internet_archive: MyString
