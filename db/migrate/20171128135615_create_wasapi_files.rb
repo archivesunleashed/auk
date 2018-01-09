@@ -13,6 +13,7 @@ class CreateWasapiFiles < ActiveRecord::Migration[5.1]
       t.integer :collection_id
       t.string :location_archive_it
       t.string :location_internet_archive
+      t.integer :user_id
 
       t.timestamps
     end

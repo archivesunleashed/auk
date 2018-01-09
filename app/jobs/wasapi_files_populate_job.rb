@@ -25,7 +25,8 @@ class WasapiFilesPopulateJob < ApplicationJob
                          location_archive_it: file['locations'][0],
                          location_internet_archive: file['locations'][1],
                          checksum_md5: file['checksums']['md5'],
-                         checksum_sha1: file['checksums']['sha1'])
+                         checksum_sha1: file['checksums']['sha1'],
+                         user_id: user.id)
     end
     paginate = wasapi_results['next']
     if paginate.present?
@@ -48,7 +49,8 @@ class WasapiFilesPopulateJob < ApplicationJob
                              location_archive_it: file['locations'][0],
                              location_internet_archive: file['locations'][1],
                              checksum_md5: file['checksums']['md5'],
-                             checksum_sha1: file['checksums']['sha1'])
+                             checksum_sha1: file['checksums']['sha1'],
+                             user_id: user.id)
         end
         break if paginate.blank?
       end

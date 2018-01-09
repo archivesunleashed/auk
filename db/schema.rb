@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180108203303) do
     t.integer "collection_id"
     t.string "location_archive_it"
     t.string "location_internet_archive"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
