@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108203303) do
+ActiveRecord::Schema.define(version: 20180110143134) do
+
+  create_table "collections", id: false, force: :cascade do |t|
+    t.integer "collection_id", null: false
+    t.string "title"
+    t.boolean "public"
+    t.text "description"
+    t.decimal "size"
+    t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
