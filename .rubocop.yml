@@ -39,3 +39,11 @@ Metrics/MethodLength:
 Style/GuardClause:
   Exclude:
     - app/jobs/wasapi_files_populate_job.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - app/jobs/wasapi_files_populate_job.rb
+
+Layout/AlignArray:
+  Exclude:
+    - app/jobs/wasapi_files_populate_job.rb
