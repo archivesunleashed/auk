@@ -14,7 +14,9 @@ class WasapiFilesPopulateJob < ApplicationJob
     wasapi_results = JSON.parse(wasapi_request)
     wasapi_files = wasapi_results['files']
     wasapi_files.each do |file|
-      WasapiFile.find_or_create_by(filename: file['filename']) do |wasapifile|
+      WasapiFile.find_or_create_by!(
+        filename: file['filename']
+      ) do |wasapifile|
         wasapifile.filetype = file['filetype'],
         wasapifile.size = file['size'],
         wasapifile.filename = file['filename'],
@@ -40,7 +42,7 @@ class WasapiFilesPopulateJob < ApplicationJob
         wasapi_paged_files = wasapi_paged_results['files']
         paginate = wasapi_paged_results['next']
         wasapi_paged_files.each do |file|
-          WasapiFile.find_or_create_by(
+          WasapiFile.find_or_create_by!(
             filename: file['filename']
           ) do |wasapifile|
             wasapifile.filetype = file['filetype'],

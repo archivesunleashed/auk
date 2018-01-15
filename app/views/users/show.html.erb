@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h2>User information</h2>
+<br />
 <p>
   <strong>Username:</strong>
   <%= @user.name %>
@@ -17,6 +19,14 @@
 <p>
   <strong>Archive-It Username:</strong>
   <%= @user.wasapi_username %>
+</p>
+
+<hr />
+
+<h2>Collection information</h2>
+
+<p>
+  <strong>Total number of files:</strong>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
