@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    resources :collections
+    resources :wasapi_files
+  end
+
   root 'pages#show', page: 'home'
   get '/pages/:page' => 'pages#show'
 

@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20180110143134) do
 
   create_table "collections", id: false, force: :cascade do |t|
     t.integer "collection_id", null: false
+    t.integer "user_id"
     t.string "title"
     t.boolean "public"
     t.text "description"

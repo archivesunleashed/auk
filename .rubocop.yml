@@ -28,6 +28,10 @@ Style/ClassAndModuleChildren:
   Exclude:
     - test/test_helper.rb
 
+Style/IfUnlessModifier:
+  Exclude:
+    - app/controllers/sessions_controller.rb
+
 Metrics/AbcSize:
   Exclude:
     - app/jobs/wasapi_files_populate_job.rb
@@ -35,6 +39,11 @@ Metrics/AbcSize:
 Metrics/MethodLength:
   Exclude:
     - app/jobs/wasapi_files_populate_job.rb
+    - app/controllers/collections_controller.rb
+
+Metrics/LineLength:
+  Exclude:
+    - app/helpers/users_helper.rb
 
 Style/GuardClause:
   Exclude:
@@ -47,3 +56,4 @@ Metrics/BlockLength:
 Layout/AlignArray:
   Exclude:
     - app/jobs/wasapi_files_populate_job.rb
+    - app/controllers/collections_controller.rb

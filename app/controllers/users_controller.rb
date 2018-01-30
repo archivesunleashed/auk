@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'Update successful.' }
+        format.html { redirect_to @user }
         WasapiFilesPopulateJob.perform_later(@user)
       else
         format.html { render :edit }
