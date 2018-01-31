@@ -16,7 +16,6 @@
           <li><%= link_to current_user.name, current_user  %></li>
           <li><%= link_to '<i class="glyphicon glyphicon-log-out"></i>'.html_safe, logout_path, method: :delete %> </li>
         <% else %>
-          <li>Sign in with: </li>
           <li><%= link_to '<i class="fa fa-twitter fa-2x"></i>'.html_safe, "/auth/twitter" %></li>
           <li><%= link_to '<i class="fa fa-github fa-2x"></i>'.html_safe, "/auth/github" %></li>
         <% end %>

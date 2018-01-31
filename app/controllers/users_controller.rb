@@ -5,9 +5,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   before_action :logged_in_user, only: %i[show edit update]
   before_action :correct_user, only: %i[show edit update]
+  before_action :set_collections, only: %i[show]
 
   def index
     @users = User.all
+    @collections = Collection.all
   end
 
   def show; end
@@ -29,6 +31,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_collections
+    @collections = Collection.where(user_id: params[:id])
   end
 
   def user_params

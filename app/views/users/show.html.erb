@@ -5,28 +5,38 @@
     <hr />
     <p><i class="glyphicon glyphicon-envelope"></i> <%= @user.email %></p>
     <p><i class="glyphicon glyphicon-education"></i> <%= @user.institution %></p>
+    <% if @user.wasapi_username.blank? %>
+      <p><i class="fa fa-user-circle-o"></i> Please setup Archive-It credentials.</p>
+    <% else %>
+      <p><i class="fa fa-user-circle-o"></i> <%= @user.wasapi_username %></p>
+    <% end%>
+    <% if @user.wasapi_password.blank? %>
+      <p><i class="fa fa-user-secret"></i> Please setup Archive-It credentials.</p>
+    <% else %>
+      <p><i class="fa fa-user-secret"></i> *******</p>
+    <% end %>
   </div>
   <div class="col-sm-10 col-md-10">
     <h1>Collections</h1>
     <table class="table table-striped">
       <tr>
         <th>Title</th>
-        <th>Public</th>
         <th>Description</th>
+        <th>Public</th>
         <th>Files</th>
         <th>Size</th>
       </tr>
       <tr>
         <td>Canadian Political Parties and Political Interest Groups</td>
-        <td>Yes</td>
         <td>Canadian Political Parties and Political Interest Groups will archive the websites of all of the national Canadian political parties, and a number of special interest groups across the political spectrum.</td>
+        <td>Yes</td>
         <td>3817</td>
         <td>597G</td>
       </tr>
       <tr>
         <td>Canadian Government Information</td>
-        <td>Yes</td>
         <td>A collection of Canadian federal, Ontario provincial and Toronto municipal government websites.</td>
+        <td>Yes</td>
         <td>8124</td>
         <td>3.6T</td>
       </tr>
@@ -36,5 +46,5 @@
 <div class="row">
 	<div class="col-sm-12 col-md-12">
 		<%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', user_path %>
-	</div>
+  </div>
 </div>

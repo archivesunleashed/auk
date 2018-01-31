@@ -6,6 +6,7 @@ class WasapiFilesPopulateJob < ApplicationJob
 
   # Constants
   WASAPI_BASE_URL = 'https://partner.archive-it.org/wasapi/v1/webdata'
+  AI_COLLECTION_API_URL = 'https://partner.archive-it.org/api/collection/'
 
   def perform(user)
     wasapi_request = HTTP.basic_auth(user: user.wasapi_username,
@@ -61,6 +62,21 @@ class WasapiFilesPopulateJob < ApplicationJob
           end
         end
         break if paginate.blank?
+      end
+    end
+    WasapiFile.select('user_id, collection_id').each do |cid|
+      collection_api_request_url = AI_COLLECTION_API_URL + cid.collection_id.to_s
+      collection_api_request_code = HTTP.get(collection_api_request_url).code
+      if collection_api_request_code == 200
+        collection_api_request = HTTP.get(collection_api_request_url)
+        collection_api_results = JSON.parse(collection_api_request)
+        Collection.find_or_create_by!(
+          collection_id: collection_api_results['id']
+        ) do |collection|
+          collection.title = collection_api_results['name'],
+            collection.public = collection_api_results['publicly_visible'],
+            collection.user_id = cid.user_id
+        end
       end
     end
   end

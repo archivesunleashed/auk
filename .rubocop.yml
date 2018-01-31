@@ -32,6 +32,10 @@ Style/IfUnlessModifier:
   Exclude:
     - app/controllers/sessions_controller.rb
 
+Style/Next:
+  Exclude:
+    - app/jobs/wasapi_files_populate_job.rb
+
 Metrics/AbcSize:
   Exclude:
     - app/jobs/wasapi_files_populate_job.rb
@@ -44,6 +48,7 @@ Metrics/MethodLength:
 Metrics/LineLength:
   Exclude:
     - app/helpers/users_helper.rb
+    - app/jobs/wasapi_files_populate_job.rb
 
 Style/GuardClause:
   Exclude:
