@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def set_collections
-    @collections = Collection.where(user_id: params[:id])
+    @collections = @user.collections.where(user_id: params[:id])
   end
 
   def user_params

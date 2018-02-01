@@ -21,25 +21,18 @@
     <table class="table table-striped">
       <tr>
         <th>Title</th>
-        <th>Description</th>
         <th>Public</th>
         <th>Files</th>
         <th>Size</th>
       </tr>
-      <tr>
-        <td>Canadian Political Parties and Political Interest Groups</td>
-        <td>Canadian Political Parties and Political Interest Groups will archive the websites of all of the national Canadian political parties, and a number of special interest groups across the political spectrum.</td>
-        <td>Yes</td>
-        <td>3817</td>
-        <td>597G</td>
-      </tr>
-      <tr>
-        <td>Canadian Government Information</td>
-        <td>A collection of Canadian federal, Ontario provincial and Toronto municipal government websites.</td>
-        <td>Yes</td>
-        <td>8124</td>
-        <td>3.6T</td>
-      </tr>
+      <% for collection in @collections %>
+        <tr>
+          <td><%= collection.title %></td>
+          <td><%= collection.public %></td>
+          <td>?</td>
+          <td>?</td>
+        </tr>
+      <% end %>
     </table>
   </div>
 </div>
