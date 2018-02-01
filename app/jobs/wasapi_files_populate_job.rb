@@ -64,7 +64,7 @@ class WasapiFilesPopulateJob < ApplicationJob
         break if paginate.blank?
       end
     end
-    WasapiFile.select('user_id, collection_id').each do |cid|
+    WasapiFile.distinct.select('user_id, collection_id').each do |cid|
       collection_api_request_url = AI_COLLECTION_API_URL + cid.collection_id.to_s
       collection_api_request_code = HTTP.get(collection_api_request_url).code
       if collection_api_request_code == 200
