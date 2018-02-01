@@ -28,7 +28,7 @@
       <% for collection in @collections %>
         <tr>
           <td><%= collection.title %></td>
-          <td><%= collection.public %></td>
+          <td><%= collection.public.humanize %></td>
           <td><%= collection_count(collection.id) %></td>
           <td><%= collection_size(collection.id) %></td>
         </tr>

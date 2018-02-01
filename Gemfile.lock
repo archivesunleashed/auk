@@ -108,6 +108,8 @@ GEM
       domain_name (~> 0.5)
     http-form_data (2.0.0)
     http_parser.rb (0.6.0)
+    humanize_boolean (0.0.2)
+      i18n
     i18n (0.9.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -281,6 +283,7 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-rails
   http
+  humanize_boolean
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   omniauth-github
@@ -301,4 +304,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0

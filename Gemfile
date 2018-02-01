@@ -65,5 +65,6 @@ gem 'codecov', require: false, group: :test
 gem 'delayed_job_active_record'
 gem 'font-awesome-rails'
 gem 'http'
+gem 'humanize_boolean'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
