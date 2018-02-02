@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def set_collections
-    @collections = @user.collections.where(user_id: params[:id])
+    @collections = @user.collections.where(user_id: params[:id]).page params[:page]
   end
 
   def set_wasapi_files
