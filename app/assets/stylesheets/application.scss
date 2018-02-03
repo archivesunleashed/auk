@@ -10,12 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
- *= require rails_bootstrap_forms
  */
 
  @import 'auk/override_bootstrap';
- @import 'bootstrap-sprockets';
  @import 'bootstrap';
+ @import 'rails_bootstrap_forms';
  @import 'font-awesome';

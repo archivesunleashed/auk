@@ -59,13 +59,16 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 ## AUK
 gem 'attr_encrypted'
-gem 'bootstrap-sass'
-gem 'bootstrap_form'
+gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap_form',
+    git: 'https://github.com/bootstrap-ruby/bootstrap_form.git',
+    branch: 'master'
 gem 'codecov', require: false, group: :test
 gem 'delayed_job_active_record'
 gem 'font-awesome-rails'
 gem 'http'
 gem 'humanize_boolean'
+gem 'jquery-rails'
 gem 'kaminari'
 gem 'omniauth-github'
 gem 'omniauth-twitter'

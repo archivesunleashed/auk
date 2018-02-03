@@ -1,25 +1,12 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Archives Unleashed Cloud</a>
-    </div>
-    <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-          <li><%= link_to current_user.name, current_user  %></li>
-          <li><%= link_to '<i class="glyphicon glyphicon-log-out"></i>'.html_safe, logout_path, method: :delete %> </li>
-        <% else %>
-          <li><%= link_to '<i class="fa fa-twitter fa-2x"></i>'.html_safe, "/auth/twitter" %></li>
-          <li><%= link_to '<i class="fa fa-github fa-2x"></i>'.html_safe, "/auth/github" %></li>
-        <% end %>
-        </ul>
-    </div>
-  </div>
+<nav class="navbar" style="background-color: #1e1e1e; margin-bottom: 10px;">
+  <a class="navbar-brand" href="/" style="color: white; font-size: x-large;">Archives Unleashed Cloud</a>
+  <span class="navbar-right">
+    <% if current_user %>
+      <%= link_to current_user.name, current_user, style: 'color: white; font-size: x-large; padding-right: 5px;' %>
+      <%= link_to '<i class="fa fa-sign-out fa-2x" style="color: white;"></i>'.html_safe, logout_path, method: :delete %>
+    <% else %>
+      <%= link_to '<i class="fa fa-twitter fa-2x" style="color: white;"></i>'.html_safe, "/auth/twitter" %>
+      <%= link_to '<i class="fa fa-github fa-2x" style="color: white;"></i>'.html_safe, "/auth/github" %>
+    <% end %>
+  </span>
 </nav>
