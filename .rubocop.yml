@@ -58,7 +58,7 @@ Metrics/BlockLength:
   Exclude:
     - app/jobs/wasapi_files_populate_job.rb
 
-Layout/AlignArray:
+Style/AlignArray:
   Exclude:
     - app/jobs/wasapi_files_populate_job.rb
     - app/controllers/collections_controller.rb
