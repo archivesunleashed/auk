@@ -35,7 +35,6 @@ class UsersController < ApplicationController
 
   def set_collections
     @collections = @user.collections.where(user_id: params[:id])
-                        .page params[:page]
   end
 
   def user_params
