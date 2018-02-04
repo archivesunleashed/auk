@@ -5,9 +5,6 @@ class CreateCollections < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.string :title
       t.boolean :public
-      t.text :description
-      t.decimal :size
-      t.integer :count
 
       t.timestamps
     end

@@ -18,30 +18,8 @@
       <%= link_to 'Edit', edit_user_path(@user) %>
     </nav>
     <main class="col-sm-9 col-md-10">
-      <h1>Collections</h1>
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Public</th>
-              <th>Files</th>
-              <th>Size</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for collection in @collections %>
-              <tr>
-                <td><%= link_to(collection.title, user_collection_path(@user, collection.collection_id)) %></td>
-                <td><%= collection.public.humanize %></td>
-                <td><%= collection_count(collection.id) %></td>
-                <td><%= collection_size(collection.id) %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <%= paginate @collections, theme: 'bootstrap4' %>
+      <h1><%= @collection.title %></h1>
+      <%= link_to 'Back', current_user %>
     </main>
   </div>
 </div>

@@ -3,7 +3,6 @@
 Rails.application.routes.draw do
   resources :users do
     resources :collections
-    resources :wasapi_files
   end
 
   root 'pages#show', page: 'home'

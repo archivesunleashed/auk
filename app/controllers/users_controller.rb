@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @collections = Collection.all
-    @wasapi_files = WasapiFile.all
   end
 
   def show; end
@@ -37,10 +36,6 @@ class UsersController < ApplicationController
   def set_collections
     @collections = @user.collections.where(user_id: params[:id])
                         .page params[:page]
-  end
-
-  def set_wasapi_files
-    @wasapi_files = @user.wasapi_files.where(user_id: params[:id])
   end
 
   def user_params

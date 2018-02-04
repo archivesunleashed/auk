@@ -2,23 +2,33 @@
 
 # Collection controller methods.
 class CollectionsController < ApplicationController
-  before_action :set_user
-  before_action :set_user_collections
-  before_action :set_collection_title
-
-  AI_COLLECTION_API_URL = 'https://partner.archive-it.org/api/collection/'
+  before_action :set_collection, only: %i[show]
+  before_action :set_user, only: %i[show]
+  before_action :set_wasapi_files, only: %i[show]
 
   def index
-    @collections = @user.collections
+    @collection = Collection.all
   end
 
+  def show; end
+
   private
+
+  def set_collection
+    @collection = Collection.find(params[:id])
+  end
 
   def set_user
     @user = User.find(params[:user_id])
   end
 
-  def set_user_collections
-    @collections = WasapiFile.find(@user)
+  def set_wasapi_files
+    @wasapi_files = @collection.wasapi_files.where(
+      collection_id: params[:collection_id]
+    ).page params[:page]
+  end
+
+  def collection_params
+    params.require(:collection).permit(:title, :public, :user_id)
   end
 end
