@@ -4,14 +4,8 @@ one:
   collection_id: 1
   title: MyString
   public: false
-  description: MyText
-  size: 9.99
-  count: 1
 
 two:
   collection_id: 1
   title: MyString
   public: false
-  description: MyText
-  size: 9.99
-  count: 1
