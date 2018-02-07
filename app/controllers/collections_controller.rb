@@ -25,7 +25,7 @@ class CollectionsController < ApplicationController
   def set_wasapi_files
     @wasapi_files = @collection.wasapi_files.where(
       collection_id: params[:collection_id]
-    ).page params[:page]
+    )
   end
 
   def collection_params
