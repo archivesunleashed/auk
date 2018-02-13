@@ -2,7 +2,9 @@
 
 Rails.application.routes.draw do
   resources :users do
-    resources :collections
+    resources :collections do
+      post :download
+    end
   end
 
   root 'pages#show', page: 'home'

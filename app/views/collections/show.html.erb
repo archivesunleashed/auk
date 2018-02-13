@@ -19,6 +19,7 @@
     </nav>
     <main class="col-sm-9 col-md-10">
       <h1><%= @collection.title %></h1>
+      <p><%= button_to("download", user_collection_download_path(@user, @collection)) %></p>
       <%= link_to 'Back', current_user %>
     </main>
   </div>

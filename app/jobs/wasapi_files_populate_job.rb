@@ -16,22 +16,20 @@ class WasapiFilesPopulateJob < ApplicationJob
     wasapi_files = wasapi_results['files']
     wasapi_files.each do |file|
       WasapiFile.find_or_create_by!(
-        filename: file['filename']
-      ) do |wasapifile|
-        wasapifile.filetype = file['filetype'],
-        wasapifile.size = file['size'],
-        wasapifile.filename = file['filename'],
-        wasapifile.crawl_time = file['crawl-time'],
-        wasapifile.crawl_start = file['crawl-start'],
-        wasapifile.crawl = file['crawl'],
-        wasapifile.account = file['account'],
-        wasapifile.collection_id = file['collection'],
-        wasapifile.location_archive_it = file['locations'][0],
-        wasapifile.location_internet_archive = file['locations'][1],
-        wasapifile.checksum_md5 = file['checksums']['md5'],
-        wasapifile.checksum_sha1 = file['checksums']['sha1'],
-        wasapifile.user_id = user.id
-      end
+        filename: file['filename'],
+        filetype: file['filetype'],
+        size: file['size'],
+        crawl_time: file['crawl-time'],
+        crawl_start: file['crawl-start'],
+        crawl: file['crawl'],
+        account: file['account'],
+        collection_id: file['collection'],
+        location_archive_it: file['locations'][0],
+        location_internet_archive: file['locations'][1],
+        checksum_md5: file['checksums']['md5'],
+        checksum_sha1: file['checksums']['sha1'],
+        user_id: user.id
+      )
     end
     paginate = wasapi_results['next']
     if paginate.present?
