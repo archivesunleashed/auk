@@ -1,22 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
-      <%= image_tag gravatar_url(@user.email, 200), alt: @user.name, class: "img-thumbnail rounded mx-auto d-block" %>
-      <hr />
-      <p><i class="fa fa-envelope"></i> <%= @user.email %></p>
-      <p><i class="fa fa-university"></i> <%= @user.institution %></p>
-      <% if @user.wasapi_username.blank? %>
-        <p><i class="fa fa-user-circle-o"></i> Please setup Archive-It credentials.</p>
-      <% else %>
-        <p><i class="fa fa-user-circle-o"></i> <%= @user.wasapi_username %></p>
-      <% end%>
-      <% if @user.wasapi_password.blank? %>
-        <p><i class="fa fa-user-secret"></i> Please setup Archive-It credentials.</p>
-      <% else %>
-        <p><i class="fa fa-user-secret"></i> *******</p>
-      <% end %>
-      <%= link_to 'Edit', edit_user_path(@user) %>
-    </nav>
+    <%= render "layouts/sidebar" %>
     <main class="col-sm-9 col-md-10">
       <h1>Collections</h1>
       <div class="table-responsive">
