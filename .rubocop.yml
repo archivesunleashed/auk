@@ -10,36 +10,15 @@ AllCops:
   TargetRubyVersion: 2.4
   DisplayCopNames: true
 
-Rails:
-  Enabled: true
-
-RSpec/NestedGroups:
-  Max: 4
-
-Rails/FilePath:
-  Exclude:
-    - config/environments/development.rb
-
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - config/spring.rb
-
-Style/ClassAndModuleChildren:
-  Exclude:
-    - test/test_helper.rb
-
-Style/IfUnlessModifier:
-  Exclude:
-    - app/controllers/sessions_controller.rb
-
-Style/Next:
-  Exclude:
-    - app/jobs/wasapi_files_populate_job.rb
-
 Metrics/AbcSize:
   Exclude:
     - app/jobs/wasapi_files_populate_job.rb
     - app/jobs/wasapi_files_download_job.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - app/jobs/wasapi_files_download_job.rb
+    - app/jobs/wasapi_files_populate_job.rb
 
 Metrics/MethodLength:
   Exclude:
@@ -52,11 +31,17 @@ Metrics/LineLength:
     - app/helpers/users_helper.rb
     - app/jobs/wasapi_files_populate_job.rb
 
-Style/GuardClause:
-  Exclude:
-    - app/jobs/wasapi_files_populate_job.rb
+Rails:
+  Enabled: true
 
-Metrics/BlockLength:
+RSpec/NestedGroups:
+  Max: 4
+
+Rails/FilePath:
+  Exclude:
+    - config/environments/development.rb
+
+Style/GuardClause:
   Exclude:
     - app/jobs/wasapi_files_populate_job.rb
 
@@ -64,3 +49,24 @@ Style/AlignArray:
   Exclude:
     - app/jobs/wasapi_files_populate_job.rb
     - app/controllers/collections_controller.rb
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - test/test_helper.rb
+
+Style/IfUnlessModifier:
+  Exclude:
+    - app/controllers/sessions_controller.rb
+
+Style/NegatedIf:
+  Exclude:
+    - app/jobs/wasapi_files_download_job.rb
+
+Style/Next:
+  Exclude:
+    - app/jobs/wasapi_files_download_job.rb
+    - app/jobs/wasapi_files_populate_job.rb
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - config/spring.rb
