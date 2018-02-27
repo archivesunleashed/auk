@@ -26,3 +26,6 @@ vendor/cache
 .env
 *.swp
 coverage
+
+derby.log
+metastore_db

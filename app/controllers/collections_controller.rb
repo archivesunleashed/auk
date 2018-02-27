@@ -10,6 +10,7 @@ class CollectionsController < ApplicationController
 
   def download
     WasapiFilesDownloadJob.perform_later(@user, @collection_id)
+    CollectionsSparkJob.perform_later(@user, @collection_id)
   end
 
   def show; end

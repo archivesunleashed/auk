@@ -5,9 +5,14 @@ class WasapiFilesDownloadJob < ApplicationJob
   queue_as :default
   require 'open-uri'
 
+  def after_perform
+    UserMailer.notify_collection_downloaded(something)
+  end
+
   def perform(user_id, collection_id)
     wasapi_username = user_id.wasapi_username
     wasapi_password = user_id.wasapi_password
+    logger.debug user_id
     download_files = WasapiFile.where('user_id = ? AND collection_id = ?',
                                       user_id, collection_id)
     Parallel.each(download_files, in_threads: 5) do |wasapi_file|

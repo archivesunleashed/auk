@@ -12,16 +12,19 @@ AllCops:
 
 Metrics/AbcSize:
   Exclude:
+    - app/jobs/collections_spark_job.rb
     - app/jobs/wasapi_files_populate_job.rb
     - app/jobs/wasapi_files_download_job.rb
 
 Metrics/BlockLength:
   Exclude:
+    - app/jobs/collections_spark_job.rb
     - app/jobs/wasapi_files_download_job.rb
     - app/jobs/wasapi_files_populate_job.rb
 
 Metrics/MethodLength:
   Exclude:
+    - app/jobs/collections_spark_job.rb
     - app/jobs/wasapi_files_populate_job.rb
     - app/controllers/collections_controller.rb
     - app/jobs/wasapi_files_download_job.rb
@@ -29,6 +32,7 @@ Metrics/MethodLength:
 Metrics/LineLength:
   Exclude:
     - app/helpers/users_helper.rb
+    - app/jobs/collections_spark_job.rb
     - app/jobs/wasapi_files_populate_job.rb
 
 Rails:
