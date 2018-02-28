@@ -50,6 +50,9 @@ You will need a [`.env`](https://github.com/archivesunleashed/auk/blob/master/.e
 * You will also need a 32bit `WASAPI_KEY` declared in that file for Archive-It credential encryption
 * Base path set for downloads `DOWNLOAD_PATH`
 * Path to `spark-shell` for set in `SPARK_SHELL`
+* `SPARK_MEMORY_DRIVER`
+* `SPARK_NETWORK_TIMEOUT`
+* `AUT_VERSION`
 
 ### Run a console
 
