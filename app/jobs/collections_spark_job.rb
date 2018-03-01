@@ -11,7 +11,7 @@ class CollectionsSparkJob < ApplicationJob
 
   def perform(user_id, collection_id)
     spark_shell = ENV['SPARK_SHELL']
-    WasapiFile.where('user_id = ? AND collection_id = ?', user_id, collection_id).each do |c|
+    Collection.where('user_id = ? AND collection_id = ?', user_id, collection_id).each do |c|
       collection_path = ENV['DOWNLOAD_PATH'] +
                         '/' + c.account.to_s +
                         '/' + c.collection_id.to_s + '/'
