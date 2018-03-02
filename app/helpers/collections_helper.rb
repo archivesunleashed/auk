@@ -2,6 +2,8 @@
 
 # Collections helper methods.
 module CollectionsHelper
+  require 'csv'
+
   def display_domains(user_id, collection_id, account)
     collection_path = ENV['DOWNLOAD_PATH'] +
                       '/' + account.to_s +
@@ -11,10 +13,10 @@ module CollectionsHelper
                          collection_id.to_s + '-fullurls.txt'
     if File.file?(collection_domains)
       text = File.open(collection_domains).read
-      text.gsub!(/\r\n?/, "\n")
-      text.delete! '()'
-      text.each_line do |line|
-        line
+      csv_text = text.delete! '()'
+      csv = CSV.parse(csv_text, headers: false)
+      csv.each do |row|
+        row
       end
     end
   end
