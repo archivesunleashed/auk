@@ -6,8 +6,9 @@
       <p><%= button_to("download", user_collection_download_path(@user, @collection), data: {confirm: "Download " + collection_size(@collection.id, @user) + "?" }) %></p>
       <%= link_to 'Back', current_user %>
       <h2>Hyperlink Diagram</h2>
+      <p><%= display_gexf(@user.id, @collection.id, @collection.account) %></p>
       <h2>Domains</h2>
-      <%= display_domains(@user.id, @collection.id, @collection.account) %>
+      <p><%= display_domains(@user.id, @collection.id, @collection.account) %></p>
     </main>
   </div>
 </div>
