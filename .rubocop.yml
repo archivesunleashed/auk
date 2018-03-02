@@ -13,8 +13,9 @@ AllCops:
 Metrics/AbcSize:
   Exclude:
     - app/jobs/collections_spark_job.rb
-    - app/jobs/wasapi_files_populate_job.rb
+    - app/helpers/wasapi_files_helper.rb
     - app/jobs/wasapi_files_download_job.rb
+    - app/jobs/wasapi_files_populate_job.rb
 
 Metrics/BlockLength:
   Exclude:
@@ -24,10 +25,10 @@ Metrics/BlockLength:
 
 Metrics/MethodLength:
   Exclude:
-    - app/jobs/collections_spark_job.rb
-    - app/jobs/wasapi_files_populate_job.rb
     - app/controllers/collections_controller.rb
+    - app/jobs/collections_spark_job.rb
     - app/jobs/wasapi_files_download_job.rb
+    - app/jobs/wasapi_files_populate_job.rb
 
 Metrics/LineLength:
   Exclude:
@@ -45,22 +46,24 @@ Rails/FilePath:
   Exclude:
     - config/environments/development.rb
 
-Style/GuardClause:
-  Exclude:
-    - app/jobs/wasapi_files_populate_job.rb
-
 Style/AlignArray:
   Exclude:
-    - app/jobs/wasapi_files_populate_job.rb
     - app/controllers/collections_controller.rb
+    - app/jobs/wasapi_files_populate_job.rb
 
 Style/ClassAndModuleChildren:
   Exclude:
     - test/test_helper.rb
 
+Style/GuardClause:
+  Exclude:
+    - app/helpers/wasapi_files_helper.rb
+    - app/jobs/wasapi_files_populate_job.rb
+
 Style/IfUnlessModifier:
   Exclude:
     - app/controllers/sessions_controller.rb
+    - app/helpers/wasapi_files_helper.rb
 
 Style/NegatedIf:
   Exclude:
