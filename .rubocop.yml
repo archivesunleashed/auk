@@ -13,6 +13,7 @@ AllCops:
 Metrics/AbcSize:
   Exclude:
     - app/jobs/collections_spark_job.rb
+    - app/helpers/collections_helper.rb
     - app/helpers/wasapi_files_helper.rb
     - app/jobs/wasapi_files_download_job.rb
     - app/jobs/wasapi_files_populate_job.rb
@@ -26,6 +27,7 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Exclude:
     - app/controllers/collections_controller.rb
+    - app/helpers/collections_helper.rb
     - app/jobs/collections_spark_job.rb
     - app/jobs/wasapi_files_download_job.rb
     - app/jobs/wasapi_files_populate_job.rb
@@ -57,6 +59,7 @@ Style/ClassAndModuleChildren:
 
 Style/GuardClause:
   Exclude:
+    - app/helpers/collections_helper.rb
     - app/helpers/wasapi_files_helper.rb
     - app/jobs/wasapi_files_populate_job.rb
 
