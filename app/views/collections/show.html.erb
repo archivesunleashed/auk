@@ -5,35 +5,37 @@
       <h1><%= @collection.title %></h1>
       <p><%= button_to("download", user_collection_download_path(@user, @collection), data: {confirm: "Download " + collection_size(@collection.id, @user) + "?" }) %></p>
       <%= link_to 'Back', current_user %>
-      <h2>Hyperlink Diagram</h2>
-      <p><%= display_gexf(@user.id, @collection.id, @collection.account) %></p>
-      <h2>Download Collection Derivatives</h2>
-      <ul>
-        <li><%= link_to('Gephi', user_collection_download_gexf_path(@user.id, @collection.id, @collection.account)) %></li>
-        <li><%= link_to('Domains', user_collection_download_domains_path(@user.id, @collection.id, @collection.account)) %></li>
-        <li><%= link_to('Full Text', user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account)) %></li>
-      </ul>
-      <h2>Domains</h2>
-      <div class="table-responsive">
-        <table class="table table-striped sortable">
-          <thead>
-            <tr>
-              <th>Domain</th>
-              <th>Occurances</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for display_domain in display_domains(@user.id, @collection.id, @collection.account) %>
-              <% display_domain %>
+      <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
+        <h2>Hyperlink Diagram</h2>
+        <p><%= display_gexf(@user.id, @collection.id, @collection.account) %></p>
+        <h2>Download Collection Derivatives</h2>
+        <ul>
+          <li><%= link_to('Gephi', user_collection_download_gexf_path(@user.id, @collection.id, @collection.account)) %></li>
+          <li><%= link_to('Domains', user_collection_download_domains_path(@user.id, @collection.id, @collection.account)) %></li>
+          <li><%= link_to('Full Text', user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account)) %></li>
+        </ul>
+        <h2>Domains</h2>
+        <div class="table-responsive">
+          <table class="table table-striped sortable">
+            <thead>
               <tr>
-                <% display_domain.each do |element| %>
-                  <td><%= element %></td>
-                <% end %>
+                <th>Domain</th>
+                <th>Occurances</th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              <% for display_domain in display_domains(@user.id, @collection.id, @collection.account) %>
+                <% display_domain %>
+                <tr>
+                  <% display_domain.each do |element| %>
+                    <td><%= element %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
     </main>
   </div>
 </div>
