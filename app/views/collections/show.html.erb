@@ -7,6 +7,12 @@
       <%= link_to 'Back', current_user %>
       <h2>Hyperlink Diagram</h2>
       <p><%= display_gexf(@user.id, @collection.id, @collection.account) %></p>
+      <h2>Download Collection Derivatives</h2>
+      <ul>
+        <li><%= link_to('Gephi', user_collection_download_gexf_path(@user.id, @collection.id, @collection.account)) %></li>
+        <li><%= link_to('Domains', user_collection_download_domains_path(@user.id, @collection.id, @collection.account)) %></li>
+        <li><%= link_to('Full Text', user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account)) %></li>
+      </ul>
       <h2>Domains</h2>
       <div class="table-responsive">
         <table class="table table-striped sortable">

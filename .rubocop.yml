@@ -12,6 +12,7 @@ AllCops:
 
 Metrics/AbcSize:
   Exclude:
+    - app/controllers/collections_controller.rb
     - app/jobs/collections_spark_job.rb
     - app/helpers/collections_helper.rb
     - app/helpers/wasapi_files_helper.rb
