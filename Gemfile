@@ -64,6 +64,7 @@ gem 'bootstrap_form',
     git: 'https://github.com/bootstrap-ruby/bootstrap_form.git',
     branch: 'master'
 gem 'codecov', require: false, group: :test
+gem 'daemons'
 gem 'delayed_job_active_record'
 gem 'font-awesome-rails'
 gem 'http'
