@@ -11,7 +11,7 @@ module CollectionsHelper
     collection_domains = collection_path +
                          user_id.to_s + '/derivatives/all-domains/' +
                          collection_id.to_s + '-fullurls.txt'
-    if File.file?(collection_domains)
+    unless File.zero?(collection_domains) || !File.file?(collection_domains)
       text = File.open(collection_domains).read
       csv_text = text.delete! '()'
       csv = CSV.parse(csv_text, headers: false)
