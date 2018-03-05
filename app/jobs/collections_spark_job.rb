@@ -37,14 +37,14 @@ class CollectionsSparkJob < ApplicationJob
       )
       File.open(collection_spark_job_file, 'w') { |file| file.write(spark_job) }
       spark_job_cmd = spark_shell + ' --master local[12] --driver-memory ' + spark_memory_driver + ' --conf spark.network.timeout=' + spark_network_timeout + ' --packages "io.archivesunleashed:aut:' + aut_version + '" -i ' + collection_spark_job_file + ' | tee ' + collection_spark_job_file + '.log'
-      logger.info '[INFO] Executing: ' + spark_job_cmd
+      logger.info 'Executing: ' + spark_job_cmd
       system(spark_job_cmd)
       combine_full_url_output_cmd = 'cat ' + collection_derivatives + '/all-domains/output/part* > ' + collection_derivatives + '/all-domains/' + c.collection_id.to_s + '-fullurls.txt'
-      logger.info '[INFO] Executing: ' + combine_full_url_output_cmd
+      logger.info 'Executing: ' + combine_full_url_output_cmd
       system(combine_full_url_output_cmd)
       FileUtils.rm_rf(collection_derivatives + '/all-domains/output')
       combine_full_text_output_cmd = 'cat ' + collection_derivatives + '/all-text/output/part* > ' + collection_derivatives + '/all-text/' + c.collection_id.to_s + '-fulltext.txt'
-      logger.info '[INFO] Executing: ' + combine_full_text_output_cmd
+      logger.info 'Executing: ' + combine_full_text_output_cmd
       system(combine_full_text_output_cmd)
       FileUtils.rm_rf(collection_derivatives + '/all-text/output')
     end
