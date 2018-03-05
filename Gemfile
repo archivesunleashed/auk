@@ -41,8 +41,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'dotenv-rails'
-  gem 'rubocop', '~> 0.48.1'
-  gem 'rubocop-rspec', '~> 1.15.0'
   gem 'selenium-webdriver'
   gem 'simplecov'
 end
@@ -74,3 +72,5 @@ gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'os'
 gem 'parallel'
+gem 'rubocop', '~> 0.48.1'
+gem 'rubocop-rspec', '~> 1.15.0'
