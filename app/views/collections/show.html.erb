@@ -2,12 +2,33 @@
   <div class="row">
     <%= render "layouts/sidebar" %>
     <main class="col-sm-9 col-md-10">
+      <style type="text/css">
+        body {
+          margin: 0;
+        }
+        #graph {
+          width: 300px;
+          height: 300px;
+        }
+      </style>
       <h1><%= @collection.title %></h1>
       <p><%= button_to("download", user_collection_download_path(@user, @collection), data: {confirm: "Download " + collection_size(@collection.id, @user) + "?" }) %></p>
       <%= link_to 'Back', current_user %>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
-        <p><%= display_gexf(@user.id, @collection.id, @collection.account) %></p>
+        <div id="graph"></div>
+        <%= javascript_tag do %>
+          var data = $.parseXML(`<%= display_gexf(@user.id, @collection.id, @collection.account) %>`)
+          data.getElementsByTagName('gexf');
+          var so = new sigma("graph");
+          sigma.parsers.gexf(
+            data,
+            so,
+            function(y) {
+              so.refresh()
+            }
+          );
+        <% end %>
         <h2>Download Collection Derivatives</h2>
         <ul>
           <li><%= link_to('Gephi', user_collection_download_gexf_path(@user.id, @collection.id, @collection.account)) %></li>

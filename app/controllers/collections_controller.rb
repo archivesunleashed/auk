@@ -19,7 +19,7 @@ class CollectionsController < ApplicationController
   def download_gexf
     send_file(
       @gexf_path,
-      type: 'text/plain'
+      type: 'text/xml'
     )
   end
 
@@ -35,6 +35,10 @@ class CollectionsController < ApplicationController
       @domains_path,
       type: 'text/plain'
     )
+  end
+
+  def send_gexf
+    File.read(@gexf_path)
   end
 
   def show; end

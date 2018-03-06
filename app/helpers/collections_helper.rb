@@ -28,6 +28,10 @@ module CollectionsHelper
     gexf_file = collection_path + user_id.to_s +
                 '/derivatives/gephi/' + collection_id.to_s +
                 '-gephi.gexf'
-    gexf_file
+    render :plain => File.read(gexf_file).html_safe
+  end
+
+  def send_gexf
+
   end
 end
