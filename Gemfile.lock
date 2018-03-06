@@ -178,6 +178,7 @@ GEM
     parallel (1.12.1)
     parser (2.4.0.0)
       ast (~> 2.2)
+    pg (0.21.0)
     popper_js (1.12.9)
     powerpack (0.1.1)
     public_suffix (3.0.0)
@@ -308,6 +309,7 @@ DEPENDENCIES
   omniauth-twitter
   os
   parallel
+  pg (= 0.21.0)
   puma (~> 3.7)
   rails (~> 5.1.4)
   rubocop (~> 0.48.1)
