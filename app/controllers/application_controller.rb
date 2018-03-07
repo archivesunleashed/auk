@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   # Confirms logged in user.
   def logged_in_user
     return false if logged_in?
-    flash[:danger] = 'Please log in.'
     redirect_to root_path
   end
 end

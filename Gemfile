@@ -68,6 +68,7 @@ gem 'bootstrap_form',
 gem 'codecov', require: false, group: :test
 gem 'daemons'
 gem 'delayed_job_active_record'
+gem 'exception_handler'
 gem 'font-awesome-rails'
 gem 'http'
 gem 'humanize_boolean'

@@ -29,3 +29,6 @@ coverage
 
 derby.log
 metastore_db
+
+public/assets/
+vendor/bundle/
