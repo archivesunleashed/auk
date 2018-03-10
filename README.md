@@ -40,19 +40,11 @@ bundle exec rake jobs:work
 
 Then visit http://localhost:3000.
 
-**N.B.** This application makes use of the [dotenv-rails](https://github.com/bkeepers/dotenv) gem.
+### Configuration
 
-You will need a [`.env`](https://github.com/archivesunleashed/auk/blob/master/.env.example) file in the root of the application with:
-* `TWITTER_KEY`
-* `TWITTER_SECRET`
-* `GITHUB_KEY`
-* `GITHUB_SECRET`
-* You will also need a 32bit `WASAPI_KEY` declared in that file for Archive-It credential encryption
-* Base path set for downloads `DOWNLOAD_PATH`
-* Path to `spark-shell` for set in `SPARK_SHELL`
-* `SPARK_MEMORY_DRIVER`
-* `SPARK_NETWORK_TIMEOUT`
-* `AUT_VERSION`
+This application makes use of [figaro](https://github.com/laserlemon/figaro).
+
+You will need a [`config/application.yml`](https://github.com/archivesunleashed/auk/blob/master/config/application.yml.example) file in the root of the application.
 
 ### Run a console
 

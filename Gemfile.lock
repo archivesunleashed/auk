@@ -93,10 +93,6 @@ GEM
     docile (1.1.5)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.2.1)
-    dotenv-rails (2.2.1)
-      dotenv (= 2.2.1)
-      railties (>= 3.2, < 5.2)
     encryptor (3.0.0)
     erubi (1.7.0)
     exception_handler (0.7.7.0)
@@ -107,6 +103,8 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
+    figaro (1.1.1)
+      thor (~> 0.14)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
     globalid (0.4.1)
@@ -305,8 +303,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   daemons
   delayed_job_active_record
-  dotenv-rails
   exception_handler
+  figaro
   font-awesome-rails
   http
   humanize_boolean

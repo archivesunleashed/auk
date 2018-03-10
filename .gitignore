@@ -32,3 +32,6 @@ metastore_db
 
 public/assets/
 vendor/bundle/
+
+# Ignore application configuration
+/config/application.yml
