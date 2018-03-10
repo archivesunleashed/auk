@@ -21,5 +21,6 @@ spark_network_timeout: 10000000
 aut_version: 0.12.2
 
 production:
+  SECRET_KEY_BASE: some secret key base
   postgres_username: username
   postgres_password: password
