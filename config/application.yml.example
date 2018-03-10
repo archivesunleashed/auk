@@ -9,16 +9,16 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
-twitter_key: SOME KEY
-twitter_secret: SOME SECRET
-github_key: SOME KEY
-github_secret: SOME SECRET
-wasapi_key: 32BITKEY SecureRandom.random_bytes(32)
-download_path: /path/to/somewhere
-spark_shell: /path/to/spark/bin/spark-shell
-spark_memroy_driver: 5G
-spark_network_timeout: 10000000
-aut_version: 0.12.2
+TWITTER_KEY: SOME KEY
+TWITTER_SECRET: SOME SECRET
+GITHUB_KEY: SOME KEY
+GITHUB_SECRET: SOME SECRET
+WASAPI_KEY: 32BITKEY SecureRandom.random_bytes(32)
+DOWNLOAD_PATH: /path/to/somewhere
+SPARK_SHELL: /path/to/spark/bin/spark-shell
+SPARK_MEMORY_DRIVER: 5G
+SPARK_NETWORK_TIMEOUT: 10000000
+AUT_VERSION: 0.12.2
 
 production:
   SECRET_KEY_BASE: some secret key base
