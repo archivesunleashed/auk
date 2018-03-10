@@ -2,6 +2,6 @@ Hi, <%= @user.name %>
 ===============================================
 
 Your Archives Unleashed Cloud collections are setup,
-and are available at: http://cloud.archivesunleashed.org.
+and are available at: <%= link_to(user_url(@user), user_url(@user)) %>
 
 Thanks for using the Archives Unleashed Cloud, and have a great day!

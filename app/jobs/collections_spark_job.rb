@@ -6,7 +6,8 @@ class CollectionsSparkJob < ApplicationJob
   require 'open-uri'
 
   after_perform do |job|
-    UserMailer.notify_collection_analyzed(job.arguments.first.id).deliver_now
+    UserMailer.notify_collection_analyzed(job.arguments.first.id,
+                                          job.arguments.second.id).deliver_now
     logger.info 'Email sent to: ' + job.arguments.first.email.to_s
   end
 
