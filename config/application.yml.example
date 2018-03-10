@@ -16,7 +16,7 @@ github_secret: SOME SECRET
 wasapi_key: 32BITKEY SecureRandom.random_bytes(32)
 download_path: /path/to/somewhere
 spark_shell: /path/to/spark/bin/spark-shell
-spark_memroy_driver: 5G
+spark_memory_driver: 5G
 spark_network_timeout: 10000000
 aut_version: 0.12.2
 
