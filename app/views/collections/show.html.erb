@@ -3,7 +3,7 @@
     <%= render "layouts/sidebar" %>
     <main class="col-sm-9 col-md-10">
       <h1><%= @collection.title %></h1>
-      <p><%= button_to("download", user_collection_download_path(@user, @collection), data: {confirm: "Download " + collection_size(@collection.id, @user) + "?" }) %></p>
+      <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze" + collection_size(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
       <%= link_to 'Back', current_user %>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>

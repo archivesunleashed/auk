@@ -14,6 +14,9 @@ class CollectionsController < ApplicationController
   def download
     WasapiFilesDownloadJob.perform_later(@user, @collection_id)
     CollectionsSparkJob.perform_later(@user, @collection_id)
+    flash[:notice] = 'Your collection has begun downloading. An e-mail will be
+                      sent to ' + @user.email + ' once it is complete.'
+    redirect_to user_path(@user)
   end
 
   def download_gexf
