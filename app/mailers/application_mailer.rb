@@ -2,6 +2,6 @@
 
 # Application mailer methods.
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'hist-arc@uwaterloo.ca'
   layout 'mailer'
 end

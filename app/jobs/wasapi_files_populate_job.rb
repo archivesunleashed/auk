@@ -8,8 +8,9 @@ class WasapiFilesPopulateJob < ApplicationJob
   WASAPI_BASE_URL = 'https://partner.archive-it.org/wasapi/v1/webdata'
   AI_COLLECTION_API_URL = 'https://partner.archive-it.org/api/collection/'
 
-  def after_perform
-    UserMailer.notify_collection_setup(something)
+  after_perform do |job|
+    UserMailer.notify_collection_setup(job.arguments.first.id).deliver_now
+    logger.info 'Email sent to: ' + job.arguments.first.email.to_s
   end
 
   def perform(user)

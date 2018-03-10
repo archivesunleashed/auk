@@ -24,6 +24,8 @@ Metrics/BlockLength:
     - app/jobs/collections_spark_job.rb
     - app/jobs/wasapi_files_download_job.rb
     - app/jobs/wasapi_files_populate_job.rb
+    - config/environments/development.rb
+    - config/environments/production.rb
 
 Metrics/MethodLength:
   Exclude:

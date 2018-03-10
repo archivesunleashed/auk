@@ -22,5 +22,9 @@ aut_version: 0.12.2
 
 production:
   SECRET_KEY_BASE: some secret key base
-  postgres_username: username
-  postgres_password: password
+  PG_USER: username
+  PG_PASSWORD: password
+  EMAIL_SERVER_NAME: smtp.something.ca
+  EMAIL_DOMAIN: something.ca
+  EMAIL_USERNAME: someuser
+  EMAIL_PASSWORD: somepassword
