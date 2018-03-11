@@ -50,3 +50,19 @@
 .sidebar .nav-link {
   border-radius: 0;
 }
+
+/* Navigation Bar */
+
+.navbar-brand {
+    padding: 0;
+}
+
+.navbar-brand  >img {
+    height: 40px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+}            
+
+.navbar-right {
+    padding-bottom: 5px;
+}
