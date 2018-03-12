@@ -1,3 +1,13 @@
+html,
+body {
+    height: 100%;
+    margin-top: 0px;
+}
+
+.homepage {
+  padding-bottom: -20px;
+}
+
 /*
  * Footer
  */
@@ -9,39 +19,11 @@
   /* Set the fixed height of the footer here */
   height: auto !important;
   background-color: #f5f5f5;
+  padding-top: 5px;
 }
 
 .footer_img {
   height: 70px;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 100px;
-}
-
-/*
- * Homepage
- */
-
-#homepage {
-    min-height: 100% !important;
-    height: 100% !important;
-    /*margin: 0 auto -33px;*/
-}
-
-.homepage_carousel {
-  margin-top: -20px;
-  max-height: 800px;
-  max-width: 100%;
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
 }
 
 /*
