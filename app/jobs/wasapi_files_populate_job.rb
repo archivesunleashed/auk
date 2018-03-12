@@ -2,7 +2,7 @@
 
 # Methods for populating Wasapi Files.
 class WasapiFilesPopulateJob < ApplicationJob
-  queue_as :default
+  queue_as :seed
 
   # Constants
   WASAPI_BASE_URL = 'https://partner.archive-it.org/wasapi/v1/webdata'

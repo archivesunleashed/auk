@@ -2,7 +2,7 @@
 
 # Methods for Downloading Wasapi Files.
 class WasapiFilesDownloadJob < ApplicationJob
-  queue_as :default
+  queue_as :download
   require 'open-uri'
 
   after_perform do |job|

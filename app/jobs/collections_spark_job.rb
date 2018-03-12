@@ -2,7 +2,7 @@
 
 # Methods for Basic Spark Jobs.
 class CollectionsSparkJob < ApplicationJob
-  queue_as :default
+  queue_as :spark
   require 'open-uri'
 
   after_perform do |job|

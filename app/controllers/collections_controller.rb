@@ -12,8 +12,10 @@ class CollectionsController < ApplicationController
   def index; end
 
   def download
-    WasapiFilesDownloadJob.perform_later(@user, @collection_id)
-    CollectionsSparkJob.perform_later(@user, @collection_id)
+    WasapiFilesDownloadJob.set(queue: :download)
+                          .perform_later(@user, @collection_id)
+    CollectionsSparkJob.set(queue: :spark)
+                       .perform_later(@user, @collection_id)
     flash[:notice] = 'Your collection has begun downloading. An e-mail will be
                       sent to ' + @user.email + ' once it is complete.'
     redirect_to user_path(@user)
