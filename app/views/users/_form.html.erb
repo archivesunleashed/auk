@@ -2,7 +2,6 @@
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,10 +9,45 @@
       </ul>
     </div>
   <% end %>
-
-  <%= f.text_field :email %>
-  <%= f.text_field :institution %>
-  <%= f.text_field :wasapi_username, label: 'Archive-It Username' %>
-  <%= f.password_field :wasapi_password, label: 'Archive-It Password' %>
-  <%= f.submit %>
+  <div class="container">
+    <div class="card border-light">
+      <div class="card-header">
+        <h3>AU Cloud Account Information</h3>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <%= f.text_field :email, label: false, placeholder: 'sample@archivesunleashed.org', class: 'form-control' %>
+          <small class="form-text text-muted">
+            This e-mail will be used for notifications. It also connects to your <a href="https://en.gravatar.com/" target="_blank">Gravatar account.</a>
+          </small>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :institution, placeholder: 'Institution', class: 'form-control' %>
+          <small class="form-text text-muted">
+            Your primary institutional affiliation.
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="card border-light">
+      <div class="card-header">
+        <h3>Archive-It Account Information</h3>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <%= f.text_field :wasapi_username, label: 'Archive-It Username', placeholder: 'Archive-It username' %>
+          <small class="form-text text-muted">
+            This is the username that you use to access your <a href="https://archive-it.org/" target="_blank">Archive-It</a> account.
+          </small>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :wasapi_password, label: 'Archive-It Password', placeholder: 'Archive-It password' %>
+          <small class="form-text text-muted">
+            This is the password that you use to access your <a href="https://archive-it.org/" target="_blank">Archive-It</a> account.
+          </small>
+        </div>
+      </div>
+    </div>
+    <%= f.submit 'Update', class: "btn btn-primary" %>
+  </div>
 <% end %>
