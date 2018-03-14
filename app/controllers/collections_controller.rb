@@ -8,8 +8,8 @@ class CollectionsController < ApplicationController
   before_action :gexf_path, only: %i[download_gexf]
   before_action :domains_path, only: %i[download_domains]
   before_action :fulltext_path, only: %i[download_fulltext]
-
-  def index; end
+  before_action :correct_user, only: %i[show download download_gexf
+                                        download_fulltext download_domains]
 
   def download
     WasapiFilesDownloadJob.set(queue: :download)
@@ -81,5 +81,9 @@ class CollectionsController < ApplicationController
                      params[:collection_id].to_s + '/' + params[:user_id].to_s +
                      '/derivatives/all-text/' + params[:collection_id].to_s +
                      '-fulltext.txt'
+  end
+
+  def correct_user
+    redirect_to(root_url) unless current_user?(@user)
   end
 end
