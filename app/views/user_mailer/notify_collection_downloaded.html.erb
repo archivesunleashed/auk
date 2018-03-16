@@ -4,7 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi, <%= @user.name %></h1>
+    <%= image_tag attachments['white-logo.png'].url, alt: 'Our Photo', class: 'photo' -%>
+    <h1>Cloud Update</h1>
+    <hr/>
+    <h2>Hi, <%= @user.name %></h2>
     <p>
       <%= @collection.title %> has been downloaded, and analysis will now begin. Look out for another email from us soon!<br>
     </p>

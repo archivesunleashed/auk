@@ -4,7 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi, <%= @user.name %></h1>
+    <%= image_tag attachments['white-logo.png'].url, alt: 'Our Photo', class: 'photo' -%>
+    <h1>Cloud Update</h1>
+    <hr/>
+    <p>Hi, <%= @user.name %></p>
     <p>
       Your Archives Unleashed Cloud collections are now setup,
       and are available at: <%= link_to(user_url(@user), user_url(@user)) %><br>

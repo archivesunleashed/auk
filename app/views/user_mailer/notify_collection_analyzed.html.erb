@@ -4,6 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
+    <%= image_tag attachments['white-logo.png'].url, alt: 'Our Photo', class: 'photo' -%>
+    <h1>Cloud Update</h1>
+    <hr/>
     <h1>Hi, <%= @user.name %></h1>
     <p>
       Your Archives Unleashed Cloud job has finished,
