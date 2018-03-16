@@ -8,9 +8,8 @@
   </head>
   <body>
     <p>Hi <%= @user.name %>,</p>
-    <p>
-      Your Archives Unleashed Cloud job has finished,
-      and is available at: <%= link_to(user_url(@user), user_url(@user)) %><br>
+    <p>Your Archives Unleashed Cloud job has finished,
+    and is available at: <%= link_to(user_collection_url(@user, @collection), user_collection_url(@user, @collection)) %><br>
     </p>
     <p>Thanks for using the Archives Unleashed Cloud, and have a great day!</p>
   </body>
