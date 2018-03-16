@@ -3,8 +3,8 @@
 # Methods for User Mailer
 class UserMailer < ApplicationMailer
   def notify_collection_analyzed(user_id, collection_id)
-    attachments.inline['white-logo.png'] =
-      File.read('app/assets/images/white-logo.png')
+    attachments.inline['AUK-Logo-full.png'] =
+      File.read('app/assets/images/AUK-Logo-full.png')
     @user = User.find(user_id)
     @collection = Collection.find(collection_id)
     mail(to: @user.email, subject: @collection.title +
@@ -15,8 +15,8 @@ class UserMailer < ApplicationMailer
   end
 
   def notify_collection_downloaded(user_id, collection_id)
-    attachments.inline['white-logo.png'] =
-      File.read('app/assets/images/white-logo.png')
+    attachments.inline['AUK-Logo-full.png'] =
+      File.read('app/assets/images/AUK-Logo-full.png')
     @user = User.find(user_id)
     @collection = Collection.find(collection_id)
     mail(to: @user.email, subject: @collection.title +
@@ -27,8 +27,8 @@ class UserMailer < ApplicationMailer
   end
 
   def notify_collection_setup(user_id)
-    attachments.inline['white-logo.png'] =
-      File.read('app/assets/images/white-logo.png')
+    attachments.inline['AUK-Logo-full.png'] =
+      File.read('app/assets/images/AUK-Logo-full.png')
     @user = User.find(user_id)
     mail(to: @user.email,
          subject: 'Your collections have been synced!') do |format|

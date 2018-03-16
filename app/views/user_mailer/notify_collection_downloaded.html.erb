@@ -2,15 +2,21 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <h1 style="background-color:LightGray; text-align:left; color:black; font-family:helvetica; display=inline-block; ">
+      <%= image_tag attachments['AUK-Logo-full.png'].url, alt: 'Our Photo', class: 'photo' -%>
+    <hr/>Cloud Update</h1>
   </head>
   <body>
-    <%= image_tag attachments['white-logo.png'].url, alt: 'Our Photo', class: 'photo' -%>
-    <h1>Cloud Update</h1>
-    <hr/>
-    <h2>Hi, <%= @user.name %></h2>
+    <p>Hi <%= @user.name %>,</p>
     <p>
       <%= @collection.title %> has been downloaded, and analysis will now begin. Look out for another email from us soon!<br>
     </p>
     <p>Thanks for using the Archives Unleashed Cloud, and have a great day!</p>
   </body>
+  </br>
+  <footer style="background-color:LightGray; text-align: center;">
+      <p><a href="www.archivesunleashed.org">archivesunleashed.org</a> | 
+         <a href="https://twitter.com/unleasharchives">@unleasharchives</a> | 
+         <a href="https://github.com/archivesunleashed">Archives Unleashed GitHub</a> </p>
+  </footer>
 </html>
