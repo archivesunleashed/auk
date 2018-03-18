@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-    <h1 style="background-color:LightGray; text-align:center; color:black; font-family:helvetica; display=inline-block; ">
-      <%= image_tag attachments['AUK-Logo-full.png'].url, alt: 'Archives Unleashed Logo', class: 'photo' -%><br/><br/>
-    </h1>
+    <div style="background-color:LightGray; width: 100%; margin: auto;">
+      <%= image_tag attachments['AUK-Logo-full.png'].url, alt: 'Archives Unleashed Logo', class: 'photo', style: 'display: block; margin-left: auto; margin-right: auto; padding-top: 50px; padding-bottom: 50px;' -%>
+    </div>
   </head>
   <body>
     <p>Hi <%= @user.name %>,</p>
