@@ -2,11 +2,12 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-    <div style="background-color:LightGray; width: 100%; margin: auto;">
-      <%= image_tag attachments['AUK-Logo-full.png'].url, alt: 'Archives Unleashed Logo', style: 'display: block; margin-left: auto; margin-right: auto; padding-top: 50px; padding-bottom: 50px; width: auto;' -%>
-    </div>
   </head>
   <body>
+  <body>
+    <div style="background-color:LightGray; width: 100%; margin: auto; text-align:center;">
+      <%= image_tag attachments['AUK-Logo-full.png'].url, alt: 'Archives Unleashed Logo', style: 'display: block; margin-left: auto; margin-right: auto; padding-top: 30px; padding-bottom: 30px; width: auto;' -%>
+    </div>
     <p>Hi <%= @user.name %>,</p>
     <p>
       The <%= @collection.title %> collection has been downloaded, and analysis will now begin. Look out for another email from us soon!<br>
@@ -14,7 +15,7 @@
     <p>Thanks for using the Archives Unleashed Cloud, and have a great day!</p>
   </body>
   </br>
-  <footer style="background-color:LightGray; text-align: center;">
+  <footer style="background-color:LightGray; text-align: center; padding-top: 5px; padding-bottom: 5px;">
       <p>
         <a href="http://archivesunleashed.org">archivesunleashed.org</a> | 
         <a href="https://twitter.com/unleasharchives">@unleasharchives</a> | 
