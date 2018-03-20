@@ -11,7 +11,7 @@ class CollectionsSparkJob < ApplicationJob
 
   def perform(user_id, collection_id)
     spark_shell = ENV['SPARK_SHELL']
-    borgreducer = ENV['BORG_REDUCER']
+    graphpass = ENV['GRAPHPASS']
     Collection.where('user_id = ? AND collection_id = ?', user_id, collection_id).each do |c|
       collection_path = ENV['DOWNLOAD_PATH'] +
                         '/' + c.account.to_s +
@@ -27,7 +27,7 @@ class CollectionsSparkJob < ApplicationJob
       spark_network_timeout = ENV['SPARK_NETWORK_TIMEOUT']
       aut_version = ENV['AUT_VERSION']
       flags = " --file #{c.collection_id}-gephi.graphml --output #{collection_derivatives}/gephi/ --dir #{collection_derivatives}/gephi/ -g -q"
-      borgreducer_cmd = borgreducer + flags
+      graphpass_cmd = graphpass + flags
       spark_job = %(
       import io.archivesunleashed.spark.matchbox.{ExtractDomain, ExtractLinks, RemoveHTML, RecordLoader, WriteGraphML}
       import io.archivesunleashed.spark.rdd.RecordRDD._
@@ -50,9 +50,8 @@ class CollectionsSparkJob < ApplicationJob
       logger.info 'Executing: ' + combine_full_text_output_cmd
       system(combine_full_text_output_cmd)
       FileUtils.rm_rf(collection_derivatives + '/all-text/output')
-      puts(borgreducer_cmd)
-      logger.info 'Executing: ' + borgreducer_cmd
-      system(borgreducer_cmd)
+      logger.info 'Executing: ' + graphpass_cmd
+      system(graphpass_cmd)
     end
   end
 end
