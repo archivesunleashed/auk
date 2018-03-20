@@ -15,14 +15,11 @@
     </header>
     <main role="main">
       <div id="flash">
-        <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
+        <% flash.each do |name, msg| %>
+          <%= content_tag(:div, msg, class: "alert alert-info text-center") %>
         <% end %>
       </div>
       <%= yield %>
     </main>
-    <% unless !current_page?('/') %>
-      <%= render "layouts/footer" %>
-    <% end %>
   </body>
 </html>

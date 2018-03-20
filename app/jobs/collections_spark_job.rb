@@ -2,11 +2,13 @@
 
 # Methods for Basic Spark Jobs.
 class CollectionsSparkJob < ApplicationJob
-  queue_as :default
+  queue_as :spark
   require 'open-uri'
 
-  def after_perform
-    UserMailer.notify_collection_downloaded(something)
+  after_perform do |job|
+    UserMailer.notify_collection_analyzed(job.arguments.first.id,
+                                          job.arguments.second.id).deliver_now
+    logger.info 'Email sent to: ' + job.arguments.first.email.to_s
   end
 
   def perform(user_id, collection_id)

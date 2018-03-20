@@ -1,4 +1,25 @@
-<div class="jumbotron">
-  <h1 class="text-center">Welcome to the Archives Unleashed Portal!</h1>
+<div class="container">
+  <div class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner align-middle">
+      <div class="carousel-item active">
+        <%= image_tag("image_01.png", class: "img-fluid") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("image_02.png", class: "img-fluid") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("image_03.png", class: "img-fluid") %>
+      </div>
+    </div>
+  </div>
 </div>
-<%= image_tag("cpp-viz.png", :class => "yarn_ball") %>
+<footer class="footer">
+  <div class="container text-center">
+    <span class="text-muted">
+      <%= image_tag("mellon.png", alt: "Andrew W. Mellon Foundation", class:"footer_img") %>
+      <%= image_tag("waterloo.png", alt: "University of Waterloo", class:"footer_img") %>
+      <%= image_tag("york.png", alt: "York University", class:"footer_img") %>
+      <p>For more information on our project and sponsors, visit <a href="http://archivesunleashed.org/">archivesunleashed.org.</a></p>
+    </span>
+  </div>
+</footer>

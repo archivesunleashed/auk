@@ -20,7 +20,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user }
-        WasapiFilesPopulateJob.perform_later(@user)
+        WasapiFilesPopulateJob.set(queue: :seed).perform_later(@user)
+        flash[:notice] = 'Your account is now syncing.
+        An e-mail will be sent to ' + @user.email + ' once it is complete.'
       else
         format.html { render :edit }
       end

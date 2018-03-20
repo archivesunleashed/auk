@@ -2,11 +2,13 @@
 
 # Methods for Downloading Wasapi Files.
 class WasapiFilesDownloadJob < ApplicationJob
-  queue_as :default
+  queue_as :download
   require 'open-uri'
 
-  def after_perform
-    UserMailer.notify_collection_downloaded(something)
+  after_perform do |job|
+    UserMailer.notify_collection_downloaded(job.arguments.first.id,
+                                            job.arguments.second.id).deliver_now
+    logger.info 'Email sent to: ' + job.arguments.first.email.to_s
   end
 
   def perform(user_id, collection_id)

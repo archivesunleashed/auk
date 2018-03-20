@@ -1,19 +1,33 @@
     <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
       <%= image_tag gravatar_url(@user.email, 200), alt: @user.name, class: "img-thumbnail rounded mx-auto d-block" %>
       <hr />
-      <p><i class="fa fa-envelope"></i> <%= @user.email %></p>
-      <p><i class="fa fa-university"></i> <%= @user.institution %></p>
+      <p>
+        <u><strong>AU Cloud Account</strong></u>
+      </p>
+      <p>
+        <i class="fa fa-envelope"></i> <%= @user.email %>
+        <br />
+        <i class="fa fa-university"></i> <%= @user.institution %>
+      </p>
+      <p>
+        <u><strong>Archive-It Account</strong></u>
+      </p>
       <% if @user.wasapi_username.blank? %>
-        <p><i class="fa fa-user-circle-o"></i> Please setup Archive-It credentials.</p>
+        <p>
+          <i class="fa fa-user-circle-o"></i> Please setup Archive-It credentials.<br />
       <% else %>
-        <p><i class="fa fa-user-circle-o"></i> <%= @user.wasapi_username %></p>
+        <i class="fa fa-user-circle-o"></i> <%= @user.wasapi_username %><br />
       <% end%>
       <% if @user.wasapi_password.blank? %>
-        <p><i class="fa fa-user-secret"></i> Please setup Archive-It credentials.</p>
+       <i class="fa fa-user-secret"></i> Please setup Archive-It credentials.</p>
       <% else %>
-        <p><i class="fa fa-user-secret"></i> *******</p>
+        <i class="fa fa-user-secret"></i> *******</p>
       <% end %>
-      <%= link_to 'Edit', edit_user_path(@user) %>
+      <% if @user.wasapi_username.blank? %>
+        <%= button_to 'Enter credentials', edit_user_path(@user), method: "get", class: 'btn btn-primary btn-sm btn-block' %>
+      <% else %>
+        <%= button_to 'Update', edit_user_path(@user), method: "get", class: 'btn btn-primary btn-sm btn-block' %>
+      <% end %>
       <hr />
       <h3>Disk Usage</h3>
       <p><%= disk_usage(@user.id) %></p>

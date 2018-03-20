@@ -40,7 +40,6 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'dotenv-rails'
   gem 'selenium-webdriver'
   gem 'simplecov'
 end
@@ -69,6 +68,7 @@ gem 'codecov', require: false, group: :test
 gem 'daemons'
 gem 'delayed_job_active_record'
 gem 'exception_handler'
+gem 'figaro'
 gem 'font-awesome-rails'
 gem 'http'
 gem 'humanize_boolean'
