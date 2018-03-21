@@ -27,6 +27,7 @@ class CollectionsSparkJob < ApplicationJob
       spark_memory_driver = ENV['SPARK_MEMORY_DRIVER']
       spark_network_timeout = ENV['SPARK_NETWORK_TIMEOUT']
       aut_version = ENV['AUT_VERSION']
+      spark_threads = ENV['SPARK_THREADS']
       spark_job = %(
       import io.archivesunleashed.spark.matchbox.{ExtractDomain, ExtractLinks, RemoveHTML, RecordLoader, WriteGEXF}
       import io.archivesunleashed.spark.rdd.RecordRDD._
@@ -38,7 +39,7 @@ class CollectionsSparkJob < ApplicationJob
       sys.exit
       )
       File.open(collection_spark_job_file, 'w') { |file| file.write(spark_job) }
-      spark_job_cmd = spark_shell + ' --master local[12] --driver-memory ' + spark_memory_driver + ' --conf spark.network.timeout=' + spark_network_timeout + ' --packages "io.archivesunleashed:aut:' + aut_version + '" -i ' + collection_spark_job_file + ' | tee ' + collection_spark_job_file + '.log'
+      spark_job_cmd = spark_shell + ' --master local[' + spark_threads + '] --driver-memory ' + spark_memory_driver + ' --conf spark.network.timeout=' + spark_network_timeout + ' --packages "io.archivesunleashed:aut:' + aut_version + '" -i ' + collection_spark_job_file + ' | tee ' + collection_spark_job_file + '.log'
       logger.info 'Executing: ' + spark_job_cmd
       system(spark_job_cmd)
       combine_full_url_output_cmd = 'cat ' + collection_derivatives + '/all-domains/output/part* > ' + collection_derivatives + '/all-domains/' + c.collection_id.to_s + '-fullurls.txt'
