@@ -23,6 +23,7 @@ EMAIL_SERVER_NAME: "smtp.something.ca"
 EMAIL_DOMAIN: "something.ca"
 EMAIL_USERNAME: "someuser"
 EMAIL_PASSWORD: "somepassword"
+GRAPHPASS: "path/to/graphpass/utilty"
 
 production:
   SECRET_KEY_BASE: "some secret key base"

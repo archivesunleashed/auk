@@ -20,7 +20,6 @@
         <div id="graph"></div>
         <%= javascript_tag do %>
           var data = $.parseXML(`<%= display_gexf(@user.id, @collection.id, @collection.account) %>`)
-          data.getElementsByTagName('gexf');
           var so = new sigma("graph");
           sigma.parsers.gexf(
             data,
