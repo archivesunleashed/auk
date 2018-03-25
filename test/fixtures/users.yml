@@ -1,15 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  provider: MyString
-  uid: MyString
-  email: MyString
-  name: MyString
-  institution: MyString
+  provider: github
+  uid: 1234
+  email: sample@sample.org
+  name: Rick Ruebeau
+  institution: York University
+  token: 12345
+  secret:
 
 two:
-  provider: MyString
-  uid: MyString
-  email: MyString
-  name: MyString
-  institution: MyString
+  provider: twitter
+  uid: 1234
+  email: example@example.org
+  name: Nacho Nicolas
+  institution: York University
+  token: 12345
+  secret: 09876
