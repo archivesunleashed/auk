@@ -83,3 +83,7 @@ Style/Next:
 Style/PercentLiteralDelimiters:
   Exclude:
     - config/spring.rb
+
+Style/PredicateName:
+  Exclude:
+    - test/test_helper.rb

@@ -11,9 +11,9 @@ one:
 
 two:
   provider: twitter
-  uid: 1234
+  uid: 5678
   email: example@example.org
   name: Nacho Nicolas
   institution: York University
-  token: 12345
+  token: 567890
   secret: 09876
