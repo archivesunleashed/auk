@@ -8,12 +8,15 @@ class CollectionsController < ApplicationController
   before_action :gexf_path, only: %i[download_gexf]
   before_action :domains_path, only: %i[download_domains]
   before_action :fulltext_path, only: %i[download_fulltext]
-
-  def index; end
+  before_action :correct_user, only: %i[show download download_gexf	+
+                download_fulltext download_domains]
 
   def download
-    WasapiFilesDownloadJob.perform_later(@user, @collection_id)
-    CollectionsSparkJob.perform_later(@user, @collection_id)
+    WasapiFilesDownloadJob.set(queue: :download)
+                          .perform_later(@user, @collection_id)
+    flash[:notice] = 'Your collection has begun downloading. An e-mail will be
+                      sent to ' + @user.email + ' once it is complete.'
+    redirect_to user_path(@user)
   end
 
   def download_gexf
@@ -21,6 +24,15 @@ class CollectionsController < ApplicationController
       @gexf_path,
       type: 'text/xml'
     )
+  end
+
+  def correct_user	
+    @user = User.find(params[:user_id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
+
+  def send_gexf
+    File.read(@gexf_path)
   end
 
   def download_fulltext
