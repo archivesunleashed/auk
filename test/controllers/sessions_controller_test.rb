@@ -11,13 +11,21 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'i', ''
   end
 
-  test 'successful sign-in' do
+  test 'successful twitter sign-in' do
     get root_path
     assert_response :success
     assert_select 'span', 'Sign in with:'
-    OmniAuth.config.mock_auth[:github]
+    get '/auth/twitter'
+    twitter_sign_in
+    assert_response :redirect
+  end
+
+  test 'successful github sign-in' do
     get root_path
     assert_response :success
-    assert_select 'strong', 'AU Cloud Account'
+    assert_select 'span', 'Sign in with:'
+    get '/auth/github'
+    github_sign_in
+    assert_response :redirect
   end
 end

@@ -18,4 +18,12 @@ class ActiveSupport::TestCase
   def is_logged_in?
     !session[:user_id].nil?
   end
+
+  def twitter_sign_in
+    OmniAuth.config.mock_auth[:twitter]
+  end
+
+  def github_sign_in
+    OmniAuth.config.mock_auth[:github]
+  end
 end
