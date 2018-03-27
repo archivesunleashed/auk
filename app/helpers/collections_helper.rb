@@ -30,8 +30,6 @@ module CollectionsHelper
                 '-gephi.gexf'
     if File.exist?(gexf_file)
       render :plain => File.read(gexf_file).html_safe
-    else
-      false 
     end
   end
 

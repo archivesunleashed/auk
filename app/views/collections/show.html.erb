@@ -20,7 +20,7 @@
         <h2>Hyperlink Diagram</h2>
         <div id="graph"></div>
         <%= javascript_tag do %>
-          if (<%= display_gexf(@user.id, @collection.id, @collection.account) %>) {
+          if (`<%= display_gexf(@user.id, @collection.id, @collection.account) %>` != ``) {
             var data = $.parseXML(`<%= display_gexf(@user.id, @collection.id, @collection.account) %>`)
             var so = new sigma("graph");
             sigma.parsers.gexf(
@@ -35,7 +35,7 @@
               }
             );
           } else {
-            $("#graph").append("<p>Cannot find Gexf file</p>");
+            $("#graph").append("Cannot find Gexf file");
           }
         <% end %>
         <h2>Download Collection Derivatives</h2>
