@@ -27,12 +27,9 @@ class CollectionsSparkJob < ApplicationJob
       spark_memory_driver = ENV['SPARK_MEMORY_DRIVER']
       spark_network_timeout = ENV['SPARK_NETWORK_TIMEOUT']
       aut_version = ENV['AUT_VERSION']
-<<<<<<< HEAD
       flags = " --file #{c.collection_id}-gephi.graphml --output #{collection_derivatives}/gephi/ --dir #{collection_derivatives}/gephi/ -g -q"
       graphpass_cmd = graphpass + flags
-=======
       spark_threads = ENV['SPARK_THREADS']
->>>>>>> master
       spark_job = %(
       import io.archivesunleashed.spark.matchbox.{ExtractDomain, ExtractLinks, RemoveHTML, RecordLoader, WriteGraphML}
       import io.archivesunleashed.spark.rdd.RecordRDD._
