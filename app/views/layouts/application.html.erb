@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Archives Unleashed</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,9 +10,7 @@
   </head>
 
   <body>
-    <header>
-      <%= render "layouts/navigation" %>
-    </header>
+    <%= render "layouts/navigation" %>
     <main role="main">
       <div id="flash">
         <% flash.each do |name, msg| %>
