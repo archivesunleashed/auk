@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110143134) do
+ActiveRecord::Schema.define(version: 20180326161831) do
 
   create_table "collections", id: false, force: :cascade do |t|
     t.integer "collection_id", null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180110143134) do
     t.boolean "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["account", "collection_id", "user_id", "title"], name: "collection_index"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 20180110143134) do
     t.string "encrypted_wasapi_password"
     t.string "encrypted_wasapi_username_iv"
     t.string "encrypted_wasapi_password_iv"
+    t.index ["uid", "email"], name: "index_users_on_uid_and_email"
   end
 
   create_table "wasapi_files", force: :cascade do |t|
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180110143134) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "collection_id"], name: "index_wasapi_files_on_user_id_and_collection_id"
   end
 
 end
