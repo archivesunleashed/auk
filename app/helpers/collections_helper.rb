@@ -29,7 +29,7 @@ module CollectionsHelper
                 '/derivatives/gephi/' + collection_id.to_s +
                 '-gephi.gexf'
     if File.exist?(gexf_file)
-      render plain: File.read(gexf_file).html_safe
+      render xml: File.read(gexf_file).html_safe
     end
   end
 end
