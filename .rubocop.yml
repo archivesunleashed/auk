@@ -26,6 +26,7 @@ Metrics/BlockLength:
     - app/jobs/wasapi_files_populate_job.rb
     - config/environments/development.rb
     - config/environments/production.rb
+    - config/environments/test.rb
 
 Metrics/MethodLength:
   Exclude:

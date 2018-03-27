@@ -43,13 +43,28 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # OmniAuth test configuration
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(
     'provider' => 'github',
-    'uid' => '123545',
+    'uid' => '12354',
     'info' => {
-      'name' => 'mockuser',
-      'image' => 'mockuser_avatar_url'
+      'name' => 'Rick Ruebeau'
+    },
+    'credentials' => {
+      'token' => '12345'
+    }
+  )
+  OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new(
+    'provider' => 'twitter',
+    'uid' => '5678',
+    'info' => {
+      'name' => 'Nacho Nicolas'
+    },
+    'credentials' => {
+      'token' => '567890',
+      'secret' => '09876'
     }
   )
 end
