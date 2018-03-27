@@ -20,19 +20,23 @@
         <h2>Hyperlink Diagram</h2>
         <div id="graph"></div>
         <%= javascript_tag do %>
-          var data = $.parseXML(`<%= display_gexf(@user.id, @collection.id, @collection.account) %>`)
-          var so = new sigma("graph");
-          sigma.parsers.gexf(
-            data,
-            so,
-            function(y) {
-              so.settings({
-                nodeColor: 'default',
-                edgeColor: 'default',
-              })
-              so.refresh()
-            }
-          );
+          if (<%= display_gexf(@user.id, @collection.id, @collection.account) %>) {
+            var data = $.parseXML(`<%= display_gexf(@user.id, @collection.id, @collection.account) %>`)
+            var so = new sigma("graph");
+            sigma.parsers.gexf(
+              data,
+              so,
+              function(y) {
+                so.settings({
+                  nodeColor: 'default',
+                  edgeColor: 'default',
+                })
+                so.refresh()
+              }
+            );
+          } else {
+            $("#graph").append("<p>Cannot find Gexf file</p>");
+          }
         <% end %>
         <h2>Download Collection Derivatives</h2>
         <ul>
