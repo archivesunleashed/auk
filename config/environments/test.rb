@@ -67,4 +67,7 @@ Rails.application.configure do
       'secret' => '09876'
     }
   )
+
+  # Custom exception pages
+  config.exceptions_app = routes
 end
