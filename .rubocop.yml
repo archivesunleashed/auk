@@ -26,6 +26,7 @@ Metrics/BlockLength:
     - app/jobs/wasapi_files_populate_job.rb
     - config/environments/development.rb
     - config/environments/production.rb
+    - config/environments/test.rb
 
 Metrics/MethodLength:
   Exclude:
@@ -83,3 +84,7 @@ Style/Next:
 Style/PercentLiteralDelimiters:
   Exclude:
     - config/spring.rb
+
+Style/PredicateName:
+  Exclude:
+    - test/test_helper.rb
