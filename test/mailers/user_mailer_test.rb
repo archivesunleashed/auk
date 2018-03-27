@@ -3,7 +3,23 @@
 require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'notify_collection_analyzed' do
+    user = users(:one)
+    collection = collections(:one)
+    mail = UserMailer.notify_collection_analyzed(user.id, collection.id)
+    assert_equal collection.title + ' has been analyzed!', mail.subject
+  end
+
+  test 'notify_collection_downloaded' do
+    user = users(:one)
+    collection = collections(:one)
+    mail = UserMailer.notify_collection_downloaded(user.id, collection.id)
+    assert_equal collection.title + ' has been downloaded!', mail.subject
+  end
+
+  test 'notify_collection_setup' do
+    user = users(:one)
+    mail = UserMailer.notify_collection_setup(user.id)
+    assert_equal 'Your collections have been synced!', mail.subject
+  end
 end

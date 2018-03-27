@@ -6,6 +6,8 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(provider: 'github', uid: '1234', name: 'ruebot',
                      token: '12345', secret: '09876')
+    @user_one = users(:one)
+    @user_two = users(:two)
   end
 
   test 'should be valid' do
