@@ -3,7 +3,7 @@
 one:
   provider: github
   uid: 1234
-  email: sample@sample.org
+  email: sample@archivesunleashed.org
   name: Rick Ruebeau
   institution: York University
   token: 12345
@@ -12,7 +12,7 @@ one:
 two:
   provider: twitter
   uid: 5678
-  email: example@example.org
+  email:
   name: Nacho Nicolas
   institution: York University
   token: 567890

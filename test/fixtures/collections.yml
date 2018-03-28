@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  collection_id: 1
-  title: MyString
-  public: false
+  collection_id: 1234
+  title: "Sample Collection"
+  public: true
+  account: 401
+  user_id: 1
 
 two:
-  collection_id: 1
-  title: MyString
-  public: false
+  collection_id: 3490
+  title: "Archives Unleashed"
+  public: true
+  account: 401
+  user_id: 2

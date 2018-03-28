@@ -1,29 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  checksum_md5: MyString
-  checksum_sha1: MyString
-  filetype: MyString
-  size: 2388654180
-  filename: MyString
-  crawl_time: MyString
-  crawl_start: MyString
-  crawl: 1
-  account: 1
-  collection_id: 1
-  location_archive_it: MyString
-  location_internet_archive: MyString
+  checksum_md5: "8693c4cfc362a6ccefaef2e88d62434b"
+  checksum_sha1: "164741182aace03f84d71fda90f1cca689e3e7ce"
+  filetype: "warc"
+  size: 193433
+  filename: "ARCHIVEIT-3490-TWELVE_HOURS-7344-20130425153604106-00000-wbgrp-crawl102.us.archive.org-6443.warc.gz"
+  crawl_time: "2013-04-25T15:36:04Z"
+  crawl_start: "2013-04-25T15:36:00Z"
+  crawl: 69284
+  account: 401
+  collection_id: 3490
+  location_archive_it: "https://warcs.archive-it.org/webdatafile/ARCHIVEIT-3490-TWELVE_HOURS-7344-20130425153604106-00000-wbgrp-crawl102.us.archive.org-6443.warc.gz"
+  location_internet_archive: "https://archive.org/download/ARCHIVEIT-3490-TWELVE_HOURS-7344-00000/ARCHIVEIT-3490-TWELVE_HOURS-7344-20130425153604106-00000-wbgrp-crawl102.us.archive.org-6443.warc.gz"
+  user_id: 2
 
 two:
-  checksum_md5: MyString
-  checksum_sha1: MyString
-  filetype: MyString
-  size: 2388654180
-  filename: MyString
-  crawl_time: MyString
-  crawl_start: MyString
-  crawl: 1
-  account: 1
-  collection_id: 1
-  location_archive_it: MyString
-  location_internet_archive: MyString
+  checksum_md5: "6875c6567c9de300233f8c541d967f38"
+  checksum_sha1: "c371a8faf1387f1ae81fd5de6914d6864760c063"
+  filetype: "warc"
+  size: 472635
+  filename: "ARCHIVEIT-3490-TWELVE_HOURS-7309-20130429033607153-00000-wbgrp-crawl057.us.archive.org-6443.warc.gz"
+  crawl_time: "2013-04-29T03:36:07Z"
+  crawl_start: ""
+  crawl: 69287
+  account: 401
+  collection_id: 3490
+  location_archive_it: "https://warcs.archive-it.org/webdatafile/ARCHIVEIT-3490-TWELVE_HOURS-7309-20130429033607153-00000-wbgrp-crawl057.us.archive.org-6443.warc.gz"
+  location_internet_archive: "https://archive.org/download/ARCHIVEIT-3490-TWELVE_HOURS-7309-00000/ARCHIVEIT-3490-TWELVE_HOURS-7309-20130429033607153-00000-wbgrp-crawl057.us.archive.org-6443.warc.gz"
+  user_id: 2
