@@ -98,7 +98,10 @@ body {
  * Sigma instances
  */
 #graph {
-  width: 400px;
-  height: 300px;
+  width: 80%;
+  height: 400px;
   margin: auto;
+  border-radius: 15px;
+  border: 1px solid grey;
+  box-shadow: 3px 3px 4px grey;
 }
