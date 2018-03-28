@@ -7,11 +7,6 @@ class UsersController < ApplicationController
   before_action :correct_user, only: %i[show edit update]
   before_action :set_collections, only: %i[show]
 
-  def index
-    @users = User.all
-    @collections = Collection.all
-  end
-
   def show; end
 
   def edit; end
