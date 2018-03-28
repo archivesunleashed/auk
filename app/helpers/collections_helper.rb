@@ -28,8 +28,10 @@ module CollectionsHelper
     gexf_file = collection_path + user_id.to_s +
                 '/derivatives/gephi/' + collection_id.to_s +
                 '-gephi.gexf'
+    # use Nokogiri to confirm proper XML document?
     if File.exist?(gexf_file)
-      render plain: safe_join([File.read(gexf_file).html_safe])
+      render plain: safe_join([File.read(gexf_file).html_safe]),
+             content_type: 'application/xml'
     end
   end
 end
