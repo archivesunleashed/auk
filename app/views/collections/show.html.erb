@@ -3,16 +3,6 @@
   <div class="row">
     <%= render "layouts/sidebar" %>
     <main class="col-sm-9 col-md-10">
-      <style type="text/css">
-        body {
-          margin: 0;
-        }
-        #graph {
-          width: 400px;
-          height: 300px;
-          margin: auto;
-        }
-      </style>
       <h1><%= @collection.title %></h1>
       <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
       <%= link_to 'Back', current_user %>
