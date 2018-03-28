@@ -16,7 +16,7 @@ function create_graph(data) {
       so.settings({
         nodeColor: 'default',
         edgeColor: 'default',
-        labelThreshold: 4,
+        labelThreshold: 6,
       })
       so.refresh()
     }
