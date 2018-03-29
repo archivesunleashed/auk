@@ -1,11 +1,8 @@
-$(document).ready(function() {
-  window.setTimeout(function() {
-    if (typeof $("#graph").data("gexf") != 'undefined') {
-      var gexfFileData = $("#graph").data("gexf");
-      create_graph(gexfFileData);
-    }
-  }, 2000);
-
+$(document).on('turbolinks:load', function() {
+  if (typeof $("#graph").data("gexf") != 'undefined') {
+    var gexfFileData = $("#graph").data("gexf");
+    create_graph(gexfFileData);
+  }
 });
 
 function create_graph(data) {
