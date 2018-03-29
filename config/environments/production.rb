@@ -27,7 +27,9 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  # We need to add (harmony: true) because of ` introduced in https://github.com/archivesunleashed/auk/pull/85
+  # See: https://stackoverflow.com/questions/41883113/syntax-error-when-deploying-rails-app-to-heroku-execjsruntimeerror-syntaxerr
+  config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.

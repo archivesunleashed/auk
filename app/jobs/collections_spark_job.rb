@@ -12,6 +12,7 @@ class CollectionsSparkJob < ApplicationJob
 
   def perform(user_id, collection_id)
     spark_shell = ENV['SPARK_SHELL']
+    graphpass = ENV['GRAPHPASS']
     Collection.where('user_id = ? AND collection_id = ?', user_id, collection_id).each do |c|
       collection_path = ENV['DOWNLOAD_PATH'] +
                         '/' + c.account.to_s +
@@ -26,15 +27,17 @@ class CollectionsSparkJob < ApplicationJob
       spark_memory_driver = ENV['SPARK_MEMORY_DRIVER']
       spark_network_timeout = ENV['SPARK_NETWORK_TIMEOUT']
       aut_version = ENV['AUT_VERSION']
+      graphpass_flags = " --file #{c.collection_id}-gephi.graphml --output #{collection_derivatives}/gephi/ --dir #{collection_derivatives}/gephi/ -g -q"
+      graphpass_cmd = graphpass + graphpass_flags
       spark_threads = ENV['SPARK_THREADS']
       spark_job = %(
-      import io.archivesunleashed.spark.matchbox.{ExtractDomain, ExtractLinks, RemoveHTML, RecordLoader, WriteGEXF}
+      import io.archivesunleashed.spark.matchbox.{ExtractDomain, ExtractLinks, RemoveHTML, RecordLoader, WriteGraphML}
       import io.archivesunleashed.spark.rdd.RecordRDD._
       sc.setLogLevel("INFO")
       RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => ExtractDomain(r.getUrl)).countItems().saveAsTextFile("#{collection_derivatives}/all-domains/output")
       RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => (r.getCrawlDate, r.getDomain, r.getUrl, RemoveHTML(r.getContentString))).saveAsTextFile("#{collection_derivatives}/all-text/output")
       val links = RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => (r.getCrawlDate, ExtractLinks(r.getUrl, r.getContentString))).flatMap(r => r._2.map(f => (r._1, ExtractDomain(f._1).replaceAll("^\\\\s*www\\\\.", ""), ExtractDomain(f._2).replaceAll("^\\\\s*www\\\\.", "")))).filter(r => r._2 != "" && r._3 != "").countItems().filter(r => r._2 > 5)
-      WriteGEXF(links, "#{collection_derivatives}/gephi/#{c.collection_id}-gephi.gexf")
+      WriteGraphML(links, "#{collection_derivatives}/gephi/#{c.collection_id}-gephi.graphml")
       sys.exit
       )
       File.open(collection_spark_job_file, 'w') { |file| file.write(spark_job) }
@@ -51,6 +54,8 @@ class CollectionsSparkJob < ApplicationJob
         logger.info 'Executing: ' + combine_full_text_output_cmd
         system(combine_full_text_output_cmd)
         FileUtils.rm_rf(collection_derivatives + '/all-text/output')
+        logger.info 'Executing: ' + graphpass_cmd
+        system(graphpass_cmd)
       else
         raise 'Collections spark job failed.'
       end

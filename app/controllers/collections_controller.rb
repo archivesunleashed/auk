@@ -22,8 +22,12 @@ class CollectionsController < ApplicationController
   def download_gexf
     send_file(
       @gexf_path,
-      type: 'text/plain'
+      type: 'text/xml'
     )
+  end
+
+  def send_gexf
+    File.read(@gexf_path)
   end
 
   def download_fulltext
