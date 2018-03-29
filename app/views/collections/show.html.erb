@@ -3,9 +3,8 @@
   <div class="row">
     <%= render "layouts/sidebar" %>
     <main class="col-sm-9 col-md-10">
-      <h1><%= @collection.title %></h1>
+    <h1><%= @collection.title %></h1>
       <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
-      <%= link_to 'Back', current_user %>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
         <div id="graph"></div>
@@ -13,11 +12,11 @@
           $("#graph").data("gexf", `<%= display_gexf(@user.id, @collection.id, @collection.account) %>`);
         <% end %>
         <h2>Download Collection Derivatives</h2>
-        <ul>
-          <li><%= link_to('Gephi', user_collection_download_gexf_path(@user.id, @collection.id, @collection.account)) %></li>
-          <li><%= link_to('Domains', user_collection_download_domains_path(@user.id, @collection.id, @collection.account)) %></li>
-          <li><%= link_to('Full Text', user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account)) %></li>
-        </ul>
+          <div class="text-center">
+            <%= link_to('Gephi', user_collection_download_gexf_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary') %>
+            <%= link_to('Domains', user_collection_download_domains_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary') %>
+            <%= link_to('Full Text', user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary') %>
+          </div>
         <h2>Domains</h2>
         <div class="table-responsive">
           <table class="table table-striped sortable">
