@@ -8,7 +8,10 @@
       <%= link_to 'Back', current_user %>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
-        <p><%= display_gexf(@user.id, @collection.id, @collection.account) %></p>
+        <div id="graph"></div>
+        <%= javascript_tag do %>
+          $("#graph").data("gexf", `<%= display_gexf(@user.id, @collection.id, @collection.account) %>`);
+        <% end %>
         <h2>Download Collection Derivatives</h2>
         <ul>
           <li><%= link_to('Gephi', user_collection_download_gexf_path(@user.id, @collection.id, @collection.account)) %></li>

@@ -1,48 +1,34 @@
-var title = 'cpp2';
-console.log(title);
-
-var s = new sigma(title +'degree');
-var s2 = new sigma(title +'between');
-var s3 = new sigma(title +'eigen');
-var s4 = new sigma(title +'authority');
-var so = new sigma(title);
-sigma.parsers.gexf(
-  'GEXF/' + title+ '.gexf',
-  so,
-  function(y) {
-  so.refresh();
+$(document).on('turbolinks:load', function() {
+  if (typeof $("#graph").data("gexf") != 'undefined') {
+    var gexfFileData = $("#graph").data("gexf");
+    create_graph(gexfFileData);
   }
-);
-sigma.parsers.gexf(
-    'GEXF/'+title+'25Degree.gexf',
-    s,
+});
+
+function create_graph(data) {
+  var so = new sigma("graph");;
+  if (data != ``) {
+    data = $.parseXML(data);
+    sigma.parsers.gexf(
+      data,
+      so,
     function(y) {
-    s.refresh();
+      so.settings({
+        nodeColor: 'default',
+        edgeColor: 'default',
+        labelThreshold: 6,
+      });
+      if (so.graph.nodes().length == 0) {
+        so.graph.addNode({id: "empty",
+                          label: "(This graph is empty.)",
+                          x: 10,
+                          y: 10,
+                          size: 10,
+                          color: '#999'});
+      }
     }
   );
-
-sigma.parsers.gexf(
-      'GEXF/'+title+'25Betweenness.gexf',
-      s2,
-      function(y) {
-      s2.refresh();
-      }
-    );
-
-sigma.parsers.gexf(
-        'GEXF/'+title+'25Eigenvector.gexf',
-        s3,
-        function(y) {
-        s3.refresh();
-        }
-      );
-
-sigma.parsers.gexf(
-          'GEXF/'+title+'25Authority.gexf',
-          s4,
-          function(y) {
-          s4.refresh();
-          }
-        );
-
-  // Refresh the graph to see the changes:
+  so.refresh();
+} else {
+  $("#graph").append("Cannot find Gexf file");
+}}
