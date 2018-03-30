@@ -1,39 +1,67 @@
 html,
 body {
-    height: 100%;
-    margin-top: 0px;
+  height: 100%;
+  margin-top: 0px;
 }
 
 .homepage {
-    padding-bottom: -20px;
+  padding-bottom: -20px;    
 }
 
 /*
- * Header and Paragraphs and Lists
+ * About Page Customization
  */
 
 
-.h3{
+.about_h1{
+  font-family:helvetica; 
+  font-size:44px;
+  padding-left:10px;
+  max-width:95%;
+  margin-left:20px;
+}
+
+.about_h3{
+  font-family:helvetica;
+  font-size:22px;
   border-radius:5px;
   border:2px solid grey;
   background-color:#D3D3D3; 
   padding-left:10px;
+  max-width:95%;
+  margin-left:20px;
+
  }
 
-.para{
+.about_p{
+  font-family:helvetica;
+  font-size:16px;
   padding-left:5px;
   padding-top:5px;
   padding-bottom:10px;
   line-height:1.6;
+  margin-left:20px;
+  margin-right:20px;
+  
  }
 
-.list{
+.about_ul{
   padding-left:40px;
   padding-top:5px;
   padding-bottom:5px;
   list-style-type: square;
   line-height:1.6;
   list-style-position: outside;
+  margin-left:40px;
+  
+}
+
+.about.li{
+  padding-left:5px;
+  padding-top:5px;
+  padding-bottom:10px;
+  line-height:1.6;
+  
 }
 
 /*
@@ -113,13 +141,13 @@ body {
 }
 
 .navbar-brand  >img {
-    height: 40px;
-    padding-bottom: 5px;
-    padding-right: 5px;
+  height: 40px;
+  padding-bottom: 5px;
+  padding-right: 5px;
 }
 
 .navbar-right {
-    padding-bottom: 5px;
+  padding-bottom: 5px;
 }
 
 /*
