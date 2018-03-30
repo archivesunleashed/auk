@@ -5,19 +5,18 @@ body {
 }
 
 .homepage {
-  padding-bottom: -20px;    
+  padding-bottom: -20px;
 }
 
 /*
  * About Page Customization
  */
 
-
 .about_h1{
-  font-family:helvetica; 
+  font-family:helvetica;
   font-size:44px;
   padding-left:10px;
-  max-width:95%;
+  max-width:100%;
   margin-left:20px;
 }
 
@@ -26,10 +25,12 @@ body {
   font-size:22px;
   border-radius:5px;
   border:2px solid grey;
-  background-color:#D3D3D3; 
+  background-color:#f5f5f5;
   padding-left:10px;
-  max-width:95%;
+  max-width:100%;
   margin-left:20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
  }
 
 .about_p{
@@ -81,6 +82,7 @@ body {
   height: auto !important;
   background-color: #f5f5f5;
   padding-top: 5px;
+  margin-bottom: -20px;
 }
 
 .footer_img {
