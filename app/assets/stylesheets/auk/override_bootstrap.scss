@@ -5,7 +5,35 @@ body {
 }
 
 .homepage {
-  padding-bottom: -20px;
+    padding-bottom: -20px;
+}
+
+/*
+ * Header and Paragraphs and Lists
+ */
+
+
+.h3{
+  border-radius:5px;
+  border:2px solid grey;
+  background-color:#D3D3D3; 
+  padding-left:10px;
+ }
+
+.para{
+  padding-left:5px;
+  padding-top:5px;
+  padding-bottom:10px;
+  line-height:1.6;
+ }
+
+.list{
+  padding-left:40px;
+  padding-top:5px;
+  padding-bottom:5px;
+  list-style-type: square;
+  line-height:1.6;
+  list-style-position: outside;
 }
 
 /*
