@@ -1,7 +1,12 @@
 <header>
+  <div class="navbar-collapse collapse" id="aboutpage">
+    <div class="bg-dark p-4">
+      <a href="/about" style="color: white; font-size: large;">About</a>
+      <a href="/documentation" style="color: white; font-size: large; padding-left: 10px;">Documentation</a>
+    </div>
+  </div>
   <nav class="navbar" style="background-color: black; margin-bottom: 10px;">
-    <a class="navbar-brand" href="/" style="color: white; font-size: x-large;"><%= image_tag("logo.png", alt: "Archives Unleashed Logo") %>
-  Archives Unleashed Cloud</a>
+    <a class="navbar-brand" href="/" style="color: white; font-size: x-large;"><%= image_tag("logo.png", alt: "Archives Unleashed Logo") %>Archives Unleashed Cloud</a>
     <span class="navbar-right">
       <% if current_user %>
         <%= link_to current_user.name, current_user, style: 'color: white; font-size: x-large; padding-right: 5px;' %>
@@ -11,6 +16,9 @@
         <%= link_to '<i class="fa fa-twitter fa-2x" style="color: white; padding-right: 10px;"></i>'.html_safe, "/auth/twitter", title: 'Login with Twitter' %>
         <%= link_to '<i class="fa fa-github fa-2x" style="color: white;"></i>'.html_safe, "/auth/github", title: 'Login with GitHub' %>
       <% end %>
+      <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#aboutpage" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </span>
   </nav>
 </header>
