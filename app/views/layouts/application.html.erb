@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag %>
   </head>
-
   <body>
     <%= render "layouts/navigation" %>
     <main role="main">
-      <div id="flash">
-        <% flash.each do |name, msg| %>
-          <%= content_tag(:div, msg, class: "alert alert-info text-center") %>
-        <% end %>
-      </div>
+      <%= render 'layouts/messages' %>
       <%= yield %>
+      <%= render 'layouts/footer' %>
     </main>
   </body>
 </html>
