@@ -13,7 +13,7 @@ Rails application for the Archives Unleashed Cloud.
 * [Ruby](https://www.ruby-lang.org/en/) 2.2 or later
 * [Rails](http://rubyonrails.org) 5.1.2 or later
 * [Apache Spark](https://spark.apache.org/) 2.2.1 or later
-* [GraphPass](https://www.github.com/archivesunleashed/graphpass) 0.1.0 or later
+* [GraphPass](https://www.github.com/archivesunleashed/graphpass) 0.1.1 or later
 
 ## Installation
 
@@ -37,6 +37,12 @@ In another command line tab, run the background job with:
 
 ```sh
 bundle exec rake jobs:work
+```
+
+Or to simulate production environment with Delayed::Job:
+
+```
+bin/delayed_job --pool=spark,tasks:1 --pool=graphpass,tasks:1 --pool=spark_cat,tasks:2 --pool=seed,tasks:10 --pool=download,tasks:4 start
 ```
 
 Then visit http://localhost:3000.
