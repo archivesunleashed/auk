@@ -3,16 +3,9 @@
 # Methods for Basic Spark Jobs.
 class CollectionsSparkJob < ApplicationJob
   queue_as :spark
-  require 'open-uri'
-
-  after_perform do |job|
-    UserMailer.notify_collection_analyzed(job.arguments.first,
-                                          job.arguments.second).deliver_now
-  end
 
   def perform(user_id, collection_id)
     spark_shell = ENV['SPARK_SHELL']
-    graphpass = ENV['GRAPHPASS']
     Collection.where('user_id = ? AND collection_id = ?', user_id, collection_id).each do |c|
       collection_path = ENV['DOWNLOAD_PATH'] +
                         '/' + c.account.to_s +
@@ -27,8 +20,6 @@ class CollectionsSparkJob < ApplicationJob
       spark_memory_driver = ENV['SPARK_MEMORY_DRIVER']
       spark_network_timeout = ENV['SPARK_NETWORK_TIMEOUT']
       aut_version = ENV['AUT_VERSION']
-      graphpass_flags = " --file #{c.collection_id}-gephi.graphml --output #{collection_derivatives}/gephi/ --dir #{collection_derivatives}/gephi/ -g -q"
-      graphpass_cmd = graphpass + graphpass_flags
       spark_threads = ENV['SPARK_THREADS']
       spark_job = %(
       import io.archivesunleashed.spark.matchbox.{ExtractDomain, ExtractLinks, RemoveHTML, RecordLoader, WriteGraphML}
@@ -46,16 +37,10 @@ class CollectionsSparkJob < ApplicationJob
       system(spark_job_cmd)
       successful_job = collection_derivatives + '/all-domains/output/_SUCCESS'
       if File.exist? successful_job
-        combine_full_url_output_cmd = 'cat ' + collection_derivatives + '/all-domains/output/part* > ' + collection_derivatives + '/all-domains/' + c.collection_id.to_s + '-fullurls.txt'
-        logger.info 'Executing: ' + combine_full_url_output_cmd
-        system(combine_full_url_output_cmd)
-        FileUtils.rm_rf(collection_derivatives + '/all-domains/output')
-        combine_full_text_output_cmd = 'cat ' + collection_derivatives + '/all-text/output/part* > ' + collection_derivatives + '/all-text/' + c.collection_id.to_s + '-fulltext.txt'
-        logger.info 'Executing: ' + combine_full_text_output_cmd
-        system(combine_full_text_output_cmd)
-        FileUtils.rm_rf(collection_derivatives + '/all-text/output')
-        logger.info 'Executing: ' + graphpass_cmd
-        system(graphpass_cmd)
+        CollectionsCatJob.set(queue: :spark_cat)
+                         .perform_later(user_id, collection_id)
+        CollectionsGraphpassJob.set(queue: :graphpass)
+                               .perform_later(user_id, collection_id)
       else
         raise 'Collections spark job failed.'
       end
