@@ -6,6 +6,7 @@ class CollectionsController < ApplicationController
   before_action :set_user, only: %i[show download]
   before_action :set_collection_id, only: %i[download]
   before_action :gexf_path, only: %i[download_gexf]
+  before_action :graphml_path, only: %i[download_graphml]
   before_action :domains_path, only: %i[download_domains]
   before_action :fulltext_path, only: %i[download_fulltext]
   before_action :correct_user, only: %i[show download download_gexf
@@ -22,6 +23,13 @@ class CollectionsController < ApplicationController
   def download_gexf
     send_file(
       @gexf_path,
+      type: 'text/xml'
+    )
+  end
+
+  def download_graphml
+    send_file(
+      @graphml_path,
       type: 'text/xml'
     )
   end
@@ -69,6 +77,13 @@ class CollectionsController < ApplicationController
                  params[:collection_id].to_s + '/' + params[:user_id].to_s +
                  '/derivatives/gephi/' + params[:collection_id].to_s +
                  '-gephi.gexf'
+  end
+
+  def graphml_path
+    @graphml_path = ENV['DOWNLOAD_PATH'] + '/' + params[:format].to_s +
+                    '/' + params[:collection_id].to_s + '/' +
+                    params[:user_id].to_s + '/derivatives/gephi/' +
+                    params[:collection_id].to_s + '-gephi.graphml'
   end
 
   def domains_path

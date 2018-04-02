@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post :download
       get :download_domains
       get :download_gexf
+      get :download_graphml
       get :download_fulltext
     end
   end
