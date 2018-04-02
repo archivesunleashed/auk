@@ -9,11 +9,17 @@
     <%= favicon_link_tag %>
   </head>
   <body>
-    <%= render "layouts/navigation" %>
-    <main role="main">
-      <%= render 'layouts/messages' %>
-      <%= yield %>
+    <div id="wrap">
+      <header>
+        <%= render "layouts/navigation" %>
+      </header>
+      <main role="main">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </main>
+    </div>
+    <footer>
       <%= render 'layouts/footer' %>
-    </main>
+    </footer>
   </body>
 </html>
