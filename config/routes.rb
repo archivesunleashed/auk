@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   root 'pages#show', page: 'home'
   get '/pages/:page' => 'pages#show'
   get 'about' => 'pages#about'
+  get 'documentation' => 'pages#documentation'
 
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
