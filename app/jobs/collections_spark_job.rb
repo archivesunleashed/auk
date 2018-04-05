@@ -23,6 +23,7 @@ class CollectionsSparkJob < ApplicationJob
       spark_threads = ENV['SPARK_THREADS']
       spark_job = %(
       import io.archivesunleashed._
+      import io.archivesunleashed.app
       import io.archivesunleashed.matchbox._
       sc.setLogLevel("INFO")
       RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => ExtractDomain(r.getUrl)).countItems().saveAsTextFile("#{collection_derivatives}/all-domains/output")
