@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /*
   SortTable
   version 2
