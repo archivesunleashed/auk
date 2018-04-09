@@ -3,6 +3,7 @@
   <div class="row">
     <%= render "layouts/sidebar" %>
     <main class="col-sm-9 col-md-10">
+    <% cache do %>
       <h1>Collections</h1>
       <div class="table-responsive">
         <table class="table table-striped sortable">
@@ -26,6 +27,7 @@
           </tbody>
         </table>
       </div>
+    <% end %>
     </main>
   </div>
 </div>

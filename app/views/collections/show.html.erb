@@ -3,6 +3,7 @@
   <div class="row">
     <%= render "layouts/sidebar" %>
     <main class="col-sm-9 col-md-10">
+    <% cache do %>
     <h1><%= @collection.title %></h1>
       <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
@@ -40,6 +41,7 @@
           </table>
         </div>
       <% end %>
+    <% end %>
     </main>
   </div>
 </div>
