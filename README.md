@@ -61,6 +61,20 @@ This application makes use of [figaro](https://github.com/laserlemon/figaro).
 
 You will need a [`config/application.yml`](https://github.com/archivesunleashed/auk/blob/master/config/application.yml.example) file in the root of the application.
 
+#### Sitemap
+
+To generate a sitemap:
+
+```
+bundle exec rake sitemap:refresh:no_ping
+```
+
+To generate a new sitemap, and submit to Google and Bing, setup a cronjob that runs the following:
+
+```
+bundle exec rake sitemap:refresh
+```
+
 ### Run a console
 
 You can also run `bin/console` for an interactive prompt that will allow you to experiment.
