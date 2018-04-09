@@ -33,5 +33,8 @@ metastore_db
 public/assets/
 vendor/bundle/
 
+/node_modules/
+yarn.lock
+
 # Ignore application configuration
 /config/application.yml

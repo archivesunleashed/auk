@@ -20,52 +20,52 @@ body {
  * About Page Customization
  */
 
-.about_h1{
-  font-family:helvetica;
-  font-size:44px;
-  padding-left:10px;
-  max-width:100%;
-  margin-left:20px;
+.about_h1 {
+  font-family: helvetica;
+  font-size: 44px;
+  padding-left: 10px;
+  max-width: 100%;
+  margin-left: 20px;
 }
 
-.about_h3{
-  font-family:helvetica;
-  font-size:22px;
-  border-radius:5px;
-  border:2px solid grey;
-  background-color:#f5f5f5;
-  padding-left:10px;
-  max-width:100%;
-  margin-left:20px;
+.about_h3 {
+  font-family: helvetica;
+  font-size: 22px;
+  border-radius: 5px;
+  border: 2px solid grey;
+  background-color: #f5f5f5;
+  padding-left: 10px;
+  max-width: 100%;
+  margin-left: 20px;
   padding-bottom: 5px;
   padding-top: 5px;
- }
-
-.about_p{
-  font-family:helvetica;
-  font-size:16px;
-  padding-left:5px;
-  padding-top:5px;
-  padding-bottom:5px;
-  line-height:1.4;
-  margin-left:20px;
-  margin-right:25px;
- }
-
-.about_ul{
-  padding-left:40px;
-  padding-bottom:5px;
-  list-style-type: square;
-  line-height:1.4;
-  list-style-position: outside;
-  margin-left:40px;
 }
 
-.about.li{
-  padding-left:5px;
-  padding-top:5px;
-  padding-bottom:10px;
-  line-height:1.4;
+.about_p {
+  font-family: helvetica;
+  font-size: 16px;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 1.4;
+  margin-left: 20px;
+  margin-right: 25px;
+}
+
+.about_ul {
+  padding-left: 40px;
+  padding-bottom: 5px;
+  list-style-type: square;
+  line-height: 1.4;
+  list-style-position: outside;
+  margin-left: 40px;
+}
+
+.about.li {
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  line-height: 1.4;
 }
 
 /*
@@ -133,10 +133,10 @@ body {
  */
 
 .navbar-brand {
-    padding: 0;
+  padding: 0;
 }
 
-.navbar-brand  >img {
+.navbar-brand > img {
   height: 40px;
   padding-bottom: 5px;
   padding-right: 5px;
@@ -162,7 +162,7 @@ body {
 
 .homepage-img {
   padding-bottom: 10px;
-  max-height:100%;
+  max-height: 100%;
 }
 
 /*

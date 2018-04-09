@@ -14,6 +14,7 @@ Rails application for the Archives Unleashed Cloud.
 * [Rails](http://rubyonrails.org) 5.1.2 or later
 * [Apache Spark](https://spark.apache.org/) 2.2.1 or later
 * [GraphPass](https://www.github.com/archivesunleashed/graphpass) 0.1.1 or later
+* [NPM](https://www.npmjs.com/) (For testing/ESlint)
 
 ## Installation
 
@@ -22,6 +23,13 @@ Rails application for the Archives Unleashed Cloud.
 Ensure Rails is _not_ running (ports 3000), then:
 
 ```sh
+$ bundle exec rake
+```
+
+If you would like to make sure JavaScript files are linted:
+
+```sh
+$ npm install
 $ bundle exec rake
 ```
 
@@ -52,6 +60,20 @@ Then visit http://localhost:3000.
 This application makes use of [figaro](https://github.com/laserlemon/figaro).
 
 You will need a [`config/application.yml`](https://github.com/archivesunleashed/auk/blob/master/config/application.yml.example) file in the root of the application.
+
+#### Sitemap
+
+To generate a sitemap:
+
+```
+bundle exec rake sitemap:refresh:no_ping
+```
+
+To generate a new sitemap, and submit to Google and Bing, setup a cronjob that runs the following:
+
+```
+bundle exec rake sitemap:refresh
+```
 
 ### Run a console
 
