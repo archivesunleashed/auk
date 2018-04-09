@@ -7,4 +7,9 @@ Rails.application.load_tasks
 require 'rubocop/rake_task'
 RuboCop::RakeTask.new(:rubocop)
 
-task default: %i[rubocop test]
+desc 'Run Eslint'
+task :eslint do
+  system './node_modules/.bin/eslint app/assets/javascripts'
+end
+
+task default: %i[rubocop eslint test]

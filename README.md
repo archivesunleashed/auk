@@ -14,6 +14,7 @@ Rails application for the Archives Unleashed Cloud.
 * [Rails](http://rubyonrails.org) 5.1.2 or later
 * [Apache Spark](https://spark.apache.org/) 2.2.1 or later
 * [GraphPass](https://www.github.com/archivesunleashed/graphpass) 0.1.1 or later
+* [NPM](https://www.npmjs.com/) (For testing/ESlint)
 
 ## Installation
 
@@ -22,6 +23,13 @@ Rails application for the Archives Unleashed Cloud.
 Ensure Rails is _not_ running (ports 3000), then:
 
 ```sh
+$ bundle exec rake
+```
+
+If you would like to make sure JavaScript files are linted:
+
+```sh
+$ npm install
 $ bundle exec rake
 ```
 
