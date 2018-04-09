@@ -3,6 +3,7 @@
   "globals": {
     "jQuery": true,
     "$": true,
+    "sigma": true,
     "auk": true
   },
   "rules": {

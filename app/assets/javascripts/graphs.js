@@ -1,8 +1,8 @@
 function createGraph(data) {
-  var so = new sigma('graph'); // eslint-disable-line new-cap, no-undef
+  var so = new sigma('graph'); // eslint-disable-line new-cap
   if (data !== '') {
     data = $.parseXML(data); // eslint-disable-line no-param-reassign
-    sigma.parsers.gexf(data, so, function (y) { // eslint-disable-line no-undef, no-unused-vars
+    sigma.parsers.gexf(data, so, function (y) { // eslint-disable-line no-unused-vars
       so.settings({
         nodeColor: 'default',
         edgeColor: 'default',
