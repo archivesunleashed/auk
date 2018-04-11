@@ -22,8 +22,9 @@ class CollectionsSparkJob < ApplicationJob
       aut_version = ENV['AUT_VERSION']
       spark_threads = ENV['SPARK_THREADS']
       spark_job = %(
-      import io.archivesunleashed.spark.matchbox.{ExtractDomain, ExtractLinks, RemoveHTML, RecordLoader, WriteGraphML}
-      import io.archivesunleashed.spark.rdd.RecordRDD._
+      import io.archivesunleashed._
+      import io.archivesunleashed.app._
+      import io.archivesunleashed.matchbox._
       sc.setLogLevel("INFO")
       RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => ExtractDomain(r.getUrl)).countItems().saveAsTextFile("#{collection_derivatives}/all-domains/output")
       RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => (r.getCrawlDate, r.getDomain, r.getUrl, RemoveHTML(r.getContentString))).saveAsTextFile("#{collection_derivatives}/all-text/output")
