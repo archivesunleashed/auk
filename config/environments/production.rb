@@ -98,6 +98,8 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  config.logstash.type = :file
+  config.logstash.path = "log/logstash_rails_#{Rails.env}.log"
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'

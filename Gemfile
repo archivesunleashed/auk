@@ -72,6 +72,7 @@ gem 'font-awesome-rails'
 gem 'http'
 gem 'humanize_boolean'
 gem 'jquery-rails'
+gem 'logstash-logger'
 gem 'loofah', '~> 2.2.1' # https://github.com/flavorjones/loofah/issues/144
 gem 'omniauth-github'
 gem 'omniauth-twitter'
