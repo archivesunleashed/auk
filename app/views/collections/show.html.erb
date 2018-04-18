@@ -1,17 +1,45 @@
+<div id="graph-full-screen"></div>
 <% provide(:title, @collection.title) %>
 <div class="container-fluid">
+  <div class="modal fade" id="myModal">
+  <div id="graph-modal-container" class="modal-dialog modal-dialog-centered modal-lg">
+  <div class="modal-content">
+
+  <!-- Modal Header -->
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+  </div>
+
+  <!-- Modal body -->
+  <div id="graph-modal-body" class="modal-body">
+    <div id="graph-modal"></div>
+  </div>
+
+  <!-- Modal footer -->
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  </div>
+
+  </div>
+  </div>
+  </div>
+
   <div class="row">
     <%= render "layouts/sidebar" %>
+
     <main class="col-sm-9 col-md-10">
+
     <h1><%= @collection.title %></h1>
       <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
       <% cache do %>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
+        <a id="modal-click" href="" data-toggle="modal" data-target="#myModal">fs</a>
         <div id="graph"></div>
         <%= javascript_tag do %>
-          $("#graph").data("gexf", `<%= display_gexf(@user.id, @collection.id, @collection.account) %>`);
+          $("#graph-modal").data("gexf", `<%= display_gexf(@user.id, @collection.id, @collection.account) %>`);
         <% end %>
+
         <h2>Download Collection Derivatives</h2>
           <div class="text-center">
             <%= link_to('Gephi', user_collection_download_gexf_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A GEXF file which you can load with Gephi. It will have a basic layout courtesy of our GraphPass program, allowing you to see major nodes and communities in the network.') %>

@@ -1,5 +1,5 @@
-function createGraph(data) {
-  var so = new sigma('graph'); // eslint-disable-line new-cap
+function createGraph(data, container) {
+  var so = new sigma(container); // eslint-disable-line new-cap
   if (data !== '') {
     data = $.parseXML(data); // eslint-disable-line no-param-reassign
     sigma.parsers.gexf(data, so, function (y) { // eslint-disable-line no-unused-vars
@@ -21,13 +21,23 @@ function createGraph(data) {
     });
     so.refresh();
   } else {
-    $('#graph').append('Cannot find Gexf file');
+    $('#'.concat(container)).append('Cannot find Gexf file');
+  }
+}
+
+function graphRender(container) {
+  if (typeof $("#graph-modal").data('gexf') !== 'undefined') {
+    var gexfFileData = $("#graph-modal").data('gexf'); // eslint-disable-line vars-on-top
+    createGraph(gexfFileData, container);
   }
 }
 
 $(document).on('turbolinks:load', function () {
-  if (typeof $('#graph').data('gexf') !== 'undefined') {
-    var gexfFileData = $('#graph').data('gexf'); // eslint-disable-line vars-on-top
-    createGraph(gexfFileData);
-  }
+  graphRender("graph");
+  $('#myModal').on('show.bs.modal', function (e) {
+    if(typeof $("#graph-modal canvas" === 'undefined')){
+      id = $("#graph-modal").data('gexf')
+      createGraph(id, "graph-modal");
+    }
+  });
 });
