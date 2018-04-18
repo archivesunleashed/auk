@@ -27,21 +27,17 @@ function createGraph(data, container) {
 
 function graphRender(container) {
   if (typeof $("#graph-modal").data('gexf') !== 'undefined') {
-    var gexfFileData = $("#graph-modal").data('gexf'); // eslint-disable-line vars-on-top
+    var gexfFileData = $("#graph-modal").data('gexf') // eslint-disable-line vars-on-top
     createGraph(gexfFileData, container);
   }
 }
 
 $(document).on('turbolinks:load', function () {
   graphRender("graph");
-});
-
-$(document).on('turbolinks:page:change', function () {
-$('#myModal').on('show.bs.modal', function (e) {
-  if(typeof $("#graph-modal canvas" === 'undefined')){
-    id = $("#graph-modal").data('gexf')
-    console.log(id);
-    createGraph(id, "graph-modal");
-  }
-});
+  $(document).on('shown.bs.modal', function (e) {
+      if(typeof $("#graph-modal canvas" === 'undefined')){
+      id = $("#graph-modal").data('gexf');
+      createGraph(id, "graph-modal");
+      }
+  });
 });
