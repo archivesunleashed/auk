@@ -34,10 +34,14 @@ function graphRender(container) {
 
 $(document).on('turbolinks:load', function () {
   graphRender("graph");
-  $('#myModal').on('show.bs.modal', function (e) {
-    if(typeof $("#graph-modal canvas" === 'undefined')){
-      id = $("#graph-modal").data('gexf')
-      createGraph(id, "graph-modal");
-    }
-  });
+});
+
+$(document).on('turbolinks:page:change', function () {
+$('#myModal').on('show.bs.modal', function (e) {
+  if(typeof $("#graph-modal canvas" === 'undefined')){
+    id = $("#graph-modal").data('gexf')
+    console.log(id);
+    createGraph(id, "graph-modal");
+  }
+});
 });

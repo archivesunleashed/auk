@@ -7,6 +7,7 @@
 
   <!-- Modal Header -->
   <div class="modal-header">
+    <h4> <%= @collection.title %> Link Structure Graph</h4>
     <button type="button" class="close" data-dismiss="modal">&times;</button>
   </div>
 
@@ -35,6 +36,7 @@
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
         <a id="modal-click" href="" data-toggle="modal" data-target="#myModal">fs</a>
+        <%= link_to "", 'data-toggle' => 'modal', 'data-target' => '#myModal', 'data-no-turbolink' => true %>
         <div id="graph"></div>
         <%= javascript_tag do %>
           $("#graph-modal").data("gexf", `<%= display_gexf(@user.id, @collection.id, @collection.account) %>`);
