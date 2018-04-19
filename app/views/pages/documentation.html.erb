@@ -1,70 +1,74 @@
+<% provide(:title, 'Documentation') %>
 
+<% cache do %>
 <div class="container">
-	<h1 class=about_h1>Documentation</h1>
+  <h1 class=about_h1>Documentation</h1>	
 
-	<h3 class=about_h3>Introduction</h3>
-		<p class="about_p">The Archives Unleashed Cloud, referred to as AUK, is an open source cloud-based analysis tool that helps researchers and scholars conduct web archive analysis.</p> 
-		<p class="about_p">AUK is a component of the <a href="http://archivesunleashed.org" target="_blank">Archives Unleashed Project</a>, which aims to allow researchers, scholars, librarians and archivists the ability to access and investigate their web archival collections. As accessibility is a main priority of the project, AUK supports this goal by providing a web-based front end for users to access the Archives Unleashed Toolkit.</p>
-		<p class="about_p"> For more information on the AUK platform, check out our <a href="http://cloud.archivesunleashed.org/about" target="_blank"> ABOUT</a> page.</p>
-	
-	<h3 class=about_h3>Audience + Application</h3>
-		<p class="about_p">AUK was designed to provide a web-based user-interface to help users access and analyze their web archive collections. This cloud-based option uses the Archive-It WASAPI, which means that individuals already set up with an Archive-It account will be able to ingest and explore WARC files.</p>
-		<p class="about_p">With AUK you can:</p>
-			<ul class="about_ul">
-	      		<li class="about_li">Ingest Archive-It collections via WASAPI</li>
-	      		<li class="about_li">Download collection derivatives: network files, domain lists, and full text</li>
-	      		<li class="about_li">Visualize your collections with an in-browser network diagram to see major nodes and connections within the collection.</li>
-	      	</ul>	
-	    <p class="about_note"><b>Note</b>: You can use our canonical version at http://cloud.archivesunleashed.org, or you are welcome to run your own local version of the <a href="https://github.com/archivesunleashed/auk" target="_blank"> Archives Unleashed Cloud</a>.</p>
+  <h3 class=about_h3>Introduction</h3>
+    <p class="about_p">The Archives Unleashed Cloud, referred to as AUK, is an open source cloud-based analysis tool that helps researchers and scholars conduct web archive analysis.</p>
+    <p class="about_p">AUK is a component of the <a href="http://archivesunleashed.org" target="_blank">Archives Unleashed Project</a>, which aims to allow researchers, scholars, librarians and archivists the ability to access and investigate their web archival collections. As accessibility is a main priority of the project, AUK supports this goal by providing a web-based front end for users to access the Archives Unleashed Toolkit.</p>
+    <p class="about_p"> For more information on the AUK platform, check out our <a href="http://cloud.archivesunleashed.org/about" target="_blank"> ABOUT</a> page.</p>
 
-	<h3 class=about_h3>Getting Started</h3>
-		<p class="about_p"> This guide will walk through how to set up an AUK account and sync your Archive-It collections, and the types of analysis outputs you can curate.</p>
+  <h3 class=about_h3>Audience + Application</h3>
+    <p class="about_p">AUK was designed to provide a web-based user-interface to help users access and analyze their web archive collections. This cloud-based option uses the Archive-It WASAPI, which means that individuals already set up with an Archive-It account will be able to ingest and explore WARC files.</p>
+    <p class="about_p">With AUK you can:</p>
+    <ul class="about_ul">
+      <li class="about_li">Ingest Archive-It collections via WASAPI</li>
+      <li class="about_li">Download collection derivatives: network files, domain lists, and full text</li>
+      <li class="about_li">Visualize your collections with an in-browser network diagram to see major nodes and connections within the collection.</li>
+    </ul>	
+    <p class="about_note"><b>Note</b>: You can use our canonical version at http://cloud.archivesunleashed.org, or you are welcome to run your own local version of the <a href="https://github.com/archivesunleashed/auk" target="_blank"> Archives Unleashed Cloud</a>.</p>
 
-	<h3 class="about_h3">Login</h3>	
-		<p class="about_p">Begin at <a href="http://cloud.archivesunleashed.org" target="_blank"> http://cloud.archivesunleashed.org</a></p>
-		<p class="about_p">You will not need to sign up for an AUK account. Instead, AUK will use either a Twitter or Github account to authenticate the login. For those who have multiple Twitter or Github accounts, feel free to use whichever suits your research purposes best. AUK only uses these accounts to authenticate who you are.</p>
-			<figure class="about_flex-image">
-			  <%= image_tag("AUK_signin.png", alt: "AUK Sign In Screenshot", class:"about_flex-image")%>
-			  <%= image_tag("AUK_login.png", alt: "AUK Log In Screenshot", class:"about_flex-image")%>
-			</figure>
-		<p class="about_p">You are now logged into AUK. Welcome!</p>
-	<h3 class="about_h3">Account Set Up</h3>	
-		<p class="about_p">The left hand panel displays two sets of credentials: 1) AU Cloud account and 2) Archive-It account. You will also notice that the main collections space is empty. That’s because without connecting AUK to your Archive-It account there are no collections to show. Let’s walk through setting up your account</p>
-		<p class="about_p">Click "enter credentials" in the left hand panel.</p>
-			<%= image_tag("AUK_creds.png", alt: "AUK Account Credentials", class:"body_img")%>
-		<p class="about_p">On the next screen fill out the form to update both sets of credentials.</p>
-			<ul class="about_ul">
-				<li class="about_li"><b>AU Account Information</b> - AUK requires an email so we can let you know what stage of analysis your collection is in. You can use the email address of your choice, and have the ability to modify this at any time. If you have a gravatar.com account, it will also use this email address to populate your user avatar.</li>
-				<li class="about_li"><b>Archive-It Information</b> - In order to work with any web archive collections you must enter your Archive-It account username and password.(need to briefly discuss security - or maybe have a tooltip bubble for this explanation).</li>
-			</ul>
-			<%= image_tag("AUK_accountinfo.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
-		<p class="about_p">Click "update"</p>
-		<p class="about_p">You will be redirected back into the main space. A note at the top of the page will indicate that AUK is syncing with your Archive-It account. The length of time to ingest your WARC collections will depend on the size of your collections and the number of other users syncing their collections. This process could take a few minutes to a few hours. You will receive an email to the email you provided to AUK when the collections are synced.</p>
-			<%= image_tag("AUK_user.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
-		<p class="about_note"><b>Note</b>: You may update/change your AU Cloud or Archive-It credentials at any time by clicking “update.” If you add a new collection in Archive-It or change your Archive-It credentials, you can click “Update” and redo the above steps to re-sync.</p>
+  <h3 class=about_h3>Getting Started</h3>
+    <p class="about_p"> This guide will walk through how to set up an AUK account and sync your Archive-It collections, and the types of analysis outputs you can curate.</p>
 
-	<h3 class="about_h3">Collections</h3>	
-		<p class="about_p">Once your collections have been synced, you can return to AUK and start analysis. Let’s take a look at the collection information available to us in the main space:</p>
-			<ul class="about_ul">
-				<li class="about_li"><b>Collection Title</b> - The name of each collection is pulled directly from your Archive-It account; each title provides the access point for analysis. </li>
-				<li class="about_li"><b>Public</b> - </li>
-				<li class="about_li"><b>File</b> - Indicates the number of (WARC) files in each collection.</li>
-				<li class="about_li"><b>Size</b> - Indicated the collection's total volume. </li>
-			</ul>
-			<%= image_tag("AUK_mainspace", alt: "Collection Main Space", class:"body_img")%>
+  <h3 class="about_h3">Login</h3>
+    <p class="about_p">Begin at <a href="http://cloud.archivesunleashed.org" target="_blank"> http://cloud.archivesunleashed.org</a></p>
+    <p class="about_p">You will not need to sign up for an AUK account. Instead, AUK will use either a Twitter or Github account to authenticate the login. For those who have multiple Twitter or Github accounts, feel free to use whichever suits your research purposes best. AUK only uses these accounts to authenticate who you are.</p>
+    <figure class="about_flex-image">
+    <%= image_tag("AUK_signin.png", alt: "AUK Sign In Screenshot", class:"about_flex-image")%>
+    <%= image_tag("AUK_login.png", alt: "AUK Log In Screenshot", class:"about_flex-image")%>
+    </figure>
+    <p class="about_p">You are now logged into AUK. Welcome!</p>
+  
+  <h3 class="about_h3">Account Set Up</h3>
+    <p class="about_p">The left hand panel displays two sets of credentials: 1) AU Cloud account and 2) Archive-It account. You will also notice that the main collections space is empty. That’s because without connecting AUK to your Archive-It account there are no collections to show. Let’s walk through setting up your account</p>
+    <p class="about_p">Click "enter credentials" in the left hand panel.</p>
+    <%= image_tag("AUK_creds.png", alt: "AUK Account Credentials", class:"body_img")%>
+    <p class="about_p">On the next screen fill out the form to update both sets of credentials.</p>
+    <ul class="about_ul">
+      <li class="about_li"><b>AU Account Information</b> - AUK requires an email so we can let you know what stage of analysis your collection is in. You can use the email address of your choice, and have the ability to modify this at any time. If you have a gravatar.com account, it will also use this email address to populate your user avatar.</li>
+      <li class="about_li"><b>Archive-It Information</b> - In order to work with any web archive collections you must enter your Archive-It account username and password.(need to briefly discuss security - or maybe have a tooltip bubble for this explanation).</li>
+    </ul>
+    <%= image_tag("AUK_accountinfo.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
+    <p class="about_p">Click "update"</p>
+    <p class="about_p">You will be redirected back into the main space. A note at the top of the page will indicate that AUK is syncing with your Archive-It account. The length of time to ingest your WARC collections will depend on the size of your collections and the number of other users syncing their collections. This process could take a few minutes to a few hours. You will receive an email to the email you provided to AUK when the collections are synced.</p>
+    <%= image_tag("AUK_user.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
+    <p class="about_note"><b>Note</b>: You may update/change your AU Cloud or Archive-It credentials at any time by clicking “update.” If you add a new collection in Archive-It or change your Archive-It credentials, you can click “Update” and redo the above steps to re-sync.</p>
 
-	<h3 class="about_h3">Analysis</h3>	
-		<p class="about_p">Click on the name of the collection you would like to analyze. This will bring you into the collection space.</p>
-		<p class="about_p">At the top of the screen, click “Analyze Collection”. You do not need to keep AUK or your browser open for it to analyze the collection. So at this point if you need a coffee, stretch break, or have other things on the go, feel free to step away. AUK will notify you when the process is complete and ready for you to start using the output files.</p>
-			<%= image_tag("AUK_analyze", alt: "Analyze the Collection", class:"body_img")%>
-		<p class="about_note"><b>Note</b>: We operate on a queuing system so the time it takes to analyze the collection will depend on how large the collection is and how many other users are processing collections.</p>
+  <h3 class="about_h3">Collections</h3>
+    <p class="about_p">Once your collections have been synced, you can return to AUK and start analysis. Let’s take a look at the collection information available to us in the main space:</p>
+    <ul class="about_ul">
+      <li class="about_li"><b>Collection Title</b> - The name of each collection is pulled directly from your Archive-It account; each title provides the access point for analysis. </li>
+      <li class="about_li"><b>Public</b> - </li>
+      <li class="about_li"><b>File</b> - Indicates the number of (WARC) files in each collection.</li>
+      <li class="about_li"><b>Size</b> - Indicated the collection's total volume. </li>
+    </ul>
+    <%= image_tag("AUK_mainspace", alt: "Collection Main Space", class:"body_img")%>
 
-	<h3 class="about_h3">Output Files</h3>
-		<p class="about_p">You will receive an email once your collections are ready for analysis. When you navigate to the collection space, by clicking on the collection title, you will find:</p>
-			<ul class="about_ul">
-				<li class="about_li">a Hyperlink Diagram;</li>
-				<li class="about_li">Four output files that can be used for further research and analysis. These include: GEXF and GraphML files which can be loaded into Gephi, a CSV file listing domains, and a full txt file;</li>
-				<li class="about_li">and a frequency table of domains listed in the collection.</li>
-			</ul>
-			<%= image_tag("AUK_output", alt: "Output Files", class:"body_img")%>
+  <h3 class="about_h3">Analysis</h3>
+    <p class="about_p">Click on the name of the collection you would like to analyze. This will bring you into the collection space.</p>
+    <p class="about_p">At the top of the screen, click “Analyze Collection”. You do not need to keep AUK or your browser open for it to analyze the collection. So at this point if you need a coffee, stretch break, or have other things on the go, feel free to step away. AUK will notify you when the process is complete and ready for you to start using the output files.</p>
+    <%= image_tag("AUK_analyze", alt: "Analyze the Collection", class:"body_img")%>
+    <p class="about_note"><b>Note</b>: We operate on a queuing system so the time it takes to analyze the collection will depend on how large the collection is and how many other users are processing collections.</p>
+
+  <h3 class="about_h3">Output Files</h3>
+    <p class="about_p">You will receive an email once your collections are ready for analysis. When you navigate to the collection space, by clicking on the collection title, you will find:</p>
+    <ul class="about_ul">
+      <li class="about_li">a Hyperlink Diagram;</li>
+      <li class="about_li">Four output files that can be used for further research and analysis. These include: GEXF and GraphML files which can be loaded into Gephi, a CSV file listing domains, and a full txt file;</li>
+      <li class="about_li">and a frequency table of domains listed in the collection.</li>
+    </ul>
+    <%= image_tag("AUK_output", alt: "Output Files", class:"body_img")%>
 </div>
+<% end %>
