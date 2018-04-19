@@ -17,7 +17,7 @@ body {
 }
 
 /*
- * About Page Customization
+ * About Page Text Customization
  */
 
 .about_h1 {
@@ -66,6 +66,41 @@ body {
   padding-top: 5px;
   padding-bottom: 10px;
   line-height: 1.4;
+}
+
+.about_note{
+  margin-bottom: 15px;
+  padding: 4px 12px; 
+  background-color: #cce6ff;
+  border-left: 10px solid #404040;
+  margin-left: 25px;
+}
+
+/*
+ *About Page Images in Body Customization
+ */
+ 
+.about_flex-image{
+  box-sizing: border-box;
+  clear: both;
+  display: flex;
+  border-radius: 4px;
+  border-style: 1px solid black;
+  width: 70%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 5px;
+  height: 350px; 
+}
+
+.body_img{
+  border-radius: 4px;
+  border-style: 1px solid black;
+  width: 98%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 25px;
 }
 
 /*
