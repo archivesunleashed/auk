@@ -25,11 +25,11 @@
     <h3 class="about_h3">Login</h3>
     <p class="about_p">Begin at <a href="http://cloud.archivesunleashed.org" target="_blank"> http://cloud.archivesunleashed.org</a>.</p>
     <p class="about_p">You will not need to sign up for an AUK account. Instead, AUK will use either a <a href="https://twitter.com/" target="_blank">Twitter</a> or <a href="https://github.com/" target="_blank">GitHub</a> account to authenticate your login. For those who have multiple Twitter or GitHub accounts, feel free to use whichever suits your research purposes best. AUK only uses these accounts to authenticate who you are, we do not have any additional access to your Twitter or GitHub account!</p>
-    <p class="about_p">The following two screenshots show you how to log in. Click on the logo of the service you want to use to authenticate (the bird for Twitter or the Octocat for GitHub). After you authenticate, you should be brought to the main page.</p>
-    
-      <%= image_tag("AUK_signin.png", alt: "AUK Sign In Screenshot", class:"body_img")%>
-      <%= image_tag("AUK_login.png", alt: "AUK Log In Screenshot", class:"body_img")%>
-    
+    <p class="about_p">The following two screenshots show you how to log in. Click on the logo of the service you want to use to authenticate (the bird for Twitter or the Octocat for GitHub). After you authenticate, you should be brought to the main page.</p> 
+
+    <%= image_tag("AUK_signin.png", alt: "AUK Sign In Screenshot", class:"body_img")%>
+    <%= image_tag("AUK_login.png", alt: "AUK Log In Screenshot", class:"body_img")%>
+
     <p class="about_p">You are now logged into AUK. Welcome!</p>
 
     <h3 class="about_h3">Account Set Up</h3>
@@ -55,13 +55,13 @@
       <li class="about_li"><strong>Files</strong> - Indicates the number of (WARC) files in each collection.</li>
       <li class="about_li"><strong>Size</strong> - Indicates the collection's total file size.</li>
     </ul>
-    <%= image_tag("AUK_mainspace", alt: "Collection Main Space", class:"body_img")%>
+    <%= image_tag("AUK_mainspace.png", alt: "Collection Main Space", class:"body_img")%>
 
     <h3 class="about_h3">Analysis</h3>
     <p class="about_p">Click on the name of the collection you would like to analyze. This will bring you into the collection page.</p>
     <p class="about_p">At the top of the screen, click <strong>Analyze Collection</strong>. You do not need to keep AUK or your browser open for it to analyze the collection. AUK will notify you when the process is complete and ready for you to start using the output files.</p>
     <p class="about_note"><strong>Note</strong>: We operate on a queuing system so the time it takes to analyze the collection will depend on how large the collection is and how many other users are processing collections. This could take anywhere between half an hour to a week or so.</p>
-    <%= image_tag("AUK_analyze", alt: "Analyze the Collection", class:"body_img")%>
+    <%= image_tag("AUK_analyze.png", alt: "Analyze the Collection", class:"body_img")%>
 
     <h3 class="about_h3">Output Files</h3>
     <p class="about_p">You will receive an email once your collections are ready for analysis. When you navigate to the collection space, by clicking on the collection title, (in the screenshot below we've selected the Halifax Explosion collection) you will find:</p>
@@ -76,6 +76,6 @@
       </ul>
       <li class="about_li">Finally, below the download options, you can see a frequency table of the top 10 domains found within the collection.</li>
     </ul>
-    <%= image_tag("AUK_output", alt: "Output Files", class:"body_img")%>
+    <%= image_tag("AUK_output.png", alt: "Output Files", class:"body_img")%>
   </div>
 <% end %>
