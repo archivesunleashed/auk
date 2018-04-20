@@ -19,6 +19,7 @@ function createGraph(data, container) {
         });
       }
     });
+    so.renderers[0].resize();
     so.refresh();
   } else {
     $('#'.concat(container)).append('Cannot find Gexf file');
@@ -34,7 +35,7 @@ function graphRender(container) {
 
 $(document).on('turbolinks:load', function () {
   graphRender("graph");
-  $(document).on('shown.bs.modal', function (e) {
+  $('body').on('shown.bs.modal', function (e) {
       if(typeof $("#graph-modal canvas" === 'undefined')){
       id = $("#graph-modal").data('gexf');
       createGraph(id, "graph-modal");
