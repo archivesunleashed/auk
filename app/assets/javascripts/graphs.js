@@ -89,14 +89,12 @@ $(document).on('turbolinks:load', function () {
   // display sigma when modal is launched.
   $('body').on('shown.bs.modal', function (e) {
     $("div#graph-modal").height($(window).height() * 0.75);
-    if(typeof $("#graph-modal canvas" === 'undefined')){
-      var id = $("#graph-modal").data('gexf');
-      createGraph(id, gm);
-      }
+    var id = $("div#graph-modal").data('gexf');
+    createGraph(id, gm);
   });
 
   //remove sigma on hidden modal
-  $(".modal").on("hidden.bs.modal", function(){
-    $("#graph-modal").html("");
+  $("body").on("hidden.bs.modal", function(){
+    $("div#graph-modal canvas").html("");
 });
 });
