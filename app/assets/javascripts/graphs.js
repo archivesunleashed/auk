@@ -21,7 +21,7 @@ function createGraph(data, instance) {
     instance.renderers[0].resize();
     instance.refresh();
   } else {
-    $('#graph'.append('Cannot find Gexf file');
+    $('#graph').append('Cannot find Gexf file');
   }
 }
 
@@ -46,8 +46,10 @@ $(document).on('turbolinks:load', function () {
   })
 
   $("#zoom-up").on('click', function (clicked) {
-
-  })
+    if (clicked.target.parentElement === "div#graph") {
+      console.log(clicked.target.parentElement);
+    }
+  });
 
   // display sigma when modal is launched.
   $('body').on('shown.bs.modal', function (e) {
