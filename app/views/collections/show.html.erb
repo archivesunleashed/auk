@@ -10,8 +10,8 @@
 </div>
 <!-- Modal body -->
 <div id="graph-modal-body" class="modal-body">
-  <button type="button" id="modal-zoom-in" class="zoom-in"> zoom+ </button>
-  <button type="button" id="modal-zoom-out" class="zoom-out"> zoom- </button>
+  <button type="button" id="modal-zoom-in" class="zoom-in"><span class="glyphicon glyphicon-plus"></span></button>
+  <button type="button" id="modal-zoom-out" class="zoom-out"><span class="glyphicon glyphicon-minus"></span></button>
   <button id="default" type="button" id="modal-default" class="default"> default </button>
   <div id="graph-modal"></div>
 </div>
@@ -31,9 +31,9 @@
       <% cache do %>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
-        <button type="button" id="modal-click" href="" data-toggle="modal" data-target="#myModal">fs</button>
-        <button type="button" id="zoom-in" class="zoom-in"> zoom+ </button>
-        <button type="button" id="zoom-out" class="zoom-out"> zoom- </button>
+        <button type="button" id="modal-click" href="" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-fullscreen"></span></button>
+        <button type="button" id="zoom-in" class="zoom-in"> <span class="glyphicon glyphicon-plus"></span></button>
+        <button type="button" id="zoom-out" class="zoom-out"> <span class="glyphicon glyphicon-minus"></span> </button>
         <button type="button" id="default"> default </button>
         <div id="graph"></div>
 

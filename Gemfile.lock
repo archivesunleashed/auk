@@ -60,6 +60,9 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
+    bootstrap-glyphicons (0.0.1)
+      railties (>= 3.0)
+      sass (>= 3.2)
     builder (3.2.3)
     byebug (9.1.0)
     capybara (2.15.4)
@@ -297,6 +300,7 @@ DEPENDENCIES
   attr_encrypted
   bcrypt (~> 3.1.7)
   bootstrap (~> 4.0.0)
+  bootstrap-glyphicons
   bootstrap_form!
   byebug
   capybara (~> 2.13)

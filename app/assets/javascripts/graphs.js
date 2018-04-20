@@ -71,7 +71,7 @@ $(document).on('turbolinks:load', function () {
   })
 
   $(".zoom-in").on('click', function (clicked) {
-    if (clicked.target.id === "modal-zoom-in") {
+    if (clicked.target.parentNode.id === "modal-zoom-in") {
       zoomIn(gm);
     } else {
       zoomIn(so);
@@ -79,7 +79,7 @@ $(document).on('turbolinks:load', function () {
   });
 
   $(".zoom-out").on('click', function (clicked) {
-    if (clicked.target.id === "modal-zoom-out") {
+    if (clicked.target.parentNode.id === "modal-zoom-out") {
       zoomOut(gm);
     } else {
       zoomOut(so);
