@@ -37,6 +37,9 @@
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
         <a id="modal-click" href="" data-toggle="modal" data-target="#myModal">fs</a>
+        <a id="zoom-up" href=""> zoom+ </a>
+        <a id="zoom-down" href=""> zoom- </a>
+        <a id="default" href=""> default </a>
         <%= link_to "", 'data-toggle' => 'modal', 'data-target' => '#myModal' %>
         <div id="graph"></div>
         <%= javascript_tag do %>

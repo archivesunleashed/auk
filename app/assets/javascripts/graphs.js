@@ -1,5 +1,9 @@
 function createGraph(data, container) {
-  var so = new sigma(container); // eslint-disable-line new-cap
+  var so = new sigma({renderers: [
+    {
+      container: document.getElementById(container),
+      type: 'canvas' // sigma.renderers.canvas works as well
+    }]}); // eslint-disable-line new-cap
   if (data !== '') {
     data = $.parseXML(data); // eslint-disable-line no-param-reassign
     sigma.parsers.gexf(data, so, function (y) { // eslint-disable-line no-unused-vars
@@ -35,8 +39,13 @@ function graphRender(container) {
 
 $(document).on('turbolinks:load', function () {
   graphRender("graph");
+  $(window).on('resize', function () {
+    $("div#graph-modal").height($(window).height() * 0.75);
+  })
+
   $('body').on('shown.bs.modal', function (e) {
-      if(typeof $("#graph-modal canvas" === 'undefined')){
+    if(typeof $("#graph-modal canvas" === 'undefined')){
+
       id = $("#graph-modal").data('gexf');
       createGraph(id, "graph-modal");
       }
