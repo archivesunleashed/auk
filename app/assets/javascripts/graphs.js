@@ -41,4 +41,7 @@ $(document).on('turbolinks:load', function () {
       createGraph(id, "graph-modal");
       }
   });
+  $(".modal").on("hidden.bs.modal", function(){
+    $("#graph-modal").html("");
+});
 });
