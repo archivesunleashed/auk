@@ -6,7 +6,7 @@
 
     <h3 class=about_h3>Introduction</h3>
     <p class="about_p">The Archives Unleashed Cloud, referred to as AUK, is an open-source cloud-based analysis tool that helps researchers and scholars conduct web archive analysis.</p>
-    <p class="about_p">AUK is a component of the <a href="http://archivesunleashed.org" target="_blank">Archives Unleashed Project</a>, which aims to allow researchers, scholars, librarians and archivists the ability to access and investigate their web archival collections. As accessibility is a main priority of the project, AUK supports this goal by providing a web-based front end for users to access the <a href="http://archivesunleashed.org/aut/" target="_blank">Archives Unleashed Toolkit</a>.</p>
+    <p class="about_p">AUK is a component of the <a href="http://archivesunleashed.org" target="_blank">Archives Unleashed Project</a>, which empowers researchers, scholars, librarians and archivists to access and explore their web archival collections. As accessibility is a main priority of the project, AUK supports this goal by providing a web-based front end for users to access the <a href="http://archivesunleashed.org/aut/" target="_blank">Archives Unleashed Toolkit</a>.</p>
     <p class="about_p"> For more information on the AUK platform, as well as the basics of web archiving and the WARC file format, check out our <a href="http://cloud.archivesunleashed.org/about" target="_blank">about</a> page.</p>
 
     <h3 class=about_h3>Audience and Application</h3>
@@ -26,15 +26,15 @@
     <p class="about_p">Begin at <a href="http://cloud.archivesunleashed.org" target="_blank"> http://cloud.archivesunleashed.org</a>.</p>
     <p class="about_p">You will not need to sign up for an AUK account. Instead, AUK will use either a <a href="https://twitter.com/" target="_blank">Twitter</a> or <a href="https://github.com/" target="_blank">GitHub</a> account to authenticate your login. For those who have multiple Twitter or GitHub accounts, feel free to use whichever suits your research purposes best. AUK only uses these accounts to authenticate who you are, we do not have any additional access to your Twitter or GitHub account!</p>
     <p class="about_p">The following two screenshots show you how to log in. Click on the logo of the service you want to use to authenticate (the bird for Twitter or the Octocat for GitHub). After you authenticate, you should be brought to the main page.</p>
-    <figure class="about_flex-image">
-      <%= image_tag("AUK_signin.png", alt: "AUK Sign In Screenshot", class:"about_flex-image")%>
-      <%= image_tag("AUK_login.png", alt: "AUK Log In Screenshot", class:"about_flex-image")%>
-    </figure>
+    
+      <%= image_tag("AUK_signin.png", alt: "AUK Sign In Screenshot", class:"body_img")%>
+      <%= image_tag("AUK_login.png", alt: "AUK Log In Screenshot", class:"body_img")%>
+    
     <p class="about_p">You are now logged into AUK. Welcome!</p>
 
     <h3 class="about_h3">Account Set Up</h3>
     <p class="about_p">The left hand panel displays two sets of credentials: 1) AU Cloud account and 2) Archive-It account. You will also notice that the main collections space at right is empty. That's because before you have connected AUK to your Archive-It account, there are no collections to show. Let's walk through setting up your account.</p>
-    <p class="about_p">Click on "Enter Credentials" in the left hand panel (highlighted in the screenshot below).</p>
+    <p class="about_p">Click <strong>Enter Credentials</strong> in the left hand panel (highlighted in the screenshot below).</p>
     <%= image_tag("AUK_creds.png", alt: "AUK Account Credentials", class:"body_img")%>
     <p class="about_p">On the next screen, fill out the form to update both sets of credentials.</p>
     <ul class="about_ul">
@@ -42,10 +42,10 @@
       <li class="about_li"><strong>Archive-It Information</strong>: In order to work with web archive collections, you must enter your Archive-It account username and password. Your Archive-It credentials are encrypted and salted.</li>
     </ul>
     <%= image_tag("AUK_accountinfo.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
-    <p class="about_p">Click "Update"</p>
-    <p class="about_p">You will be redirected back into the main space. A note at the top of the page will indicate that AUK is syncing with your Archive-It account. The length of time to ingest your WARC collections will depend on the size of your collections and the number of other users syncing their collections. This process could take a few minutes to a few hours. You will receive an email to the email you provided to AUK when the collections are synced.</p>
+    <p class="about_p">Click <strong>Update</strong></p>
+    <p class="about_p">You will be redirected back into the main space. A note at the top of the page will indicate that AUK is syncing with your Archive-It account. The length of time to ingest your WARC collections will depend on the size of your collections and the number of other users syncing their collections. This process could take a few minutes to a few hours. You will receive an email, to the address you provided for your AU Cloud account, when the collections are synced.</p>
     <%= image_tag("AUK_user.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
-    <p class="about_note"><strong>Note</strong>: You may update/change your AU Cloud or Archive-It credentials at any time by clicking "Update." If you add a new collection in Archive-It or change your Archive-It credentials, you can click "Update" and redo the above steps to re-sync.</p>
+    <p class="about_note"><strong>Note</strong>: You may update/change your AU Cloud or Archive-It credentials at any time by clicking <strong>Update</strong>. If you add a new collection in Archive-It or change your Archive-It credentials, you can click <strong>Update</strong> and redo the above steps to re-sync.</p>
 
     <h3 class="about_h3">Collections</h3>
     <p class="about_p">Once your collections have been synced, you can return to the main collections screen and start analysis. Let's take a look at the collection information available to us in the main space:</p>
@@ -59,20 +59,20 @@
 
     <h3 class="about_h3">Analysis</h3>
     <p class="about_p">Click on the name of the collection you would like to analyze. This will bring you into the collection page.</p>
-    <p class="about_p">At the top of the screen, click "Analyze Collection." You do not need to keep AUK or your browser open for it to analyze the collection. AUK will notify you when the process is complete and ready for you to start using the output files.</p>
+    <p class="about_p">At the top of the screen, click <strong>Analyze Collection</strong>. You do not need to keep AUK or your browser open for it to analyze the collection. AUK will notify you when the process is complete and ready for you to start using the output files.</p>
     <p class="about_note"><strong>Note</strong>: We operate on a queuing system so the time it takes to analyze the collection will depend on how large the collection is and how many other users are processing collections. This could take anywhere between half an hour to a week or so.</p>
     <%= image_tag("AUK_analyze", alt: "Analyze the Collection", class:"body_img")%>
 
     <h3 class="about_h3">Output Files</h3>
-    <p class="about_p">You will receive an email once your collections are ready for analysis. When you navigate to the collection space, by clicking on the collection title, you will find:</p>
+    <p class="about_p">You will receive an email once your collections are ready for analysis. When you navigate to the collection space, by clicking on the collection title, (in the screenshot below we've selected the Halifax Explosion collection) you will find:</p>
     <ul class="about_ul">
       <li class="about_li">An interactive hyperlink diagram: you can use this to explore the basic hyperlink structure of your collection.</li>
       <li class="about_li">Four output files that can be downloaded for further research and analysis. These include:</li>
       <ul class="about_ul">
-        <li class="about_li">A <u>"Gephi"</u> file. This can be loaded into <a href="https://gephi.org/" target="_blank">Gephi</a>. It will have basic characteristics already computed and a basic layout.</li>
-        <li class="about_li">A <u>"Raw Network"</u> file. This can also be loaded into <a href="https://gephi.org/" target="_blank">Gephi</a>. You will have to use that network program to lay it out yourself.</li>
-        <li class="about_li">A <u>"Domains"</u> file. This will be a CSV file containing the frequency of domains found within your web archive.</li>
-        <li class="about_li">A <u>"Full Text</u> file. This will be a large text file containing the extracted plain text of all the HTML files found within a collection. You might want to try loading it into a visualization platform like <a href="http://voyant-tools.org/" target="_blank">Voyant Tools</a> to see patterns and trends within your web archive.
+        <li class="about_li"><strong>Gephi</strong> file, which can be loaded into <a href="https://gephi.org/" target="_blank">Gephi</a>. It will have basic characteristics already computed and a basic layout.</li>
+        <li class="about_li"><strong>Raw Network</strong> file, which can also be loaded into <a href="https://gephi.org/" target="_blank">Gephi</a>. You will have to use that network program to lay it out yourself.</li>
+        <li class="about_li"><strong>Domains</strong> file will be a CSV file containing the frequency of domains found within your web archive.</li>
+        <li class="about_li"><strong>Full Text</strong> file will be a large text file containing the extracted plain text of all the HTML files found within a collection. You might want to try loading it into a visualization platform like <a href="http://voyant-tools.org/" target="_blank">Voyant Tools</a> to see patterns and trends within your web archive.
       </ul>
       <li class="about_li">Finally, below the download options, you can see a frequency table of the top 10 domains found within the collection.</li>
     </ul>
