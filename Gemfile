@@ -62,7 +62,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 ## AUK
 gem 'attr_encrypted'
 gem 'bootstrap', '~> 4.0.0'
-gem 'bootstrap-glyphicons'
 gem 'bootstrap_form',
     git: 'https://github.com/bootstrap-ruby/bootstrap_form.git',
     branch: 'master'
