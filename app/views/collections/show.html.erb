@@ -26,7 +26,6 @@
     <main class="col-sm-9 col-md-10">
     <h1><%= @collection.title %></h1>
       <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
-      <% cache do %>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
         <button type="button" id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen"><span class="glyphicon glyphicon-resize-full"></span></button>
@@ -66,7 +65,6 @@
             </tbody>
           </table>
         </div>
-      <% end %>
       <% end %>
     </main>
   </div>
