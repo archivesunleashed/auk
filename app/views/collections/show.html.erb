@@ -1,6 +1,6 @@
 <div id="graph-full-screen"></div>
 <% provide(:title, @collection.title) %>
-<div class="modal fade" id="myModal">
+<div class="modal fade" id="sigma-fullscreen">
 <div id="graph-modal-container" class="modal-dialog modal-dialog-centered">
 <div class="modal-content">
 <!-- Modal Header -->
@@ -17,9 +17,6 @@
   <div id="graph-modal"></div>
 </div>
 <!-- Modal footer -->
-<div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</div>
 </div>
 </div>
 </div>
@@ -32,7 +29,7 @@
       <% cache do %>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
-        <button type="button" id="modal-click" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-resize-full"></span></button>
+        <button type="button" id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen"><span class="glyphicon glyphicon-resize-full"></span></button>
         <button type="button" id="zoom-in" class="zoom-in"> <span class="glyphicon glyphicon-zoom-in"></span></button>
         <button type="button" id="zoom-out" class="zoom-out"> <span class="glyphicon glyphicon-zoom-out"></span> </button>
         <button type="button" id="default" class="default"> <span class="glyphicon glyphicon-refresh"></span> </button>

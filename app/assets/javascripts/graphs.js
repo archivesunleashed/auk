@@ -26,8 +26,8 @@ function createGraph(data, instance) {
 }
 
 function graphRender(instance) {
-  if (typeof $("#graph-modal").data('gexf') !== 'undefined') {
-    var gexfFileData = $("#graph-modal").data('gexf') // eslint-disable-line vars-on-top
+  if (typeof $('#graph-modal').data('gexf') !== 'undefined') {
+    var gexfFileData = $('#graph-modal').data('gexf'); // eslint-disable-line vars-on-top
     createGraph(gexfFileData, instance);
   }
 }
@@ -35,8 +35,8 @@ function graphRender(instance) {
 function zoomIn(instance) {
   var camera = instance.camera;
   sigma.misc.animation.camera(camera, {
-  ratio: camera.ratio / camera.settings('zoomingRatio')
-    }, {
+    ratio: camera.ratio / camera.settings('zoomingRatio')
+  }, {
     duration: 200
   });
 }
@@ -63,58 +63,58 @@ function refresh(instance) {
 }
 
 $(document).on('turbolinks:load', function () {
-  var so = new sigma({renderers: [
+  var so = new sigma({ renderers: [ // eslint-disable-line new-cap
     {
-      container: document.getElementById("graph"),
+      container: document.getElementById('graph'),
       type: 'canvas' // sigma.renderers.canvas works as well
-    }]}); // eslint-disable-line new-cap
-  var gm = new sigma({renderers: [
+    }]
+  });
+  var gm = new sigma({ renderers: [ // eslint-disable-line new-cap
     {
-      container: document.getElementById("graph-modal"),
-      type: "canvas"
-    }
-  ]});
+      container: document.getElementById('graph-modal'),
+      type: 'canvas'
+    }]
+  });
   graphRender(so);
 
   // resize graph-modal if the window changes
   $(window).on('resize', function () {
-    $("div#graph-modal").height($(window).height() * 0.75);
-  })
+    $('div#graph-modal').height($(window).height() * 0.85);
+  });
 
-  $(".zoom-in").on('click', function (clicked) {
-    if (clicked.target.id === "modal-zoom-in" || clicked.target.parentNode.id === "modal-zoom-in") {
+  $('.zoom-in').on('click', function (clicked) {
+    if (clicked.target.id === 'modal-zoom-in' || clicked.target.parentNode.id === 'modal-zoom-in') {
       zoomIn(gm);
     } else {
       zoomIn(so);
     }
   });
 
-  $(".zoom-out").on('click', function (clicked) {
-    if (clicked.target.id === "modal-zoom-out" || clicked.target.parentNode.id === "modal-zoom-out") {
+  $('.zoom-out').on('click', function (clicked) {
+    if (clicked.target.id === 'modal-zoom-out' || clicked.target.parentNode.id === 'modal-zoom-out') {
       zoomOut(gm);
     } else {
       zoomOut(so);
     }
   });
 
-  $(".default").on('click', function(clicked) {
-    if (clicked.target.id === "modal-default" || clicked.target.parentNode.id === "modal-default") {
+  $('.default').on('click', function (clicked) {
+    if (clicked.target.id === 'modal-default' || clicked.target.parentNode.id === 'modal-default') {
       refresh(gm);
     } else {
-      console.log("default");
       refresh(so);
     }
   });
 
   // display sigma when modal is launched.
-  $('body').on('shown.bs.modal', function (e) {
-    $("div#graph-modal").height($(window).height() * 0.75);
-    var id = $("div#graph-modal").data('gexf');
+  $('body').on('shown.bs.modal', function () {
+    var id = $('div#graph-modal').data('gexf');
+    $('div#graph-modal').height($(window).height() * 0.85);
     createGraph(id, gm);
   });
 
-  //remove sigma on hidden modal
-  $("body").on("hidden.bs.modal", function(){
-    $("div#graph-modal canvas").html("");
-});
+  // remove sigma on hidden modal.
+  $('body').on('hidden.bs.modal', function () {
+    $('div#graph-modal canvas').html('');
+  });
 });
