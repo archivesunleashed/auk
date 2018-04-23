@@ -51,6 +51,17 @@ function zoomOut(instance) {
   });
 }
 
+function refresh(instance) {
+  var camera = instance.camera;
+  sigma.misc.animation.camera(camera, {
+    ratio: 1,
+    x: 0,
+    y: 0
+  }, {
+    duration: 200
+  });
+}
+
 $(document).on('turbolinks:load', function () {
   var so = new sigma({renderers: [
     {
@@ -71,7 +82,7 @@ $(document).on('turbolinks:load', function () {
   })
 
   $(".zoom-in").on('click', function (clicked) {
-    if (clicked.target.parentNode.id === "modal-zoom-in") {
+    if (clicked.target.id === "modal-zoom-in" || clicked.target.parentNode.id === "modal-zoom-in") {
       zoomIn(gm);
     } else {
       zoomIn(so);
@@ -79,10 +90,19 @@ $(document).on('turbolinks:load', function () {
   });
 
   $(".zoom-out").on('click', function (clicked) {
-    if (clicked.target.parentNode.id === "modal-zoom-out") {
+    if (clicked.target.id === "modal-zoom-out" || clicked.target.parentNode.id === "modal-zoom-out") {
       zoomOut(gm);
     } else {
       zoomOut(so);
+    }
+  });
+
+  $(".default").on('click', function(clicked) {
+    if (clicked.target.id === "modal-default" || clicked.target.parentNode.id === "modal-default") {
+      refresh(gm);
+    } else {
+      console.log("default");
+      refresh(so);
     }
   });
 
