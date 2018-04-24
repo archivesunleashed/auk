@@ -62,7 +62,7 @@ function refresh(instance) {
   });
 }
 
-function go_full_screen(){
+function goFullScreen() {
   var elem = document.documentElement;
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
@@ -75,7 +75,7 @@ function go_full_screen(){
   }
 }
 
-function leave_full_screen() {
+function leaveFullScreen() {
   if (document.exitFullscreen) {
     document.exitFullscreen();
   } else if (document.webkitExitFullscreen) {
@@ -132,12 +132,12 @@ $(document).on('turbolinks:load', function () {
   });
 
   $('button#modal-click').on('click', function () {
-    setTimeout(go_full_screen(), 2000);
-  })
+    goFullScreen();
+  });
 
   $('button#modal-exit-fullscreen').on('click', function () {
-    leave_full_screen();
-  })
+    leaveFullScreen();
+  });
 
   // display sigma when modal is launched.
   $('body').on('shown.bs.modal', function () {
