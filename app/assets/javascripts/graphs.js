@@ -63,16 +63,16 @@ function refresh(instance) {
 }
 
 function go_full_screen(){
-    var elem = document.documentElement;
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-      elem.msRequestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-      elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
-      elem.webkitRequestFullscreen();
-    }
+  var elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+  } else if (elem.mozRequestFullScreen) {
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+  }
 }
 
 function leave_full_screen() {
@@ -132,7 +132,7 @@ $(document).on('turbolinks:load', function () {
   });
 
   $('button#modal-click').on('click', function () {
-    go_full_screen();
+    setTimeout(go_full_screen(), 2000);
   })
 
   $('button#modal-exit-fullscreen').on('click', function () {
