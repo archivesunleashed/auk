@@ -1,4 +1,33 @@
+<div id="graph-full-screen"></div>
 <% provide(:title, @collection.title) %>
+
+<!-- Fullscreen Modal -->
+<div class="modal fade" id="sigma-fullscreen">
+  <div id="graph-modal-container" class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4><%= @collection.title %> Hyperlink Diagram</h4>
+      </div>
+      <div id="graph-modal-body" class="modal-body">
+        <div id="graph-modal-wrapper">
+          <button type="button" id="modal-exit-fullscreen" data-dismiss="modal">
+            <span class="fa fa-compress"></span>
+          </button>
+          <button type="button" id="modal-zoom-in" class="zoom-in">
+            <span class="fa fa-search-plus"></span>
+          </button>
+          <button type="button" id="modal-zoom-out" class="zoom-out">
+            <span class="fa fa-search-minus"></span>
+          </button>
+          <button type="button" id="modal-default" class="default">
+            <span class="fa fa-refresh"></span>
+          </button>
+          <div id="graph-modal"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container-fluid">
   <div class="row">
     <%= render "layouts/sidebar" %>
@@ -7,9 +36,23 @@
       <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
-        <div id="graph"></div>
+        <div id="graph-wrapper">
+          <button type="button" id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen">
+            <span class="fa fa-expand"></span>
+          </button>
+          <button type="button" id="zoom-in" class="zoom-in">
+            <span class="fa fa-search-plus"></span>
+          </button>
+          <button type="button" id="zoom-out" class="zoom-out">
+            <span class="fa fa-search-minus"></span>
+          </button>
+          <button type="button" id="default" class="default">
+            <span class="fa fa-refresh"></span>
+          </button>
+          <div id="graph"></div>
+        </div>
         <%= javascript_tag do %>
-          $("#graph").data("gexf", `<%= display_gexf(@user.id, @collection.id, @collection.account) %>`);
+          $("#graph-modal").data("gexf", `<%= display_gexf(@user.id, @collection.id, @collection.account) %>`);
         <% end %>
         <h2>Download Collection Derivatives</h2>
           <div class="text-center">
