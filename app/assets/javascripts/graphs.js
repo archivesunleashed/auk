@@ -79,7 +79,7 @@ $(document).on('turbolinks:load', function () {
 
   // resize graph-modal if the window changes
   $(window).on('resize', function () {
-    $('div#graph-modal').height($(window).height() * 0.85);
+    $('div#graph-modal').height($(window).height() * 0.83);
   });
 
   $('.zoom-in').on('click', function (clicked) {

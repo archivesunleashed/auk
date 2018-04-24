@@ -10,11 +10,13 @@
 </div>
 <!-- Modal body -->
 <div id="graph-modal-body" class="modal-body">
-  <button type="button" data-dismiss="modal"><span class="fa fa-compress"></span></button>
-  <button type="button" id="modal-zoom-in" class="zoom-in"><span class="fa fa-search-plus"></span></button>
-  <button type="button" id="modal-zoom-out" class="zoom-out"><span class="fa fa-search-minus"></span></button>
-  <button type="button" id="modal-default" class="default"><span class="fa fa-refresh"></span> </button>
-  <div id="graph-modal"></div>
+  <div id="graph-modal-wrapper">
+    <button type="button" data-dismiss="modal"><span class="fa fa-compress"></span></button>
+    <button type="button" id="modal-zoom-in" class="zoom-in"><span class="fa fa-search-plus"></span></button>
+    <button type="button" id="modal-zoom-out" class="zoom-out"><span class="fa fa-search-minus"></span></button>
+    <button type="button" id="modal-default" class="default"><span class="fa fa-refresh"></span> </button>
+    <div id="graph-modal"></div>
+  </div>
 </div>
 <!-- Modal footer -->
 </div>
@@ -28,11 +30,13 @@
       <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
-        <button type="button" id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen"><span class="fa fa-expand"></span></button>
-        <button type="button" id="zoom-in" class="zoom-in"> <span class="fa fa-search-plus"></span></button>
-        <button type="button" id="zoom-out" class="zoom-out"> <span class="fa fa-search-minus"></span> </button>
-        <button type="button" id="default" class="default"> <span class="fa fa-refresh"></span> </button>
-        <div id="graph"></div>
+        <div id="graph-wrapper">
+          <button type="button" id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen"><span class="fa fa-expand"></span></button>
+          <button type="button" id="zoom-in" class="zoom-in"> <span class="fa fa-search-plus"></span></button>
+          <button type="button" id="zoom-out" class="zoom-out"> <span class="fa fa-search-minus"></span> </button>
+          <button type="button" id="default" class="default"> <span class="fa fa-refresh"></span> </button>
+          <div id="graph"></div>
+        </div>
 
         <%= javascript_tag do %>
           $("#graph-modal").data("gexf", `<%= display_gexf(@user.id, @collection.id, @collection.account) %>`);
