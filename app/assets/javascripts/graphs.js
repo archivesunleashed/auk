@@ -62,6 +62,31 @@ function refresh(instance) {
   });
 }
 
+function go_full_screen(){
+    var elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    }
+}
+
+function leave_full_screen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
+
 $(document).on('turbolinks:load', function () {
   var so = new sigma({ renderers: [ // eslint-disable-line new-cap
     {
@@ -106,10 +131,17 @@ $(document).on('turbolinks:load', function () {
     }
   });
 
+  $('button#modal-click').on('click', function () {
+    go_full_screen();
+  })
+
+  $('button#modal-exit-fullscreen').on('click', function () {
+    leave_full_screen();
+  })
+
   // display sigma when modal is launched.
   $('body').on('shown.bs.modal', function () {
     var id = $('div#graph-modal').data('gexf');
-    $('div#graph-modal').height($(window).height() * 0.85);
     createGraph(id, gm);
   });
 

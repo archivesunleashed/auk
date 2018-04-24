@@ -7,11 +7,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <h4><%= @collection.title %> Hyperlink Diagram</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div id="graph-modal-body" class="modal-body">
         <div id="graph-modal-wrapper">
-          <button type="button" data-dismiss="modal">
+          <button type="button" id="modal-exit-fullscreen" data-dismiss="modal">
             <span class="fa fa-compress"></span>
           </button>
           <button type="button" id="modal-zoom-in" class="zoom-in">
