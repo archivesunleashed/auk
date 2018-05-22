@@ -7,6 +7,8 @@ class CollectionsGraphpassJob < ApplicationJob
   after_perform do |job|
     UserMailer.notify_collection_analyzed(job.arguments.first,
                                           job.arguments.second).deliver_now
+    WarcsCleanupJob.set(wait: 30.days).perform_later(job.arguments.first,
+                                                        job.arguments.second)
   end
 
   def perform(user_id, collection_id)
