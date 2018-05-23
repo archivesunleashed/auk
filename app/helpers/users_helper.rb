@@ -5,12 +5,12 @@ module UsersHelper
   def gravatar_url(email, size)
     if email.present?
       gravatar = Digest::MD5.hexdigest(email).downcase
-      "http://gravatar.com/avatar/#{gravatar}.png?s=#{size}"
+      "https://gravatar.com/avatar/#{gravatar}.png?s=#{size}"
     elsif email.nil?
       email = 'noreply@archivesunleashed.org'
       gravatar = Digest::MD5.hexdigest(email).downcase
       default_url = 'https://user-images.githubusercontent.com/218561/35773409-62e82b86-091f-11e8-8dec-188fc80c846b.jpg'
-      "http://gravatar.com/avatar/#{gravatar}.png?s=#{size}&d=#{CGI.escape(default_url)}"
+      "https://gravatar.com/avatar/#{gravatar}.png?s=#{size}&d=#{CGI.escape(default_url)}"
     end
   end
 end
