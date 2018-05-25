@@ -1,14 +1,4 @@
 <%= bootstrap_form_for(user) do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="container">
     <div class="card border-light">
       <div class="card-header">
@@ -16,15 +6,15 @@
       </div>
       <div class="card-body">
         <div class="form-group">
-          <%= f.text_field :email, label: false, placeholder: 'sample@archivesunleashed.org', class: 'form-control', required: true %>
+          <%= f.email_field :email, label: false, placeholder: 'sample@archivesunleashed.org', class: 'form-control', required: true %>
           <small class="form-text text-muted">
             This e-mail will be used for notifications. It also connects to your <a href="https://en.gravatar.com/" target="_blank">Gravatar account.</a>
           </small>
         </div>
         <div class="form-group">
-          <%= f.text_field :auk_name, label: 'Name', placeholder: 'Bill Reid', class: 'form-control', required: true %>
+          <%= f.text_field :auk_name, label: 'Name', placeholder: 'Firstname Lastname', class: 'form-control', required: true %>
           <small class="form-text text-muted">
-            How'd you'd like us to refer to you?
+            How would you like us to refer to you?
           </small>
         </div>
         <div class="form-group">
@@ -34,7 +24,7 @@
           </small>
         </div>
         <div class="form-group">
-          <%= f.check_box :terms, label: "I'm cool with Archives Unleashed sending emails to me about things that happen on this site that I do, and maybe sometimes for other things.", required: true %>
+          <%= f.check_box :terms, label: "I consent to the Archives Unleashed team sending occasional emails to me about things that are happening on this site and with my collections, as well as for other matters such as user feedback.", required: true %>
         </div>
       </div>
     </div>

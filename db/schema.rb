@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20180524234015) do
     t.string "encrypted_wasapi_username_iv"
     t.string "encrypted_wasapi_password_iv"
     t.string "auk_name"
+    t.boolean "terms"
     t.index ["uid", "email"], name: "index_users_on_uid_and_email"
   end
 

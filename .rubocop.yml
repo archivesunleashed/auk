@@ -77,6 +77,7 @@ Style/GuardClause:
     - app/jobs/collections_cat_job.rb
     - app/jobs/collections_spark_job.rb
     - app/jobs/wasapi_files_populate_job.rb
+    - app/models/concerns/ai_wasapi_validator.rb
 
 Style/IfUnlessModifier:
   Exclude:
