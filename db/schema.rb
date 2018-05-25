@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326161831) do
+ActiveRecord::Schema.define(version: 20180524234015) do
 
   create_table "collections", id: false, force: :cascade do |t|
     t.integer "collection_id", null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20180326161831) do
     t.string "encrypted_wasapi_password"
     t.string "encrypted_wasapi_username_iv"
     t.string "encrypted_wasapi_password_iv"
+    t.string "auk_name"
     t.index ["uid", "email"], name: "index_users_on_uid_and_email"
   end
 

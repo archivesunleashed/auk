@@ -8,7 +8,11 @@
   <%= link_to image_tag('logo.png', alt: 'Archives Unleashed Logo', class: 'align-middle', style: 'padding-right: 10px;') + "Archives Unleashed Cloud", root_path, class: 'navbar-brand align-middle', style: 'color: white; font-size: xx-large;' %>
   <span class="navbar-right align-middle">
     <% if current_user %>
-      <%= link_to current_user.name, current_user, style: 'color: white; font-size: x-large; padding-right: 5px;', class: 'align-middle' %>
+      <% if current_user.auk_name.nil? %>
+        <%= link_to current_user.name, current_user, style: 'color: white; font-size: x-large; padding-right: 5px;', class: 'align-middle' %>
+      <% else %>
+        <%= link_to current_user.auk_name, current_user, style: 'color: white; font-size: x-large; padding-right: 5px;', class: 'align-middle' %>
+      <% end %>
       <%= link_to '<i class="fa fa-sign-out fa-2x align-middle" style="color: white;"></i>'.html_safe, logout_path, method: :delete, title: 'Logout' %>
     <% else %>
       <span style="font-size: large; color: white; padding-right: 5px;">Sign in with: </span>

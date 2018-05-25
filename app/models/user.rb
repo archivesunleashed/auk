@@ -23,6 +23,9 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :token, presence: true
 
+  # Validates terms of service.
+  validates_acceptance_of :terms
+
   # Setup Archive-It credential encryption.
   attr_encrypted :wasapi_username, key: ENV['WASAPI_KEY']
   attr_encrypted :wasapi_password, key: ENV['WASAPI_KEY']
