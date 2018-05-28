@@ -2,6 +2,7 @@
 
 # User model methods.
 class User < ApplicationRecord
+  require 'uri'
   has_many :wasapi_files
   has_many :collections
   def self.find_or_create_from_auth_hash(auth_hash)
@@ -25,6 +26,14 @@ class User < ApplicationRecord
 
   # Validates AI WASAPI credentials
   validates_with AiWasapiValidator, on: :update
+
+  # Validates email address
+  validates :email,
+            presence: true,
+            length: { maximum: 255 },
+            format: { with: URI::MailTo::EMAIL_REGEXP,
+                      message: 'Please provide a valid email address.' },
+            on: :update
 
   # Setup Archive-It credential encryption.
   attr_encrypted :wasapi_username, key: ENV['WASAPI_KEY']
