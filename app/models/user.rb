@@ -35,6 +35,17 @@ class User < ApplicationRecord
                       message: 'Please provide a valid email address.' },
             on: :update
 
+  # Validate additional AUK user fields
+  validates :institution,
+            presence: true,
+            length: { maximum: 50 },
+            on: :update
+
+  validates :auk_name,
+            presence: true,
+            length: { maximum: 75 },
+            on: :update
+
   # Setup Archive-It credential encryption.
   attr_encrypted :wasapi_username, key: ENV['WASAPI_KEY']
   attr_encrypted :wasapi_password, key: ENV['WASAPI_KEY']

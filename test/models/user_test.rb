@@ -58,4 +58,14 @@ class UserTest < ActiveSupport::TestCase
                  '#{invalid_address.inspect} should be invalid'
     end
   end
+
+  test 'name should not be too long' do
+    @user_one.auk_name = @user_one.name * 51
+    assert_not @user_one.valid?
+  end
+
+  test 'institution should not be too long' do
+    @user_two.institution = @user_two.institution * 76
+    assert_not @user_two.valid?
+  end
 end
