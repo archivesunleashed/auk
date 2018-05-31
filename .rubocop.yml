@@ -31,10 +31,15 @@ Metrics/BlockLength:
     - config/environments/production.rb
     - config/environments/test.rb
 
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - app/helpers/wasapi_files_helper.rb
+
 Metrics/MethodLength:
   Exclude:
     - app/controllers/collections_controller.rb
     - app/helpers/collections_helper.rb
+    - app/helpers/wasapi_files_helper.rb
     - app/jobs/collections_cat_job.rb
     - app/jobs/collections_graphpass_job.rb
     - app/jobs/collections_spark_job.rb
@@ -50,6 +55,10 @@ Metrics/LineLength:
     - app/jobs/warcs_cleanup_job.rb
     - app/jobs/wasapi_files_populate_job.rb
     - test/helpers/users_helper_test.rb
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - app/helpers/wasapi_files_helper.rb
 
 Rails:
   Enabled: true

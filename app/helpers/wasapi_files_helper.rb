@@ -25,9 +25,26 @@ module WasapiFilesHelper
 
   def collection_analyzed(collection_id, user_id)
     account = WasapiFile.where(user_id: user_id).distinct.pluck(:account)
-    analyzed = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
-               collection_id.to_s + '/' + user_id.to_s + '/derivatives/gephi/' +
-               collection_id.to_s + '-gephi.gexf'
-    File.exist?(analyzed) && !File.empty?(analyzed)
+    gexf = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+           collection_id.to_s + '/' + user_id.to_s + '/derivatives/gephi/' +
+           collection_id.to_s + '-gephi.gexf'
+
+    graphml = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+              collection_id.to_s + '/' + user_id.to_s + '/derivatives/gephi/' +
+              collection_id.to_s + '-gephi.graphml'
+
+    fulltext = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+               collection_id.to_s + '/' + user_id.to_s +
+               '/derivatives/all-text/' + collection_id.to_s + '-fulltext.txt'
+
+    domains = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+              collection_id.to_s + '/' + user_id.to_s +
+              '/derivatives/all-domains/' + collection_id.to_s +
+              '-fullurls.txt'
+
+    File.exist?(gexf) && !File.empty?(gexf) &&
+      File.exist?(graphml) && !File.empty?(graphml) &&
+      File.exist?(fulltext) && !File.empty?(fulltext) &&
+      File.exist?(domains) && !File.empty?(domains)
   end
 end
