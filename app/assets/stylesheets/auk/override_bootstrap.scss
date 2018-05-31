@@ -247,3 +247,11 @@ div#graph-modal-wrapper {
 div#graph-modal {
   min-height: 200px;
 }
+
+/*
+ * Sorttable column headers
+ */
+
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+  content: " \25B4\25BE"
+}
