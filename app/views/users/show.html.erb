@@ -9,6 +9,7 @@
           <thead>
             <tr>
               <th>Title</th>
+              <th>Analyzed</th>
               <th>Public</th>
               <th>Files</th>
               <th>Size</th>
@@ -18,6 +19,7 @@
             <% for collection in @collections %>
               <tr>
                 <td><%= link_to(collection.title, user_collection_path(@user, collection.collection_id)) %></td>
+                <td><%= collection_analyzed(collection.id, @user.id).humanize %></td>
                 <td><%= collection.public.humanize %></td>
                 <td><%= collection_count(collection.id, @user) %></td>
                 <td><%= collection_size(collection.id, @user) %></td>

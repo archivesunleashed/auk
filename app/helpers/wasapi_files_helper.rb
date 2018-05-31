@@ -22,4 +22,12 @@ module WasapiFilesHelper
       number_to_human_size(`du -sb "#{account_path}"`.split("\t").first.to_i)
     end
   end
+
+  def collection_analyzed(collection_id, user_id)
+    account = WasapiFile.where(user_id: user_id).distinct.pluck(:account)
+    analyzed = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+               collection_id.to_s + '/' + user_id.to_s + '/derivatives/gephi/' +
+               collection_id.to_s + '-gephi.gexf'
+    File.exist?(analyzed) && !File.empty?(analyzed)
+  end
 end
