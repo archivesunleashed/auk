@@ -255,3 +255,27 @@ div#graph-modal {
 table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
   content: " \25B4\25BE"
 }
+
+/*
+ * Forms
+ */
+
+.form-group label.required:after {
+  content:" *";
+  color:red;
+}
+
+.form-group label.form-check-label:before {
+  content:"* ";
+  color:red;
+}
+
+.form-group label[for=user_wasapi_username]:after {
+  content:" *";
+  color:red;
+}
+
+.form-group label[for=user_wasapi_password]:after {
+  content:" *";
+  color:red;
+}
