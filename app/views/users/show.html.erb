@@ -1,4 +1,8 @@
-<% provide(:title, @user.name + "'s Collections") %>
+<% if current_user.auk_name.nil? %>
+  <% provide(:title, @user.name + "'s Collections") %>
+<% else %>
+  <% provide(:title, @user.auk_name + "'s Collections") %>
+<% end %>
 <div class="container-fluid">
   <div class="row">
     <%= render "layouts/sidebar" %>
