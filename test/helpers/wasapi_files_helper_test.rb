@@ -15,10 +15,19 @@ class WasapiFilesHelperTest < ActionView::TestCase
                                      @wasapi_files_two.user_id)
   end
 
+  test 'collection size human helper' do
+    assert_equal '650 KB',
+                 collection_size_human(@wasapi_files_one.collection_id,
+                                       @wasapi_files_one.user_id)
+    assert_equal '650 KB',
+                 collection_size_human(@wasapi_files_two.collection_id,
+                                       @wasapi_files_two.user_id)
+  end
+
   test 'collection size helper' do
-    assert_equal '650 KB', collection_size(@wasapi_files_one.collection_id,
-                                           @wasapi_files_one.user_id)
-    assert_equal '650 KB', collection_size(@wasapi_files_two.collection_id,
-                                           @wasapi_files_two.user_id)
+    assert_equal 666_068, collection_size(@wasapi_files_one.collection_id,
+                                          @wasapi_files_one.user_id)
+    assert_equal 666_068, collection_size(@wasapi_files_two.collection_id,
+                                          @wasapi_files_two.user_id)
   end
 end

@@ -26,7 +26,7 @@
                 <td><%= collection_analyzed(collection.id, @user.id).humanize %></td>
                 <td><%= collection.public.humanize %></td>
                 <td><%= collection_count(collection.id, @user) %></td>
-                <td><%= collection_size(collection.id, @user) %></td>
+                <td sorttable_customkey="<%= collection_size(collection.id, @user) %>"><%= collection_size_human(collection.id, @user) %></td>
               </tr>
             <% end %>
           </tbody>

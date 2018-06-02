@@ -6,10 +6,15 @@ module WasapiFilesHelper
     WasapiFile.where(collection_id: collection_id, user_id: user_id).count
   end
 
-  def collection_size(collection_id, user_id)
+  def collection_size_human(collection_id, user_id)
     file_size = WasapiFile.where(collection_id: collection_id,
                                  user_id: user_id).sum(:size)
     number_to_human_size(file_size)
+  end
+
+  def collection_size(collection_id, user_id)
+    WasapiFile.where(collection_id: collection_id,
+                     user_id: user_id).sum(:size)
   end
 
   def disk_usage(user_id)
