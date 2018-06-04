@@ -14,7 +14,7 @@ class CollectionsCatJob < ApplicationJob
       logger.info 'Executing: ' + combine_full_url_output_cmd
       system(combine_full_url_output_cmd)
       successful_job = collection_derivatives + '/all-domains/' + c.collection_id.to_s + '-fullurls.txt'
-      if File.exist? successful_job
+      if File.exist?(successful_job) && !File.empty?(successful_job)
         FileUtils.rm_rf(collection_derivatives + '/all-domains/output')
       else
         raise 'Collections cat domains job failed.'
@@ -22,8 +22,7 @@ class CollectionsCatJob < ApplicationJob
       combine_full_text_output_cmd = 'cat ' + collection_derivatives + '/all-text/output/part* > ' + collection_derivatives + '/all-text/' + c.collection_id.to_s + '-fulltext.txt'
       logger.info 'Executing: ' + combine_full_text_output_cmd
       system(combine_full_text_output_cmd)
-      successful_job = collection_derivatives + '/all-text/' + c.collection_id.to_s + '-fulltext.txt'
-      if File.exist? successful_job
+      if File.exist?(successful_job) && !File.empty?(successful_job)
         FileUtils.rm_rf(collection_derivatives + '/all-text/output')
       else
         raise 'Collections cat full text job failed.'
