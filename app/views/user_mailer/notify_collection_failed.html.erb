@@ -4,15 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
+  <body>
     <div style="background-color:LightGray; width: 100%; margin: auto;">
       <p style="text-align: center;">
         <%= image_tag attachments['AUK-Logo-full.png'].url, alt: 'Archives Unleashed Logo', style: 'display: inline-block; margin-left: auto; margin-right: auto; padding-top: 30px; padding-bottom: 30px;' -%>
       </p>
     </div>
     <p>Hi <%= @user.auk_name %>,</p>
-    <p>
-      Your Archives Unleashed Cloud collections are now setup,
-      and are available at: <%= link_to(user_url(@user), user_url(@user)) %><br>
+    <p>Your Archives Unleashed Cloud job has failed. We are looking into it, and we'll let you know how to proceed soon.
     </p>
     <p>Thanks for using the Archives Unleashed Cloud, and have a great day!</p>
   </body>

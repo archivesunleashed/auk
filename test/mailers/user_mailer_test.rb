@@ -22,4 +22,11 @@ class UserMailerTest < ActionMailer::TestCase
     mail = UserMailer.notify_collection_setup(user.id)
     assert_equal 'Your collections have been synced!', mail.subject
   end
+
+  test 'notify_failed' do
+    user = users(:one)
+    collection = collections(:one)
+    mail = UserMailer.notify_collection_failed(user.id, collection.id)
+    assert_equal 'We had a problem analyzing Sample Collection', mail.subject
+  end
 end

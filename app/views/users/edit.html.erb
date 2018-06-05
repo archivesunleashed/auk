@@ -1,2 +1,6 @@
-<% provide(:title, 'Update ' + @user.name) %>
+<% if current_user.auk_name.nil? %>
+  <% provide(:title, 'Update ' + @user.name) %>
+<% else %>
+  <% provide(:title, 'Update ' + @user.auk_name) %>
+<% end %>
 <%= render 'form', user: @user %>

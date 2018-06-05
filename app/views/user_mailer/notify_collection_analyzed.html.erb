@@ -10,7 +10,7 @@
         <%= image_tag attachments['AUK-Logo-full.png'].url, alt: 'Archives Unleashed Logo', style: 'display: inline-block; margin-left: auto; margin-right: auto; padding-top: 30px; padding-bottom: 30px;' -%>
       </p>
     </div>
-    <p>Hi <%= @user.name %>,</p>
+    <p>Hi <%= @user.auk_name %>,</p>
     <p>Your Archives Unleashed Cloud job has finished,
     and is available at: <%= link_to(user_collection_url(@user, @collection), user_collection_url(@user, @collection)) %><br>
     </p>
@@ -19,7 +19,7 @@
   </br>
   <footer style="background-color:LightGray; text-align: center; padding-top: 5px; padding-bottom: 5px;">
       <p>
-        <a href="http://archivesunleashed.org">archivesunleashed.org</a> | 
+        <a href="https://archivesunleashed.org">archivesunleashed.org</a> | 
         <a href="https://twitter.com/unleasharchives">@unleasharchives</a> | 
         <a href="https://github.com/archivesunleashed">Archives Unleashed GitHub</a>
       </p>

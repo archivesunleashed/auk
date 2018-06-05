@@ -1,4 +1,8 @@
-<% provide(:title, @user.name + "'s Collections") %>
+<% if current_user.auk_name.nil? %>
+  <% provide(:title, @user.name + "'s Collections") %>
+<% else %>
+  <% provide(:title, @user.auk_name + "'s Collections") %>
+<% end %>
 <div class="container-fluid">
   <div class="row">
     <%= render "layouts/sidebar" %>
@@ -9,6 +13,7 @@
           <thead>
             <tr>
               <th>Title</th>
+              <th>Analyzed</th>
               <th>Public</th>
               <th>Files</th>
               <th>Size</th>
@@ -18,9 +23,10 @@
             <% for collection in @collections %>
               <tr>
                 <td><%= link_to(collection.title, user_collection_path(@user, collection.collection_id)) %></td>
+                <td><%= collection_analyzed(collection.id, @user.id).humanize %></td>
                 <td><%= collection.public.humanize %></td>
                 <td><%= collection_count(collection.id, @user) %></td>
-                <td><%= collection_size(collection.id, @user) %></td>
+                <td sorttable_customkey="<%= collection_size(collection.id, @user) %>"><%= collection_size_human(collection.id, @user) %></td>
               </tr>
             <% end %>
           </tbody>
