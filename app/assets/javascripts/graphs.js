@@ -153,7 +153,6 @@ $(document).on('turbolinks:load', function () {
 
   // display sigma when modal is launched.
   $('body').on('shown.bs.modal', function () {
-    var id = $('div#graph-modal').data('gexf');
     gm.renderers[0].resize();
     gm.refresh();
   });
