@@ -36,13 +36,19 @@ class CollectionsSparkJob < ApplicationJob
       spark_job_cmd = spark_shell + ' --master local[' + spark_threads + '] --driver-memory ' + spark_memory_driver + ' --conf spark.network.timeout=' + spark_network_timeout + ' --packages "io.archivesunleashed:aut:' + aut_version + '" -i ' + collection_spark_job_file + ' | tee ' + collection_spark_job_file + '.log'
       logger.info 'Executing: ' + spark_job_cmd
       system(spark_job_cmd)
-      successful_job = collection_derivatives + '/all-domains/output/_SUCCESS'
-      if File.exist? successful_job
+      domain_success = collection_derivatives + '/all-domains/output/_SUCCESS'
+      fulltext_success = collection_derivatives + '/all-text/output/_SUCCESS'
+      graphml_success = collection_derivatives + '/gephi/' +
+                        c.collection_id.to_s + '-gephi.graphml'
+      if File.exist?(domain_success) && File.exist?(fulltext_success) &&
+         File.exist?(graphml_success) && !File.empty?(graphml_success)
         CollectionsCatJob.set(queue: :spark_cat)
                          .perform_later(user_id, collection_id)
         CollectionsGraphpassJob.set(queue: :graphpass)
                                .perform_later(user_id, collection_id)
       else
+        UserMailer.notify_collection_failed(c.user_id.to_s,
+                                            c.collection_id.to_s).deliver_now
         raise 'Collections spark job failed.'
       end
     end

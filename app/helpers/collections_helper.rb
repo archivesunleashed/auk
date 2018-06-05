@@ -34,4 +34,36 @@ module CollectionsHelper
              content_type: 'application/xml'
     end
   end
+
+  def gexf_path(user_id, collection_id, account)
+    collection_path = ENV['DOWNLOAD_PATH'] +
+                      '/' + account.to_s +
+                      '/' + collection_id.to_s + '/'
+    collection_path + user_id.to_s + '/derivatives/gephi/' +
+      collection_id.to_s + '-gephi.gexf'
+  end
+
+  def graphml_path(user_id, collection_id, account)
+    collection_path = ENV['DOWNLOAD_PATH'] +
+                      '/' + account.to_s +
+                      '/' + collection_id.to_s + '/'
+    collection_path + user_id.to_s + '/derivatives/gephi/' +
+      collection_id.to_s + '-gephi.graphml'
+  end
+
+  def fulltext_path(user_id, collection_id, account)
+    collection_path = ENV['DOWNLOAD_PATH'] +
+                      '/' + account.to_s +
+                      '/' + collection_id.to_s + '/'
+    collection_path + user_id.to_s + '/derivatives/all-text/' +
+      collection_id.to_s + '-fulltext.txt'
+  end
+
+  def domains_path(user_id, collection_id, account)
+    collection_path = ENV['DOWNLOAD_PATH'] +
+                      '/' + account.to_s +
+                      '/' + collection_id.to_s + '/'
+    collection_path + user_id.to_s + '/derivatives/all-domains/' +
+      collection_id.to_s + '-fullurls.txt'
+  end
 end
