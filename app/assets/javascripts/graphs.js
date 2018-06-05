@@ -55,13 +55,13 @@ function zoomOut(instance) {
 function scaleUp(instance) {
   var nodes = instance.graph.nodes();
   var max = Math.max(...nodes.map(x => x.size));
-  nodes.map(x => {
-    if (isFinite(x.size) && Math.pow(x.size,2) < max) {
-      x.size = Math.pow(x.size+1,2);
-    } else if (Math.pow(x.size+1, 2) >= max){
+  nodes.forEach(x => {
+    if (isFinite(x.size) && Math.pow(x.size, 2) < max) {
+      x.size = Math.pow(x.size + 1, 2);
+    } else if (Math.pow(x.size + 1, 2) >= max) {
       x.size = max;
     }
-  })
+  });
   instance.refresh();
 }
 
@@ -116,28 +116,29 @@ $(document).on('turbolinks:load', function () {
     }]
   });
   graphRender(so);
+  graphRender(gm);
 
   // resize graph-modal if the window changes
   $(window).on('resize', function () {
     $('div#graph-modal').height($(window).height() * 0.83);
   });
 
-  $('.zoom-in').on('click', function (clicked) {
+  $('.zoom-in').on('click', function () {
     zoomIn(gm);
     zoomIn(so);
   });
 
-  $('.zoom-out').on('click', function (clicked) {
+  $('.zoom-out').on('click', function () {
     zoomOut(gm);
     zoomOut(so);
   });
 
-  $('.default').on('click', function (clicked) {
+  $('.default').on('click', function () {
     refresh(gm);
     refresh(so);
   });
 
-  $('.scale-up').on('click', function (clicked) {
+  $('.scale-up').on('click', function () {
     scaleUp(gm);
     scaleUp(so);
   });
@@ -153,7 +154,8 @@ $(document).on('turbolinks:load', function () {
   // display sigma when modal is launched.
   $('body').on('shown.bs.modal', function () {
     var id = $('div#graph-modal').data('gexf');
-    createGraph(id, gm);
+    gm.renderers[0].resize();
+    gm.refresh();
   });
 
   // remove sigma on hidden modal.

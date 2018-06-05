@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "extends": "airbnb-base/legacy",
   "globals": {
     "jQuery": true,
