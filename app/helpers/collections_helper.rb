@@ -55,7 +55,7 @@ module CollectionsHelper
     collection_path = ENV['DOWNLOAD_PATH'] +
                       '/' + account.to_s +
                       '/' + collection_id.to_s + '/'
-    collection_path + user_id.to_s + '/derivatives/all-text' +
+    collection_path + user_id.to_s + '/derivatives/all-text/' +
       collection_id.to_s + '-fulltext.txt'
   end
 
