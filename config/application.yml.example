@@ -25,6 +25,8 @@ EMAIL_DOMAIN: "something.ca"
 EMAIL_USERNAME: "someuser"
 EMAIL_PASSWORD: "somepassword"
 GRAPHPASS: "/path/to/graphpass/directory/graphpass"
+DJW_USERNAME: "some user"
+DJW_PASSWORD: "some password"
 
 production:
   SECRET_KEY_BASE: "some secret key base"

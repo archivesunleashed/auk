@@ -55,6 +55,10 @@ bin/delayed_job --pool=spark,tasks:1 --pool=graphpass,tasks:1 --pool=spark_cat,t
 
 Then visit http://localhost:3000.
 
+#### Delayed Job Dashboard
+
+To take advantage of the [Delayed Job Dashboard](https://github.com/tatey/delayed-web), set the `DJW_USERNAME` and `DJW_PASSWORD` in `config/application.yml`. Then visit http://localhost:3000/jobs.
+
 ### Configuration
 
 This application makes use of [figaro](https://github.com/laserlemon/figaro).
