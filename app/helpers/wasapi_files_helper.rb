@@ -47,9 +47,9 @@ module WasapiFilesHelper
               '/derivatives/all-domains/' + collection_id.to_s +
               '-fullurls.txt'
 
-    File.exist?(gexf) && !File.empty?(gexf) &&
-      File.exist?(graphml) && !File.empty?(graphml) &&
-      File.exist?(fulltext) && !File.empty?(fulltext) &&
+    File.exist?(gexf) && !File.empty?(gexf) ||
+      File.exist?(graphml) && !File.empty?(graphml) ||
+      File.exist?(fulltext) && !File.empty?(fulltext) ||
       File.exist?(domains) && !File.empty?(domains)
   end
 end
