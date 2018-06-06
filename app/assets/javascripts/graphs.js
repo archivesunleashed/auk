@@ -56,10 +56,24 @@ function scaleUp(instance) {
   var nodes = instance.graph.nodes();
   var max = Math.max(...nodes.map(x => x.size));
   nodes.forEach(x => {
-    if (isFinite(x.size) && Math.pow(x.size, 2) < max) {
-      x.size = Math.pow(x.size + 1, 2);
-    } else if (Math.pow(x.size + 1, 2) >= max) {
-      x.size = max;
+    if (isFinite(Math.log(x.size + 1))) {
+      x.size = Math.log(x.size + 1);
+    } else {
+      x.size = x.size;
+    }
+  });
+  instance.refresh();
+}
+
+function scaleDown(instance) {
+  var nodes = instance.graph.nodes();
+  var max = Math.max(...nodes.map(x => x.size));
+  var min = 1;
+  nodes.forEach(x => {
+    if (isFinite(Math.exp(x.size) - 1)) {
+      x.size = Math.exp(x.size) - 1;
+    } else {
+      x.size = x.size;
     }
   });
   instance.refresh();
@@ -141,6 +155,11 @@ $(document).on('turbolinks:load', function () {
   $('.scale-up').on('click', function () {
     scaleUp(gm);
     scaleUp(so);
+  });
+
+  $('.scale-down').on('click', function () {
+    scaleDown(gm);
+    scaleDown(so);
   });
 
   $('button#modal-click').on('click', function () {
