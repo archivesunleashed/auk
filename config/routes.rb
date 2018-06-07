@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount Delayed::Web::Engine, at: '/jobs'
+  Delayed::Web::Engine.middleware.use Rack::Auth::Basic do |username, password|
+    username == ENV['DJW_USERNAME'] && password == ENV['DJW_PASSWORD']
+  end
   resources :users do
     resources :collections do
       post :download

@@ -56,6 +56,7 @@ Metrics/LineLength:
     - app/jobs/collections_spark_job.rb
     - app/jobs/warcs_cleanup_job.rb
     - app/jobs/wasapi_files_populate_job.rb
+    - app/mailers/user_mailer.rb
     - test/helpers/users_helper_test.rb
 
 Metrics/PerceivedComplexity:

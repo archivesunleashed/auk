@@ -66,6 +66,7 @@ gem 'bootstrap_form',
     branch: 'master'
 gem 'codecov', require: false, group: :test
 gem 'daemons'
+gem 'delayed-web'
 gem 'delayed_job_active_record'
 gem 'figaro'
 gem 'font-awesome-rails'
