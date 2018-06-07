@@ -5,6 +5,12 @@ class WasapiFilesDownloadJob < ApplicationJob
   queue_as :download
   require 'open-uri'
 
+  rescue_from(Net::ReadTimeout) do |exception|
+    UserMailer.notify_collection_failed(job.arguments.first.id,
+                                        job.arguments.second.id).deliver_now
+    logger.info 'Download failed: ' + exception
+  end
+
   after_perform do |job|
     UserMailer.notify_collection_downloaded(job.arguments.first.id,
                                             job.arguments.second.id).deliver_now

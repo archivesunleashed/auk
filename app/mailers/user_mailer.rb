@@ -49,4 +49,17 @@ class UserMailer < ApplicationMailer
       format.html
     end
   end
+
+  def notify_download_failed(user_id, collection_id)
+    attachments.inline['AUK-Logo-full.png'] =
+      File.read('app/assets/images/AUK-Logo-full.png')
+    @user = User.find(user_id)
+    @collection = Collection.find(collection_id)
+    mail(to: @user.email,
+         cc: 'ruestn+auk@gmail.com',
+         subject: 'We had a problem downloading ' + @collection.title) do |format|
+      format.text
+      format.html
+    end
+  end
 end
