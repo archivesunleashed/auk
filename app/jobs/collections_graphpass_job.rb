@@ -22,10 +22,6 @@ class CollectionsGraphpassJob < ApplicationJob
       graphpass_cmd = graphpass + graphpass_flags
       logger.info 'Executing: ' + graphpass_cmd
       system(graphpass_cmd)
-      successful_job = collection_derivatives + '/gephi/' + c.collection_id.to_s + '-gephi.gexf'
-      unless File.exist? successful_job
-        raise 'Collections graphpass job failed.'
-      end
     end
   end
 end
