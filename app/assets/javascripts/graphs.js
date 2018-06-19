@@ -40,9 +40,8 @@ function increment(state) {
 function decrement(state) {
   if (state <= 1) {
     return 0;
-  } else {
-    return state -1;
   }
+  return state - 1;
 }
 
 function zoomIn(instance) {
@@ -66,7 +65,6 @@ function zoomOut(instance) {
 
 function scaleUp(instance) {
   var nodes = instance.graph.nodes();
-  var max = Math.max(...nodes.map(x => x.size));
   nodes.forEach(x => {
     if (isFinite(Math.log(x.size + 2))) {
       x.size = Math.log(x.size + 2);
@@ -79,12 +77,10 @@ function scaleUp(instance) {
 
 function scaleDown(instance) {
   var nodes = instance.graph.nodes();
-  var max = Math.max(...nodes.map(x => x.size));
-  var min = 1;
   nodes.forEach(x => {
     if (isFinite(Math.exp(x.size) - 2)) {
       x.size = Math.exp(x.size) - 2;
-    } else if (Math.exp(x.size) - 2 < 1){
+    } else if (Math.exp(x.size) - 2 < 1) {
       x.size = 1;
     } else {
       x.size = x.size;
@@ -170,18 +166,21 @@ $(document).on('turbolinks:load', function () {
   $('.scale-up').on('click', function () {
     state = increment(state);
     increment(state);
-    $('.scale-down').prop("disabled", false);
+    $('.scale-down').prop('disabled', false);
     scaleUp(gm);
     scaleUp(so);
   });
 
   $('.scale-down').on('click', function () {
-    if (decrement(state) > 0) {
+    if (state >= 1) {
       state = decrement(state);
       scaleDown(gm);
       scaleDown(so);
+      if (state == 0) {
+        $('.scale-down').prop('disabled', true);
+      }
     } else {
-      $('.scale-down').prop("disabled", true);
+      $('.scale-down').prop('disabled', true);
     }
   });
 
