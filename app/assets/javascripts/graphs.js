@@ -33,6 +33,18 @@ function graphRender(instance) {
   }
 }
 
+function increment(state) {
+  return state + 1;
+}
+
+function decrement(state) {
+  if (state <= 1) {
+    return 0;
+  } else {
+    return state -1;
+  }
+}
+
 function zoomIn(instance) {
   var camera = instance.camera;
   sigma.misc.animation.camera(camera, {
@@ -56,8 +68,8 @@ function scaleUp(instance) {
   var nodes = instance.graph.nodes();
   var max = Math.max(...nodes.map(x => x.size));
   nodes.forEach(x => {
-    if (isFinite(Math.log(x.size + 1))) {
-      x.size = Math.log(x.size + 1);
+    if (isFinite(Math.log(x.size + 2))) {
+      x.size = Math.log(x.size + 2);
     } else {
       x.size = x.size;
     }
@@ -70,8 +82,10 @@ function scaleDown(instance) {
   var max = Math.max(...nodes.map(x => x.size));
   var min = 1;
   nodes.forEach(x => {
-    if (isFinite(Math.exp(x.size) - 1)) {
-      x.size = Math.exp(x.size) - 1;
+    if (isFinite(Math.exp(x.size) - 2)) {
+      x.size = Math.exp(x.size) - 2;
+    } else if (Math.exp(x.size) - 2 < 1){
+      x.size = 1;
     } else {
       x.size = x.size;
     }
@@ -117,6 +131,7 @@ function leaveFullScreen() {
 }
 
 $(document).on('turbolinks:load', function () {
+  var state = 0;
   var so = new sigma({ renderers: [ // eslint-disable-line new-cap
     {
       container: document.getElementById('graph'),
@@ -153,16 +168,24 @@ $(document).on('turbolinks:load', function () {
   });
 
   $('.scale-up').on('click', function () {
+    state = increment(state);
+    increment(state);
+    $('.scale-down').prop("disabled", false);
     scaleUp(gm);
     scaleUp(so);
   });
 
   $('.scale-down').on('click', function () {
-    scaleDown(gm);
-    scaleDown(so);
+    if (decrement(state) > 0) {
+      state = decrement(state);
+      scaleDown(gm);
+      scaleDown(so);
+    } else {
+      $('.scale-down').prop("disabled", true);
+    }
   });
 
-  $('button#modal-click').on('click', function () {
+  $('span#modal-click').on('click', function () {
     goFullScreen();
   });
 
