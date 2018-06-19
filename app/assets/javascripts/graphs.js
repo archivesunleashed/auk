@@ -161,6 +161,8 @@ $(document).on('turbolinks:load', function () {
   $('.default').on('click', function () {
     refresh(gm);
     refresh(so);
+    $('.scale-down').prop('disabled', true);
+    state = 0;
   });
 
   $('.scale-up').on('click', function () {
