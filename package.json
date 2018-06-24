@@ -2,8 +2,11 @@
   "name": "auk",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "npm": "^6.1.0"
+  },
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.1.3",
     "eslint-plugin-import": "^2.2.0"

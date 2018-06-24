@@ -73,7 +73,7 @@ sorttable = {
       for (var i=0; i<sortbottomrows.length; i++) {
         tfo.appendChild(sortbottomrows[i]);
       }
-      delete sortbottomrows;
+      delete sortbottomrows; // eslint-disable-line no-param-reassign
     }
 
     // work through each column and calculate its type

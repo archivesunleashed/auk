@@ -5,7 +5,8 @@ function createGraph(data, instance) {
       instance.settings({
         nodeColor: 'default',
         edgeColor: 'default',
-        labelThreshold: 6
+        labelThreshold: 7,
+        minNodeSize: 3
       });
       if (instance.graph.nodes().length === 0) {
         instance.graph.addNode({
@@ -32,6 +33,17 @@ function graphRender(instance) {
   }
 }
 
+function increment(state) {
+  return state + 1;
+}
+
+function decrement(state) {
+  if (state <= 1) {
+    return 0;
+  }
+  return state - 1;
+}
+
 function zoomIn(instance) {
   var camera = instance.camera;
   sigma.misc.animation.camera(camera, {
@@ -51,6 +63,32 @@ function zoomOut(instance) {
   });
 }
 
+function scaleUp(instance) {
+  var nodes = instance.graph.nodes();
+  nodes.forEach(x => {
+    if (isFinite(Math.log(x.size + 2))) {
+      x.size = Math.log(x.size + 2);
+    } else {
+      x.size = x.size;
+    }
+  });
+  instance.refresh();
+}
+
+function scaleDown(instance) {
+  var nodes = instance.graph.nodes();
+  nodes.forEach(x => {
+    if (isFinite(Math.exp(x.size) - 2)) {
+      x.size = Math.exp(x.size) - 2;
+    } else if (Math.exp(x.size) - 2 < 1) {
+      x.size = 1;
+    } else {
+      x.size = x.size;
+    }
+  });
+  instance.refresh();
+}
+
 function refresh(instance) {
   var camera = instance.camera;
   sigma.misc.animation.camera(camera, {
@@ -60,6 +98,7 @@ function refresh(instance) {
   }, {
     duration: 200
   });
+  graphRender(instance);
 }
 
 function goFullScreen() {
@@ -88,6 +127,7 @@ function leaveFullScreen() {
 }
 
 $(document).on('turbolinks:load', function () {
+  var state = 0;
   var so = new sigma({ renderers: [ // eslint-disable-line new-cap
     {
       container: document.getElementById('graph'),
@@ -101,37 +141,52 @@ $(document).on('turbolinks:load', function () {
     }]
   });
   graphRender(so);
+  graphRender(gm);
 
   // resize graph-modal if the window changes
   $(window).on('resize', function () {
     $('div#graph-modal').height($(window).height() * 0.83);
   });
 
-  $('.zoom-in').on('click', function (clicked) {
-    if (clicked.target.id === 'modal-zoom-in' || clicked.target.parentNode.id === 'modal-zoom-in') {
-      zoomIn(gm);
+  $('.zoom-in').on('click', function () {
+    zoomIn(gm);
+    zoomIn(so);
+  });
+
+  $('.zoom-out').on('click', function () {
+    zoomOut(gm);
+    zoomOut(so);
+  });
+
+  $('.default').on('click', function () {
+    refresh(gm);
+    refresh(so);
+    $('.scale-down').prop('disabled', true);
+    state = 0;
+  });
+
+  $('.scale-up').on('click', function () {
+    state = increment(state);
+    increment(state);
+    $('.scale-down').prop('disabled', false);
+    scaleUp(gm);
+    scaleUp(so);
+  });
+
+  $('.scale-down').on('click', function () {
+    if (state >= 1) {
+      state = decrement(state);
+      scaleDown(gm);
+      scaleDown(so);
+      if (state == 0) {
+        $('.scale-down').prop('disabled', true);
+      }
     } else {
-      zoomIn(so);
+      $('.scale-down').prop('disabled', true);
     }
   });
 
-  $('.zoom-out').on('click', function (clicked) {
-    if (clicked.target.id === 'modal-zoom-out' || clicked.target.parentNode.id === 'modal-zoom-out') {
-      zoomOut(gm);
-    } else {
-      zoomOut(so);
-    }
-  });
-
-  $('.default').on('click', function (clicked) {
-    if (clicked.target.id === 'modal-default' || clicked.target.parentNode.id === 'modal-default') {
-      refresh(gm);
-    } else {
-      refresh(so);
-    }
-  });
-
-  $('button#modal-click').on('click', function () {
+  $('span#modal-click').on('click', function () {
     goFullScreen();
   });
 
@@ -141,8 +196,8 @@ $(document).on('turbolinks:load', function () {
 
   // display sigma when modal is launched.
   $('body').on('shown.bs.modal', function () {
-    var id = $('div#graph-modal').data('gexf');
-    createGraph(id, gm);
+    gm.renderers[0].resize();
+    gm.refresh();
   });
 
   // remove sigma on hidden modal.

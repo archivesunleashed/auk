@@ -10,17 +10,23 @@
       </div>
       <div id="graph-modal-body" class="modal-body">
         <div id="graph-modal-wrapper">
-          <button type="button" id="modal-exit-fullscreen" data-dismiss="modal">
+          <button type="button" id="modal-exit-fullscreen" data-dismiss="modal" data-toggle="tooltip" title="Exit full screen">
             <span class="fa fa-compress"></span>
           </button>
-          <button type="button" id="modal-zoom-in" class="zoom-in">
+          <button type="button" id="modal-zoom-in" class="zoom-in" data-toggle="tooltip" title="Zoom in graph.">
             <span class="fa fa-search-plus"></span>
           </button>
-          <button type="button" id="modal-zoom-out" class="zoom-out">
+          <button type="button" id="modal-zoom-out" class="zoom-out" data-toggle="tooltip" title="Zoom out graph.">
             <span class="fa fa-search-minus"></span>
           </button>
-          <button type="button" id="modal-default" class="default">
+          <button type="button" id="modal-default" class="default" data-toggle="tooltip" title="Restore graph to original settings">
             <span class="fa fa-refresh"></span>
+          </button>
+          <button type="button" id="modal-scale-up" class="scale-up" data-toggle="tooltip" data-html="true" title="Scale up node sizes.">
+            <span class="fa fa-level-up"></span>
+          </button>
+          <button type="button" id="modal-scale-down" class="scale-down" data-toggle="tooltip" title="Scale down node sizes." disabled>
+            <span class="fa fa-level-down"></span>
           </button>
           <div id="graph-modal"></div>
         </div>
@@ -37,17 +43,24 @@
       <% unless display_gexf(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
         <div id="graph-wrapper">
-          <button type="button" id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen">
+          <span id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen">
+          <button type="button" data-toggle="tooltip" data-placement="top" title="Make graph full screen.">
             <span class="fa fa-expand"></span>
-          </button>
-          <button type="button" id="zoom-in" class="zoom-in">
+          </button></span>
+          <button type="button" id="zoom-in" class="zoom-in" data-toggle="tooltip" data-placement="top" title="Zoom in graph.">
             <span class="fa fa-search-plus"></span>
           </button>
-          <button type="button" id="zoom-out" class="zoom-out">
+          <button type="button" id="zoom-out" class="zoom-out" data-toggle="tooltip" data-placement="top" title="Zoom out graph.">
             <span class="fa fa-search-minus"></span>
           </button>
-          <button type="button" id="default" class="default">
+          <button type="button" id="default" class="default" data-toggle="tooltip" data-placement="top" title="Restore graph to original settings">
             <span class="fa fa-refresh"></span>
+          </button>
+          <button type="button" id="scale-up" class="scale-up" data-toggle="tooltip" data-html="true" title="Scale up node sizes.">
+            <span class="fa fa-level-up"></span>
+          </button>
+          <button type="button" id="scale-down" class="scale-down" data-toggle="tooltip" data-placement="top" title="Scale down node sizes." disabled>
+            <span class="fa fa-level-down"></span>
           </button>
           <div id="graph"></div>
         </div>
