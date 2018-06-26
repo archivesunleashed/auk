@@ -178,7 +178,7 @@ $(document).on('turbolinks:load', function () {
       state = decrement(state);
       scaleDown(gm);
       scaleDown(so);
-      if (state == 0) {
+      if (state === 0) {
         $('.scale-down').prop('disabled', true);
       }
     } else {
