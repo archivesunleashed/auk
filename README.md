@@ -59,6 +59,17 @@ Then visit http://localhost:3000.
 
 To take advantage of the [Delayed Job Dashboard](https://github.com/tatey/delayed-web), set the `DJW_USERNAME` and `DJW_PASSWORD` in `config/application.yml`. Then visit http://localhost:3000/jobs.
 
+#### Retry jobs
+
+If you need to "retry" a stuck or failed job, you can use the "retry" method with a job id (1234):
+
+```
+$ RAILS_ENV=production rails console
+Running via Spring preloader in process 19680
+Loading production environment (Rails 5.1.4)
+irb(main):001:0> Delayed::Job.find(1234).retry!
+```
+
 ### Configuration
 
 This application makes use of [figaro](https://github.com/laserlemon/figaro).

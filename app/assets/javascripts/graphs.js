@@ -5,6 +5,7 @@ function createGraph(data, instance) {
       instance.settings({
         nodeColor: 'default',
         edgeColor: 'default',
+<<<<<<< HEAD
         defaultEdgeType: 'arrow',
         labelThreshold: 7,
         minNodeSize: 3,
@@ -17,6 +18,10 @@ function createGraph(data, instance) {
       });
       instance.graph.edges().forEach(function (e) {
         e.originalColor = e.color;
+=======
+        labelThreshold: 7,
+        minNodeSize: 3
+>>>>>>> master
       });
       if (instance.graph.nodes().length === 0) {
         instance.graph.addNode({
@@ -138,6 +143,7 @@ function leaveFullScreen() {
 
 $(document).on('turbolinks:load', function () {
   var state = 0;
+<<<<<<< HEAD
   var so;
   var gm;
   if (sigma && !sigma.classes.graph.hasMethod('neighbors')) {
@@ -153,6 +159,9 @@ $(document).on('turbolinks:load', function () {
     });
   }
   so = new sigma({ renderers: [ // eslint-disable-line new-cap
+=======
+  var so = new sigma({ renderers: [ // eslint-disable-line new-cap
+>>>>>>> master
     {
       container: document.getElementById('graph'),
       type: 'canvas' // sigma.renderers.canvas works as well
@@ -164,6 +173,11 @@ $(document).on('turbolinks:load', function () {
       type: 'canvas'
     }]
   });
+<<<<<<< HEAD
+=======
+  graphRender(so);
+  graphRender(gm);
+>>>>>>> master
 
   graphRender(so);
   graphRender(gm);
@@ -172,6 +186,7 @@ $(document).on('turbolinks:load', function () {
     $('div#graph-modal').height($(window).height() * 0.83);
   });
 
+<<<<<<< HEAD
   so.bind('overNode', function (node) {
     var nodeId = node.data.node.id;
     var toKeep = so.graph.neighbors(nodeId);
@@ -251,6 +266,25 @@ $(document).on('turbolinks:load', function () {
     state = 0;
   });
 
+=======
+  $('.zoom-in').on('click', function () {
+    zoomIn(gm);
+    zoomIn(so);
+  });
+
+  $('.zoom-out').on('click', function () {
+    zoomOut(gm);
+    zoomOut(so);
+  });
+
+  $('.default').on('click', function () {
+    refresh(gm);
+    refresh(so);
+    $('.scale-down').prop('disabled', true);
+    state = 0;
+  });
+
+>>>>>>> master
   $('.scale-up').on('click', function () {
     state = increment(state);
     increment(state);

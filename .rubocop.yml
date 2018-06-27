@@ -114,3 +114,7 @@ Style/PercentLiteralDelimiters:
 Style/PredicateName:
   Exclude:
     - test/test_helper.rb
+
+Style/RedundantSelf:
+  Exclude:
+    - config/initializers/delayed_job_config.rb
