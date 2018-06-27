@@ -180,17 +180,19 @@ $(document).on('turbolinks:load', function () {
       if (toKeep[n.id]) {
         n.color = n.originalColor;
       } else {
-        n.color = '#eee';
+        n.color = 'rgba(238, 238, 238, 0.15)';
       }
     });
     so.graph.edges().forEach(function (e) {
       if (toKeep[e.source] && toKeep[e.target]) {
         e.color = e.originalColor;
       } else {
-        e.color = '#eee';
+        e.color = 'rgba(238, 238, 238, 0.15)';
       }
     });
-    so.refresh();
+    setTimeout(function () {
+      so.refresh();
+    }, 200);
   });
 
   gm.bind('overNode', function (node) {
@@ -201,17 +203,19 @@ $(document).on('turbolinks:load', function () {
       if (toKeep[n.id]) {
         n.color = n.originalColor;
       } else {
-        n.color = '#eee';
+        n.color = 'rgba(238, 238, 238, 0.15)';
       }
     });
     gm.graph.edges().forEach(function (e) {
       if (toKeep[e.source] && toKeep[e.target]) {
         e.color = e.originalColor;
       } else {
-        e.color = '#eee';
+        e.color = 'rgba(238, 238, 238, 0.15)';
       }
     });
-    gm.refresh();
+    setTimeout(function () {
+      gm.refresh();
+    }, 200);
   });
 
   so.bind('outNodes', function () {
@@ -221,7 +225,9 @@ $(document).on('turbolinks:load', function () {
     so.graph.edges().forEach(function (e) {
       e.color = e.originalColor;
     });
-    so.refresh();
+    setTimeout(function () {
+      so.refresh();
+    }, 2000);
   });
 
   gm.bind('outNodes', function () {
@@ -231,7 +237,9 @@ $(document).on('turbolinks:load', function () {
     gm.graph.edges().forEach(function (e) {
       e.color = e.originalColor;
     });
-    gm.refresh();
+    setTimeout(function () {
+      gm.refresh();
+    }, 2000);
   });
 
   $('.zoom-in').on('click', function () {
