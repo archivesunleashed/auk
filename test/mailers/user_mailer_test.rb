@@ -29,11 +29,4 @@ class UserMailerTest < ActionMailer::TestCase
     mail = UserMailer.notify_collection_failed(user.id, collection.id)
     assert_equal 'We had a problem analyzing Sample Collection', mail.subject
   end
-
-  test 'notify_failed_download' do
-    user = users(:one)
-    collection = collections(:one)
-    mail = UserMailer.notify_download_failed(user.id, collection.id)
-    assert_equal 'We had a problem downloading Sample Collection', mail.subject
-  end
 end
