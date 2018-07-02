@@ -5,7 +5,18 @@ function createGraph(data, instance) {
       instance.settings({
         nodeColor: 'default',
         edgeColor: 'default',
-        labelThreshold: 6
+        defaultEdgeType: 'arrow',
+        labelThreshold: 7,
+        minNodeSize: 3,
+        minArrowSize: 5
+      });
+      // We first need to save the original colors of our
+      // nodes and edges, like this:
+      instance.graph.nodes().forEach(function (n) {
+        n.originalColor = n.color;
+      });
+      instance.graph.edges().forEach(function (e) {
+        e.originalColor = e.color;
       });
       if (instance.graph.nodes().length === 0) {
         instance.graph.addNode({
@@ -32,6 +43,17 @@ function graphRender(instance) {
   }
 }
 
+function increment(state) {
+  return state + 1;
+}
+
+function decrement(state) {
+  if (state <= 1) {
+    return 0;
+  }
+  return state - 1;
+}
+
 function zoomIn(instance) {
   var camera = instance.camera;
   sigma.misc.animation.camera(camera, {
@@ -51,6 +73,32 @@ function zoomOut(instance) {
   });
 }
 
+function scaleUp(instance) {
+  var nodes = instance.graph.nodes();
+  nodes.forEach(x => {
+    if (isFinite(Math.log(x.size + 2))) {
+      x.size = Math.log(x.size + 2);
+    } else {
+      x.size = x.size;
+    }
+  });
+  instance.refresh();
+}
+
+function scaleDown(instance) {
+  var nodes = instance.graph.nodes();
+  nodes.forEach(x => {
+    if (isFinite(Math.exp(x.size) - 2)) {
+      x.size = Math.exp(x.size) - 2;
+    } else if (Math.exp(x.size) - 2 < 1) {
+      x.size = 1;
+    } else {
+      x.size = x.size;
+    }
+  });
+  instance.refresh();
+}
+
 function refresh(instance) {
   var camera = instance.camera;
   sigma.misc.animation.camera(camera, {
@@ -60,6 +108,7 @@ function refresh(instance) {
   }, {
     duration: 200
   });
+  graphRender(instance);
 }
 
 function goFullScreen() {
@@ -88,50 +137,150 @@ function leaveFullScreen() {
 }
 
 $(document).on('turbolinks:load', function () {
-  var so = new sigma({ renderers: [ // eslint-disable-line new-cap
+  var state = 0;
+  var so;
+  var gm;
+  if (sigma && !sigma.classes.graph.hasMethod('neighbors')) {
+    // create neighbors method to access neighbors of a node.
+    sigma.classes.graph.addMethod('neighbors', function (nodeId) {
+      var neighbors = {};
+      var index = this.allNeighborsIndex[nodeId] || {};
+      var here = this;
+      Object.keys(index).forEach(function (key) {
+        neighbors[key] = here.nodesIndex[key];
+      });
+      return neighbors;
+    });
+  }
+  so = new sigma({ renderers: [ // eslint-disable-line new-cap
     {
       container: document.getElementById('graph'),
       type: 'canvas' // sigma.renderers.canvas works as well
     }]
   });
-  var gm = new sigma({ renderers: [ // eslint-disable-line new-cap
+  gm = new sigma({ renderers: [ // eslint-disable-line new-cap
     {
       container: document.getElementById('graph-modal'),
       type: 'canvas'
     }]
   });
-  graphRender(so);
 
+  graphRender(so);
+  graphRender(gm);
   // resize graph-modal if the window changes
   $(window).on('resize', function () {
     $('div#graph-modal').height($(window).height() * 0.83);
   });
 
-  $('.zoom-in').on('click', function (clicked) {
-    if (clicked.target.id === 'modal-zoom-in' || clicked.target.parentNode.id === 'modal-zoom-in') {
-      zoomIn(gm);
+  so.bind('overNode', function (node) {
+    var nodeId = node.data.node.id;
+    var toKeep = so.graph.neighbors(nodeId);
+    toKeep[nodeId] = node.data.node;
+    so.graph.nodes().forEach(function (n) {
+      if (toKeep[n.id]) {
+        n.color = n.originalColor;
+      } else {
+        n.color = 'rgba(200, 200, 200, 0.75)';
+      }
+    });
+    so.graph.edges().forEach(function (e) {
+      if (toKeep[e.source] && toKeep[e.target]) {
+        e.color = e.originalColor;
+      } else {
+        e.color = 'rgba(200, 200, 200, 0.75)';
+      }
+    });
+    setTimeout(function () {
+      so.refresh();
+    }, 200);
+  });
+
+  gm.bind('overNode', function (node) {
+    var nodeId = node.data.node.id;
+    var toKeep = gm.graph.neighbors(nodeId);
+    toKeep[nodeId] = node.data.node;
+    gm.graph.nodes().forEach(function (n) {
+      if (toKeep[n.id]) {
+        n.color = n.originalColor;
+      } else {
+        n.color = 'rgba(200, 200, 200, 0.75)';
+      }
+    });
+    gm.graph.edges().forEach(function (e) {
+      if (toKeep[e.source] && toKeep[e.target]) {
+        e.color = e.originalColor;
+      } else {
+        e.color = 'rgba(200, 200, 200, 0.75)';
+      }
+    });
+    setTimeout(function () {
+      gm.refresh();
+    }, 200);
+  });
+
+  so.bind('outNodes', function () {
+    so.graph.nodes().forEach(function (n) {
+      n.color = n.originalColor;
+    });
+    so.graph.edges().forEach(function (e) {
+      e.color = e.originalColor;
+    });
+    setTimeout(function () {
+      so.refresh();
+    }, 200);
+  });
+
+  gm.bind('outNodes', function () {
+    gm.graph.nodes().forEach(function (n) {
+      n.color = n.originalColor;
+    });
+    gm.graph.edges().forEach(function (e) {
+      e.color = e.originalColor;
+    });
+    setTimeout(function () {
+      gm.refresh();
+    }, 2000);
+  });
+
+  $('.zoom-in').on('click', function () {
+    zoomIn(gm);
+    zoomIn(so);
+  });
+
+  $('.zoom-out').on('click', function () {
+    zoomOut(gm);
+    zoomOut(so);
+  });
+
+  $('.default').on('click', function () {
+    refresh(gm);
+    refresh(so);
+    $('.scale-down').prop('disabled', true);
+    state = 0;
+  });
+
+  $('.scale-up').on('click', function () {
+    state = increment(state);
+    increment(state);
+    $('.scale-down').prop('disabled', false);
+    scaleUp(gm);
+    scaleUp(so);
+  });
+
+  $('.scale-down').on('click', function () {
+    if (state >= 1) {
+      state = decrement(state);
+      scaleDown(gm);
+      scaleDown(so);
+      if (state === 0) {
+        $('.scale-down').prop('disabled', true);
+      }
     } else {
-      zoomIn(so);
+      $('.scale-down').prop('disabled', true);
     }
   });
 
-  $('.zoom-out').on('click', function (clicked) {
-    if (clicked.target.id === 'modal-zoom-out' || clicked.target.parentNode.id === 'modal-zoom-out') {
-      zoomOut(gm);
-    } else {
-      zoomOut(so);
-    }
-  });
-
-  $('.default').on('click', function (clicked) {
-    if (clicked.target.id === 'modal-default' || clicked.target.parentNode.id === 'modal-default') {
-      refresh(gm);
-    } else {
-      refresh(so);
-    }
-  });
-
-  $('button#modal-click').on('click', function () {
+  $('span#modal-click').on('click', function () {
     goFullScreen();
   });
 
@@ -141,8 +290,8 @@ $(document).on('turbolinks:load', function () {
 
   // display sigma when modal is launched.
   $('body').on('shown.bs.modal', function () {
-    var id = $('div#graph-modal').data('gexf');
-    createGraph(id, gm);
+    gm.renderers[0].resize();
+    gm.refresh();
   });
 
   // remove sigma on hidden modal.
