@@ -25,11 +25,9 @@
     <h3 class="about_h3">Login</h3>
     <p class="about_p">Begin at <a href="https://cloud.archivesunleashed.org" target="_blank"> https://cloud.archivesunleashed.org</a>.</p>
     <p class="about_p">You will not need to sign up for an AUK account. Instead, AUK will use either a <a href="https://twitter.com/" target="_blank">Twitter</a> or <a href="https://github.com/" target="_blank">GitHub</a> account to authenticate your login. For those who have multiple Twitter or GitHub accounts, feel free to use whichever suits your research purposes best. AUK only uses these accounts to authenticate who you are, we do not have any additional access to your Twitter or GitHub account!</p>
-    <p class="about_p">The following two screenshots show you how to log in. Click on the logo of the service you want to use to authenticate (the bird for Twitter or the Octocat for GitHub). After you authenticate, you should be brought to the main page.</p> 
-
+    <p class="about_p">The following two screenshots show you how to log in. Click on the logo of the service you want to use to authenticate (the bird for Twitter or the Octocat for GitHub). After you authenticate, you should be brought to the main page.</p>
     <%= image_tag("AUK_signin.png", alt: "AUK Sign In Screenshot", class:"body_img")%>
     <%= image_tag("AUK_login.png", alt: "AUK Log In Screenshot", class:"body_img")%>
-
     <p class="about_p">You are now logged into AUK. Welcome!</p>
 
     <h3 class="about_h3">Account Set Up</h3>
@@ -39,32 +37,35 @@
     <p class="about_p">On the next screen, fill out the form to update both sets of credentials.</p>
     <ul class="about_ul">
       <li class="about_li"><strong>AU Account Information</strong>: AUK requires an email so we can let you know what stage of analysis your collection is in. You can use the email address of your choice, and have the ability to modify this at any time. If you have a <a href="https://gravatar.com/" target="_blank">Gravatar</a> account, it will also use this email address to populate your user avatar.</li>
+      <li class="about_li"><strong>Consent Checkbox</strong>: to comply with Canadian Anti-Spam legislation, we've included this checkbox to make sure you understand that the Archives Unleashed team will connect with you in regards to your collections and feedback.</li>
       <li class="about_li"><strong>Archive-It Information</strong>: In order to work with web archive collections, you must enter your Archive-It account username and password. Your Archive-It credentials are encrypted and salted.</li>
     </ul>
-    <%= image_tag("AUK_accountinfo.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
+    <%= image_tag("AUK_account_info.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
+    <%= image_tag("AUK_account_info2.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
     <p class="about_p">Click <strong>Update</strong></p>
-    <p class="about_p">You will be redirected back into the main space. A note at the top of the page will indicate that AUK is syncing with your Archive-It account. The length of time to ingest your WARC collections will depend on the size of your collections and the number of other users syncing their collections. This process could take a few minutes to a few hours. You will receive an email, to the address you provided for your AU Cloud account, when the collections are synced.</p>
+    <p class="about_p">You will be redirected back into the main space. A note at the top of the page will indicate that AUK is syncing with your Archive-It account. The length of time to ingest your collections will depend on the size of your collections and the number of other users syncing their collections. This process could take a few minutes to a few hours. You will receive an email, to the address you provided for your AU Cloud account, when the collections are synced.</p>
     <%= image_tag("AUK_user.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
     <p class="about_note"><strong>Note</strong>: You may update/change your AU Cloud or Archive-It credentials at any time by clicking <strong>Update</strong>. If you add a new collection in Archive-It or change your Archive-It credentials, you can click <strong>Update</strong> and redo the above steps to re-sync.</p>
 
     <h3 class="about_h3">Collections</h3>
-    <p class="about_p">Once your collections have been synced, you can return to the main collections screen and start analysis. Let's take a look at the collection information available to us in the main space:</p>
+    <p class="about_p">Once your collections have been synced, you can return to the main collections screen and start analysis. You can sort collections by clicking on the arrows beside each header. Let's take a look at the collection information available to us in the main space:</p>
     <ul class="about_ul">
       <li class="about_li"><strong>Title</strong> - The name of each collection is pulled directly from your Archive-It account; each title provides the access point for analysis.</li>
+      <li class="about_li"><strong>Analyzed</strong> - This header identifies whether a collection has been analyzed in AUK. If yes, you will see at least one of the following; a network diagram, downloadable derivative files, and/or a domains frequency table once you enter the collection's page.</li>
       <li class="about_li"><strong>Public</strong> - This field notes whether or not the collection is public, and if so, will be listed on an institution's Archive-It page.</li>
-      <li class="about_li"><strong>Files</strong> - Indicates the number of (WARC) files in each collection.</li>
+      <li class="about_li"><strong>Files</strong> - Indicates the number of ARC or WARC files in each collection. Note, this size will differ from the collection size in your Archive-It dashboard. The Archive-It WASAPI endpoint provides the size of each compressed WARC. Whereas the Archive-It dashboard will provide the size of a collection uncompressed.</li>
       <li class="about_li"><strong>Size</strong> - Indicates the collection's total file size.</li>
     </ul>
-    <%= image_tag("AUK_mainspace.png", alt: "Collection Main Space", class:"body_img")%>
+    <%= image_tag("AUK_collections.png", alt: "Collection Main Space", class:"body_img")%>
 
     <h3 class="about_h3">Analysis</h3>
     <p class="about_p">Click on the name of the collection you would like to analyze. This will bring you into the collection page.</p>
     <p class="about_p">At the top of the screen, click <strong>Analyze Collection</strong>. You do not need to keep AUK or your browser open for it to analyze the collection. AUK will notify you when the process is complete and ready for you to start using the output files.</p>
-    <p class="about_note"><strong>Note</strong>: We operate on a queuing system so the time it takes to analyze the collection will depend on how large the collection is and how many other users are processing collections. This could take anywhere between half an hour to a week or so.</p>
+    <p class="about_note"><strong>Note</strong>: We operate on a queuing system so the time it takes to analyze the collection will depend on how large the collection is and how many other users are processing collections. This could take anywhere between half an hour to a few weeks. You need only click the button a single time.</p>
     <%= image_tag("AUK_analyze.png", alt: "Analyze the Collection", class:"body_img")%>
 
     <h3 class="about_h3">Output Files</h3>
-    <p class="about_p">You will receive an email once your collections are ready for analysis. When you navigate to the collection space, by clicking on the collection title, (in the screenshot below we've selected the Halifax Explosion collection) you will find:</p>
+    <p class="about_p">You will receive an email once your collections are ready for analysis. When you navigate to the collection space, by clicking on the collection title (in the screenshot below we've selected the Nova Scotia Municipal Governments collection), you will find:</p>
     <ul class="about_ul">
       <li class="about_li">An interactive hyperlink diagram: you can use this to explore the basic hyperlink structure of your collection.</li>
       <li class="about_li">Four output files that can be downloaded for further research and analysis. These include:</li>
@@ -77,5 +78,20 @@
       <li class="about_li">Finally, below the download options, you can see a frequency table of the top 10 domains found within the collection.</li>
     </ul>
     <%= image_tag("AUK_output.png", alt: "Output Files", class:"body_img")%>
+
+    <h3 class="about_h3">Interactive Hyperlink Diagram</h3>
+    <p class="about_p">We use <a href="https://github.com/archivesunleashed/graphpass">GraphPass</a> to help to create an interactive hyperlink diagram powered by <a href="http://sigmajs.org">Sigma js</a> on the collection page. Sigma is a JavaScript library that assists in drawing and displaying graphs. GraphPass produces visualization-related data in the network files such as color, position and size based on common social network algorithms. In the hyperlink diagram each node (dot) represents a domain (i.e. all of the URLs within a domain such as "yorku.ca" or "newyorktimes.com") and each edge (line) represents a link from one node to another.</p>
+    <p class="about_p">Users can explore and interact with the hyperlink diagram using the helper buttons in the top left corner of the network window.</p>
+      <ul class="about_ul">
+        <li class="about_li"><strong>Full Screen</strong> - opens up the network to full screen for easier interaction</li>
+        <li class="about_li"><strong>Zoom in/out</strong> - zooms the camera into the network and away from it</li>
+        <li class="about_li"><strong>Refresh</strong> - brings the network diagram back to its original state</li>
+        <li class="about_li"><strong>Scale up/down</strong> - allows users to see more or less node labels in the network</li>
+      </ul>
+    <%= image_tag("AUK_hyperlink.png", alt: "AUK Interactive Hyperlink Diagram", class:"body_img")%>
+    <p class="about_p">A few cautionary notes on <strong>"scale up"</strong> and <strong>"scale down"</strong> are in order. With website networks, some sites have so many links compared to the others, that they obscure everything else. AUK's scale-up feature uses <a href="#" data-toggle="tooltip" title="A logarithm is a mathematical expression used to deal with non-normal distributed data (like networks). It is created by giving a base number an exponent, which is then multiplied by itself, to create factor increments, rather than equal amount increments, between data points. This is important as it will allow for data points to be more evenly distributed with minimal influence on data accuracy and integrity.">logarithmic transformation</a> to make the graph a bit easier to read. For example, six nodes with size values 1, 10, 100, 1000, 10000 and 1,000,000,000 can be transformed using a base 10 logarithm to produce new sizes 0, 1, 2, 3, 4, & 9, making the node sizes much closer together in size.</p>
+    <p class="about_p">You can further interact with the hyperlink diagram by hovering over any node to highlight its immediate connections to other nodes. The arrow on each line indicates the direction of connection, for instance, in the image below, we see an arrow connecting two nodes and reveals the townyarmouth.ca has a link to the atlantic.ctvnews.ca domain. </p>
+    <%= image_tag("AUK_neighbours.png", alt: "AUK Interactive Hyperlink Diagram Explained", class:"body_img")%>
+    <%= image_tag("AUK_hover.png", alt: "AUK Interactive Hyperlink Diagram hover feature", class:"body_img")%>
   </div>
 <% end %>
