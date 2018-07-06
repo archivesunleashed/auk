@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/pages/:page' => 'pages#show'
   get 'about' => 'pages#about'
   get 'documentation' => 'pages#documentation'
+  get 'gephi' => 'pages#gephi'
 
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
