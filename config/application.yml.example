@@ -28,6 +28,8 @@ EMAIL_PASSWORD: "somepassword"
 GRAPHPASS: "/path/to/graphpass/directory/graphpass"
 DJW_USERNAME: "some user"
 DJW_PASSWORD: "some password"
+BASE_HOSTNAME: "cloud.archivesunleashed.org"
+BASE_HOST_URL: "https://cloud.archivesunleashed.org"
 
 production:
   SECRET_KEY_BASE: "some secret key base"
