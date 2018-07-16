@@ -83,6 +83,7 @@
           <% unless !File.exists? fulltext_path(@user.id, @collection.id, @collection.account) %>
             <%= link_to('Full Text', user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A txt file that contains the plain text extracted from HTML documents within the web archive. You can find the crawl date, full URL, and the plain text of each page within the file.') %>
           <% end %>
+          <p><small><%=link_to("You can find information about how to use these files here.", "/derivatives")%></small></p>
         </div>
       <% end %>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
