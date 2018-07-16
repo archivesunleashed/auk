@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'documentation' => 'pages#documentation'
   get 'gephi' => 'pages#gephi'
   get 'domains' => 'pages#domains'
+  get 'text-antconc' => 'pages#text-antconc'
   get 'text-sentiment' => 'pages#text-sentiment'
 
   get '/auth/:provider/callback', to: 'sessions#create'

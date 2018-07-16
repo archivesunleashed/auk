@@ -1,0 +1,21 @@
+<% provide(:title, 'Beyond the Keyword Search: Using AntConc for Text Analysis') %>
+
+<% cache do %>
+ <div class="container">
+  <h1 class="about_h1">Text Analysis Part One: Beyond the Keyword Search: Using AntConc</h1>
+  <p class="about_p_italic">Tutorial by Sarah McTavish (University of Waterloo)</h3>
+
+  <h3 class="about_h3">Introduction</h3>
+  <p class="about_p">INTRO HERE</p>
+  <h3 class="about_h3">Beyond the Keyword Search: Using AntConc for Text Analysis</h3>
+  <p class="about_p">AntConc is free corpus analysis software that can be <a href="http://www.laurenceanthony.net/software/antconc/">downloaded for Windows, Mac, and Linux.</a> Using AntCont, it is possible to investigate concordances in your text, without having any coding knowledge.</p> 
+  <%= image_tag("Tutorial_antconc.png", alt: "AntConc can be downloaded from laurenceanthony.net/software.html", class:"body_img")%>
+  <p class="about_p">After installing AntConc, choose “Open File" or “Open Dir" (to open a directory containing multiple text files) from the File menu to begin analyzing your text files.  Files must be in a .txt format, with UTF-8 formatting.  If your file is in a different format, the creator of AntConc also offers file converter and encoding software, which can be <a href="http://www.laurenceanthony.net/software.html">downloaded for free from this website</a>.  Initially, AntConc would crash when I tried to load my WestHollywood all-text file, despite seeming to have the proper encoding; after running it through EncodeAnt, I was able to load it into AntConc without issue.  Therefore, if you have trouble loading a text file, it might be worth installing EncodeAnt.  Additionally, AntConc handles many smaller files much better than one large text file, so if you are having trouble with the program crashing while analyzing your source, <a href="https://stackoverflow.com/questions/2016894/how-to-split-a-large-text-file-into-smaller-files-with-equal-number-of-lines">you can split the file into multiple smaller files</a> and try running those through instead.</p>
+
+  <h3 class="about_h3">Using AntConc to Examine Concordances and Collocates</h3>
+  <p class="about_p">Here, I have ten text files loaded into AntConc and ready to begin analyzing.</p>
+  <%= image_tag("Tutorial_concordance_tab.png", alt: "AntConc’s Concordance tab", class:"body_img")%>
+  <p class="about_p">A search under the “Concordance" tab will find every instance of a word of phrase, and display it in context with several words to the right and left of it.  In this example... MORE HERE</p>
+  <p class="about_p_italic">This tutorial was written by Sarah McTavish, a doctoral candidate at the University of Waterloo. It was edited by Ian Milligan who undoubtably introduced any errors you find.</p>
+ </div>
+<% end %>
