@@ -4,7 +4,7 @@
 <div class="container">
   <h1 class="about_h1">Using the Archives Unleashed Cloud Derivative Files</h1>
   <h3 class="about_h3">What are derivative files?</h3>
-    <p class="about_p">One of the main features of the Archives Unleashed Cloud is the creation of <strong>derivative files</strong>. These are datasets that provide information abotu your web archives and that can be used by researchers in place of the original WARC files.</p>
+    <p class="about_p">One of the main features of the Archives Unleashed Cloud is the creation of <strong>derivative files</strong>. These are datasets that provide information about your web archives and that can be used by researchers in place of the original WARC files.</p>
     <p class="about_p">These derivatives include the following files:</p>
     <ul class="about_ul">
       <li class="about_li"><strong>Gephi</strong> file, which can be loaded into <a href="https://gephi.org/" target="_blank">Gephi</a>. It will have basic characteristics already computed and a basic layout.</li>
@@ -14,13 +14,27 @@
     </ul>
   <p class="about_p">You can find these files after running analytics on a collection, as discussed in the <a href="/documentation">AUK documentation</a>. There will be a series of four buttons on your collections page, highlighted below:</p>
   <%= image_tag("Derivatives_highlighted.png", alt: "Derivatives highlighted", class:"body_img")%>
+
   <h3 class="about_h3">How do I use the Gephi or Raw Network file?</h3>
   <p class="about_p">When using the web as a historical source, the ability to see the way websites link to each other can be invaluable. However, using network analysis in historical research can also be a daunting prospect. To learn how to use these files, read <%=link_to("Network Graphing Archived Websites With Gephi", "/gephi")%>.</p>
-  <h3 class="about_h3">How do I use the plain text file?</h3>
-  <p class="about_p">text analysis content here</p>
-  <h3 class="about_h3">How do I use the domains file?</h3>
-  <p class="about_p">domains file content here</p>
 
+  <h3 class="about_h3">How do I use the plain text file?</h3>
+  <p class="about_p">The plain text file is a large text file. Each website within the web archive collection will have its full text presented on one line, along with information around when it was crawled, the name of the domain, and the full URL of the content.</p>
+  <p class="about_p">We have two tutorials available on our site to help you work with this material, using off-the-shelf software.</p>
+  <ul class="about_ul">
+    <li class="about_li"><strong><%=link_to("Text Analysis Part One: Beyond the Keyword Search: Using AntConc", "/text-antconc")%></strong>: This tutorial explores how you can explore text within a web archive using the AntConc tool.</li>
+      <li class="about_li"><strong><%=link_to("Text Analysis Part Two: Sentiment Analysis With the Natural Language Toolkit", "/text-sentiment")%></strong>: This tutorial explores how you can calculate the positivity or negativity (in an emotional sense) of web archive text.</li>
+  </ul>
+  <p class="about_p">Working with lots of text can be challenging. Fortunately, there are lots of resouces on the web to help teach you the basics of text analysis.</p>
+  <ul class="about_ul">
+    <li class="about_li"><strong><a href="https://programminghistorian.org">Programming Historian</a></strong>: The Programming Historian has many lessons, including a specific section on <a href="https://programminghistorian.org/en/lessons/?topic=distant-reading">distant reading."</a></li>
+    <li class="about_li"><strong><a href="http://tapor.ca/home">Text Analysis Portal for Research</a></strong>: TAPoR, or the Text Analysis Portal for Research, provides a curated collection of tools that can be used to explore text.</li>
+    <li class="about_li"><strong><a href="https://uottawa.libguides.com/DH/textual">Digital Humanities Guide at University of Ottawa</a></strong>: This is a great guide that highlights several approaches to text analysis in the field.</li>
+    <li class="about_li"><strong><a href="http://voyant-tools.org/">Voyant Tools</a></strong>: This is more of a tool than an introductory resource, but it's a great "gateway drug" into the powers of text analyis.</li>
+  </ul>
+
+  <h3 class="about_h3">How do I use the domains file?</h3>
+  <p class="about_p">Sometimes you might just want to know what is inside a web archive! The web is a complex beast: a small web archive that aims to collect just one page might end up capturing embedded widgets and content from other websites just to make something play; alternatively, a crawl might have been corrupted and begun to find material that's far out of scope. <%=link_to("This tutorial explores what you can learn from the Domains file and visualizations", "/domains")%>.</p>
 
 </div>
 <% end %>
