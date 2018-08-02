@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jid: 1
+  download_size: 1
+  user: MyString
+  institution: MyString
+  collection: MyString
+  queue: MyString
+  start_time: 2018-08-01 08:48:01
+  end_time: 
+  job_time: 1
+
+two:
+  jid: 1
+  download_size: 1
+  user: MyString
+  institution: MyString
+  collection: MyString
+  queue: MyString
+  start_time: 2018-08-01 08:48:01
+  end_time: 
+  job_time: 1

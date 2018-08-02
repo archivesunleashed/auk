@@ -28,6 +28,8 @@ EMAIL_PASSWORD: "somepassword"
 GRAPHPASS: "/path/to/graphpass/directory/graphpass"
 DJW_USERNAME: "some user"
 DJW_PASSWORD: "some password"
+DASHBOARD_USER: "test"
+DASHBOARD_PASS: "test"
 BASE_HOSTNAME: "cloud.archivesunleashed.org"
 BASE_HOST_URL: "https://cloud.archivesunleashed.org"
 

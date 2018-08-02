@@ -50,7 +50,7 @@ bundle exec rake jobs:work
 Or to simulate production environment with Delayed::Job:
 
 ```
-bin/delayed_job --pool=spark,tasks:1 --pool=graphpass,tasks:1 --pool=spark_cat,tasks:2 --pool=seed,tasks:10 --pool=download,tasks:4 start
+bin/delayed_job --pool=spark,tasks:1 --pool=graphpass,tasks:1 --pool=spark_cat,tasks:2 --pool=seed,tasks:10 --pool=download,tasks:4 --pool=cleanup,tasks:2 start
 ```
 
 Then visit http://localhost:3000.
@@ -69,12 +69,15 @@ Running via Spring preloader in process 19680
 Loading production environment (Rails 5.1.4)
 irb(main):001:0> Delayed::Job.find(1234).retry!
 ```
-
 ### Configuration
 
 This application makes use of [figaro](https://github.com/laserlemon/figaro).
 
 You will need a [`config/application.yml`](https://github.com/archivesunleashed/auk/blob/master/config/application.yml.example) file in the root of the application.
+
+#### Dashboard
+
+Set the `DASHBOARD_USER` and `DASHBOARD_PASS` in `config/application.yml`. Then visit http://localhost:3000/dashboards.
 
 #### Sitemap
 

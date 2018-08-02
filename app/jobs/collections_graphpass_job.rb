@@ -9,9 +9,19 @@ class CollectionsGraphpassJob < ApplicationJob
                                           job.arguments.second).deliver_now
     WarcsCleanupJob.set(wait: 1.day).perform_later(job.arguments.first,
                                                    job.arguments.second)
+    update_dashboard = Dashboard.find_by(job_id: job_id)
+    update_dashboard.end_time = DateTime.now.utc
+    update_dashboard.save
   end
 
   def perform(user_id, collection_id)
+    Dashboard.find_or_create_by!(
+      job_id: job_id,
+      user_id: user_id,
+      collection_id: collection_id,
+      queue: 'graphpass',
+      start_time: DateTime.now.utc
+    )
     graphpass = ENV['GRAPHPASS']
     Collection.where('user_id = ? AND collection_id = ?', user_id, collection_id).each do |c|
       collection_path = ENV['DOWNLOAD_PATH'] +

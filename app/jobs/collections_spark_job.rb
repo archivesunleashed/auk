@@ -4,7 +4,20 @@
 class CollectionsSparkJob < ApplicationJob
   queue_as :spark
 
+  after_perform do
+    update_dashboard = Dashboard.find_by(job_id: job_id)
+    update_dashboard.end_time = DateTime.now.utc
+    update_dashboard.save
+  end
+
   def perform(user_id, collection_id)
+    Dashboard.find_or_create_by!(
+      job_id: job_id,
+      user_id: user_id,
+      collection_id: collection_id,
+      queue: 'spark',
+      start_time: DateTime.now.utc
+    )
     spark_shell = ENV['SPARK_SHELL']
     Collection.where('user_id = ? AND collection_id = ?', user_id, collection_id).each do |c|
       collection_path = ENV['DOWNLOAD_PATH'] +
