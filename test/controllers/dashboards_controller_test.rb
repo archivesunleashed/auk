@@ -4,6 +4,7 @@ require 'test_helper'
 
 class DashboardsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @dashboard = dashboards(:one)
+    @dashboard_one = dashboards(:one)
+    @dashboard_two = dashboards(:two)
   end
 end
