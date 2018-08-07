@@ -18,7 +18,7 @@ class DashboardsHelperTest < ActionView::TestCase
   end
 
   test 'get username helper' do
-    assert_equal 'Nacho Nicolas',
+    assert_equal 'Auk Nacho',
                  get_username(@dashboards_one.user_id)
     assert_equal 'Rick Ruebeau',
                  get_username(@dashboards_two.user_id)
