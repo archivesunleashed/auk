@@ -3,7 +3,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "npm": "^6.1.0"
+    "npm": "^6.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
