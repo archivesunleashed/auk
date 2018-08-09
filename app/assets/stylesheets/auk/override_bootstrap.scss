@@ -128,13 +128,16 @@ body {
 }
 
 /*
- * Derivative Bootstrap  Customization
+ * Derivative Page - Bootstrap Customization for Card Deck
  */
 
 .card-deck{
   font-family: helvetica;
   font-size: 18px;
   text-align: center;
+  max-width: auto;
+  padding-left: 20px;
+  align-items: center;
 }
 
 .card{
@@ -174,31 +177,47 @@ body {
 
 
 /*
- * Derivative Bootstrap  Customization for table layout
+ * Derivative Bootstrap Customization for Table Layout + Accordian
  */
 
-.card_table {
-  width: 100%;
-  margin: 20px auto;
-  table-layout: fixed;
-}
 
-.tr_table {
+.accord {
   table-layout: fixed;
-}
-
-table,
-td,
-th {
   border-collapse: collapse;
-}
-
-th,
-td {
   padding: 10px;
-  border: solid 1px;
   text-align: left;
 }
+
+.accord_header{
+  font-family: helvetica;
+  border-radius: 5px;
+  border: 2px solid grey;
+  background-color: #ebfafa;
+  padding: 10px;
+  margin-left: 10px;
+  text-align: left;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.accord_body{
+  font-family: helvetica;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.accord_table,
+.tr_table, .td_table,{
+  table-layout: fixed;
+  border-collapse: collapse;
+  padding-left: 5px;
+  border: solid 1px;
+  text-align: left;
+  line-height: 1.8;
+}
+
+
+
 
 
 /*
