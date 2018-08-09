@@ -3,38 +3,118 @@
 <% cache do %>
 <div class="container">
   <h1 class="about_h1">Using the Archives Unleashed Cloud Derivative Files</h1>
-  <h3 class="about_h3">What are derivative files?</h3>
-    <p class="about_p">One of the main features of the Archives Unleashed Cloud is the creation of <strong>derivative files</strong>. These are datasets that provide information about your web archives and that can be used by researchers in place of the original WARC files.</p>
-    <p class="about_p">These derivatives include the following files:</p>
-    <ul class="about_ul">
-      <li class="about_li"><strong>Gephi</strong> file, which can be loaded into <a href="https://gephi.org/" target="_blank">Gephi</a>. It will have basic characteristics already computed and a basic layout.</li>
-      <li class="about_li"><strong>Raw Network</strong> file, which can also be loaded into <a href="https://gephi.org/" target="_blank">Gephi</a>. You will have to use that network program to lay it out yourself.</li>
-      <li class="about_li"><strong>Domains</strong> file will be a CSV file containing the frequency of domains found within your web archive.</li>
-      <li class="about_li"><strong>Full Text</strong> file will be a large text file containing the extracted plain text of all the HTML files found within a collection. You might want to try loading it into a visualization platform like <a href="http://voyant-tools.org/" target="_blank">Voyant Tools</a> to see patterns and trends within your web archive.
-    </ul>
-  <p class="about_p">You can find these files after running analytics on a collection, as discussed in the <a href="/documentation">AUK documentation</a>. There will be a series of four buttons on your collections page, highlighted below:</p>
-  <%= image_tag("Derivatives_highlighted.png", alt: "Derivatives highlighted", class:"body_img")%>
 
-  <h3 class="about_h3">How do I use the Gephi or Raw Network file?</h3>
-  <p class="about_p">When using the web as a historical source, the ability to see the way websites link to each other can be invaluable. However, using network analysis in historical research can also be a daunting prospect. To learn how to use these files, read <%=link_to("Network Graphing Archived Websites With Gephi", "/derivatives/gephi")%>.</p>
+    <p class="about_p">One of the main features of the Archives Unleashed Cloud is the creation of <strong>derivative files</strong>. These are datasets that provide information about your web archives and can be used by researchers in place of the original WARC files.</p>
 
-  <h3 class="about_h3">How do I use the plain text file?</h3>
-  <p class="about_p">The plain text file is a large text file. Each website within the web archive collection will have its full text presented on one line, along with information around when it was crawled, the name of the domain, and the full URL of the content.</p>
-  <p class="about_p">We have two tutorials available on our site to help you work with this material, using off-the-shelf software.</p>
-  <ul class="about_ul">
-    <li class="about_li"><strong><%=link_to("Text Analysis Part One: Beyond the Keyword Search: Using AntConc", "/derivatives/text-antconc")%></strong>: This tutorial explores how you can explore text within a web archive using the AntConc tool.</li>
-      <li class="about_li"><strong><%=link_to("Text Analysis Part Two: Sentiment Analysis With the Natural Language Toolkit", "/derivatives/text-sentiment")%></strong>: This tutorial explores how you can calculate the positivity or negativity (in an emotional sense) of web archive text.</li>
-  </ul>
-  <p class="about_p">Working with lots of text can be challenging. Fortunately, there are lots of resouces on the web to help teach you the basics of text analysis.</p>
-  <ul class="about_ul">
-    <li class="about_li"><strong><a href="https://programminghistorian.org">Programming Historian</a></strong>: The Programming Historian has many lessons, including a specific section on <a href="https://programminghistorian.org/en/lessons/?topic=distant-reading">distant reading."</a></li>
-    <li class="about_li"><strong><a href="http://tapor.ca/home">Text Analysis Portal for Research</a></strong>: TAPoR, or the Text Analysis Portal for Research, provides a curated collection of tools that can be used to explore text.</li>
-    <li class="about_li"><strong><a href="https://uottawa.libguides.com/DH/textual">Digital Humanities Guide at University of Ottawa</a></strong>: This is a great guide that highlights several approaches to text analysis in the field.</li>
-    <li class="about_li"><strong><a href="http://voyant-tools.org/">Voyant Tools</a></strong>: This is more of a tool than an introductory resource, but it's a great "gateway drug" into the powers of text analyis.</li>
-  </ul>
+    <p class="about_p">Once analytics have been run on a collection, as discussed in the <a href="/documentation">AUK documentation</a>, you will be able to view and access a series of four  derivative files.</p>
 
-  <h3 class="about_h3">How do I use the domains file?</h3>
-  <p class="about_p">Sometimes you might just want to know what is inside a web archive! The web is a complex beast: a small web archive that aims to collect just one page might end up capturing embedded widgets and content from other websites just to make something play; alternatively, a crawl might have been corrupted and begun to find material that's far out of scope. <%=link_to("This tutorial explores what you can learn from the Domains file and visualizations", "/derivatives/domains")%>.</p>
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="..." alt="Gephi placeholder">
+        <div class="card-body">
+          <h5 class="card-title">Gephi</h5>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="..." alt="Raw Network placeholder">
+        <div class="card-body">
+          <h5 class="card-title">Raw Nework</h5>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="..." alt="Domains placeholder">
+        <div class="card-body">
+          <h5 class="card-title">Domains</h5>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="..." alt="Full Text placeholder">
+        <div class="card-body">
+          <h5 class="card-title">Full Text</h5>
+        </div>
+      </div>
+    </div>
+  
+  <br>
+  <h3 class="about_h3">Learning Guides</h3>
+  <p class="about_p"> The following guides walk through how to use AUK derivative files for further analysis.</p>
+
+  <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Gephi & Raw Network Files
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <p class="about_p">When using the web as a historical source, the ability to see the way websites link to each other can be invaluable. (For example, blah blah blah). However, using network analysis in historical research can also be a daunting prospect. 
+          <p class="about_p">This section introduces users to working with network file outputs to explore (blah blah) the connections between (blah).</p>
+          <p class="about_p"><strong>Files Generated</strong>
+            <ul>
+              <li class="card_li"><strong>Gephi</strong> file, which can be loaded into <a href="https://gephi.org/" target="_blank">Gephi</a>. It will have basic characteristics already computed and a basic layout.</li>
+              <li class="card_li"><strong>Raw Network</strong> file, which can also be loaded into <a href="https://gephi.org/" target="_blank">Gephi</a>. You will have to use that network program to lay it out yourself.</li>
+            </ul>
+          <p class="about_p"><strong>File Output</strong>: . gexf</p>  
+          <p class="about_p">Tutorial: <%=link_to("Network Graphing Archived Websites With Gephi", "/derivatives/gephi")%></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Plain Text Files
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <p class="about_p">Each website within the web archive collection will have its full text presented on one line, along with information around when it was crawled, the name of the domain, and the full URL of the content. AUK users will have access to the Full Text file which contains the extracted plain text of all the HTML files found within a collection. Below we've lists some tutorials and additional resources that may help to find  patterns and trends within your web archive.</p>
+          <p class="about_p"><strong>File Generated</strong>:
+            <ul>
+              <li class="card_li">
+                <p class="about_p">A text file is generated which can be used in various other programs and software.</p>
+              </li>
+            </ul>
+          </p>
+          <p class="about_p"><strong>File Outpu</strong>: . txt</p>
+          <p class="about_p"><strong>Tutorials</strong>: We have two tutorials available on our site to help you work with this material, using off-the-shelf software.</p>
+           <ul>
+             <li class="card_li"><strong><%=link_to("Text Analysis Part One: Beyond the Keyword Search: Using AntConc", "/derivatives/text-antconc")%></strong>: This tutorial explores how you can explore text within a web archive using the AntConc tool.</li>
+             <li class="card_li"><strong><%=link_to("Text Analysis Part Two: Sentiment Analysis With the Natural Language Toolkit", "/derivatives/text-sentiment")%></strong>: This tutorial explores how you can calculate the positivity or negativity (in an emotional sense) of web archive text.</li> 
+           </ul>
+          <p class="about_p"><strong>Additional Resources</strong>:</p> 
+          <p class="about_p">Working with lots of text can be challenging. Fortunately, there are lots of resouces on the web to help teach you the basics of text analysis.</p>
+           <ul>
+             <li class="card_li"><strong><a href="https://programminghistorian.org">Programming Historian</a></strong>: The Programming Historian has many lessons, including a specific section on <a href="https://programminghistorian.org/en/lessons/?topic=distant-reading">distant reading."</a></li>
+             <li class="card_li"><strong><a href="http://tapor.ca/home">Text Analysis Portal for Research</a></strong>: TAPoR, or the Text Analysis Portal for Research, provides a curated collection of tools that can be used to explore text.</li>
+             <li class="card_li"><strong><a href="https://uottawa.libguides.com/DH/textual">Digital Humanities Guide at University of Ottawa</a></strong>: This is a great guide that highlights several approaches to text analysis in the field.</li>
+             <li class="card_li"><strong><a href="http://voyant-tools.org/">Voyant Tools</a></strong>: This is more of a tool than an introductory resource, but it's a great "gateway drug" into the powers of text analyis.</li>
+           </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Domains File
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        <p class="about_p">Sometimes you might just want to know what is inside a web archive! The web is a complex beast: a small web archive that aims to collect just one page might end up capturing embedded widgets and content from other websites just to make something play; alternatively, a crawl might have been corrupted and begun to find material that's far out of scope.</p>
+          
+          <p class="about_p">File Output: . ???</p>
+          <p class="about_p">Tutorial:<%=link_to("/derivatives/domains")%>.</p>
+           <p class="about_p"><strong>Domains</strong> file will be a CSV file containing the frequency of domains found within your web archive.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 <% end %>
