@@ -164,25 +164,41 @@ body {
   margin-left: 20px;
   margin-right: 25px;
 }
-.card-title{
-}
 
-.card_li{
-  padding-left: 5px;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  line-height: 1;
-  margin-left: 40px;
+.card-header{
+  color:black;
+  text-align: left;
+  text-shadow: 3px 2px red;
+  border: 2px solid gray;
 }
 
 
+/*
+ * Derivative Bootstrap  Customization for table layout
+ */
 
+.card_table {
+  width: 100%;
+  margin: 20px auto;
+  table-layout: fixed;
+}
 
-.accord
-.accord_header
-.mb-0
-.accord-body
+.tr_table {
+  table-layout: fixed;
+}
 
+table,
+td,
+th {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border: solid 1px;
+  text-align: left;
+}
 
 
 /*
