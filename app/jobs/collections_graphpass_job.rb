@@ -32,6 +32,14 @@ class CollectionsGraphpassJob < ApplicationJob
       graphpass_cmd = graphpass + graphpass_flags
       logger.info 'Executing: ' + graphpass_cmd
       system(graphpass_cmd)
+      combine_full_url_output_cmd = 'cat ' + collection_derivatives + '/all-domains/output/part* > ' + collection_derivatives + '/all-domains/' + c.collection_id.to_s + '-fullurls.txt'
+      logger.info 'Executing: ' + combine_full_url_output_cmd
+      system(combine_full_url_output_cmd)
+      FileUtils.rm_rf(collection_derivatives + '/all-domains/output')
+      combine_full_text_output_cmd = 'cat ' + collection_derivatives + '/all-text/output/part* > ' + collection_derivatives + '/all-text/' + c.collection_id.to_s + '-fulltext.txt'
+      logger.info 'Executing: ' + combine_full_text_output_cmd
+      system(combine_full_text_output_cmd)
+      FileUtils.rm_rf(collection_derivatives + '/all-text/output')
     end
   end
 end

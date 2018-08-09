@@ -57,8 +57,6 @@ class CollectionsSparkJob < ApplicationJob
                         c.collection_id.to_s + '-gephi.graphml'
       if File.exist?(domain_success) && File.exist?(fulltext_success) &&
          File.exist?(graphml_success) && !File.empty?(graphml_success)
-        CollectionsCatJob.set(queue: :spark_cat)
-                         .perform_later(user_id, collection_id)
         CollectionsGraphpassJob.set(queue: :graphpass)
                                .perform_later(user_id, collection_id)
       else

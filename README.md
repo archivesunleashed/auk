@@ -50,7 +50,7 @@ bundle exec rake jobs:work
 Or to simulate production environment with Delayed::Job:
 
 ```
-bin/delayed_job --pool=spark,tasks:1 --pool=graphpass,tasks:1 --pool=spark_cat,tasks:2 --pool=seed,tasks:10 --pool=download,tasks:4 --pool=cleanup,tasks:2 start
+bin/delayed_job --pool=spark,tasks:1 --pool=graphpass,tasks:1 --pool=seed,tasks:10 --pool=download,tasks:4 --pool=cleanup,tasks:2 start
 ```
 
 Then visit http://localhost:3000.
