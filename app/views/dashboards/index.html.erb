@@ -1,0 +1,44 @@
+<% provide(:title, 'AUK Dashboard') %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Institution</th>
+            <th>Collection</th>
+            <th>Queue</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Total Run Time</th>
+            <th>Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @dashboards.each do |dashboard| %>
+            <tr>
+              <td><%= get_username(dashboard.user_id) %></td>
+              <td><%= get_institution(dashboard.user_id) %></td>
+              <% if dashboard.queue == 'seed' %>
+                <td></td>
+              <% end %>
+              <% if dashboard.queue != 'seed' %>
+                <td><%= get_collection_name(dashboard.collection_id) %></td>
+              <% end %>
+              <td><%= dashboard.queue %></td>
+              <td><%= dashboard.start_time %></td>
+              <td><%= dashboard.end_time %></td>
+              <td><%= job_length(dashboard.start_time, dashboard.end_time) %></td>
+              <% if dashboard.queue == 'download' %>
+                <td><%= collection_size_human(dashboard.collection_id, dashboard.user_id) %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= paginate @dashboards %>

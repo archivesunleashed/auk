@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :dashboards
+
   root 'pages#show', page: 'home'
   get '/pages/:page' => 'pages#show'
   get 'about' => 'pages#about'

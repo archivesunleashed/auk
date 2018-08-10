@@ -14,4 +14,10 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'title', 'About | Archives Unleashed'
   end
+
+  test 'should get documentation page' do
+    get documentation_path
+    assert_response :success
+    assert_select 'title', 'Documentation | Archives Unleashed'
+  end
 end

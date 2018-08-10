@@ -15,7 +15,6 @@ Metrics/AbcSize:
     - app/controllers/collections_controller.rb
     - app/helpers/collections_helper.rb
     - app/helpers/wasapi_files_helper.rb
-    - app/jobs/collections_cat_job.rb
     - app/jobs/collections_graphpass_job.rb
     - app/jobs/collections_spark_job.rb
     - app/jobs/warcs_cleanup_job.rb
@@ -24,7 +23,6 @@ Metrics/AbcSize:
 
 Metrics/BlockLength:
   Exclude:
-    - app/jobs/collections_cat_job.rb
     - app/jobs/collections_spark_job.rb
     - app/jobs/wasapi_files_download_job.rb
     - app/jobs/wasapi_files_populate_job.rb
@@ -36,34 +34,33 @@ Metrics/BlockLength:
 Metrics/CyclomaticComplexity:
   Exclude:
     - app/helpers/wasapi_files_helper.rb
-    - app/jobs/collections_cat_job.rb
 
 Metrics/MethodLength:
   Exclude:
     - app/controllers/collections_controller.rb
     - app/helpers/collections_helper.rb
     - app/helpers/wasapi_files_helper.rb
-    - app/jobs/collections_cat_job.rb
     - app/jobs/collections_graphpass_job.rb
     - app/jobs/collections_spark_job.rb
+    - app/jobs/warcs_cleanup_job.rb
     - app/jobs/wasapi_files_download_job.rb
     - app/jobs/wasapi_files_populate_job.rb
 
 Metrics/LineLength:
   Exclude:
     - app/helpers/users_helper.rb
-    - app/jobs/collections_cat_job.rb
     - app/jobs/collections_graphpass_job.rb
     - app/jobs/collections_spark_job.rb
     - app/jobs/warcs_cleanup_job.rb
     - app/jobs/wasapi_files_populate_job.rb
     - app/mailers/user_mailer.rb
+    - test/controllers/dashboards_controller_test.rb
+    - test/helpers/auth_helper.rb
     - test/helpers/users_helper_test.rb
 
 Metrics/PerceivedComplexity:
   Exclude:
     - app/helpers/wasapi_files_helper.rb
-    - app/jobs/collections_cat_job.rb
 
 Rails:
   Enabled: true
@@ -74,6 +71,10 @@ RSpec/NestedGroups:
 Rails/FilePath:
   Exclude:
     - config/environments/development.rb
+
+Rails/HttpPositionalArguments:
+  Exclude:
+    - test/controllers/dashboards_controller_test.rb
 
 Style/AlignArray:
   Exclude:
@@ -88,7 +89,6 @@ Style/GuardClause:
   Exclude:
     - app/helpers/collections_helper.rb
     - app/helpers/wasapi_files_helper.rb
-    - app/jobs/collections_cat_job.rb
     - app/jobs/collections_spark_job.rb
     - app/jobs/wasapi_files_populate_job.rb
     - app/models/concerns/ai_wasapi_validator.rb
@@ -104,7 +104,6 @@ Style/NegatedIf:
 
 Style/Next:
   Exclude:
-    - app/jobs/collections_cat_job.rb
     - app/jobs/wasapi_files_download_job.rb
     - app/jobs/wasapi_files_populate_job.rb
 
@@ -119,3 +118,7 @@ Style/PredicateName:
 Style/RedundantSelf:
   Exclude:
     - config/initializers/delayed_job_config.rb
+
+Style/StringLiterals:
+  Exclude:
+    - test/controllers/dashboards_controller_test.rb

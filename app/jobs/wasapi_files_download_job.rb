@@ -11,9 +11,19 @@ class WasapiFilesDownloadJob < ApplicationJob
     UserMailer.notify_collection_downloaded(job.arguments.first.id,
                                             job.arguments.second.id).deliver_now
     logger.info 'Email sent to: ' + job.arguments.first.email.to_s
+    update_dashboard = Dashboard.find_by(job_id: job_id)
+    update_dashboard.end_time = DateTime.now.utc
+    update_dashboard.save
   end
 
   def perform(user_id, collection_id)
+    Dashboard.find_or_create_by!(
+      job_id: job_id,
+      user_id: user_id.id.to_i,
+      collection_id: collection_id.id.to_i,
+      queue: 'download',
+      start_time: DateTime.now.utc
+    )
     wasapi_username = user_id.wasapi_username
     wasapi_password = user_id.wasapi_password
     download_files = WasapiFile.where('user_id = ? AND collection_id = ?',
