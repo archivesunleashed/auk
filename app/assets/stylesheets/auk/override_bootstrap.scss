@@ -129,6 +129,7 @@ body {
 
 /*
  * Derivative Page - Bootstrap Customization for Card Deck
+ * Includes hover image stylizing
  */
 
 .card-deck{
@@ -138,6 +139,7 @@ body {
   max-width: auto;
   padding-left: 20px;
   align-items: center;
+  display: flex; 
 }
 
 .card{
@@ -156,6 +158,11 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 280px;
 }
 .card_body{
   font-family: helvetica;
@@ -175,11 +182,14 @@ body {
   border: 2px solid gray;
 }
 
+.imageContainer > img:hover {
+    -webkit-transform:scale(2);
+    transform:scale(2);
+}
 
 /*
  * Derivative Bootstrap Customization for Table Layout + Accordian
  */
-
 
 .accord {
   table-layout: fixed;
@@ -190,6 +200,7 @@ body {
 
 .accord_header{
   font-family: helvetica;
+  font-size: 18px;
   border-radius: 5px;
   border: 2px solid grey;
   background-color: #ebfafa;
@@ -208,17 +219,14 @@ body {
 
 .accord_table,
 .tr_table, .td_table,{
+  min-width: 400px;
   table-layout: fixed;
   border-collapse: collapse;
-  padding-left: 5px;
-  border: solid 1px;
   text-align: left;
   line-height: 1.8;
+  border: solid 1px grey;
+  padding: 5px;
 }
-
-
-
-
 
 /*
  * Footer
