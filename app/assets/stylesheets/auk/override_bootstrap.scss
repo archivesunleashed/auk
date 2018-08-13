@@ -128,28 +128,36 @@ body {
 }
 
 /*
- * AUK Derivative Page - Bootstrap Customization for Card Deck
+ * AUK Derivative Page - Bootstrap customization to display derivative images in a Card Deck 
+ * where cards are equal in hight and width and are separated
  */
 
-.auk_card-deck {
-  font-family: helvetica;
-  font-size: 22px;
-  text-align: center;
+.auk_deriv_card {
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: auto;
+  width: 220px;
+  border: 1px solid gray; 
+}
+
+.auk_deriv_card-body {
+  padding: 5px;
+  line-height: 1.4;
+  margin-left: 20px;
+  margin-right: 25px;
   max-width: 100%;
   padding-left: 20px;
   align-items: center;
   display: flex; 
 }
 
-.auk_card {
-  border-radius: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin: auto;
-  width: 220px;
-  border: 1px solid gray;
-  
+.auk_deriv_card-title {
+  font-family: helvetica;
+  font-size: 22px;
+  text-align: center;
 }
+
 .auk_card-img-top {
   border-radius: 5x;
   padding-top: 5px;
@@ -161,59 +169,49 @@ body {
   height: 280px;
   max-width: 200px;
 }
-.auk_card-body {
-  font-family: helvetica;
-  font-size: 18px;
-  padding: 5px;
-  line-height: 1.4;
-  margin-left: 20px;
-  margin-right: 25px;
-}
 
 /*
- * AUK Derivative Bootstrap Customization for Table Layout + Accordian
+ * AUK Derivative Page - Bootstrap Customization for Accordian layout
  */
 
-.collapseOne {
-  font-family: helvetica;
-  font-size: 50px;
-}
-
-.accord {
+.auk_deriv_accord {
   table-layout: fixed;
   border-collapse: collapse;
+  width: 100%;
   padding: 10px;
   text-align: left;
 }
 
-.accord-header {
+.auk_deriv_accord-header {
   font-family: helvetica;
   font-size: 22px;
   border-radius: 5px;
-  border: 2px solid grey;
-  background-color: #ebfafa;
+  border: 1px solid grey;
   padding: 10px;
   margin-left: 10px;
   text-align: left;
-
+  max-width: auto;
 }
 
-.accord_body {
+.auk_deriv_accord_body {
   font-family: helvetica;
   font-size: 18px;
   line-height: 1.4;
 }
 
-.accord_table,
-.tr_table, .td_table, {
-  min-width: 400px;
-  table-layout: fixed;
+.auk_deriv_tbody_table, {
+  table-layout: auto;
   border-collapse: collapse;
   text-align: left;
   line-height: 1.8;
-  border: solid 1px grey;
-  padding: 5px;
 }
+
+.auk_deriv_tr_table, 
+.auk_deriv_td_table {
+  border: solid 1px grey;
+  padding: 10px;
+}
+
 
 /*
  * Footer
