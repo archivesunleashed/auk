@@ -3,8 +3,7 @@
 <% cache do %>
  <div class="container">
   <h1 class="about_h1">Text Analysis Part Two: Sentiment Analysis With the Natural Language Toolkit</h1>
-  <p class="about_p_italic">Tutorial by Sarah McTavish (University of Waterloo)</h3>
-
+  <p class="about_p_italic">Tutorial by Sarah McTavish (PhD Candidate, University of Waterloo)</h3>
   <h3 class="about_h3">Introduction</h3>
   <p class="about_p">In Part 1 (link here), we examined how we can use text analysis software AntConc to investigate concordances and collocates in a large text file. This type of analysis is incredibly useful for examining keyword use, while maintaining the context within which the keyword appeared. In Part 2, we look at the use of the Python Natural Language Toolkit and how to do more complex <a href="https://en.wikipedia.org/wiki/Sentiment_analysis">sentiment analysis</a> on our large text source. With this type of analysis, we can calculate whether a word or phrase in our text is primarily positive, negative, or neutral. Sentiment analysis can shed light on the emotions expressed when discussing a given topic; when combined with other types of text analysis, such as that concordance and collation analysis, or combined with network analysis, sentiment analysis can be a powerful tool for bringing context to a large text source.</p>
   <h3 class="about_h3">Getting Started</h3>
@@ -62,6 +61,5 @@
   <p class="about_p">Though sentiment analysis can be a powerful tool for quickly determining the emotions expressed through text, there are limitations to what sentiment analysis can provide. Additionally, like all text analysis, we need to be cautious in interpreting the results. For example, sentences that contain profanity have a tendency to be interpreted by NLTK as negative; this can be a problem when using texts from social media, where profanity is often used for emphasis.</p>
   <p class="about_p">Similarly, many negative terms or insults that have been reclaimed by minority groups are flagged as negative when using sentiment analysis. In my own work on queer communities on the early Internet, I see examples of slurs that have been reclaimed by the queer community (indeed, even the word "queer" itself in some cases) being interpreted as negative, despite clearly positive ideas being communicated in the sentence. This can also be a problem when using texts from other parts of the world, where even words in English can mean different things depending on who is writing them.</p>
   <p class="about_p">However, these limitations are similar to other types of computer-mediated text analysis, or even traditional close reading done by human scholars. Overall, the strength of sentiment analysis using NLTK is in the ability to isolate a keyword and provide a quick reading on the positive and negative emotions expressed when using that word. When combined with other text analysis methodologies, sentiment analysis has the ability to allow scholars to really delve into very large text sources.</p>
-  <p class="about_p_italic">This tutorial was written by Sarah McTavish, a doctoral candidate at the University of Waterloo. It was edited by Ian Milligan who undoubtably introduced any errors you find.</p>
  </div>
 <% end %>

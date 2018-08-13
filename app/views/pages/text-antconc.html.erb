@@ -3,8 +3,7 @@
 <% cache do %>
  <div class="container">
   <h1 class="about_h1">Text Analysis Part One: Beyond the Keyword Search: Using AntConc</h1>
-  <p class="about_p_italic">Tutorial by Sarah McTavish (University of Waterloo)</h3>
-
+  <p class="about_p_italic">Tutorial by Sarah McTavish (PhD Candidate, University of Waterloo)</h3>
   <h3 class="about_h3">Introduction</h3>
   <p class="about_p">In my own research using thousands of deleted webpages as a historical source, the Wayback Machine has been an invaluable tool for viewing these sites as they were originally presented. With thousands of personal webpages, photos, journals, and biographies found within web archives, the temptation to just keep reading forever is high. However, there are limits to what one human can read. The alternative to endless link-clicking is large scale text analysis. But how can we make any more sense of a massive text file than a large collection of websites on the Wayback Machine?</p>
   <p class="about_p">Web archives are very big. For example, my own research uses a GeoCities "neighbourhood" which was intended to house gay, lesbian, and transgender personal webpages, and contains approximately 25 000 individual user sites. Just the raw text from WestHollywood is 1.7 gigabytes, much more than I could possibly read in my lifetime, despite sometimes wishing that it was possible. How can I make sense of this enormous collection of archived web pages? What types of large scale text analysis can be most useful in tackling this kind of source base? This tutorial walks you through an easy-to-use tool, Antconc, which can help you explore the text of an archived webpage.</p>
@@ -30,7 +29,5 @@
   <p class="about_p">Perhaps even more usefully, AntConc allows you to click on any collocate, and will show all concordances of that word along with your search term. Using this method, it is possible to view all instances of two related words within your text source. If you already know the word that you are looking for in relation to your search term, you can also do this directly through the Concordance tab, using AntConc's advanced search tools. The other benefit is that you can create a context word list, in order to further tailor your search results according to multiple context words. However, this requires you to already know the specific context and search terms that you expect to see; for this, it can be helpful to first run Collocation to view the most frequently-used words.</p>
   <%= image_tag("Tutorial_antconc_search.png", alt: "Using AntConc's advanced search options", class:"body_img")%>
   <p class="about_p">Overall, AntConc provides rather surface analysis on text sources, by looking at the instance of a named search term, and the context within which that word is found. However, this type of analysis can be incredibly useful for dealing with situations where keyword searches yield too many results to be meaningfully read, or to determine the context around which a search term is found. By combining search terms, it is possible to whittle thousands of keyword results down to a few dozen relevant matches.</p>
-
-  <p class="about_p_italic">This tutorial was written by Sarah McTavish, a doctoral candidate at the University of Waterloo. It was edited by Ian Milligan who undoubtably introduced any errors you find.</p>
  </div>
 <% end %>

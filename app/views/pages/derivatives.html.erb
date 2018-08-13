@@ -5,46 +5,48 @@
   <h1 class="about_h1">Using the Archives Unleashed Cloud Derivative Files</h1>
   <p class="about_p">One of the main features of the Archives Unleashed Cloud is the creation of <strong>derivative files</strong>. These are datasets that provide information about your web archives and can be used by researchers in place of the original WARC files.</p>
   <p class="about_p">Once analytics have been run on a collection, as discussed in the <a href="/documentation">AUK documentation</a>, you will be able to view and access a series of four  derivative files.</p>
-  <div class="card-deck">
-    <div class="card">
-      <div class="imageContainer"> 
-        <%= image_tag("DER-gexf.png", alt: "Gephi File Output", class:"card-img-top")%>
+  <div class="auk_card-deck">
+    <div class="auk_card">
+      <div class="auk_imageContainer"> 
+        <%= image_tag("DER_gefx_300.png", alt: "Gephi File Output", class:"auk_card-img-top")%>
       </div>
-      <div class="card-body">
-        <h5 class="card-title"><strong>Gephi Output</strong></h5>
-      </div>
-      </div>
-    <div class="card">
-      <div class="imageContainer">
-        <%= image_tag("DER-graphml.png", alt: "Raw Network File Output", class:"card-img-top")%>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title"><strong>Raw Nework Output</strong></h5>
+      <div class="auk_card-body">
+        <h5 class="auk_card-title"><strong>Gephi</strong></h5>
       </div>
       </div>
-    <div class="card">
-      <div class="imageContainer">
-        <%= image_tag("DER-domains.png", alt: "Domains File Output", class:"card-img-top")%>
+    <div class="auk_card">
+      <div class="auk_imageContainer">
+        <%= image_tag("DER_graphml_300.png", alt: "Raw Network File Output", class:"auk_card-img-top")%>
       </div>
-      <div class="card-body">
-        <h5 class="card-title"><strong>Domains Output</strong></h5>
+      <div class="auk_card-body">
+        <h5 class="auk_card-title"><strong>Nework</strong></h5>
       </div>
       </div>
-    <div class="card">
-      <div class="imageContainer">
-        <%= image_tag("DER-text2.png", alt: "Text File Output", class:"card-img-top")%>
+    <div class="auk_card">
+      <div class="auk_imageContainer">
+        <%= image_tag("DER_domains_122.png", alt: "Domains File Output", class:"auk_card-img-top")%>
       </div>
-      <div class="card-body">
-        <h5 class="card-title"><strong>Full Text Output</strong></h5>
+      <div class="auk_card-body">
+        <h5 class="auk_card-title"><strong>Domains</strong></h5>
+      </div>
+      </div>
+    <div class="auk_card">
+      <div class="auk_imageContainer">
+        <%= image_tag("DER_text_275.png", alt: "Text File Output", class:"auk_card-img-top")%>
+      </div>
+      <div class="auk_card-body">
+        <h5 class="auk_card-title"><strong>Full Text</strong></h5>
       </div>
       </div>
   </div>
-  </br>
+  <br />
   <h3 class="about_h3">Learning Guides</h3>
+
   <p class="about_p"> The following guides walk through how to use AUK derivative files for further analysis.</p>
-  <div id="accordion">
+  
+  <div id="auk_accordion">
     <div class="accord">
-      <div class="accord_header" id="headingOne">
+      <div class="accord-header" id="headingOne">
         <h5 class="mb-0">
           <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Gephi & Raw Network Files
           </button>
@@ -78,7 +80,7 @@
       </div>
   </div>
   <div class="accord">
-    <div class="accord_header" id="headingTwo">
+    <div class="accord-header" id="headingTwo">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Plain Text Files
         </button>
@@ -86,7 +88,7 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="accord_body">
-        <p class="about_p">Each website within the web archive collection will have its full text presented on one line, along with information around when it was crawled, the name of the domain, and the full URL of the content. AUK users will have access to the Full Text file which contains the extracted plain text of all the HTML files found within a collection.</p>
+        <p class="about_p">The full text of a web collection can be invaluable for a researcher! AUK users will have access to the full text file. In it, each website within the web archive collection will have its full text presented on one line, along with information around when it was crawled, the name of the domain, and the full URL of the content.</p>
         <table id="accord_table">
           <tbody class="tbody_table">
             <tr class="tr_table">
@@ -124,7 +126,7 @@
     </div>
   </div>
   <div class="accord">
-    <div class="accord_header" id="headingThree">
+    <div class="accord-header" id="headingThree">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Domains File
         </button>
@@ -132,7 +134,7 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="accord_body">
-        <p class="about_p">Sometimes you might just want to know what is inside a web archive! The web is a complex beast: a small web archive that aims to collect just one page might end up capturing embedded widgets and content from other websites just to make something play; alternatively, a crawl might have been corrupted and begun to find material that's far out of scope.</p>
+        <p class="about_p">Sometimes you might just want to know what is inside a web archive! The web is a complex beast: a small web archive that aims to collect just one page might end up capturing embedded widgets and content from other websites just to make something play. Alternatively, a crawl might have been corrupted and begun to find material that's far out of scope.</p>
         <table id="accord_table">
           <tbody class="tbody_table">
             <tr class="tr_table">
@@ -152,9 +154,9 @@
       </div>
     </div>
   </div>
-  </br>
+  <br />
   <h3 class="about_h3">How to Cite Archives Unleashed</h3>
   <p class="about_p">If you've found Archives Unleashed Toolkit or Cloud helpful in your research, please consider using the citation below in your publications. Your citations help to futher the recognition of using open-source tools for scientific inquiry, assists in growing the web archiving community, and acknowledges the efforts of contributors to this project.
-  <p class="about_p"><em> Archives Unleashed Project. (2018). Archives Unleashed Toolkit (Version 0.16.0). Apache License, Version 2.0.</em></p>
+  <p class="about_p">Archives Unleashed Project. (2018). Archives Unleashed Toolkit (Version 0.16.0). Apache License, Version 2.0.</p>
 </div>
 <% end %>

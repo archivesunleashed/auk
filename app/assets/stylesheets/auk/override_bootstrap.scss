@@ -97,7 +97,7 @@ body {
   line-height: 1.4;
 }
 
-.about_note{
+.about_note {
   margin-bottom: 15px;
   padding: 4px 12px;
   background-color: #cce6ff;
@@ -109,7 +109,7 @@ body {
  *About Page Images in Body Customization
  */
 
-.body_img{
+.body_img {
   border-radius: 4px;
   width: 98%;
   padding-top: 5px;
@@ -117,7 +117,7 @@ body {
   margin-left: 25px;
 }
 
-.body_small_img{
+.body_small_img {
   border-radius: 4px;
   max-width: auto;
   display: block;
@@ -128,68 +128,56 @@ body {
 }
 
 /*
- * Derivative Page - Bootstrap Customization for Card Deck
- * Includes hover image stylizing
+ * AUK Derivative Page - Bootstrap Customization for Card Deck
  */
 
-.card-deck{
+.auk_card-deck {
   font-family: helvetica;
-  font-size: 18px;
+  font-size: 22px;
   text-align: center;
-  max-width: auto;
+  max-width: 100%;
   padding-left: 20px;
   align-items: center;
   display: flex; 
 }
 
-.card{
-  border-radius: 4px;
-  width: 98%;
+.auk_card {
+  border-radius: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-left: 25px;
+  margin: auto;
+  width: 220px;
+  border: 1px solid gray;
+  
 }
-.card-img-top{
-  border-radius: 4px;
+.auk_card-img-top {
+  border-radius: 5x;
   padding-top: 5px;
-  max-width: 90%;
   padding-bottom: 5px;
   margin-left: 25px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   height: 280px;
+  max-width: 200px;
 }
-.card_body{
+.auk_card-body {
   font-family: helvetica;
   font-size: 18px;
-  padding-left: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
   line-height: 1.4;
   margin-left: 20px;
   margin-right: 25px;
 }
 
-.card-header{
-  color:black;
-  text-align: left;
-  text-shadow: 3px 2px red;
-  border: 2px solid gray;
-}
-
-.imageContainer > img:hover {
-    -webkit-transform:scale(2);
-    transform:scale(2);
-}
-
 /*
- * Derivative Bootstrap Customization for Table Layout + Accordian
+ * AUK Derivative Bootstrap Customization for Table Layout + Accordian
  */
+
+.collapseOne {
+  font-family: helvetica;
+  font-size: 50px;
+}
 
 .accord {
   table-layout: fixed;
@@ -198,27 +186,26 @@ body {
   text-align: left;
 }
 
-.accord_header{
+.accord-header {
   font-family: helvetica;
-  font-size: 18px;
+  font-size: 22px;
   border-radius: 5px;
   border: 2px solid grey;
   background-color: #ebfafa;
   padding: 10px;
   margin-left: 10px;
   text-align: left;
-  font-size: 15px;
-  transition: 0.4s;
+
 }
 
-.accord_body{
+.accord_body {
   font-family: helvetica;
   font-size: 18px;
   line-height: 1.4;
 }
 
 .accord_table,
-.tr_table, .td_table,{
+.tr_table, .td_table, {
   min-width: 400px;
   table-layout: fixed;
   border-collapse: collapse;
