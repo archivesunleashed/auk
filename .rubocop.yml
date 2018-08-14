@@ -29,6 +29,7 @@ Metrics/BlockLength:
     - config/environments/development.rb
     - config/environments/production.rb
     - config/environments/test.rb
+    - config/routes.rb
 
 Metrics/CyclomaticComplexity:
   Exclude:
