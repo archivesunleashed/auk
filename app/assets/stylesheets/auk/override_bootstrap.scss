@@ -127,18 +127,22 @@ body {
   margin-right: auto;
 }
 
+
 /*
  * AUK Derivative Page - Bootstrap customization to display derivative images in a Card Deck 
  * where cards are equal in hight and width and are separated
  */
 
+.auk_deriv_card-deck {
+  padding-left: 20px
+}
 .auk_deriv_card {
   border-radius: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
   margin: auto;
-  width: 220px;
-  border: 1px solid gray; 
+  max-width: 100%;
+  
 }
 
 .auk_deriv_card-body {
@@ -146,10 +150,9 @@ body {
   line-height: 1.4;
   margin-left: 20px;
   margin-right: 25px;
-  max-width: 100%;
+  max-width: auto;
   padding-left: 20px;
   align-items: center;
-  display: flex; 
 }
 
 .auk_deriv_card-title {
@@ -159,15 +162,17 @@ body {
 }
 
 .auk_card-img-top {
-  border-radius: 5x;
+  border-radius: 5px;
   padding-top: 5px;
+  padding-bottom: 5px;
+  max-width: 200px;
   padding-bottom: 5px;
   margin-left: 25px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  background-size: cover;
   height: 280px;
-  max-width: 200px;
 }
 
 /*
@@ -177,18 +182,16 @@ body {
 .auk_deriv_accord {
   table-layout: fixed;
   border-collapse: collapse;
-  width: 100%;
-  padding: 10px;
   text-align: left;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .auk_deriv_accord-header {
   font-family: helvetica;
   font-size: 22px;
   border-radius: 5px;
-  border: 1px solid grey;
-  padding: 10px;
-  margin-left: 10px;
   text-align: left;
   max-width: auto;
 }
@@ -211,7 +214,6 @@ body {
   border: solid 1px grey;
   padding: 10px;
 }
-
 
 /*
  * Footer
