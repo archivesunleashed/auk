@@ -55,6 +55,7 @@ Metrics/LineLength:
     - app/jobs/wasapi_files_populate_job.rb
     - app/mailers/user_mailer.rb
     - test/controllers/dashboards_controller_test.rb
+    - test/controllers/pages_controller_test.rb
     - test/helpers/auth_helper.rb
     - test/helpers/users_helper_test.rb
 
