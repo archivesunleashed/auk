@@ -49,17 +49,19 @@ module DashboardsHelper
   end
 
   def get_largest_collection
-    largest_collection = WasapiFile.group(:collection_id)
+    largest_collection = WasapiFile.group(:user_id)
+                                   .group(:collection_id)
                                    .sum(:size)
                                    .max_by { |_k, v| v }
     number_to_human_size(largest_collection[1])
   end
 
   def get_largest_collection_title
-    largest_collection = WasapiFile.group(:collection_id)
+    largest_collection = WasapiFile.group(:user_id)
+                                   .group(:collection_id)
                                    .sum(:size)
                                    .max_by { |_k, v| v }
-    Collection.find(largest_collection[0]).title
+    Collection.find(largest_collection[0][1]).title
   end
 
   def get_space_used
