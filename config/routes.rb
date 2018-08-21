@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get 'derivatives/text-antconc' => 'pages#text-antconc'
   get 'derivatives/text-sentiment' => 'pages#text-sentiment'
   get 'derivatives' => 'pages#derivatives'
+  get 'derivatives/text-filtering' => 'pages#text-filtering'
 
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
