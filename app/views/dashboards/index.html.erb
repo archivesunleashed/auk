@@ -1,6 +1,40 @@
 <% provide(:title, 'AUK Dashboard') %>
 
 <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+          <h3>Total Users</h3>
+          <h1><%= get_number_of_users %></h1>
+        </button>
+        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+          <h3>Active Jobs</h3>
+          <h1><%= get_number_of_queued_jobs %></h1>
+        </button>
+        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+          <h3>Jobs Completed</h3>
+          <h1><%= get_total_number_of_jobs_run %></h1>
+        </button>
+        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+          <h3>Most Jobs</h3>
+          <h1><%= get_most_jobs_user %></h3>
+        </button>
+        <button type="button" class="btn-primary btn dashboard-btn btn-lg active" data-toggle="tooltip" data-html="true" title="<%= get_largest_collection_title %>">
+          <h3>Largest collection</h3>
+          <h1><%= get_largest_collection %></h1>
+        </button>
+        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+          <h3>Space Used</h3>
+          <h1><%= get_space_used %></h1>
+        </button>
+        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+          <h3>Space Available</h3>
+          <h1><%= get_space_available %></h1>
+        </button>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="table-responsive">
       <table class="table table-striped">

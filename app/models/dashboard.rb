@@ -2,7 +2,7 @@
 
 # Dashboard methods.
 class Dashboard < ApplicationRecord
-  paginates_per 20
+  paginates_per 15
 
   validates :job_id, presence: true
   validates :user_id, presence: true

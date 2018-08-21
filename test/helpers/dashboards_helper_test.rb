@@ -4,6 +4,7 @@ require 'test_helper'
 
 class DashboardsHelperTest < ActionView::TestCase
   def setup
+    ENV['DOWNLOAD_PATH'] = '/tmp'
     @dashboards_one = dashboards(:one)
     @dashboards_two = dashboards(:two)
   end
@@ -36,5 +37,29 @@ class DashboardsHelperTest < ActionView::TestCase
                  get_collection_name(@dashboards_one.collection_id)
     assert_equal 'Archives Unleashed',
                  get_collection_name(@dashboards_two.collection_id)
+  end
+
+  test 'get total number of jobs run' do
+    assert_equal 1545, get_total_number_of_jobs_run
+  end
+
+  test 'get number of users' do
+    assert_equal 2, get_number_of_users
+  end
+
+  test 'get most jobs user' do
+    assert_equal 'Auk Nacho', get_most_jobs_user
+  end
+
+  test 'get largest collection' do
+    assert_equal '650 KB', get_largest_collection
+  end
+
+  test 'get largest collection title' do
+    assert_equal 'Archives Unleashed', get_largest_collection_title
+  end
+
+  test 'get number of queued jobs' do
+    assert_equal 0, get_number_of_queued_jobs
   end
 end

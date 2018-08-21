@@ -275,6 +275,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.13)
+    sys-filesystem (1.1.9)
+      ffi
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -345,6 +347,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  sys-filesystem
   time_difference
   turbolinks (~> 5)
   tzinfo-data

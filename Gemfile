@@ -84,4 +84,5 @@ gem 'rails-html-sanitizer', '~> 1.0.4' # https://nvd.nist.gov/vuln/detail/CVE-20
 gem 'rubocop', '~> 0.48.1'
 gem 'rubocop-rspec', '~> 1.15.0'
 gem 'sitemap_generator'
+gem 'sys-filesystem'
 gem 'time_difference'
