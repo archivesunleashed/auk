@@ -6,25 +6,25 @@
 
     <h3 class=about_h3>Introduction</h3>
     <p class="about_p">The Archives Unleashed Cloud, referred to as AUK, is an open-source cloud-based analysis tool that helps researchers and scholars conduct web archive analysis.</p>
-    <p class="about_p">AUK is a component of the <a href="https://archivesunleashed.org" target="_blank">Archives Unleashed Project</a>, which empowers researchers, scholars, librarians and archivists to access and explore their web archival collections. As accessibility is a main priority of the project, AUK supports this goal by providing a web-based front end for users to access the <a href="https://archivesunleashed.org/aut/" target="_blank">Archives Unleashed Toolkit</a>.</p>
-    <p class="about_p"> For more information on the AUK platform, as well as the basics of web archiving and the WARC file format, check out our <a href="https://cloud.archivesunleashed.org/about" target="_blank">about</a> page.</p>
+    <p class="about_p">AUK is a component of the <%= link_to('Archives Unleashed Project', 'https://archivesunleashed.org', target: '_blank') %>, which empowers researchers, scholars, librarians and archivists to access and explore their web archival collections. As accessibility is a main priority of the project, AUK supports this goal by providing a web-based front end for users to access the <%= link_to('Archives Unleashed Toolkit', 'https://archivesunleashed.org/aut/', target: '_blank') %>.</p>
+    <p class="about_p"> For more information on the AUK platform, as well as the basics of web archiving and the WARC file format, check out our <%=link_to("about", "/about/")%> page.</p>
 
     <h3 class=about_h3>Audience and Application</h3>
-    <p class="about_p">AUK is designed to provide a web-based user interface to help users access and analyze their web archive collections. This cloud-based option uses the <a href="https://github.com/WASAPI-Community/data-transfer-apis" target="_blank">WASAPI Data Transfer API</a>, which means that individuals already set up with an <a href="https://archive-it.org/" target="_blank">Archive-It</a> account will be able to ingest and explore WARC files. In the future, we are exploring interoperability with other web archiving platforms.</p>
+    <p class="about_p">AUK is designed to provide a web-based user interface to help users access and analyze their web archive collections. This cloud-based option uses the <%= link_to('WASAPI Data Transfer API', 'https://github.com/WASAPI-Community/data-transfer-apis', target: '_blank') %>, which means that individuals already set up with an <%= link_to('Archive-It', 'https://archive-it.org/', target: '_blank') %> account will be able to ingest and explore WARC files. In the future, we are exploring interoperability with other web archiving platforms.</p>
     <p class="about_p">With AUK you can:</p>
     <ul class="about_ul">
       <li class="about_li">Ingest Archive-It collections via WASAPI;</li>
       <li class="about_li">Download collection derivatives: network files, domain lists, and full text; and</li>
       <li class="about_li">Visualize your collections with an in-browser network diagram to see major nodes and connections within the collection.</li>
     </ul>
-    <p class="about_note"><strong>Note</strong>: You can use our canonical version at <a href="https://cloud.archivesunleashed.org" target="_blank">https://cloud.archivesunleashed.org</a>, or you are welcome to run your own local version by visiting our <a href="https://github.com/archivesunleashed/auk" target="_blank">GitHub repository</a>.</p>
+    <p class="about_note"><strong>Note</strong>: You can use our canonical version at <%= link_to('https://cloud.archivesunleashed.org', 'https://cloud.archivesunleashed.org', target: '_blank') %>, or you are welcome to run your own local version by visiting our <%= link_to('GitHub repository', 'https://github.com/archivesunleashed/auk', target: '_blank') %>.</p>
 
     <h3 class=about_h3>Getting Started</h3>
     <p class="about_p"> This guide will walk through how to set up an AUK account and sync your Archive-It collections, and the types of analysis outputs you can curate.</p>
 
     <h3 class="about_h3">Login</h3>
-    <p class="about_p">Begin at <a href="https://cloud.archivesunleashed.org" target="_blank"> https://cloud.archivesunleashed.org</a>.</p>
-    <p class="about_p">You will not need to sign up for an AUK account. Instead, AUK will use either a <a href="https://twitter.com/" target="_blank">Twitter</a> or <a href="https://github.com/" target="_blank">GitHub</a> account to authenticate your login. For those who have multiple Twitter or GitHub accounts, feel free to use whichever suits your research purposes best. AUK only uses these accounts to authenticate who you are, we do not have any additional access to your Twitter or GitHub account!</p>
+    <p class="about_p">Begin at <%=link_to("https://cloud.archivesunleashed.org", "https://cloud.archivesunleashed.org")%>.</p>
+    <p class="about_p">You will not need to sign up for an AUK account. Instead, AUK will use either a <%=link_to("Twitter", "https://twitter.com/")%> or <%=link_to("GitHub", "https://github.com/")%> account to authenticate your login. For those who have multiple Twitter or GitHub accounts, feel free to use whichever suits your research purposes best. AUK only uses these accounts to authenticate who you are, we do not have any additional access to your Twitter or GitHub account!</p>
     <p class="about_p">The following two screenshots show you how to log in. Click on the logo of the service you want to use to authenticate (the bird for Twitter or the Octocat for GitHub). After you authenticate, you should be brought to the main page.</p>
     <%= image_tag("AUK_signin.png", alt: "AUK Sign In Screenshot", class:"body_img")%>
     <%= image_tag("AUK_login.png", alt: "AUK Log In Screenshot", class:"body_img")%>
@@ -36,7 +36,7 @@
     <%= image_tag("AUK_creds.png", alt: "AUK Account Credentials", class:"body_img")%>
     <p class="about_p">On the next screen, fill out the form to update both sets of credentials.</p>
     <ul class="about_ul">
-      <li class="about_li"><strong>AU Account Information</strong>: AUK requires an email so we can let you know what stage of analysis your collection is in. You can use the email address of your choice, and have the ability to modify this at any time. If you have a <a href="https://gravatar.com/" target="_blank">Gravatar</a> account, it will also use this email address to populate your user avatar.</li>
+      <li class="about_li"><strong>AU Account Information</strong>: AUK requires an email so we can let you know what stage of analysis your collection is in. You can use the email address of your choice, and have the ability to modify this at any time. If you have a <%= link_to('Gravatar', 'https://gravatar.com', target: '_blank') %> account, it will also use this email address to populate your user avatar.</li>
       <li class="about_li"><strong>Consent Checkbox</strong>: to comply with Canadian Anti-Spam legislation, we've included this checkbox to make sure you understand that the Archives Unleashed team will connect with you in regards to your collections and feedback.</li>
       <li class="about_li"><strong>Archive-It Information</strong>: In order to work with web archive collections, you must enter your Archive-It account username and password. Your Archive-It credentials are encrypted and salted.</li>
     </ul>
@@ -70,17 +70,17 @@
       <li class="about_li">An interactive hyperlink diagram: you can use this to explore the basic hyperlink structure of your collection.</li>
       <li class="about_li">Four output files that can be downloaded for further research and analysis. These include:</li>
       <ul class="about_ul">
-        <li class="about_li"><strong>Gephi</strong> file, which can be loaded into <a href="https://gephi.org/" target="_blank">Gephi</a>. It will have basic characteristics already computed and a basic layout. You can find more information on using this file in the "<%=link_to("Network Graphing Archived Websites With Gephi", "/gephi")%>" tutorial.</li>
-        <li class="about_li"><strong>Raw Network</strong> file, which can also be loaded into <a href="https://gephi.org/" target="_blank">Gephi</a>. You will have to use that network program to lay it out yourself.</li>
+        <li class="about_li"><strong>Gephi</strong> file, which can be loaded into <%= link_to('Gephi', 'https://gephi.org/', target: '_blank') %>. It will have basic characteristics already computed and a basic layout. You can find more information on using this file in the "<%=link_to("Network Graphing Archived Websites With Gephi", "/derivatives/gephi")%>" tutorial.</li>
+        <li class="about_li"><strong>Raw Network</strong> file, which can also be loaded into <%= link_to('Gephi', 'https://gephi.org/', target: '_blank') %>. You will have to use that network program to lay it out yourself.</li>
         <li class="about_li"><strong>Domains</strong> file will be a CSV file containing the frequency of domains found within your web archive.</li>
-        <li class="about_li"><strong>Full Text</strong> file will be a large text file containing the extracted plain text of all the HTML files found within a collection. You might want to try loading it into a visualization platform like <a href="http://voyant-tools.org/" target="_blank">Voyant Tools</a> to see patterns and trends within your web archive.
+        <li class="about_li"><strong>Full Text</strong> file will be a large text file containing the extracted plain text of all the HTML files found within a collection. You might want to try loading it into a visualization platform like <%= link_to('Voyant Tools', 'http://voyant-tools.org/', target: '_blank') %> to see patterns and trends within your web archive.
       </ul>
       <li class="about_li">Finally, below the download options, you can see a frequency table of the top 10 domains found within the collection.</li>
     </ul>
     <%= image_tag("AUK_output.png", alt: "Output Files", class:"body_img")%>
 
     <h3 class="about_h3">Interactive Hyperlink Diagram</h3>
-    <p class="about_p">We use <a href="https://github.com/archivesunleashed/graphpass">GraphPass</a> to help to create an interactive hyperlink diagram powered by <a href="http://sigmajs.org">Sigma js</a> on the collection page. Sigma is a JavaScript library that assists in drawing and displaying graphs. GraphPass produces visualization-related data in the network files such as color, position and size based on common social network algorithms. In the hyperlink diagram each node (dot) represents a domain (i.e. all of the URLs within a domain such as "yorku.ca" or "newyorktimes.com") and each edge (line) represents a link from one node to another.</p>
+    <p class="about_p">We use <%= link_to('GraphPass', 'https://github.com/archivesunleashed/graphpass', target: '_blank') %> to help to create an interactive hyperlink diagram powered by <%= link_to('Sigma js', 'http://sigmajs.org', target: '_blank') %> on the collection page. Sigma is a JavaScript library that assists in drawing and displaying graphs. GraphPass produces visualization-related data in the network files such as color, position and size based on common social network algorithms. In the hyperlink diagram each node (dot) represents a domain (i.e. all of the URLs within a domain such as "yorku.ca" or "newyorktimes.com") and each edge (line) represents a link from one node to another.</p>
     <p class="about_p">Users can explore and interact with the hyperlink diagram using the helper buttons in the top left corner of the network window.</p>
       <ul class="about_ul">
         <li class="about_li"><strong>Full Screen</strong> - opens up the network to full screen for easier interaction</li>
