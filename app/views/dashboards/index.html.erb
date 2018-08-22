@@ -59,7 +59,7 @@
                 <td></td>
               <% end %>
               <% if dashboard.queue != 'seed' %>
-                <td><%= get_collection_name(dashboard.collection_id) %></td>
+                <td><%= link_to(get_collection_name(dashboard.collection_id), archiveit_collection_url(dashboard.collection_id), target: '_blank') %></td>
               <% end %>
               <td><%= dashboard.queue %></td>
               <td><%= dashboard.start_time %></td>
