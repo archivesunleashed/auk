@@ -26,15 +26,15 @@
       <% if @user.wasapi_username.blank? %>
         <%= button_to 'Enter credentials', edit_user_path(@user), method: "get", class: 'btn btn-primary btn-sm btn-block' %>
       <% else %>
-        <%= button_to 'Update', edit_user_path(@user), method: "get", class: 'btn btn-primary btn-sm btn-block' %>
+        <%= button_to 'Update', edit_user_path(@user), method: "get", class: 'btn btn-primary btn-lg btn-block' %>
       <% end %>
       <hr />
-      <button type="button" class="btn-info btn dashboard-btn btn-lg">
-        <p>Jobs Run</p>
-        <h3><%= user_jobs_run(@user.id) %></h3>
+      <button type="button" class="btn-info btn dashboard-btn btn-block disabled">
+        <p><strong>Jobs Run</strong></p>
+        <h2><%= user_jobs_run(@user.id) %></h2>
       </button>
-      <button type="button" class="btn-info btn dashboard-btn btn-lg">
-        <p>Disk Usage</p>
-        <h3><%= disk_usage(@user.id) %></h3>
+      <button type="button" class="btn-info btn dashboard-btn btn-block disabled">
+        <p><strong>Disk Usage</strong></p>
+        <h2><%= disk_usage(@user.id) %></h2>
       </button>
     </nav>
