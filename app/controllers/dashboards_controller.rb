@@ -6,7 +6,7 @@ class DashboardsController < ApplicationController
                                password: ENV['DASHBOARD_PASS']
 
   def index
-    @dashboards = Dashboard.all.page params[:page]
+    @dashboards = Dashboard.all.order('start_time DESC').page params[:page]
   end
 
   def show; end
