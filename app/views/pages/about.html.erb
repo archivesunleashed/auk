@@ -7,12 +7,12 @@
 
   <h3 class=about_h3>Project Overview</h3>
     <p class="about_p">The Archives Unleashed Cloud, referred to as AUK, is an open source cloud-based analysis tool that helps researchers and scholars conduct web archive analysis.</p>
-    <p class="about_p">AUK is a component of the <a href="https://archivesunleashed.org" target="_blank">Archives Unleashed Project</a>, which aims to allow researchers, scholars, librarians and archivists the ability to access and investigate their web archival collections. As accessibility is a main priority of the project, AUK supports this goal by providing a web-based front end for users to access the <a href="https://archivesunleashed.org/aut/" target="_blank">Archives Unleashed Toolkit</a>.</p>
+    <p class="about_p">AUK is a component of the <%= link_to('Archives Unleashed Project', 'https://archivesunleashed.org', target: '_blank') %>, which aims to allow researchers, scholars, librarians and archivists the ability to access and investigate their web archival collections. As accessibility is a main priority of the project, AUK supports this goal by providing a web-based front end for users to access the <%= link_to('Archives Unleashed Toolkit.', 'https://archivesunleashed.org/aut/', target: '_blank') %>
 
   <h3 class=about_h3>What is Web Archiving, what are WARCS, and why should I care?</h3>
     <p class="about_p"><strong>Web archiving</strong> is the process of preserving born-digital content on the World Wide Web. Thinking about how curated content is organized, there are two main components:</p>
     <ul class="about_ul">
-      <li class="about_li"><strong>WARCs (Web ARChive)</strong>: the <a href="https://www.iso.org/obp/ui/#iso:std:iso:28500:ed-2:v1:en" target="_blank">ISO Standard (28500:2017)</a> file format that will house one or more WARC records.</li>
+      <li class="about_li"><strong>WARCs (Web ARChive)</strong>: the <%= link_to('AISO Standard (28500:2017)', 'https://www.iso.org/obp/ui/#iso:std:iso:28500:ed-2:v1:en', target: '_blank') %> file format that will house one or more WARC records.</li>
       <li class="about_li"><strong>WARC record</strong>: contains all of the data of a webpage and contains a record header and the record content block.</li>
     </ul>
     <p class="about_p">The exponential rise of digitally-born data offers a unique opportunity for scholarly inquiry. However the sheer scale of web archives can be an overwhelming process for librarians, archivists, and other curators who face several challenges when working with this material. One of the largest challenges relates to accessibility. This includes a shortage of tools or tools that are largely beyond the skill base of researchers.</p>
@@ -22,12 +22,12 @@
     <p class="about_p">We are currently working to improve our documentation section, please check back shortly.</p>
 
   <h3 class=about_h3>Who can use AUK?</h3>
-    <p class="about_p">Currently, those who maintain an <a href="https://archive-it.org" target="_blank"> Archive-It</a> account will be able to ingest, download, and analyze their web archives collections in AUK. The AUT team is looking at ways to expand future functionality of AUK users.</p>
+    <p class="about_p">Currently, those who maintain an <%= link_to('Archive-It', 'https://archive-it.org', target: '_blank') %> account will be able to ingest, download, and analyze their web archives collections in AUK. The AUT team is looking at ways to expand future functionality of AUK users.</p>
 
   <h3 class=about_h3>What can I do in AUK?</h3>
     <p class="about_p">Our goal is to get users to a point where they can really dig down into WARC files to explore their research questions. The core features of AUK include:</p>
     <ul class="about_ul">
-      <li class="about_li"><strong>Ingesting Archive-It collections</strong> via <a href="https://github.com/WASAPI-Community/data-transfer-apis" target="_blank">WASAPI</a></li>
+      <li class="about_li"><strong>Ingesting Archive-It collections</strong> via <%= link_to('WASAPI', 'https://github.com/WASAPI-Community/data-transfer-apis', target: '_blank') %></li>
       <li class="about_li"><strong>Download collection derivatives</strong>: network files, domain lists, and full text</li>
       <li class="about_li"><strong>In-browser network diagram</strong> to see major nodes and connections within your collection.</li>
     </ul>
@@ -36,30 +36,31 @@
     <p class="about_p">A digital librarian, historian, and computer science professor met for coffee....well there is a little more to that.</p>
     <p class="about_p">We are very lucky to have some very talented and passionate individuals usher the Archives Unleashed Project and AUK into existence.</p>
     <ul class="about_ul">
-      <li class="about_li"><strong><a href="https://ruebot.net/" target="_blank">Nick Ruest</a></strong>, Co-Investigator and <a href="https://github.com/archivesunleashed/auk">AUK</a> Lead</li>
-      <li class="about_li"><strong><a href="http://ianmilligan.ca/" target="_blank">Ian Milligan</a></strong>, Primary Investigator and AUK Developer</li>
-      <li class="about_li"><strong><a href="https://cs.uwaterloo.ca/~jimmylin/" target="_blank">Jimmy Lin</a></strong>, Co-Investigator and <a href="https://github.com/archivesunleashed/aut">AUT</a> Lead</li>
-      <li class="about_li"><strong><a href="https://uwaterloo.ca/web-archive-group/people-profiles/samantha-fritz" target="_blank">Samantha Fritz</a></strong>, Project Manager</li>
-      <li class="about_li"><b><a href="https://uwaterloo.ca/web-archive-group/people-profiles/ryan-deschamps" target="_blank">Ryan Deschamps</a></b>, AUK Tester and <a href="https://github.com/archivesunleashed/graphpass">GraphPass</a> Developer</li>
+      <li class="about_li"><strong><%= link_to('Nick Ruest', 'https://ruebot.net/', target: '_blank') %></strong>, Co-Investigator and <a href="https://github.com/archivesunleashed/auk">AUK</a> Lead</li>
+      <li class="about_li"><strong><%= link_to('Ian Milligan', 'http://ianmilligan.ca', target: '_blank') %></strong>, Primary Investigator and AUK Developer</li>
+      <li class="about_li"><strong><%= link_to('Jimmy Lin', 'https://cs.uwaterloo.ca/~jimmylin/', target: '_blank') %></strong>, Co-Investigator and <%= link_to('AUT', 'https://github.com/archivesunleashed/aut', target: '_blank') %> Lead</li>
+      <li class="about_li"><strong><%= link_to('Samantha Fritz', 'https://uwaterloo.ca/web-archive-group/people-profiles/samantha-fritz', target: '_blank') %></strong>, Project Manager</li>
+      <li class="about_li"><strong><%= link_to('Ryan Deschamps', 'https://uwaterloo.ca/web-archive-group/people-profiles/ryan-deschamps', target: '_blank') %></strong> AUK Tester and <%= link_to('GraphPass Developer', 'https://github.com/archivesunleashed/graphpass', target: '_blank') %></li>
     </ul>
     <p class="about_p">A special thank you to Sarah McTavish, a PhD Candidate at the University of Waterloo, who  developed the <%=link_to("AUK Learning Guides", "/derivatives/")%>.</p>
     <p class="about_p">We would also like to acknowledge the groups and individuals who have inspired and informed our work:</p>
     <ul class="about_ul">
-      <li class="about_li"><a href="http://webarchives.ca" target="_blank">Web Archives for Longitudinal Knowledge (WALK) Portal</a></li>
-      <li class="about_li"><a href="http://projectblacklight.org" target="_blank">Project Blacklight</a></li>
-      <li class="about_li"><a href="https://www.docnow.io" target="_blank">Documenting the Now</a></li>
-      <li class="about_li"><a href="https://webrecorder.io" target="_blank">Webrecorder.io</a></li>
-      <li class="about_li"><a href="https://archive.org" target="_blank">Internet Archive</a></li>
+      <li class="about_li"><%= link_to('Web Archives for Longitudinal Knowledge (WALK) Portal', 'http://webarchives.ca', target: '_blank') %></li>
+      <li class="about_li"><%= link_to('Project Blacklight', 'http://projectblacklight.org', target: '_blank') %></li>
+      <li class="about_li"><%= link_to('Documenting the Now', 'https://www.docnow.io', target: '_blank') %></li>
+      <li class="about_li"><%= link_to('Webrecorder.io', 'https://webrecorder.io', target: '_blank') %></li>
+      <li class="about_li"><%= link_to('Internet Archive', 'https://archive.org', target: '_blank') %></li>
     </ul>
 
   <h3 class=about_h3>How much does AUK cost to use?</h3>
     <p class="about_p">The Archives Unleashed Cloud is currently <strong>free</strong>. Yep, you heard right! The generous support from the <a href="https://mellon.org" target="_blank"> Andrew W. Mellon Foundation</a> foundation and contributions from our team, developers, and community have made this possible. We will keep our users and community updated as we move towards a sustainable future.</p>
 
   <h3 class=about_h3>Who funds the Archives Unleashed Cloud?</h3>
-    <p class="about_p">This work is primarily supported by the <a href="https://mellon.org/" target="_blank"> Andrew W. Mellon Foundation</a>, the <a href="http://uwaterloo.ca" target="_blank">University of Waterloo</a>, and <a href="https://www.library.yorku.ca/web/" target="_blank">York University Libraries</a>.</p>
-    <p class="about_p">Other financial and in-kind support comes from the <a href="http://www.sshrc-crsh.gc.ca" target="_blank">Social Sciences and Humanities Research Council</a>, <a href="https://www.computecanada.ca" target="_blank">Compute Canada</a>, the <a href="https://www.ontario.ca/page/ministry-research-innovation-and-science" target="_blank">Ontario Ministry of Research, Innovation, and Science</a>, and <a href="http://www.startsmartlabs.com" target="_blank">Start Smart Labs</a>.</p>
+    <p class="about_p">This work is primarily supported by the <%= link_to('Andrew W. Mellon Foundation', 'https://mellon.org/', target: '_blank') %>, the <%= link_to('University of Waterloo', 'http://uwaterloo.ca', target: '_blank') %>, and  <%= link_to('York University Libraries', 'https://www.library.yorku.ca/web/', target: '_blank') %>.</p>
+    <p class="about_p">Other financial and in-kind support comes from the <%= link_to('Social Sciences and Humanities Research Council', 'http://www.sshrc-crsh.gc.ca', target: '_blank') %>, <%= link_to('Compute Canada', 'https://www.computecanada.ca', target: '_blank') %>,the <%= link_to('Ontario Ministry of Research, Innovation, and Science', 'https://www.ontario.ca/page/ministry-research-innovation-and-science', target: '_blank') %>, and <%= link_to('Start Smart Labs', 'http://www.startsmartlabs.com', target: '_blank') %>
+
   <h3 class=about_h3>How can I contact the AUK team?</h3>
-    <p class="about_p">Join our <a href="https://docs.google.com/forms/d/e/1FAIpQLScXPIH0Ssw63yWqyMkUqHVYmz2-ItBMzHiJQ-sOlJwTA8u5AQ/viewform?usp=sf_link">Slack team</a> if you want to see how things are developing, to discuss suggestions or other parts of our project, or to just shoot the breeze about all things web archiving. You can also follow us on <a href="https://twitter.com/unleasharchives">Twitter!</a></p>
-    <p class="about_p">Alternatively, please just drop us a line via e-mail at <a href="mailto:archivesunleashed@gmail.com">archivesunleashed@gmail.com</a>.</p>
+    <p class="about_p">Join our <%= link_to('Slack team', 'https://docs.google.com/forms/d/e/1FAIpQLScXPIH0Ssw63yWqyMkUqHVYmz2-ItBMzHiJQ-sOlJwTA8u5AQ/viewform?usp=sf_link', target: '_blank') %> if you want to see how things are developing, to discuss suggestions or other parts of our project, or to just shoot the breeze about all things web archiving. You can also follow us on <%= link_to('Twitter', 'https://twitter.com/unleasharchives', target: '_blank') %>!</p>
+    <p class="about_p">Alternatively, please just drop us a line via e-mail at <%= link_to('archivesunleashed@gmail.com', 'mailto:archivesunleashed@gmail.com', target: '_blank') %>.</p>
 </div>
 <% end %>
