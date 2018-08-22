@@ -39,6 +39,12 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'title', 'Network Graphing with Gephi | Archives Unleashed'
   end
 
+  test 'should get filtering page' do
+    get derivatives_text_filtering_path
+    assert_response :success
+    assert_select 'title', 'Filtering the Full-Text Derivative File | Archives Unleashed'
+  end
+
   test 'should get antconc page' do
     get derivatives_text_antconc_path
     assert_response :success
