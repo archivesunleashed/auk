@@ -58,6 +58,7 @@ Metrics/LineLength:
     - test/controllers/dashboards_controller_test.rb
     - test/controllers/pages_controller_test.rb
     - test/helpers/auth_helper.rb
+    - test/helpers/collections_helper_test.rb
     - test/helpers/users_helper_test.rb
 
 Metrics/PerceivedComplexity:
