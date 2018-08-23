@@ -7,6 +7,7 @@ before_install:
   - npm install
 before_script:
   - cp config/application.yml.example config/application.yml
+  - mkdir /tmp/travis
 rvm:
   - 2.4.2
   - 2.3.5
