@@ -84,8 +84,7 @@ module DashboardsHelper
   end
 
   def get_total_job_time
-    job_times = Dashboard.where
-                         .not(end_time: [nil, ''])
+    job_times = Dashboard.where('end_time is not null')
                          .pluck(:end_time, :start_time)
                          .map { |end_time, start_time|
                            { end_time: end_time, start_time: start_time }
@@ -101,8 +100,7 @@ module DashboardsHelper
   end
 
   def get_longest_job_time
-    job_times = Dashboard.where
-                         .not(end_time: [nil, ''])
+    job_times = Dashboard.where('end_time is not null')
                          .pluck(:end_time, :start_time)
                          .map { |end_time, start_time|
                            { end_time: end_time, start_time: start_time }
