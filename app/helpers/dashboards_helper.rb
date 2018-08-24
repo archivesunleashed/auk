@@ -77,4 +77,57 @@ module DashboardsHelper
   def get_number_of_queued_jobs
     Delayed::Job.count
   end
+
+  def seconds_to_str(seconds)
+    ["#{seconds / 3600}h", "#{seconds / 60 % 60}m", "#{seconds % 60}s"]
+      .select { |str| str =~ /[1-9]/ }.join(' ')
+  end
+
+  def get_total_job_time
+    job_times = Dashboard.where
+                         .not(end_time: [nil, ''])
+                         .pluck(:end_time, :start_time)
+                         .map { |end_time, start_time|
+                           { end_time: end_time, start_time: start_time }
+                         }
+    job_time = job_times.collect { |jt|
+      TimeDifference.between(jt[:end_time], jt[:start_time]).in_seconds
+    }
+    total_time = job_time.inject(0) { |sum, x| sum + x }
+    # 10973206.04 is the number of seconds job ran before we implemented the
+    # Dashboard (extracted from Kibana).
+    grand_total_time = (total_time + 10_973_206.04).round
+    seconds_to_str(grand_total_time)
+  end
+
+  def get_longest_job_time
+    job_times = Dashboard.where
+                         .not(end_time: [nil, ''])
+                         .pluck(:end_time, :start_time)
+                         .map { |end_time, start_time|
+                           { end_time: end_time, start_time: start_time }
+                         }
+    job_time = job_times.collect { |jt|
+      TimeDifference.between(jt[:end_time], jt[:start_time]).in_seconds
+    }
+    seconds_to_str(job_time.max.round)
+  end
+
+  def data_analyzed
+    collection_and_user_ids = Dashboard.where(queue: 'cleanup')
+                                       .pluck(:collection_id, :user_id)
+                                       .map { |collection_id, user_id|
+                                         { collection_id: collection_id,
+                                           user_id: user_id }
+                                       }
+    total_data = collection_and_user_ids.collect { |collection_and_user_id|
+      collection_size(collection_and_user_id[:collection_id],
+                      collection_and_user_id[:user_id])
+    }
+    total_data_analyzed = total_data.inject(0) { |sum, x| sum + x }
+    # 90_000_000_000_000 is the rough estimate of the total amount of data
+    # analyzed before the dashboard was implemented.
+    grand_total_data_analyzed = total_data_analyzed + 90_000_000_000_000
+    number_to_human_size(grand_total_data_analyzed)
+  end
 end

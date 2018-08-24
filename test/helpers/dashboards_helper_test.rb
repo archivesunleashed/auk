@@ -62,4 +62,20 @@ class DashboardsHelperTest < ActionView::TestCase
   test 'get number of queued jobs' do
     assert_equal 0, get_number_of_queued_jobs
   end
+
+  test 'seconds to string' do
+    assert_equal '10m', seconds_to_str(600)
+  end
+
+  test 'get total job time' do
+    assert_equal '3328h 32m 50s', get_total_job_time
+  end
+
+  test 'get longest job time' do
+    assert_equal '261h 30m', get_longest_job_time
+  end
+
+  test 'get total data analyzed' do
+    assert_equal '81.9 TB', data_analyzed
+  end
 end
