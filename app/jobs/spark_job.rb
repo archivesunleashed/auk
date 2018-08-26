@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Methods for Basic Spark Jobs.
-class CollectionsSparkJob < ApplicationJob
+class SparkJob < ApplicationJob
   queue_as :spark
 
   after_perform do
@@ -57,8 +57,8 @@ class CollectionsSparkJob < ApplicationJob
                         c.collection_id.to_s + '-gephi.graphml'
       if File.exist?(domain_success) && File.exist?(fulltext_success) &&
          File.exist?(graphml_success) && !File.empty?(graphml_success)
-        CollectionsGraphpassJob.set(queue: :graphpass)
-                               .perform_later(user_id, collection_id)
+        GraphpassJob.set(queue: :graphpass)
+                    .perform_later(user_id, collection_id)
       else
         UserMailer.notify_collection_failed(c.user_id.to_s,
                                             c.collection_id.to_s).deliver_now

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Methods for Basic Spark Jobs.
-class WarcsCleanupJob < ApplicationJob
+class CleanupJob < ApplicationJob
   queue_as :cleanup
 
   after_perform do

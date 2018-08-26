@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 # Methods for Basic Spark Jobs.
-class CollectionsGraphpassJob < ApplicationJob
+class GraphpassJob < ApplicationJob
   queue_as :graphpass
 
   after_perform do |job|
     UserMailer.notify_collection_analyzed(job.arguments.first,
                                           job.arguments.second).deliver_now
-    WarcsCleanupJob.set(wait: 1.day).perform_later(job.arguments.first,
-                                                   job.arguments.second)
+    CleanupJob.set(wait: 1.day).perform_later(job.arguments.first,
+                                              job.arguments.second)
     update_dashboard = Dashboard.find_by(job_id: job_id)
     update_dashboard.end_time = DateTime.now.utc
     update_dashboard.save

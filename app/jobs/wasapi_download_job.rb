@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Methods for Downloading Wasapi Files.
-class WasapiFilesDownloadJob < ApplicationJob
+class WasapiDownloadJob < ApplicationJob
   queue_as :download
   require 'open-uri'
 
@@ -52,8 +52,8 @@ class WasapiFilesDownloadJob < ApplicationJob
                              wasapi_password, download_path_filename)
       end
     end
-    CollectionsSparkJob.set(queue: :spark)
-                       .perform_later(user_id.id, collection_id.id)
+    SparkJob.set(queue: :spark)
+            .perform_later(user_id.id, collection_id.id)
   end
 
   protected

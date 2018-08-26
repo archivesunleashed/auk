@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Methods for populating Wasapi Files.
-class WasapiFilesPopulateJob < ApplicationJob
+class WasapiSeedJob < ApplicationJob
   attr_accessor :provider_job_id
   queue_as :seed
 
