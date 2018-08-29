@@ -27,7 +27,7 @@ module DashboardsHelper
 
   def get_total_number_of_jobs_run
     # 1543 is the number of jobs run before we implemented the Dashboard.
-    Dashboard.count + 1543
+    Dashboard.where('end_time is not null').count + 1543
   end
 
   def get_number_of_users
