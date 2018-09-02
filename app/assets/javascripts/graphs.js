@@ -7,7 +7,7 @@ function createGraph(data, instance) {
         edgeColor: 'default',
         defaultEdgeType: 'arrow',
         labelThreshold: 7,
-        minNodeSize: 3,
+        minNodeSize: 1,
         minArrowSize: 5
       });
       // We first need to save the original colors of our
