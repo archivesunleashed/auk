@@ -66,5 +66,8 @@ class WasapiDownloadJob < ApplicationJob
                                                 wasapi_password])
     IO.copy_stream(download, download_path_filename)
     logger.info 'Downloaded: ' + location_archive_it
+  rescue
+    logger.warn 'Download failed. Trying again: ' + location_archive_it
+    retry
   end
 end
