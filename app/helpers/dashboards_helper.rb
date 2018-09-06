@@ -48,6 +48,15 @@ module DashboardsHelper
     end
   end
 
+  def get_most_jobs_user_institution
+    user_id = Dashboard.group(:user_id)
+                       .select(:user_id)
+                       .order('count(*) desc')
+                       .first.user_id
+    user = User.find(user_id)
+    user.institution
+  end
+
   def get_largest_collection
     largest_collection = WasapiFile.group(:user_id)
                                    .group(:collection_id)

@@ -51,6 +51,10 @@ class DashboardsHelperTest < ActionView::TestCase
     assert_equal 'Auk Nacho', get_most_jobs_user
   end
 
+  test 'get most jobs user institution' do
+    assert_equal 'York University', get_most_jobs_user_institution
+  end
+
   test 'get largest collection' do
     assert_equal '650 KB', get_largest_collection
   end
