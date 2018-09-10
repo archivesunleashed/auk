@@ -1,46 +1,39 @@
 function createGraph(data, instance) {
-  if (data !== '') {
-    data = $.parseXML(data); // eslint-disable-line no-param-reassign
-    sigma.parsers.gexf(data, instance, function (y) { // eslint-disable-line no-unused-vars
-      instance.settings({
-        nodeColor: 'default',
-        edgeColor: 'default',
-        defaultEdgeType: 'arrow',
-        labelThreshold: 7,
-        minNodeSize: 3,
-        minArrowSize: 5
-      });
+  sigma.parsers.gexf(data, instance, function (y) { // eslint-disable-line no-unused-vars
+    instance.settings({
+      nodeColor: 'default',
+      edgeColor: 'default',
+      defaultEdgeType: 'arrow',
+      labelThreshold: 7,
+      minNodeSize: 1,
+      minArrowSize: 5
+    });
       // We first need to save the original colors of our
       // nodes and edges, like this:
-      instance.graph.nodes().forEach(function (n) {
-        n.originalColor = n.color;
-      });
-      instance.graph.edges().forEach(function (e) {
-        e.originalColor = e.color;
-      });
-      if (instance.graph.nodes().length === 0) {
-        instance.graph.addNode({
-          id: 'empty',
-          label: '(This graph is empty.)',
-          x: 10,
-          y: 10,
-          size: 10,
-          color: '#999'
-        });
-      }
+    instance.graph.nodes().forEach(function (n) {
+      n.originalColor = n.color;
     });
-    instance.renderers[0].resize();
-    instance.refresh();
-  } else {
-    $('#graph').append('Cannot find Gexf file');
-  }
+    instance.graph.edges().forEach(function (e) {
+      e.originalColor = e.color;
+    });
+    if (instance.graph.nodes().length === 0) {
+      instance.graph.addNode({
+        id: 'empty',
+        label: '(This graph is empty.)',
+        x: 10,
+        y: 10,
+        size: 10,
+        color: '#999'
+      });
+    }
+  });
+  instance.renderers[0].resize();
+  instance.refresh();
 }
 
 function graphRender(instance) {
-  if (typeof $('#graph-modal').data('gexf') !== 'undefined') {
-    var gexfFileData = $('#graph-modal').data('gexf'); // eslint-disable-line vars-on-top
-    createGraph(gexfFileData, instance);
-  }
+  var gexf_url = homebase + gexf_suffix;
+  createGraph(gexf_url, instance);
 }
 
 function increment(state) {
@@ -164,7 +157,6 @@ $(document).on('turbolinks:load', function () {
       type: 'canvas'
     }]
   });
-
   graphRender(so);
   graphRender(gm);
   // resize graph-modal if the window changes
