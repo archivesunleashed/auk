@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 # Methods for populating Wasapi Files.
-class WasapiFilesPopulateJob < ApplicationJob
+class WasapiSeedJob < ApplicationJob
+  attr_accessor :provider_job_id
   queue_as :seed
 
   # Constants
@@ -11,6 +12,9 @@ class WasapiFilesPopulateJob < ApplicationJob
   after_perform do |job|
     UserMailer.notify_collection_setup(job.arguments.first.id).deliver_now
     logger.info 'Email sent to: ' + job.arguments.first.email.to_s
+    update_dashboard = Dashboard.find_by(job_id: job_id)
+    update_dashboard.end_time = DateTime.now.utc
+    update_dashboard.save
   end
 
   def perform(user)
@@ -19,6 +23,12 @@ class WasapiFilesPopulateJob < ApplicationJob
                          .get(WASAPI_BASE_URL)
     wasapi_results = JSON.parse(wasapi_request)
     wasapi_files = wasapi_results['files']
+    Dashboard.find_or_create_by!(
+      job_id: job_id,
+      user_id: user.id,
+      queue: 'seed',
+      start_time: DateTime.now.utc
+    )
     wasapi_files.each do |file|
       WasapiFile.find_or_create_by!(
         filename: file['filename'],

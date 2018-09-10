@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180524234015) do
+ActiveRecord::Schema.define(version: 20180801124801) do
 
   create_table "collections", id: false, force: :cascade do |t|
     t.integer "collection_id", null: false
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20180524234015) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account", "collection_id", "user_id", "title"], name: "collection_index"
+  end
+
+  create_table "dashboards", force: :cascade do |t|
+    t.string "job_id"
+    t.integer "user_id"
+    t.integer "collection_id"
+    t.string "queue"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "delayed_jobs", force: :cascade do |t|

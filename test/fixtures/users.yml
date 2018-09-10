@@ -14,6 +14,7 @@ two:
   uid: 5678
   email:
   name: Nacho Nicolas
+  auk_name: Auk Nacho
   institution: York University
   token: 567890
   secret: 09876

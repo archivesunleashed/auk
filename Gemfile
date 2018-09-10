@@ -73,6 +73,7 @@ gem 'font-awesome-rails'
 gem 'http'
 gem 'humanize_boolean'
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'logstash-logger'
 gem 'loofah', '~> 2.2.1' # https://github.com/flavorjones/loofah/issues/144
 gem 'omniauth-github'
@@ -83,3 +84,5 @@ gem 'rails-html-sanitizer', '~> 1.0.4' # https://nvd.nist.gov/vuln/detail/CVE-20
 gem 'rubocop', '~> 0.48.1'
 gem 'rubocop-rspec', '~> 1.15.0'
 gem 'sitemap_generator'
+gem 'sys-filesystem'
+gem 'time_difference'

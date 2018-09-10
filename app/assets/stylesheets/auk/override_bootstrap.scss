@@ -52,6 +52,27 @@ body {
   margin-right: 25px;
 }
 
+.about_p_center {
+  text-align: center;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 20px;
+  margin-right: 25px;
+}
+
+.about_p_italic {
+  font-family: helvetica;
+  font-style: italic;
+  font-size: 18px;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 1.4;
+  margin-left: 20px;
+  margin-right: 25px;
+}
+
 .about_ul {
   padding-left: 40px;
   padding-bottom: 5px;
@@ -59,6 +80,18 @@ body {
   line-height: 1.4;
   list-style-position: outside;
   margin-left: 40px;
+  font-family: helvetica;
+  font-size: 18px;
+}
+
+.about_ol {
+  padding-left: 40px;
+  padding-bottom: 5px;
+  line-height: 1.4;
+  list-style-position: outside;
+  margin-left: 40px;
+  font-family: helvetica;
+  font-size: 18px;
 }
 
 .about.li {
@@ -66,9 +99,11 @@ body {
   padding-top: 5px;
   padding-bottom: 10px;
   line-height: 1.4;
+  font-family: helvetica;
+  font-size: 18px;
 }
 
-.about_note{
+.about_note {
   margin-bottom: 15px;
   padding: 4px 12px;
   background-color: #cce6ff;
@@ -80,12 +115,108 @@ body {
  *About Page Images in Body Customization
  */
 
-.body_img{
+.body_img {
   border-radius: 4px;
   width: 98%;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-left: 25px;
+}
+
+.body_small_img {
+  border-radius: 4px;
+  max-width: auto;
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+ * AUK Derivative Page - Bootstrap customization to display derivative images
+ * in a Card Deck where cards are equal in hight and width and are separated.
+ */
+
+.auk_deriv_card-deck {
+  padding-left: 20px
+}
+.auk_deriv_card {
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: auto;
+  max-width: 100%;
+}
+
+.auk_deriv_card-body {
+  padding: 5px;
+  line-height: 1.4;
+  margin-left: 20px;
+  margin-right: 25px;
+  max-width: auto;
+  padding-left: 20px;
+  align-items: center;
+}
+
+.auk_deriv_card-title {
+  font-family: helvetica;
+  font-size: 22px;
+  text-align: center;
+}
+
+.auk_card-img-top {
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  max-width: 200px;
+  padding-bottom: 5px;
+  margin-left: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;
+  height: 280px;
+}
+
+/*
+ * AUK Derivative Page - Bootstrap Customization for Accordian layout
+ */
+
+.auk_deriv_accord {
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.auk_deriv_accord-header {
+  font-family: helvetica;
+  font-size: 22px;
+  border-radius: 5px;
+  text-align: left;
+  max-width: auto;
+}
+
+.auk_deriv_accord_body {
+  font-family: helvetica;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.auk_deriv_tbody_table, {
+  table-layout: auto;
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.auk_deriv_tr_table,
+.auk_deriv_td_table {
+  border: solid 1px grey;
+  padding: 10px;
 }
 
 /*
@@ -248,11 +379,14 @@ div#graph-modal {
   min-height: 200px;
 }
 
+div.tooltip-inner {
+    max-width: 350px;
+}
 /*
  * Sorttable column headers
  */
 
-table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
   content: " \25B4\25BE"
 }
 
@@ -278,4 +412,13 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 .form-group label[for=user_wasapi_password]:after {
   content:" *";
   color:red;
+}
+
+/*
+ * Dashboard
+ */
+.dashboard-btn {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  white-space:normal;
 }

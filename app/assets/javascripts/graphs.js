@@ -157,6 +157,7 @@ $(document).on('turbolinks:load', function () {
       type: 'canvas'
     }]
   });
+
   graphRender(so);
   graphRender(gm);
   // resize graph-modal if the window changes

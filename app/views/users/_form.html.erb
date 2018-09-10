@@ -9,7 +9,7 @@
         <div class="form-group">
           <%= f.email_field :email, label: false, placeholder: 'sample@archivesunleashed.org', class: 'form-control', required: true %>
           <small class="form-text text-muted">
-            This e-mail will be used for notifications. It also connects to your <a href="https://en.gravatar.com/" target="_blank">Gravatar account.</a>
+            This e-mail will be used for notifications. It also connects to your <%= link_to('Gravatar account', 'https://en.gravatar.com/', target: '_blank') %>.
           </small>
         </div>
         <div class="form-group">
@@ -37,13 +37,13 @@
         <div class="form-group">
           <%= f.text_field :wasapi_username, label: 'Archive-It Username', placeholder: 'Archive-It username', required: true %>
           <small class="form-text text-muted">
-            This is the username that you use to access your <a href="https://archive-it.org/" target="_blank">Archive-It</a> account.
+            This is the username that you use to access your <%= link_to('Archive-It', 'https://archive-it.org/', target: '_blank') %> account.
           </small>
         </div>
         <div class="form-group">
           <%= f.password_field :wasapi_password, label: 'Archive-It Password', placeholder: 'Archive-It password', required: true %>
           <small class="form-text text-muted">
-            This is the password that you use to access your <a href="https://archive-it.org/" target="_blank">Archive-It</a> account.
+            This is the password that you use to access your <%= link_to('Archive-It', 'https://archive-it.org/', target: '_blank') %> account.
           </small>
         </div>
       </div>
