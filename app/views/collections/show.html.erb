@@ -40,7 +40,6 @@
     <main class="col-sm-9 col-md-10">
     <h1><%= @collection.title %></h1>
       <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size_human(@collection.id, @user) + "? \n\nDownloading large collections can take a long time depending on our connection to the Internet Archive, and the number of other users who are currently using the service. We ask for your patience."}, class: 'btn btn-primary btn-lg btn-block') %></p>
-      <% unless display_gexf(@user.id, @collection.id, @collection.account).blank? %>
         <h2>Hyperlink Diagram</h2>
         <div id="graph-wrapper">
           <span id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen">
@@ -65,9 +64,8 @@
           <div id="graph"></div>
         </div>
         <%= javascript_tag do %>
-          $("#graph-modal").data("gexf", `<%= display_gexf(@user.id, @collection.id, @collection.account) %>`);
+          $("#graph-modal").data("gexf_url", `<%= 'http://' + ENV['BASE_HOSTNAME'] + user_collection_download_gexf_path(@user.id, @collection.id, @collection.account) %>`);
         <% end %>
-      <% end %>
       <% unless !File.exists? domains_path(@user.id, @collection.id, @collection.account) %>
         <h2>Download Collection Derivatives</h2>
         <div class="text-center">

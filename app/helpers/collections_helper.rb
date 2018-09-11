@@ -21,20 +21,6 @@ module CollectionsHelper
     end
   end
 
-  def display_gexf(user_id, collection_id, account)
-    collection_path = ENV['DOWNLOAD_PATH'] +
-                      '/' + account.to_s +
-                      '/' + collection_id.to_s + '/'
-    gexf_file = collection_path + user_id.to_s +
-                '/derivatives/gephi/' + collection_id.to_s +
-                '-gephi.gexf'
-    # use Nokogiri to confirm proper XML document?
-    if File.exist?(gexf_file)
-      render plain: safe_join([File.read(gexf_file).html_safe]),
-             content_type: 'application/xml'
-    end
-  end
-
   def gexf_path(user_id, collection_id, account)
     collection_path = ENV['DOWNLOAD_PATH'] +
                       '/' + account.to_s +
