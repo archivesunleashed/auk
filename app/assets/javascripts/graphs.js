@@ -26,14 +26,14 @@ function createGraph(data, instance) {
         color: '#999'
       });
     }
+    instance.renderers[0].resize();
+    instance.refresh();
   });
-  instance.renderers[0].resize();
-  instance.refresh();
 }
 
 function graphRender(instance) {
-  var gexf_url = homebase + gexf_suffix;
-  createGraph(gexf_url, instance);
+  var gexfUrl = $('#graph-modal').data('gexf_url'); // eslint-disable-line vars-on-top;
+  createGraph(gexfUrl, instance);
 }
 
 function increment(state) {

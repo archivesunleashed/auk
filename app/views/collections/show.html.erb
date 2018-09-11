@@ -64,10 +64,7 @@
           <div id="graph"></div>
         </div>
         <%= javascript_tag do %>
-          var homebase;
-          var gexf_suffix;
-          homebase = `<%= 'http://' + ENV['BASE_HOSTNAME'] %>`;
-          gexf_suffix = `<%= user_collection_download_gexf_path(@user.id, @collection.id, @collection.account) %>`;
+          $("#graph-modal").data("gexf_url", `<%= 'http://' + ENV['BASE_HOSTNAME'] + user_collection_download_gexf_path(@user.id, @collection.id, @collection.account) %>`);
         <% end %>
       <% unless !File.exists? domains_path(@user.id, @collection.id, @collection.account) %>
         <h2>Download Collection Derivatives</h2>
