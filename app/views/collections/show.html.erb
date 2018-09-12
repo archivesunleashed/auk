@@ -40,7 +40,7 @@
     <main class="col-sm-9 col-md-10">
     <h1><%= @collection.title %></h1>
       <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size_human(@collection.id, @user) + "? \n\nDownloading large collections can take a long time depending on our connection to the Internet Archive, and the number of other users who are currently using the service. We ask for your patience."}, class: 'btn btn-primary btn-lg btn-block') %></p>
-      <% unless gexf_path(@user.id, @collection.id, @collection.account).blank? %>
+      <% unless !File.exists? gexf_path(@user.id, @collection.id, @collection.account) %>
         <h2>Hyperlink Diagram</h2>
         <div id="graph-wrapper">
           <span id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen">
