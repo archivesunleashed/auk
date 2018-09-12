@@ -8,8 +8,6 @@ function createGraph(data, instance) {
       minNodeSize: 1,
       minArrowSize: 5
     });
-      // We first need to save the original colors of our
-      // nodes and edges, like this:
     instance.graph.nodes().forEach(function (n) {
       n.originalColor = n.color;
     });
@@ -32,7 +30,7 @@ function createGraph(data, instance) {
 }
 
 function graphRender(instance) {
-  var gexfUrl = $('#graph-modal').data('gexf_url'); // eslint-disable-line vars-on-top;
+  var gexfUrl = $('#graph-modal').data('gexf_url');
   createGraph(gexfUrl, instance);
 }
 
