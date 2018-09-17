@@ -1,46 +1,37 @@
 function createGraph(data, instance) {
-  if (data !== '') {
-    data = $.parseXML(data); // eslint-disable-line no-param-reassign
-    sigma.parsers.gexf(data, instance, function (y) { // eslint-disable-line no-unused-vars
-      instance.settings({
-        nodeColor: 'default',
-        edgeColor: 'default',
-        defaultEdgeType: 'arrow',
-        labelThreshold: 7,
-        minNodeSize: 1,
-        minArrowSize: 5
-      });
-      // We first need to save the original colors of our
-      // nodes and edges, like this:
-      instance.graph.nodes().forEach(function (n) {
-        n.originalColor = n.color;
-      });
-      instance.graph.edges().forEach(function (e) {
-        e.originalColor = e.color;
-      });
-      if (instance.graph.nodes().length === 0) {
-        instance.graph.addNode({
-          id: 'empty',
-          label: '(This graph is empty.)',
-          x: 10,
-          y: 10,
-          size: 10,
-          color: '#999'
-        });
-      }
+  sigma.parsers.gexf(data, instance, function (y) { // eslint-disable-line no-unused-vars
+    instance.settings({
+      nodeColor: 'default',
+      edgeColor: 'default',
+      defaultEdgeType: 'arrow',
+      labelThreshold: 7,
+      minNodeSize: 1,
+      minArrowSize: 5
     });
+    instance.graph.nodes().forEach(function (n) {
+      n.originalColor = n.color;
+    });
+    instance.graph.edges().forEach(function (e) {
+      e.originalColor = e.color;
+    });
+    if (instance.graph.nodes().length === 0) {
+      instance.graph.addNode({
+        id: 'empty',
+        label: '(This graph is empty.)',
+        x: 10,
+        y: 10,
+        size: 10,
+        color: '#999'
+      });
+    }
     instance.renderers[0].resize();
     instance.refresh();
-  } else {
-    $('#graph').append('Cannot find Gexf file');
-  }
+  });
 }
 
 function graphRender(instance) {
-  if (typeof $('#graph-modal').data('gexf') !== 'undefined') {
-    var gexfFileData = $('#graph-modal').data('gexf'); // eslint-disable-line vars-on-top
-    createGraph(gexfFileData, instance);
-  }
+  var gexfUrl = $('#graph-modal').data('gexf_url');
+  createGraph(gexfUrl, instance);
 }
 
 function increment(state) {
