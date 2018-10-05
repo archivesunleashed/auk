@@ -28,7 +28,7 @@ class GraphpassJob < ApplicationJob
                         '/' + c.account.to_s +
                         '/' + c.collection_id.to_s + '/'
       collection_derivatives = collection_path + c.user_id.to_s + '/derivatives'
-      graphpass_flags = " --file #{c.collection_id}-gephi.graphml --output #{collection_derivatives}/gephi/ --dir #{collection_derivatives}/gephi/ -g -q"
+      graphpass_flags = " #{collection_derivatives}/gephi/#{c.collection_id}-gephi.graphml #{collection_derivatives}/gephi/#{c.collection_id}-gephi.gexf -gq"
       graphpass_cmd = graphpass + graphpass_flags
       logger.info 'Executing: ' + graphpass_cmd
       system(graphpass_cmd)

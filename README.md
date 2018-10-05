@@ -12,8 +12,8 @@ Rails application for the Archives Unleashed Cloud.
 
 * [Ruby](https://www.ruby-lang.org/en/) 2.2 or later
 * [Rails](http://rubyonrails.org) 5.1.2 or later
-* [Apache Spark](https://spark.apache.org/) 2.2.1 or later
-* [GraphPass](https://www.github.com/archivesunleashed/graphpass) 0.2.0 or later
+* [Apache Spark](https://spark.apache.org/) 2.3.2 or later
+* [GraphPass](https://www.github.com/archivesunleashed/graphpass) 0.3.0 or later
 * [NPM](https://www.npmjs.com/) (For testing/ESlint)
 
 ## Installation

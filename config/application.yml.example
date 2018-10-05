@@ -21,7 +21,7 @@ SPARK_MEMORY_DRIVER: "5G"
 SPARK_NETWORK_TIMEOUT: "10000000"
 SPARK_HEARTBEAT_INTERVAL: "600s"
 SPARK_THREADS: "*"
-AUT_VERSION: "0.15.0"
+AUT_VERSION: "0.17.0"
 EMAIL_SERVER_NAME: "smtp.something.ca"
 EMAIL_DOMAIN: "something.ca"
 EMAIL_USERNAME: "someuser"
@@ -31,8 +31,8 @@ DJW_USERNAME: "some user"
 DJW_PASSWORD: "some password"
 DASHBOARD_USER: "test"
 DASHBOARD_PASS: "test"
-BASE_HOSTNAME: "cloud.archivesunleashed.org"
-BASE_HOST_URL: "https://cloud.archivesunleashed.org"
+BASE_HOSTNAME: "cloud.archivesunleashed.org" #if in development mode: localhost:3000
+BASE_HOST_URL: "https://cloud.archivesunleashed.org" #if in development mode: http://localhost:3000
 
 production:
   SECRET_KEY_BASE: "some secret key base"
