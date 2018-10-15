@@ -28,7 +28,7 @@ class WasapiDownloadJob < ApplicationJob
     wasapi_password = user_id.wasapi_password
     download_files = WasapiFile.where('user_id = ? AND collection_id = ?',
                                       user_id, collection_id)
-    Parallel.each(download_files, in_threads: 5) do |wasapi_file|
+    Parallel.each(download_files, in_threads: 15) do |wasapi_file|
       download_path = ENV['DOWNLOAD_PATH'] +
                       '/' + wasapi_file.account.to_s +
                       '/' + wasapi_file.collection_id.to_s + '/' + 'warcs/'
