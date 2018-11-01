@@ -60,7 +60,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 ## AUK
 gem 'attr_encrypted'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.1.2' # https://nvd.nist.gov/vuln/detail/CVE-2018-14042
 gem 'bootstrap_form',
     git: 'https://github.com/bootstrap-ruby/bootstrap_form.git',
     branch: 'master'
@@ -68,6 +68,7 @@ gem 'codecov', require: false, group: :test
 gem 'daemons'
 gem 'delayed-web'
 gem 'delayed_job_active_record'
+gem 'ffi', '>= 1.9.24' # https://nvd.nist.gov/vuln/detail/CVE-2018-1000201
 gem 'figaro'
 gem 'font-awesome-rails'
 gem 'http'
@@ -75,7 +76,7 @@ gem 'humanize_boolean'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'logstash-logger'
-gem 'loofah', '~> 2.2.1' # https://github.com/flavorjones/loofah/issues/144
+gem 'loofah', '>= 2.2.3' # https://nvd.nist.gov/vuln/detail/CVE-2018-16468
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'os'
@@ -83,6 +84,7 @@ gem 'parallel'
 gem 'rails-html-sanitizer', '~> 1.0.4' # https://nvd.nist.gov/vuln/detail/CVE-2018-3741
 gem 'rubocop', '~> 0.48.1'
 gem 'rubocop-rspec', '~> 1.15.0'
+gem 'rubyzip', '>= 1.2.2' # https://nvd.nist.gov/vuln/detail/CVE-2018-1000544
 gem 'sitemap_generator'
 gem 'sys-filesystem'
 gem 'time_difference'
