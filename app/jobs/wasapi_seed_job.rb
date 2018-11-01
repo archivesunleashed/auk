@@ -29,6 +29,8 @@ class WasapiSeedJob < ApplicationJob
       queue: 'seed',
       start_time: DateTime.now.utc
     )
+    WasapiFile.where(user_id: user.id).destroy_all
+    Collection.where(user_id: user.id).destroy_all
     wasapi_files.each do |file|
       WasapiFile.find_or_create_by!(
         filename: file['filename'],
