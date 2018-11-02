@@ -21,6 +21,16 @@ module CollectionsHelper
     end
   end
 
+  def textfilter_path(user_id, collection_id, account)
+    collection_path = ENV['DOWNLOAD_PATH'] +
+                      '/' + account.to_s +
+                      '/' + collection_id.to_s + '/'
+    collection_derivatives = collection_path +
+                             user_id.to_s + '/derivatives'
+    collection_derivatives + '/filtered-text/' + collection_id.to_s +
+      '-filtered_text.zip'
+  end
+
   def gexf_path(user_id, collection_id, account)
     collection_path = ENV['DOWNLOAD_PATH'] +
                       '/' + account.to_s +

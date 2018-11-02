@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :download_gexf
       get :download_graphml
       get :download_fulltext
+      get :download_textfilter
     end
   end
 

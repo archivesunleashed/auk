@@ -81,7 +81,10 @@
             <%= link_to('Domains', user_collection_download_domains_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A csv file that explains the distribution of domains within the web archive.') %>
           <% end %>
           <% unless !File.exists? fulltext_path(@user.id, @collection.id, @collection.account) %>
-            <%= link_to('Full Text', user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A txt file that contains the plain text extracted from HTML documents within the web archive. You can find the crawl date, full URL, and the plain text of each page within the file.') %>
+            <%= link_to('Full Text', user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A text file that contains the plain text extracted from HTML documents within the web archive. You can find the crawl date, full URL, and the plain text of each page within the file.') %>
+          <% end %>
+          <% unless !File.exists? textfilter_path(@user.id, @collection.id, @collection.account) %>
+            <%= link_to('Text by Domains', user_collection_download_textfilter_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A zip file that contains the text of the top ten domains within a web archive, each within their own text file. Within the files you can find the crawl date, full URL, and the plain text of each page within the file.') %>
           <% end %>
           <p><small><%=link_to("You can find information about how to use these files here.", "/derivatives")%></small></p>
         </div>

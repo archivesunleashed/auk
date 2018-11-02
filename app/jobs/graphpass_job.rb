@@ -4,11 +4,7 @@
 class GraphpassJob < ApplicationJob
   queue_as :graphpass
 
-  after_perform do |job|
-    UserMailer.notify_collection_analyzed(job.arguments.first,
-                                          job.arguments.second).deliver_now
-    CleanupJob.set(wait: 1.day).perform_later(job.arguments.first,
-                                              job.arguments.second)
+  after_perform do
     update_dashboard = Dashboard.find_by(job_id: job_id)
     update_dashboard.end_time = DateTime.now.utc
     update_dashboard.save
@@ -40,6 +36,8 @@ class GraphpassJob < ApplicationJob
       logger.info 'Executing: ' + combine_full_text_output_cmd
       system(combine_full_text_output_cmd)
       FileUtils.rm_rf(collection_derivatives + '/all-text/output')
+      TextfilterJob.set(queue: :textfilter)
+                   .perform_later(user_id, collection_id)
     end
   end
 end

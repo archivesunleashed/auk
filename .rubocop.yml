@@ -16,15 +16,17 @@ Metrics/AbcSize:
     - app/helpers/collections_helper.rb
     - app/helpers/dashboards_helper.rb
     - app/helpers/wasapi_files_helper.rb
+    - app/jobs/cleanup_job.rb
     - app/jobs/graphpass_job.rb
     - app/jobs/spark_job.rb
-    - app/jobs/cleanup_job.rb
+    - app/jobs/textfilter_job.rb
     - app/jobs/wasapi_download_job.rb
     - app/jobs/wasapi_seed_job.rb
 
 Metrics/BlockLength:
   Exclude:
     - app/jobs/spark_job.rb
+    - app/jobs/textfilter_job.rb
     - app/jobs/wasapi_download_job.rb
     - app/jobs/wasapi_seed_job.rb
     - config/environments/development.rb
@@ -39,9 +41,10 @@ Metrics/CyclomaticComplexity:
 Metrics/LineLength:
   Exclude:
     - app/helpers/users_helper.rb
+    - app/jobs/cleanup_job.rb
     - app/jobs/graphpass_job.rb
     - app/jobs/spark_job.rb
-    - app/jobs/cleanup_job.rb
+    - app/jobs/textfilter_job.rb
     - app/jobs/wasapi_seed_job.rb
     - app/mailers/user_mailer.rb
     - test/controllers/dashboards_controller_test.rb
@@ -55,9 +58,10 @@ Metrics/MethodLength:
     - app/helpers/collections_helper.rb
     - app/helpers/dashboards_helper.rb
     - app/helpers/wasapi_files_helper.rb
+    - app/jobs/cleanup_job.rb
     - app/jobs/graphpass_job.rb
     - app/jobs/spark_job.rb
-    - app/jobs/cleanup_job.rb
+    - app/jobs/textfilter_job.rb
     - app/jobs/wasapi_download_job.rb
     - app/jobs/wasapi_seed_job.rb
 
@@ -119,6 +123,7 @@ Style/NegatedIf:
 
 Style/Next:
   Exclude:
+    - app/jobs/textfilter_job.rb
     - app/jobs/wasapi_download_job.rb
     - app/jobs/wasapi_seed_job.rb
 

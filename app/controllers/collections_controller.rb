@@ -9,8 +9,10 @@ class CollectionsController < ApplicationController
   before_action :graphml_path, only: %i[download_graphml]
   before_action :domains_path, only: %i[download_domains]
   before_action :fulltext_path, only: %i[download_fulltext]
+  before_action :textfilter_path, only: %i[download_textfilter]
   before_action :correct_user, only: %i[show download download_gexf
-                                        download_fulltext download_domains]
+                                        download_fulltext download_domains
+                                        download_textfilter]
 
   def download
     WasapiDownloadJob.set(queue: :download)
@@ -42,6 +44,13 @@ class CollectionsController < ApplicationController
     send_file(
       @fulltext_path,
       type: 'text/plain'
+    )
+  end
+
+  def download_textfilter
+    send_file(
+      @textfilter_path,
+      type: 'application/zip'
     )
   end
 
@@ -98,6 +107,13 @@ class CollectionsController < ApplicationController
                      params[:collection_id].to_s + '/' + params[:user_id].to_s +
                      '/derivatives/all-text/' + params[:collection_id].to_s +
                      '-fulltext.txt'
+  end
+
+  def textfilter_path
+    @textfilter_path = ENV['DOWNLOAD_PATH'] + '/' + params[:format].to_s + '/' +
+                       params[:collection_id].to_s + '/' +
+                       params[:user_id].to_s + '/derivatives/filtered-text/' +
+                       params[:collection_id].to_s + '-filtered_text.zip'
   end
 
   def correct_user
