@@ -6,10 +6,10 @@
     <p class="about_p_italic">Tutorial by Ian Milligan (Archives Unleashed Team)</p>
 
     <h3 class="about_h3">Introduction</h3>
-    <p class="about_p">You may want to filter the derivative files further, so that they for example:</p>
+    <p class="about_p">We have some filtering tools already built into the Archives Unleashed Cloud -- for example, the "Text by Domain" button will give you a zip file of the text of the top ten domains within a web archive. Yet you may want to filter the derivative files further, so that they for example:</p>
     <ul class="about_ul">
       <li class="about_li">Only contain websites from a certain date (i.e. all sites collected on July 16th, 2009)</li>
-      <li class="about_li">Only contain websites from a certain domain (i.e. the plain text of all "liberal.ca" websites)</li>
+      <li class="about_li">Only contain websites from a certain domain (i.e. the plain text of all "liberal.ca" websites), especially if they're not in the top ten domains but you know they are there.</li>
       <li class="about_li">Only contain websites that have a certain keyword (i.e. every page that contains the word "elephant")</li>
     </ul>
     <p class="about_p">Fortunately, you can easily do this with some simple tools.</p>
@@ -48,6 +48,7 @@
     <p class="about_p">So in this case for the pattern, the quotation marks enclose the pattern we are looking for. <code>^</code> represents the "start of the line," and then since there is an opening parenthesis we look for that too. We then provide an output path for the results. In this case, there will now be a new file – 20160522-text.txt – that just contains the crawl text from 22 May 2016.</p>
 
     <h3 class="about_h3">Finding Specific Domains</h3>
+    <p class="about_p">If the domain is in the top ten, you can use our handy "text by domain" derivative to work with it out of the box. If you want to find a different domain, however, you may have to do a bit of work yourself.</p>
     <p class="about_p">The logic is similar to finding specific domains. We'll also use grep. In the example above, we saw two different domains. Let's use "www.rmwb.ca" as our example and get only websites from that domain.</p>
     <p class="about_p">We turn to grep again:</p>
     <p class="about_p"><code>grep ',www.rmwb.ca,' 7368-fulltext.txt > RMWB-text.txt</code></p>
