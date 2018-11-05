@@ -3,46 +3,54 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="panel panel-default">
-      <div class="panel-body">
-        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
-          <h3>Total Users</h3>
+      <div class="btn-group-justified">
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
+          <h3>Users</h3>
           <h1><%= get_number_of_users %></h1>
         </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
+          <h3>Collections</h3>
+          <h1><%= get_total_number_of_collections %></h1>
+        </button>
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
+          <h3>Files</h3>
+          <h1><%= get_total_number_of_warcs %></h1>
+        </button>
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
           <h3>Active Jobs</h3>
           <h1><%= get_number_of_queued_jobs %></h1>
         </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
           <h3>Jobs Completed</h3>
           <h1><%= get_total_number_of_jobs_run %></h1>
         </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
           <h3>Job Time</h3>
           <h1><%= get_total_job_time %></h1>
         </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
           <h3>Longest Job</h3>
-          <h1><%= get_longest_job_time  %></h1>
+          <h1><%= get_longest_job_time %></h1>
         </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-lg active" data-toggle="tooltip" data-html="true" title="<%= get_most_jobs_user_institution %>">
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active" data-toggle="tooltip" data-html="true" title="<%= get_most_jobs_user_institution %>">
           <h3>Most Jobs</h3>
           <h1><%= get_most_jobs_user %></h3>
         </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-lg active" data-toggle="tooltip" data-html="true" title="<%= get_largest_collection_title %>">
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active" data-toggle="tooltip" data-html="true" title="<%= get_largest_collection_title %>">
           <h3>Largest Collection</h3>
           <h1><%= get_largest_collection %></h1>
         </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
           <h3>Space Used</h3>
           <h1><%= get_space_used %></h1>
         </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
           <h3>Space Available</h3>
           <h1><%= get_space_available %></h1>
         </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-lg active">
+        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
           <h3>Data Analyzed</h3>
-          <h1><%= data_analyzed  %></h1>
+          <h1><%= data_analyzed %></h1>
         </button>
       </div>
     </div>

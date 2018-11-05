@@ -73,6 +73,14 @@ module DashboardsHelper
     Collection.find(largest_collection[0][1]).title
   end
 
+  def get_total_number_of_warcs
+    WasapiFile.distinct.count(:filename)
+  end
+
+  def get_total_number_of_collections
+    Collection.distinct.count(:collection_id)
+  end
+
   def get_space_used
     download_path = ENV['DOWNLOAD_PATH']
     number_to_human_size(`du -sb "#{download_path}"`.split("\t").first.to_i)
