@@ -27,6 +27,8 @@ class SparkJob < ApplicationJob
       collection_derivatives = collection_path + c.user_id.to_s + '/derivatives'
       collection_spark_jobs_path = collection_path + c.user_id.to_s + '/spark_jobs'
       collection_spark_job_file = collection_spark_jobs_path + '/' + c.collection_id.to_s + '.scala'
+      FileUtils.rm_rf collection_derivatives
+      FileUtils.rm_rf collection_spark_jobs_path
       FileUtils.mkdir_p collection_derivatives
       FileUtils.mkdir_p collection_spark_jobs_path
       FileUtils.mkdir_p collection_derivatives + '/gephi'
