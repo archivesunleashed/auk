@@ -14,7 +14,7 @@
     <p class="about_p">With AUK you can:</p>
     <ul class="about_ul">
       <li class="about_li">Ingest Archive-It collections via WASAPI;</li>
-      <li class="about_li">Download collection derivatives: network files, domain lists, and full text; and</li>
+      <li class="about_li">Download collection derivatives: network files, domain lists, and full text (all and by domain); and</li>
       <li class="about_li">Visualize your collections with an in-browser network diagram to see major nodes and connections within the collection.</li>
     </ul>
     <p class="about_note"><strong>Note</strong>: You can use our canonical version at <%= link_to('https://cloud.archivesunleashed.org', 'https://cloud.archivesunleashed.org', target: '_blank') %>, or you are welcome to run your own local version by visiting our <%= link_to('GitHub repository', 'https://github.com/archivesunleashed/auk', target: '_blank') %>.</p>
@@ -68,12 +68,13 @@
     <p class="about_p">You will receive an email once your collections are ready for analysis. When you navigate to the collection space, by clicking on the collection title (in the screenshot below we've selected the Nova Scotia Municipal Governments collection), you will find:</p>
     <ul class="about_ul">
       <li class="about_li">An interactive hyperlink diagram: you can use this to explore the basic hyperlink structure of your collection.</li>
-      <li class="about_li">Four output files that can be downloaded for further research and analysis. These include:</li>
+      <li class="about_li">Five output files that can be downloaded for further research and analysis. These include:</li>
       <ul class="about_ul">
         <li class="about_li"><strong>Gephi</strong> file, which can be loaded into <%= link_to('Gephi', 'https://gephi.org/', target: '_blank') %>. It will have basic characteristics already computed and a basic layout. You can find more information on using this file in the "<%=link_to("Network Graphing Archived Websites With Gephi", "/derivatives/gephi")%>" tutorial.</li>
         <li class="about_li"><strong>Raw Network</strong> file, which can also be loaded into <%= link_to('Gephi', 'https://gephi.org/', target: '_blank') %>. You will have to use that network program to lay it out yourself.</li>
-        <li class="about_li"><strong>Domains</strong> file will be a CSV file containing the frequency of domains found within your web archive.</li>
-        <li class="about_li"><strong>Full Text</strong> file will be a large text file containing the extracted plain text of all the HTML files found within a collection. You might want to try loading it into a visualization platform like <%= link_to('Voyant Tools', 'http://voyant-tools.org/', target: '_blank') %> to see patterns and trends within your web archive.
+        <li class="about_li"><strong>Domains</strong> file, which will be a CSV file containing the frequency of domains found within your web archive.</li>
+        <li class="about_li"><strong>Full Text</strong> file, which will be a large text file containing the extracted plain text of all the HTML files found within a collection. You might want to try loading it into a visualization platform like <%= link_to('Voyant Tools', 'http://voyant-tools.org/', target: '_blank') %> to see patterns and trends within your web archive.
+        <li class="about_li"><strong>Full Text by Domain</strong>, which will be a large ZIP file containing ten text files corresponding to the plain text of the top ten domains. For example, if the domain "liberal.ca" is the most popular domain in your web archive, there will be a text file called "liberal-ca.txt". As above, you might want to use <%= link_to('Voyant Tools', 'http://voyant-tools.org/', target: '_blank') %> to see patterns and trends.</strong>
       </ul>
       <li class="about_li">Finally, below the download options, you can see a frequency table of the top 10 domains found within the collection.</li>
     </ul>
