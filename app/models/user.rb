@@ -3,8 +3,8 @@
 # User model methods.
 class User < ApplicationRecord
   require 'uri'
-  has_many :wasapi_files
-  has_many :collections
+  has_many :wasapi_files, counter_cache: true
+  has_many :collections, counter_cache: true
   def self.find_or_create_from_auth_hash(auth_hash)
     # OmniAuth.
     user = where(
