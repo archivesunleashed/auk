@@ -81,6 +81,7 @@ gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'os'
 gem 'parallel'
+gem 'rack', '>= 2.0.6' # https://nvd.nist.gov/vuln/detail/CVE-2018-16471 https://nvd.nist.gov/vuln/detail/CVE-2018-16470
 gem 'rails-html-sanitizer', '~> 1.0.4' # https://nvd.nist.gov/vuln/detail/CVE-2018-3741
 gem 'rubocop', '~> 0.48.1'
 gem 'rubocop-rspec', '~> 1.15.0'
