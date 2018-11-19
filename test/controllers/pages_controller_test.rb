@@ -21,6 +21,12 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'title', 'Documentation | Archives Unleashed'
   end
 
+  test 'should get faq page' do
+    get faq_path
+    assert_response :success
+    assert_select 'title', 'FAQ | Archives Unleashed'
+  end
+
   test 'should get derivatives page' do
     get derivatives_path
     assert_response :success
