@@ -121,7 +121,7 @@ GEM
       i18n
     i18n (1.2.0)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.7.0)
+    jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
     jquery-rails (4.3.3)
