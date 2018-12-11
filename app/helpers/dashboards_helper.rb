@@ -4,6 +4,7 @@
 module DashboardsHelper
   def job_length(start_time, end_time)
     return if start_time.blank? || end_time.blank?
+
     TimeDifference.between(end_time, start_time).humanize
   end
 

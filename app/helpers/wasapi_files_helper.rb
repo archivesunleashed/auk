@@ -22,6 +22,7 @@ module WasapiFilesHelper
     if account.first.blank?
       return 0
     end
+
     if account.first.present?
       account_path = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s
       number_to_human_size(`du -sb "#{account_path}"`.split("\t").first.to_i)

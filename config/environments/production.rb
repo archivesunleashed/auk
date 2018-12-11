@@ -75,12 +75,12 @@ Rails.application.configure do
     host: ENV['BASE_HOSTNAME']
   }
   config.action_mailer.smtp_settings = {
-    address:              ENV['EMAIL_SERVER_NAME'],
-    port:                 587,
-    domain:               ENV['EMAIL_DOMAIN'],
-    user_name:            ENV['EMAIL_USERNAME'],
-    password:             ENV['EMAIL_PASSWORD'],
-    authentication:       :plain,
+    address: ENV['EMAIL_SERVER_NAME'],
+    port: 587,
+    domain: ENV['EMAIL_DOMAIN'],
+    user_name: ENV['EMAIL_USERNAME'],
+    password: ENV['EMAIL_PASSWORD'],
+    authentication: :plain,
     enable_starttls_auto: true
   }
 
