@@ -81,7 +81,7 @@ gem 'parallel'
 gem 'rack', '>= 2.0.6' # https://nvd.nist.gov/vuln/detail/CVE-2018-16471 https://nvd.nist.gov/vuln/detail/CVE-2018-16470
 gem 'rails-html-sanitizer', '~> 1.0.4' # https://nvd.nist.gov/vuln/detail/CVE-2018-3741
 gem 'rubocop', '~> 0.61.1'
-gem 'rubocop-rspec', '~> 1.15.0'
+gem 'rubocop-rspec', '~> 1.30.1'
 gem 'rubyzip', '>= 1.2.2' # https://nvd.nist.gov/vuln/detail/CVE-2018-1000544
 gem 'sitemap_generator'
 gem 'sys-filesystem'
