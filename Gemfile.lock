@@ -62,15 +62,6 @@ GEM
       sass (>= 3.5.2)
     builder (3.2.3)
     byebug (10.0.2)
-    capybara (2.18.0)
-      addressable
-      mini_mime (>= 0.1.3)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (>= 2.0, < 4.0)
-    childprocess (0.9.0)
-      ffi (~> 1.0, >= 1.0.11)
     codecov (0.1.14)
       json
       simplecov
@@ -251,9 +242,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (3.141.0)
-      childprocess (~> 0.5)
-      rubyzip (~> 1.2, >= 1.2.2)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -301,8 +289,6 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    xpath (3.2.0)
-      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
@@ -313,7 +299,6 @@ DEPENDENCIES
   bootstrap (~> 4.1.2)
   bootstrap_form!
   byebug
-  capybara (~> 2.13)
   codecov
   coffee-rails (~> 4.2)
   daemons
@@ -343,7 +328,6 @@ DEPENDENCIES
   rubocop-rspec (~> 1.15.0)
   rubyzip (>= 1.2.2)
   sass-rails (~> 5.0)
-  selenium-webdriver
   simplecov
   sitemap_generator
   spring
