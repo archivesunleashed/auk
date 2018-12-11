@@ -71,7 +71,7 @@ GEM
       xpath (>= 2.0, < 4.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    codecov (0.1.13)
+    codecov (0.1.14)
       json
       simplecov
       url
