@@ -70,7 +70,7 @@ function scaleUp(instance) {
     if (isFinite(Math.log(x.size + 2))) {
       x.size = Math.log(x.size + 2);
     } else {
-      x.size = x.size;
+      x.size = x.size; // eslint-disable-line no-self-assign
     }
   });
   instance.refresh();
@@ -84,7 +84,7 @@ function scaleDown(instance) {
     } else if (Math.exp(x.size) - 2 < 1) {
       x.size = 1;
     } else {
-      x.size = x.size;
+      x.size = x.size; // eslint-disable-line no-self-assign
     }
   });
   instance.refresh();
