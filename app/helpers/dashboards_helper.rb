@@ -38,7 +38,7 @@ module DashboardsHelper
   def get_most_jobs_user
     user_id = Dashboard.group(:user_id)
                        .select(:user_id)
-                       .order('count(*) desc')
+                       .order(Arel.sql('count(*) desc'))
                        .first.user_id
     user = User.find(user_id)
     username = user.auk_name
@@ -52,7 +52,7 @@ module DashboardsHelper
   def get_most_jobs_user_institution
     user_id = Dashboard.group(:user_id)
                        .select(:user_id)
-                       .order('count(*) desc')
+                       .order(Arel.sql('count(*) desc'))
                        .first.user_id
     user = User.find(user_id)
     user.institution
