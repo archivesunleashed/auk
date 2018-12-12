@@ -67,7 +67,7 @@ function zoomOut(instance) {
 function scaleUp(instance) {
   var nodes = instance.graph.nodes();
   nodes.forEach(x => {
-    if (isFinite(Math.log(x.size + 2))) {
+    if (isFinite(Math.log(x.size + 2))) { // eslint-disable-line no-restricted-globals
       x.size = Math.log(x.size + 2);
     } else {
       x.size = x.size; // eslint-disable-line no-self-assign
@@ -79,7 +79,7 @@ function scaleUp(instance) {
 function scaleDown(instance) {
   var nodes = instance.graph.nodes();
   nodes.forEach(x => {
-    if (isFinite(Math.exp(x.size) - 2)) {
+    if (isFinite(Math.exp(x.size) - 2)) { // eslint-disable-line no-restricted-globals
       x.size = Math.exp(x.size) - 2;
     } else if (Math.exp(x.size) - 2 < 1) {
       x.size = 1;
@@ -143,17 +143,19 @@ $(document).on('turbolinks:load', function () {
       return neighbors;
     });
   }
-  so = new sigma({ renderers: [ // eslint-disable-line new-cap
-    {
-      container: document.getElementById('graph'),
-      type: 'canvas' // sigma.renderers.canvas works as well
-    }]
+  so = new sigma({ // eslint-disable-line new-cap
+    renderers: [
+      {
+        container: document.getElementById('graph'),
+        type: 'canvas' // sigma.renderers.canvas works as well
+      }]
   });
-  gm = new sigma({ renderers: [ // eslint-disable-line new-cap
-    {
-      container: document.getElementById('graph-modal'),
-      type: 'canvas'
-    }]
+  gm = new sigma({ // eslint-disable-line new-cap
+    renderers: [
+      {
+        container: document.getElementById('graph-modal'),
+        type: 'canvas'
+      }]
   });
 
   graphRender(so);
