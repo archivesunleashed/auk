@@ -17,15 +17,15 @@
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
           <div class="auk_faq_accord_body card-body">
             <p class="about_p"><strong>How do I use the Archives Unleashed Cloud?</strong></p>
-            <p class="about_p">If you’re new to the Cloud, our <%=link_to('AUK documentation','/documentation') %> page gives a full walkthrough on how to set up and use your account and dashboard.</p>
-            <p class="about_p"><strong>I don’t have an Archive-It account! Can I still use the Archives Unleashed Cloud?</strong></p>
-            <p class="about_p">We currently only support Archive-It accounts, as our system is based on the Web Archiving Systems API, or WASAPI. In the future, we are hoping to expand the services that we support. If you have a web archiving service and would like to integrate with the Cloud, <%= link_to('drop us a line', 'mailto:sam.fritz@archivesunleashed.org', target: '_blank') %>.</p>
+            <p class="about_p">If you're new to the Cloud, our <%=link_to('AUK documentation','/documentation') %> page gives a full walkthrough on how to set up and use your account and dashboard.</p>
+            <p class="about_p"><strong>I don't have an Archive-It account! Can I still use the Archives Unleashed Cloud?</strong></p>
+            <p class="about_p">We currently only support <%= link_to('Archive-It', 'https://archive-it.org/', target: '_blank') %> accounts, as our system is based on the Web Archiving Systems API, or <%= link_to('WASAPI', 'https://github.com/WASAPI-Community/data-transfer-apis', target: '_blank') %>. In the future, we are hoping to expand the services that we support. If you have a web archiving service and would like to integrate with the Cloud, <%= link_to('drop us a line', 'mailto:sam.fritz@archivesunleashed.org', target: '_blank') %>.</p>
             <p class="about_p"><strong>Can I can sync my Archive-It account with the Archives Unleashed Cloud without using Twitter or Github?</strong></p>
-            <p class="about_p">Right now authentication is only offered via Twitter and Github - we hope to expand this in the future. We’ve had some of our colleagues come to the Cloud without an account for either Twitter or GitHub, and if you’re in a similar situation we have recommended creating  a research based Twitter/Github account in order to use the Cloud. Don’t worry – you don’t need to code or tweet!</p>
+            <p class="about_p">Right now authentication is only offered via <%= link_to('Twitter', 'https://twitter.com/', target: '_blank') %> and <%= link_to('GitHub', 'https://github.com/', target: '_blank') %> - we hope to expand this in the future. We've had some of our colleagues come to the Cloud without an account for either Twitter or GitHub, and if you're in a similar situation we have recommended creating  a research based Twitter/Github account in order to use the Cloud. Don't worry – you don't need to code or tweet!</p>
             <p class="about_p"><strong>Why are some collections listed as public, and others are not?</strong></p>
             <p class="about_p">There are a variety of metadata fields that are imported in from the Archive-It system that describe collections you can work with in the Cloud. One of those fields indicates whether a collection is public or not, which is determined by users within the Archive-It system.</p>
             <p class="about_p"><strong>Why is my collections dashboard empty?</strong></p>
-            <p class="about_p">You haven’t entered your Archive-It credentials and updated your account. This will allow the Cloud to import your collections from Archive-It, and once that process is complete you will see the dashboard populated with some basic information about all of your collections.</p>
+            <p class="about_p">You haven't entered your Archive-It credentials and updated your account. This will allow the Cloud to import your collections from Archive-It, and once that process is complete you will see the dashboard populated with some basic information about all of your collections.</p>
           </div>
         </div>
       </div>
@@ -39,9 +39,9 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
           <div class="auk_faq_accord_body card-body">
-            <p class="about_p"><strong>I’ve asked the system to process my collection, but the screen is still empty. How long does it take to analyze the collection?</strong></p>
-            <p class="about_p">Our Cloud works on a queue system, which means that as soon as you click “Analyze” collection, it has entered into a queue of all the jobs users are running. We operate on a first-in-first-out system, so somebody may have started processing their collection before you. Only when the analysis is done will you see all three derivatives.</p>
-            <p class="about_p">In terms of time, this estimate is based on a few factors, such as how many other users are in the queue and the size of your collection. You only need to click the “Analyze” button once. Don’t worry: once your collection is done analyzing, we will send you an e-mail.</p>
+            <p class="about_p"><strong>I've asked the system to process my collection, but the screen is still empty. How long does it take to analyze the collection?</strong></p>
+            <p class="about_p">Our Cloud works on a queue system, which means that as soon as you click “Analyze” collection, it has entered into a queue of all the jobs users are running. We operate on a first-in-first-out system, so somebody may have started processing their collection before you. Only when the analysis is done will you see derivatives.</p>
+            <p class="about_p">In terms of time, this estimate is based on a few factors, such as how many other users are in the queue and the size of your collection. You only need to click the “Analyze” button once. Don't worry: once your collection is done analyzing, we will send you an e-mail.</p>
             <p class="about_p"><strong>Can I bring my own WARC files to the Cloud?</strong></p>
             <p class="about_p">Right now the Archives Unleashed Cloud is only able to handle data by way of Archive-It subscriptions. As noted above, we are looking at ways of expanding this in the future.</p>
             <p class="about_p">You are always welcome to use the <%= link_to('Archives Unleashed Toolkit', 'https://archivesunleashed.org/aut/', target: '_blank') %> to analyze your own WARC files, though this will require a bit of knowledge and patience with the command line. We have a <%= link_to('documentation', 'https://archivesunleashed.org/aut/', target: '_blank') %> and walk through instructions of how to use the Toolkit locally.</p>
@@ -52,7 +52,7 @@
             <p class="about_p">Now comes the fun part of digging into your web archival collections. The derivatives give you a starting point for further analysis on your research questions. The way you approach analyzing the derivatives will largely depend on the content of the collections, topic, and what some of your research questions are, but here are a few ideas and resources to help get you started:</p>
             <ul><strong><%=link_to('Cloud Learning Guides','/derivatives') %></strong>: thanks in part to Sarah McTavish and Ian Milligan, there are a number of guides that walk through using each derivative file with additional tools. </ul>
             <ul><strong>Cloud Hackathon team projects</strong>: at each <%= link_to('#hackarchives', 'https://archivesunleashed.org/events/', target: '_blank') %> event, teams have the opportunity to work with the Archives Unleashed Toolkit and other resources to uncover the hidden gems in their collections. Have a look at some of the final projects to see what types of visualizations and processes were used for analysis (<%= link_to('Toronto', 'https://archivesunleashed.org/toronto/', target: '_blank') %>,<%= link_to('Vancouver', 'https://archivesunleashed.org/vancouver/', target: '_blank') %>).</ul>
-            <ul><strong>External resources</strong>: there are so many other tools and resources available for users to do further analysis with their Cloud derivatives. Here are a few suggestions our team, as well as hackarchives participants, have used in the past.</ul>
+            <ul><strong>External resources</strong>: there are so many other tools and resources available for users to do further analysis with their Cloud derivatives. Here are a few suggestions our team, as well as #hackarchives participants, have used in the past.</ul>
               <table id="auk_faq_accord_table">
               <tbody class="auk_faq_accord_table">
                 <tr class="auk_faq_tr_table">
@@ -108,15 +108,15 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
           <div class="auk_faq_accord_body card-body">
             <p class="about_p"><strong>I ran analysis on my collection but the text file is empty. What happened?</strong></p>
-            <p class="about_p">Oh no! This is a rare occurrence. If it does happen, please let us know through <%= link_to('Slack', 'http://slack.archivesunleashed.org/', target: '_blank') %> or <%= link_to('email', 'mailto:sam.fritz@archivesunleashed.org', target: '_blank') %> and we’ll investigate.</p>
-            <p class="about_p"><strong>I’m seeing some weird error messages: 404, 422, or 500, what do they mean?</strong></p>
-            <p class="about_p">If you see an error message come up, something’s gone a little wonky. </p>
+            <p class="about_p">Oh no! This is a rare occurrence. If it does happen, please let us know through <%= link_to('Slack', 'http://slack.archivesunleashed.org/', target: '_blank') %> or <%= link_to('email', 'mailto:sam.fritz@archivesunleashed.org', target: '_blank') %> and we'll investigate.</p>
+            <p class="about_p"><strong>I'm seeing some weird error messages: 404, 422, or 500, what do they mean?</strong></p>
+            <p class="about_p">If you see an error message come up, something's gone a little wonky. </p>
             <ul>> A <%= link_to('404', 'https://httpstatuses.com/404', target: '_blank') %> message will appear when the server cannot connect to the page a user has requested. Usually this is because of a broken or deadlink.</ul>
             <ul>> A <%= link_to('422', 'https://httpstatuses.com/422', target: '_blank') %> comes up when the server was unable to process a command, event even if everything else seems to be running smoothly.</ul>
-            <ul>> A <%= link_to('500', 'https://httpstatuses.com/500', target: '_blank') %> error message indicates an internal server error and isn’t able to process a request.</ul>
+            <ul>> A <%= link_to('500', 'https://httpstatuses.com/500', target: '_blank') %> error message indicates an internal server error and isn't able to process a request.</ul>
             <p class="about_p">The solution for all of these: send us a message through <%= link_to('Slack', 'http://slack.archivesunleashed.org/', target: '_blank') %> or <%= link_to('email', 'mailto:sam.fritz@archivesunleashed.org', target: '_blank') %>, describing what you were doing or clicking when the error appeared, so we can help to diagnose and resolve the issue.</p>
             <p class="about_p"><strong>Still need a bit of extra support?</strong></p>
-            <p class="about_p">We know that there are times when a little extra help is needed. If you’re having any issues with using the Cloud you can connect with our Project Manager, Samantha Fritz (<%= link_to('sam.fritz@archivesunleashed.org', 'mailto:sam.fritz@archivesunleashed.org', target: '_blank') %>)</p>
+            <p class="about_p">We know that there are times when a little extra help is needed. If you're having any issues with using the Cloud you can connect with our Project Manager, Samantha Fritz (<%= link_to('sam.fritz@archivesunleashed.org', 'mailto:sam.fritz@archivesunleashed.org', target: '_blank') %>)</p>
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
           <div class="auk_faq_accord_body card-body">
             <p class="about_p"><strong>Can I share the derivative files publically?</strong></p>
-            <p class="about_p">Absolutely! The collection you’re using do not belong to the Cloud, it’s yours/your institutions, so feel free to share and use these derivatives however you see fit. We would advise that you check with the appropriate contact at your institution to ensure sharing datasets complies with any policies that may be in place.</p>
+            <p class="about_p">Absolutely! The collection you're using do not belong to the Cloud, it's yours/your institutions, so feel free to share and use these derivatives however you see fit. We would advise that you check with the appropriate contact at your institution to ensure sharing datasets complies with any policies that may be in place.</p>
             <p class="about_p">When you do share or use derivatives, we ask you consider using the citation below in your publications. We appreciate your assistance in furthering the the recognition of using open-source tools for scientific inquiry, assisting with growing the web archiving community, and acknowledging the efforts of contributors to this project.</p>
             <p class="about_p">Archives Unleashed Project. (2018). Archives Unleashed Toolkit (Version 0.17.0). Apache License, Version 2.0.</p>
           </div>

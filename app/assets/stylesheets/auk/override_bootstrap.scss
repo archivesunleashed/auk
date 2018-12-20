@@ -246,17 +246,19 @@ body {
 }
 
 .auk_faq_tbody_table, {
-  table-layout: auto;
   border-collapse: collapse;
   text-align: left;
   line-height: 1.8;
+  vertical-align: center;
 }
 
-.auk_faq_tr_table,
-.auk_faq_td_table {
+.auk_faq_tr_table, .auk_faq_td_table {
+  table-layout: auto;
+  width: 10%;
   border: solid 1px grey;
-  padding: 10px;
-}
+  padding: 15px;
+  text-align:left;
+  }
 
 /*
  * Footer
