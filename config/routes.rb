@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
   get 'documentation' => 'pages#documentation'
   get 'faq' => 'pages#faq'
+  get 'privacypolicy' => 'pages#privacypolicy'
   get 'derivatives/gephi' => 'pages#gephi'
   get 'derivatives/domains' => 'pages#domains'
   get 'derivatives/text-antconc' => 'pages#text-antconc'

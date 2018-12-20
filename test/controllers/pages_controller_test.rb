@@ -27,6 +27,12 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'title', 'FAQ | Archives Unleashed'
   end
 
+  test 'should get privacy policy page' do
+    get privacypolicy_path
+    assert_response :success
+    assert_select 'title', 'Privacy Policy | Archives Unleashed'
+  end
+
   test 'should get derivatives page' do
     get derivatives_path
     assert_response :success
