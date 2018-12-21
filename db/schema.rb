@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181110005530) do
+ActiveRecord::Schema.define(version: 2018_11_10_005530) do
 
   create_table "collections", id: false, force: :cascade do |t|
     t.integer "collection_id", null: false

@@ -220,6 +220,47 @@ body {
 }
 
 /*
+ * AUK FAQ Page - Bootstrap Customization for Accordian layout
+ */
+.auk_faq_accord {
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.auk_faq_accord-header {
+  font-family: helvetica;
+  font-size: 22px;
+  border-radius: 5px;
+  text-align: left;
+  max-width: auto;
+}
+
+.auk_faq_accord_body {
+  font-family: helvetica;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.auk_faq_tbody_table, {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.8;
+  vertical-align: center;
+}
+
+.auk_faq_tr_table, .auk_faq_td_table {
+  table-layout: auto;
+  width: 10%;
+  border: solid 1px grey;
+  padding: 15px;
+  text-align:left;
+  }
+
+/*
  * Footer
  */
 
