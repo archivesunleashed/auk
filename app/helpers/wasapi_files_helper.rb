@@ -47,10 +47,45 @@ module WasapiFilesHelper
               collection_id.to_s + '/' + user_id.to_s +
               '/derivatives/all-domains/' + collection_id.to_s +
               '-fullurls.txt'
+    if File.exist?(gexf) && !File.empty?(gexf) ||
+       File.exist?(graphml) && !File.empty?(graphml) ||
+       File.exist?(fulltext) && !File.empty?(fulltext) ||
+       File.exist?(domains) && !File.empty?(domains) == true
 
-    File.exist?(gexf) && !File.empty?(gexf) ||
-      File.exist?(graphml) && !File.empty?(graphml) ||
-      File.exist?(fulltext) && !File.empty?(fulltext) ||
-      File.exist?(domains) && !File.empty?(domains)
+      spark_log = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+                  collection_id.to_s + '/' + user_id.to_s + '/spark_jobs/' +
+                  collection_id.to_s + '.scala.log'
+      File.mtime(spark_log).strftime('%B %-d, %Y')
+    end
+  end
+
+  def collection_analyzed_date(collection_id, user_id)
+    account = WasapiFile.where(user_id: user_id).distinct.pluck(:account)
+    gexf = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+           collection_id.to_s + '/' + user_id.to_s + '/derivatives/gephi/' +
+           collection_id.to_s + '-gephi.gexf'
+
+    graphml = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+              collection_id.to_s + '/' + user_id.to_s + '/derivatives/gephi/' +
+              collection_id.to_s + '-gephi.graphml'
+
+    fulltext = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+               collection_id.to_s + '/' + user_id.to_s +
+               '/derivatives/all-text/' + collection_id.to_s + '-fulltext.txt'
+
+    domains = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+              collection_id.to_s + '/' + user_id.to_s +
+              '/derivatives/all-domains/' + collection_id.to_s +
+              '-fullurls.txt'
+    if File.exist?(gexf) && !File.empty?(gexf) ||
+       File.exist?(graphml) && !File.empty?(graphml) ||
+       File.exist?(fulltext) && !File.empty?(fulltext) ||
+       File.exist?(domains) && !File.empty?(domains) == true
+
+      spark_log = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+                  collection_id.to_s + '/' + user_id.to_s + '/spark_jobs/' +
+                  collection_id.to_s + '.scala.log'
+      File.mtime(spark_log).strftime('%Y%m%d')
+    end
   end
 end
