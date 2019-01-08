@@ -75,7 +75,11 @@ module DashboardsHelper
   end
 
   def get_total_number_of_warcs
-    WasapiFile.distinct.count(:filename)
+    total_warcs = <<-QUERY
+      SELECT COUNT(*) FROM (SELECT DISTINCT "wasapi_files"."filename"
+      FROM "wasapi_files") AS temp;
+    QUERY
+    ActiveRecord::Base.connection.execute(total_warcs).first.first.second
   end
 
   def get_total_number_of_collections
