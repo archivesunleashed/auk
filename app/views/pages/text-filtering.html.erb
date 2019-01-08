@@ -15,19 +15,19 @@
     <p class="about_p">Fortunately, you can easily do this with some simple tools.</p>
 
     <h3 class="about_h3">Using Grep</h3>
-    <p class="about_p"><%= link_to('Grep','https://www.gnu.org/software/grep/manual/grep.html', target: '_blank') %> is a Unix utility that stands for "globally search a regular expression and print." In short, it lets you take a text file and find lines that match criteria that you specify. Grep is especially useful for working with the files that AUK generates because each line in the full-text file corresponds to one website in the collection.</p>
+    <p class="about_p"><%= link_to('Grep','https://www.gnu.org/software/grep/manual/grep.html', target: '_blank') %> is a Unix utility that stands for "globally search a regular expression and print." In short, it lets you take a text file and find lines that match criteria that you specify. Grep is especially useful for working with the files that the Cloud generates because each line in the full-text file corresponds to one website in the collection.</p>
     <p class="about_p">If you are on Linux or MacOS, you have Grep already installed. If you're on Windows, you will need to install a program called "Git Bash." You will want to find the "full installer" <%= link_to('here','https://git-for-windows.github.io/', target: '_blank') %>, and follow <%= link_to('these instructions to install','https://openhatch.org/missions/windows-setup/install-git-bash', target: '_blank') %>.</p>
     <p class="about_p">The command line is powerful, but not always straightforward. Fortunately, there is a good walkthrough at the Programming Historian: <%= link_to('Introduction to Bash','https://programminghistorian.org/en/lessons/intro-to-bash', target: '_blank') %>. For the purposes of this tutorial, you will want to be able to "find" files in the command line.</p>
 
     <h3 class="about_h3">A Command Line Example: Finding the Derivatives</h3>
-    <p class="about_p">In addition to the resources above, an example might give you a sense of how relatively straightforward it can be to locate files. Imagine that in the AUK interface, you download the "full text" file. On MacOS, this defaults to your "downloads" directory.</p>
+    <p class="about_p">In addition to the resources above, an example might give you a sense of how relatively straightforward it can be to locate files. Imagine that in the Cloud interface, you download the "full text" file. On MacOS, this defaults to your "downloads" directory.</p>
     <p class="about_p">To open the command line on MacOS, we go to our "Applications" folder, "Utilities," and then select "Terminal." You will see this window (your colours might be different):</p>
     <%= image_tag("tutorial_terminal.png", alt: "Screenshot of a terminal window", class:"body_img")%>
     <p class="about_p">By default, you start in your home user directory. You can now change the directory to downloads by typing:</p>
     <p class="about_p"><code>cd downloads</code></p>
     <p class="about_p">If you type:</p>
     <p class="about_p"><code>ls</code></p>
-    <p class="about_p">You will then see a long list of all of the files in this directory. Amongst them should be the file you downloaded from AUK! You could begin working on it here, or you could move it somewhere else on your file system. For more information on this, see the Bash tutorial above.</p>
+    <p class="about_p">You will then see a long list of all of the files in this directory. Amongst them should be the file you downloaded from the Cloud! You could begin working on it here, or you could move it somewhere else on your file system. For more information on this, see the Bash tutorial above.</p>
 
     <h3 class="about_h3">Finding Dates</h3>
     <p class="about_p">In the following example, I will use the files from the "Fort McMurray" collection. You can follow along with your own files, simply changing the collection number to your own (i.e. instead of 7368-fulltext.txt it might be 1234-fulltext.txt).</p>
