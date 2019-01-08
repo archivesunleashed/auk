@@ -5,14 +5,14 @@
     <h1 class=about_h1>Documentation</h1>
 
     <h3 class=about_h3>Introduction</h3>
-    <p class="about_p">The Archives Unleashed Cloud, referred to as AUK, is an open-source cloud-based analysis tool that helps researchers and scholars conduct web archive analysis.</p>
-    <p class="about_p">AUK is a component of the <%= link_to('Archives Unleashed Project', 'https://archivesunleashed.org', target: '_blank') %>, which empowers researchers, scholars, librarians and archivists to access and explore their web archival collections. As accessibility is a main priority of the project, AUK supports this goal by providing a web-based front end for users to access the <%= link_to('Archives Unleashed Toolkit', 'https://archivesunleashed.org/aut/', target: '_blank') %>.</p>
-    <p class="about_p">For more information on the AUK platform, as well as the basics of web archiving and the WARC file format, check out our <%=link_to("about", "/about/")%> page.</p>
+    <p class="about_p">The Archives Unleashed Cloud is an open-source cloud-based analysis tool that helps researchers and scholars conduct web archive analysis.</p>
+    <p class="about_p">The Cloud is a component of the <%= link_to('Archives Unleashed Project', 'https://archivesunleashed.org', target: '_blank') %>, which empowers researchers, scholars, librarians and archivists to access and explore their web archival collections. As accessibility is a main priority of the project, the Archives Unleashed Cloud supports this goal by providing a web-based front end for users to access the <%= link_to('Archives Unleashed Toolkit', 'https://archivesunleashed.org/aut/', target: '_blank') %>.</p>
+    <p class="about_p"> For more information on the Cloud platform, as well as the basics of web archiving and the WARC file format, check out our <%=link_to("about", "/about/")%> page.</p>
     <p class="about_p">If you have questions about the documentation or are running into issues while using the tool, please join our <%= link_to('Slack channel', 'http://slack.archivesunleashed.org', target: '_blank') %> and join the #auk-support channel. We would love to connect with you there.</p> 
 
     <h3 class=about_h3>Audience and Application</h3>
-    <p class="about_p">AUK is designed to provide a web-based user interface to help users access and analyze their web archive collections. This cloud-based option uses the <%= link_to('WASAPI Data Transfer API', 'https://github.com/WASAPI-Community/data-transfer-apis', target: '_blank') %>, which means that individuals already set up with an <%= link_to('Archive-It', 'https://archive-it.org/', target: '_blank') %> account will be able to ingest and explore WARC files. In the future, we are exploring interoperability with other web archiving platforms.</p>
-    <p class="about_p">With AUK you can:</p>
+    <p class="about_p">The Archives Unleashed Cloud is designed to provide a web-based user interface to help users access and analyze their web archive collections. This cloud-based option uses the <%= link_to('WASAPI Data Transfer API', 'https://github.com/WASAPI-Community/data-transfer-apis', target: '_blank') %>, which means that individuals already set up with an <%= link_to('Archive-It', 'https://archive-it.org/', target: '_blank') %> account will be able to ingest and explore WARC files. In the future, we are exploring interoperability with other web archiving platforms.</p>
+    <p class="about_p">With the Cloud you can:</p>
     <ul class="about_ul">
       <li class="about_li">Ingest Archive-It collections via WASAPI;</li>
       <li class="about_li">Download collection derivatives: network files, domain lists, and full text (all and by domain); and</li>
@@ -21,30 +21,30 @@
     <p class="about_note"><strong>Note</strong>: You can use our canonical version at <%= link_to('https://cloud.archivesunleashed.org', 'https://cloud.archivesunleashed.org', target: '_blank') %>, or you are welcome to run your own local version by visiting our <%= link_to('GitHub repository', 'https://github.com/archivesunleashed/auk', target: '_blank') %>.</p>
 
     <h3 class=about_h3>Getting Started</h3>
-    <p class="about_p"> This guide will walk through how to set up an AUK account and sync your Archive-It collections, and the types of analysis outputs you can curate.</p>
+    <p class="about_p"> This guide will walk through how to set up a Cloud account and sync your Archive-It collections, and the types of analysis outputs you can curate.</p>
 
     <h3 class="about_h3">Login</h3>
     <p class="about_p">Begin at <%=link_to("https://cloud.archivesunleashed.org", "https://cloud.archivesunleashed.org")%>.</p>
-    <p class="about_p">You will not need to sign up for an AUK account. Instead, AUK will use either a <%=link_to("Twitter", "https://twitter.com/")%> or <%=link_to("GitHub", "https://github.com/")%> account to authenticate your login. For those who have multiple Twitter or GitHub accounts, feel free to use whichever suits your research purposes best. AUK only uses these accounts to authenticate who you are, we do not have any additional access to your Twitter or GitHub account!</p>
+    <p class="about_p">You will not need to sign up for a Cloud account. Instead, the Cloud will use either a <%=link_to("Twitter", "https://twitter.com/")%> or <%=link_to("GitHub", "https://github.com/")%> account to authenticate your login. For those who have multiple Twitter or GitHub accounts, feel free to use whichever suits your research purposes best. The Cloud only uses these accounts to authenticate who you are, we do not have any additional access to your Twitter or GitHub account!</p>
     <p class="about_p">The following two screenshots show you how to log in. Click on the logo of the service you want to use to authenticate (the bird for Twitter or the Octocat for GitHub). After you authenticate, you should be brought to the main page.</p>
     <%= image_tag("AUK_signin.png", alt: "AUK Sign In Screenshot", class:"body_img")%>
     <%= image_tag("AUK_login.png", alt: "AUK Log In Screenshot", class:"body_img")%>
-    <p class="about_p">You are now logged into AUK. Welcome!</p>
+    <p class="about_p">You are now logged into the Cloud. Welcome!</p>
 
     <h3 class="about_h3">Account Set Up</h3>
-    <p class="about_p">The left hand panel displays two sets of credentials: 1) AU Cloud account and 2) Archive-It account. You will also notice that the main collections space at right is empty. That's because before you have connected AUK to your Archive-It account, there are no collections to show. Let's walk through setting up your account.</p>
+    <p class="about_p">The left hand panel displays two sets of credentials: 1) AU Cloud account and 2) Archive-It account. You will also notice that the main collections space at right is empty. That's because before you have connected the Cloud to your Archive-It account, there are no collections to show. Let's walk through setting up your account.</p>
     <p class="about_p">Click <strong>Enter Credentials</strong> in the left hand panel (highlighted in the screenshot below).</p>
     <%= image_tag("AUK_creds.png", alt: "AUK Account Credentials", class:"body_img")%>
     <p class="about_p">On the next screen, fill out the form to update both sets of credentials.</p>
     <ul class="about_ul">
-      <li class="about_li"><strong>AU Account Information</strong>: AUK requires an email so we can let you know what stage of analysis your collection is in. You can use the email address of your choice, and have the ability to modify this at any time. If you have a <%= link_to('Gravatar', 'https://gravatar.com', target: '_blank') %> account, it will also use this email address to populate your user avatar.</li>
+      <li class="about_li"><strong>AU Account Information</strong>: The Cloud requires an email so we can let you know what stage of analysis your collection is in. You can use the email address of your choice, and have the ability to modify this at any time. If you have a <%= link_to('Gravatar', 'https://gravatar.com', target: '_blank') %> account, it will also use this email address to populate your user avatar.</li>
       <li class="about_li"><strong>Consent Checkbox</strong>: to comply with Canadian Anti-Spam legislation, we've included this checkbox to make sure you understand that the Archives Unleashed team will connect with you in regards to your collections and feedback.</li>
       <li class="about_li"><strong>Archive-It Information</strong>: In order to work with web archive collections, you must enter your Archive-It account username and password. Your Archive-It credentials are encrypted and salted.</li>
     </ul>
     <%= image_tag("AUK_account_info.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
     <%= image_tag("AUK_account_info2.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
     <p class="about_p">Click <strong>Update</strong></p>
-    <p class="about_p">You will be redirected back into the main space. A note at the top of the page will indicate that AUK is syncing with your Archive-It account. The length of time to ingest your collections will depend on the size of your collections and the number of other users syncing their collections. This process could take a few minutes to a few hours. You will receive an email, to the address you provided for your AU Cloud account, when the collections are synced.</p>
+    <p class="about_p">You will be redirected back into the main space. A note at the top of the page will indicate that the Cloud is syncing with your Archive-It account. The length of time to ingest your collections will depend on the size of your collections and the number of other users syncing their collections. This process could take a few minutes to a few hours. You will receive an email, to the address you provided for your AU Cloud account, when the collections are synced.</p>
     <%= image_tag("AUK_user.png", alt: "AUK Account Credentials Log In Screenshot", class:"body_img")%>
     <p class="about_note"><strong>Note</strong>: You may update/change your AU Cloud or Archive-It credentials at any time by clicking <strong>Update</strong>. If you add a new collection in Archive-It or change your Archive-It credentials, you can click <strong>Update</strong> and redo the above steps to re-sync.</p>
 
@@ -52,7 +52,7 @@
     <p class="about_p">Once your collections have been synced, you can return to the main collections screen and start analysis. You can sort collections by clicking on the arrows beside each header. Let's take a look at the collection information available to us in the main space:</p>
     <ul class="about_ul">
       <li class="about_li"><strong>Title</strong> - The name of each collection is pulled directly from your Archive-It account; each title provides the access point for analysis.</li>
-      <li class="about_li"><strong>Analyzed</strong> - This header identifies whether a collection has been analyzed in AUK. If yes, you will see at least one of the following; a network diagram, downloadable derivative files, and/or a domains frequency table once you enter the collection's page.</li>
+      <li class="about_li"><strong>Analyzed</strong> - This header identifies whether a collection has been analyzed in the Cloud. If yes, you will see at least one of the following; a network diagram, downloadable derivative files, and/or a domains frequency table once you enter the collection's page.</li>
       <li class="about_li"><strong>Public</strong> - This field notes whether or not the collection is public, and if so, will be listed on an institution's Archive-It page.</li>
       <li class="about_li"><strong>Files</strong> - Indicates the number of ARC or WARC files in each collection. Note, this size will differ from the collection size in your Archive-It dashboard. The Archive-It WASAPI endpoint provides the size of each compressed WARC. Whereas the Archive-It dashboard will provide the size of a collection uncompressed.</li>
       <li class="about_li"><strong>Size</strong> - Indicates the collection's total file size.</li>
@@ -61,7 +61,7 @@
 
     <h3 class="about_h3">Analysis</h3>
     <p class="about_p">Click on the name of the collection you would like to analyze. This will bring you into the collection page.</p>
-    <p class="about_p">At the top of the screen, click <strong>Analyze Collection</strong>. You do not need to keep AUK or your browser open for it to analyze the collection. AUK will notify you when the process is complete and ready for you to start using the output files.</p>
+    <p class="about_p">At the top of the screen, click <strong>Analyze Collection</strong>. You do not need to keep the Cloud or your browser open for it to analyze the collection. We will notify you when the process is complete and ready for you to start using the output files.</p>
     <p class="about_note"><strong>Note</strong>: We operate on a queuing system so the time it takes to analyze the collection will depend on how large the collection is and how many other users are processing collections. This could take anywhere between half an hour to a few weeks. You need only click the button a single time.</p>
     <%= image_tag("AUK_analyze.png", alt: "Analyze the Collection", class:"body_img")%>
 
@@ -92,7 +92,7 @@
         <li class="about_li"><strong>Scale up/down</strong> - allows users to see more or less node labels in the network</li>
       </ul>
     <%= image_tag("AUK_hyperlink.png", alt: "AUK Interactive Hyperlink Diagram", class:"body_img")%>
-    <p class="about_p">A few cautionary notes on <strong>"scale up"</strong> and <strong>"scale down"</strong> are in order. With website networks, some sites have so many links compared to the others, that they obscure everything else. AUK's scale-up feature uses <%= link_to('logarithmic transformation', '#', data: { toggle: 'tooltip', title: 'A logarithm is a mathematical expression used to deal with non-normal distributed data (like networks). It is created by giving a base number an exponent, which is then multiplied by itself, to create factor increments, rather than equal amount increments, between data points. This is important as it will allow for data points to be more evenly distributed with minimal influence on data accuracy and integrity.'}) %> to make the graph a bit easier to read. For example, six nodes with size values 1, 10, 100, 1000, 10000 and 1,000,000,000 can be transformed using a base 10 logarithm to produce new sizes 0, 1, 2, 3, 4, & 9, making the node sizes much closer together in size.</p>
+    <p class="about_p">A few cautionary notes on <strong>"scale up"</strong> and <strong>"scale down"</strong> are in order. With website networks, some sites have so many links compared to the others, that they obscure everything else. The Cloud's scale-up feature uses <%= link_to('logarithmic transformation', '#', data: { toggle: 'tooltip', title: 'A logarithm is a mathematical expression used to deal with non-normal distributed data (like networks). It is created by giving a base number an exponent, which is then multiplied by itself, to create factor increments, rather than equal amount increments, between data points. This is important as it will allow for data points to be more evenly distributed with minimal influence on data accuracy and integrity.'}) %> to make the graph a bit easier to read. For example, six nodes with size values 1, 10, 100, 1000, 10000 and 1,000,000,000 can be transformed using a base 10 logarithm to produce new sizes 0, 1, 2, 3, 4, & 9, making the node sizes much closer together in size.</p>
     <p class="about_p">You can further interact with the hyperlink diagram by hovering over any node to highlight its immediate connections to other nodes. The arrow on each line indicates the direction of connection, for instance, in the image below, we see an arrow connecting two nodes and reveals the townyarmouth.ca has a link to the atlantic.ctvnews.ca domain. </p>
     <%= image_tag("AUK_neighbours.png", alt: "AUK Interactive Hyperlink Diagram Explained", class:"body_img")%>
     <%= image_tag("AUK_hover.png", alt: "AUK Interactive Hyperlink Diagram hover feature", class:"body_img")%>
