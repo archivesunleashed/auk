@@ -23,7 +23,11 @@
             <% for collection in @collections %>
               <tr>
                 <td><%= link_to(collection.title, user_collection_path(@user, collection.collection_id)) %></td>
-                <td sorttable_customkey="<%= collection_analyzed_date(collection.id, @user.id) %>"><%= collection_analyzed(collection.id, @user.id) %></td>
+                <% if !collection_analyzed(collection.id, @user.id).nil? %>
+                  <td sorttable_customkey="<%= collection_analyzed(collection.id, @user.id).last %>"><%= collection_analyzed(collection.id, @user.id).first %></td>
+                <% else %>
+                  <td />
+                <% end %>
                 <td><%= collection.public.humanize %></td>
                 <td><%= collection_count(collection.id, @user) %></td>
                 <td sorttable_customkey="<%= collection_size(collection.id, @user) %>"><%= collection_size_human(collection.id, @user) %></td>
