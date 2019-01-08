@@ -8,6 +8,7 @@
     <p class="about_p">The Archives Unleashed Cloud is an open-source cloud-based analysis tool that helps researchers and scholars conduct web archive analysis.</p>
     <p class="about_p">The Cloud is a component of the <%= link_to('Archives Unleashed Project', 'https://archivesunleashed.org', target: '_blank') %>, which empowers researchers, scholars, librarians and archivists to access and explore their web archival collections. As accessibility is a main priority of the project, the Archives Unleashed Cloud supports this goal by providing a web-based front end for users to access the <%= link_to('Archives Unleashed Toolkit', 'https://archivesunleashed.org/aut/', target: '_blank') %>.</p>
     <p class="about_p"> For more information on the Cloud platform, as well as the basics of web archiving and the WARC file format, check out our <%=link_to("about", "/about/")%> page.</p>
+    <p class="about_p">If you have questions about the documentation or are running into issues while using the tool, please join our <%= link_to('Slack channel', 'http://slack.archivesunleashed.org', target: '_blank') %> and join the #auk-support channel. We would love to connect with you there.</p> 
 
     <h3 class=about_h3>Audience and Application</h3>
     <p class="about_p">The Archives Unleashed Cloud is designed to provide a web-based user interface to help users access and analyze their web archive collections. This cloud-based option uses the <%= link_to('WASAPI Data Transfer API', 'https://github.com/WASAPI-Community/data-transfer-apis', target: '_blank') %>, which means that individuals already set up with an <%= link_to('Archive-It', 'https://archive-it.org/', target: '_blank') %> account will be able to ingest and explore WARC files. In the future, we are exploring interoperability with other web archiving platforms.</p>
@@ -95,5 +96,10 @@
     <p class="about_p">You can further interact with the hyperlink diagram by hovering over any node to highlight its immediate connections to other nodes. The arrow on each line indicates the direction of connection, for instance, in the image below, we see an arrow connecting two nodes and reveals the townyarmouth.ca has a link to the atlantic.ctvnews.ca domain. </p>
     <%= image_tag("AUK_neighbours.png", alt: "AUK Interactive Hyperlink Diagram Explained", class:"body_img")%>
     <%= image_tag("AUK_hover.png", alt: "AUK Interactive Hyperlink Diagram hover feature", class:"body_img")%>
+
+    <h3 class="about_h3">Need More Help?</h3>
+    <p class="about_p">Is your question or issue not discussed above? We'd love to hear more. Please join our <%= link_to('Slack channel', 'http://slack.archivesunleashed.org', target: '_blank') %> (the #auk-support channel is dedicated to these queries!) or check out the <%= link_to('get involved', 'https://archivesunleashed.org/get-involved/', target: '_blank') %> section of our website.</p>
+
+
   </div>
 <% end %>
