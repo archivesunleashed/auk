@@ -117,10 +117,6 @@ Style/ClassAndModuleChildren:
   Exclude:
     - test/test_helper.rb
 
-Style/ExpandPathArguments:
-  Exclude:
-    - test/test_helper.rb
-
 Style/GuardClause:
   Exclude:
     - app/helpers/collections_helper.rb
