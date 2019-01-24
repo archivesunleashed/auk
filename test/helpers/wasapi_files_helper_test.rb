@@ -30,4 +30,9 @@ class WasapiFilesHelperTest < ActionView::TestCase
     assert_equal 666_068, collection_size(@wasapi_files_two.collection_id,
                                           @wasapi_files_two.user_id)
   end
+
+  test 'disk usage helper' do
+    assert_equal '4 KB', disk_usage(@wasapi_files_one.user_id)
+    assert_equal '4 KB', disk_usage(@wasapi_files_two.user_id)
+  end
 end
