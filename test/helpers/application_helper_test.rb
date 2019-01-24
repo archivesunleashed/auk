@@ -13,7 +13,7 @@ class ApplicationHelperTest < ActionView::TestCase
   test 'get archive-it collection url' do
     assert_equal 'https://archive-it.org/collections/1234',
                  archiveit_collection_url(@collections_one.collection_id)
-    assert_equal 'https://archive-it.org/collections/3490',
+    assert_equal 'https://archive-it.org/collections/6275',
                  archiveit_collection_url(@collections_two.collection_id)
   end
 
