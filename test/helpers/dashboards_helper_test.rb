@@ -4,7 +4,7 @@ require 'test_helper'
 
 class DashboardsHelperTest < ActionView::TestCase
   def setup
-    ENV['DOWNLOAD_PATH'] = '/tmp'
+    ENV['DOWNLOAD_PATH'] = 'test/fixtures/files'
     @dashboards_one = dashboards(:one)
     @dashboards_two = dashboards(:two)
   end

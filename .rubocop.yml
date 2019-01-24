@@ -52,6 +52,7 @@ Metrics/LineLength:
     - app/jobs/textfilter_job.rb
     - app/jobs/wasapi_seed_job.rb
     - app/mailers/user_mailer.rb
+    - test/helpers/collections_helper_test.rb
     - test/controllers/dashboards_controller_test.rb
     - test/controllers/pages_controller_test.rb
     - test/helpers/auth_helper.rb
