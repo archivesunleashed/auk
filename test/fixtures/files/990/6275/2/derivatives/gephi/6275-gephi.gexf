@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft"
+         xmlns:viz="http://www.gexf.net/1.2draft/viz"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.gexf.net/1.2draft
+         http://www.gexf.net/1.2draft/gexf.xsd"
+         version="1.2">
+<!-- Created by igraph -->
+<meta lastmodifieddate="Tue Dec 11 19:17:01">
+<creator>Graphpass filtering using Igraph by Archives Unleashed</creator>
+<description> A Filtered Derivative Graph</description>
+</meta>
+  <graph id="G" defaultedgetype="directed">
+  <attributes class="graph">
+  </attributes>
+  <attributes class="node">
+  <attribute id="v_label" title="label" type="string"></attribute>
+  <attribute id="v_id" title="id" type="string"></attribute>
+  <attribute id="v_Degree" title="Degree" type="double"></attribute>
+  <attribute id="v_WalkTrapModularity" title="WalkTrapModularity" type="double"></attribute>
+  <attribute id="v_r" title="r" type="double"></attribute>
+  <attribute id="v_g" title="g" type="double"></attribute>
+  <attribute id="v_b" title="b" type="double"></attribute>
+  <attribute id="v_size" title="size" type="double"></attribute>
+  <attribute id="v_x" title="x" type="double"></attribute>
+  <attribute id="v_y" title="y" type="double"></attribute>
+  </attributes>
+  <attributes class="edge">
+  <attribute id="e_weight" title="weight" type="double"/>
+  <attribute id="e_crawlDate" title="crawlDate" type="string"/>
+  </attributes>
+  <nodes>
+  </nodes>
+  <edges>
+  </edges>
+  </graph>
+</gexf>

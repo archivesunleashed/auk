@@ -56,7 +56,7 @@ class DashboardsHelperTest < ActionView::TestCase
   end
 
   test 'get largest collection' do
-    assert_equal '650 KB', get_largest_collection
+    assert_equal '462 KB', get_largest_collection
   end
 
   test 'get largest collection title' do
