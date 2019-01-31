@@ -74,5 +74,4 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'title', 'Network Graphing with Gephi | Archives Unleashed'
   end
-  
 end
