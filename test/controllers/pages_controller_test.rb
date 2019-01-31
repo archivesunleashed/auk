@@ -68,4 +68,11 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'title', 'Sentiment Analysis With the Natural Language Toolkit | Archives Unleashed'
   end
+
+  test 'should get basic gephi page' do
+    get derivatives_basic_gephi_path
+    assert_response :success
+    assert_select 'title', 'Network Graphing with Gephi | Archives Unleashed'
+  end
+  
 end
