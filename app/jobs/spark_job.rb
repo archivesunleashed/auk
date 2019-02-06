@@ -32,6 +32,7 @@ class SparkJob < ApplicationJob
       FileUtils.mkdir_p collection_derivatives
       FileUtils.mkdir_p collection_spark_jobs_path
       FileUtils.mkdir_p collection_derivatives + '/gephi'
+      FileUtils.mkdir_p collection_derivatives + '/crawl-viz'
       spark_memory_driver = ENV['SPARK_MEMORY_DRIVER']
       spark_network_timeout = ENV['SPARK_NETWORK_TIMEOUT']
       aut_version = ENV['AUT_VERSION']
@@ -47,6 +48,7 @@ class SparkJob < ApplicationJob
       RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => (r.getCrawlDate, r.getDomain, r.getUrl, RemoveHTML(RemoveHttpHeader(r.getContentString)))).saveAsTextFile("#{collection_derivatives}/all-text/output")
       val links = RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => (r.getCrawlDate, ExtractLinks(r.getUrl, r.getContentString))).flatMap(r => r._2.map(f => (r._1, ExtractDomain(f._1).replaceAll("^\\\\s*www\\\\.", ""), ExtractDomain(f._2).replaceAll("^\\\\s*www\\\\.", "")))).filter(r => r._2 != "" && r._3 != "").countItems().filter(r => r._2 > 5)
       WriteGraphML(links, "#{collection_derivatives}/gephi/#{c.collection_id}-gephi.graphml")
+      val crawlviz_links = RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => (r.getCrawlMonth,ExtractDomain(r.getUrl))).countItems().saveAsTextFile("#{collection_derivatives}/crawl-viz/output")
       sys.exit
       )
       File.open(collection_spark_job_file, 'w') { |file| file.write(spark_job) }

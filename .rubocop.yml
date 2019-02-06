@@ -155,4 +155,5 @@ Style/RescueStandardError:
 
 Style/StringLiterals:
   Exclude:
+    - app/jobs/graphpass_job.rb
     - test/controllers/dashboards_controller_test.rb

@@ -36,6 +36,13 @@ class GraphpassJob < ApplicationJob
       logger.info 'Executing: ' + combine_full_text_output_cmd
       system(combine_full_text_output_cmd)
       FileUtils.rm_rf(collection_derivatives + '/all-text/output')
+      combine_crawlviz_cmd = 'find ' + collection_derivatives + '/crawl-viz/output -iname "part*" -type f -exec cat {} > ' + collection_derivatives + '/crawl-viz/' + c.collection_id.to_s + '-raw.txt \;'
+      logger.info 'Executing: ' + combine_crawlviz_cmd
+      system(combine_crawlviz_cmd)
+      FileUtils.rm_rf(collection_derivatives + '/crawl-viz/output')
+      prep_crawl_viz_cmd = "sed -r -i -e 's/(\\(\\(|\\))//g' " + collection_derivatives + "/crawl-viz/" + c.collection_id.to_s + "-raw.txt && sed -i 's/,/ /g' " + collection_derivatives + "/crawl-viz/" + c.collection_id.to_s + "-raw.txt"
+      logger.info 'Executing: ' + prep_crawl_viz_cmd
+      system(prep_crawl_viz_cmd)
       TextfilterJob.set(queue: :textfilter)
                    .perform_later(user_id, collection_id)
     end
