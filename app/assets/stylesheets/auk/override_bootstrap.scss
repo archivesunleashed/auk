@@ -268,6 +268,43 @@ body {
   padding: 15px;
   text-align:left;
   }
+/*
+ * AUK Derivative Pages - table of contents customization
+ */
+
+.toc{
+  border-style: dotted;
+  background-color:#cce6ff;
+  border-collapse: collapse;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.toc_title{
+  font-family: helvetica;
+  font-size: 18px;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 1.4;
+  margin-left: 20px;
+  margin-right: 25px;
+}
+.toc_list{
+  padding-left: auto;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  line-height: 1.4;
+  font-family: helvetica;
+  font-size: 18px;
+}
+
+.top_toc{
+  font-family: helvetica;
+  font-size: 12px;
+  text-align: right;
+}
 
 /*
  * Footer

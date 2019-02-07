@@ -4,20 +4,30 @@
   <div class="container">
     <h1 class="about_h1">An Introduction to Gephi</h1>
     <p class="about_p_italic">Tutorial by Ian Milligan (University of Waterloo)</p>
-
-    <h3 class="about_h3">Introduction</h3>
+    <div class="toc">
+        <ul class="toc_list">
+          <li class="toc-li"><%=link_to('Introduction', anchor: '1toc') %></li>
+          <li class="toc-li"><%=link_to('Getting Started: Importing Data', anchor: '2toc') %></li>
+          <li class="toc-li"><%=link_to('Basic Graph Layouts', anchor: '3toc') %></li>
+          <li class="toc-li"><%=link_to('Applying a Statistical Analysis', anchor: '4toc') %></li>
+        </ul>
+    </div>
+    <br>
+    <h3 class="about_h3" id="1toc">Introduction</h3>
     <p class="about_p">This is a very basic introduction to Gephi. It begins with the assumption of no knowledge around Gephi, and explains how you can import the file you receive from AUK and do some basic transformations on it yourself.</p>
     <p class="about_p">While your graphs have some basic characteristics computed for them, you may want to start from fresh and learn some of the basics.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">Getting Started: Importing Data</h3>
+    <h3 class="about_h3" id="2toc">Getting Started: Importing Data</h3>
     <p class="about_p">This tutorial explores what you can learn from the derivative file marked as "Gephi" or "Raw Network" in your collections page. You can find this by selecting the Gephi or Raw Network derivative. See the screenshot below:</p>
     <%= image_tag("download-gexf.png", alt: "The derivative download buttons with the Gephi one highlighted", class:"body_img")%>
     <p class="about_p">The first step is to download and install Gephi, which you can find <%= link_to('here', 'http://gephi.github.io/', target: '_blank') %>.</p>
     <p class="about_p">Upon opening the Gephi application, you want to select “Open a Graph File...” and select the GEXF file that you have downloaded from AUK.</p>
     <%= image_tag("gephi-1.png", alt: "The opening page for the Gephi application", class:"body_img")%>
     <p class="about_p">You then want to click 'ok' on the next page. You can see in the sample data that you have a network with 125 nodes (or domains) with 200 edges (or links between those domains).</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">Basic Graph Layouts</h3>
+    <h3 class="about_h3" id="3toc">Basic Graph Layouts</h3>
     <%= image_tag("gephi-2.png", alt: "The import page for the Gephi application", class:"body_img")%>
     <p class="about_p">You'll now see the following basic layout in the Overview tab. Not too useful, is it? Let's begin by creating a new layout, which you'll see highlighted here below:</p>
     <%= image_tag("gephi-3.png", alt: "A basic layout in Gephi", class:"body_img")%>
@@ -35,8 +45,9 @@
     <p class="about_p">Some of the labels now overlap, so let's run another simple "layout." This time, we select "Label Adjust" and press run.</p>
     <%= image_tag("gephi-8.png", alt: "Label adjust", class:"body_img")%>
     <p class="about_p">We now have a pretty decently laid out network!</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">Applying a Statistical Analysis</h3>
+    <h3 class="about_h3" id="4toc">Applying a Statistical Analysis</h3>
     <p class="about_p">Now let's run a statistical analysis. We'll run a rudimentary community detection algorithm. We can find that in the "statistics" section on the right hand side. Click the "run" button next to modularity, and click through the next report. The two following screenshots show you where to look.</p>
     <%= image_tag("gephi-9.png", alt: "Modularity class one", class:"body_img")%>
     <%= image_tag("gephi-10.png", alt: "Modularity class two", class:"body_img")%>
@@ -46,5 +57,6 @@
     <p class="about_p">At the end of this lesson, your graph should be looking quite a bit like this:</p>
     <%= image_tag("gephi-12.png", alt: "Final layout", class:"body_img")%>
     <p class="about_p">Congratulations! You now have a nicely-laid out graph. Try experimenting with other features in Gephi now. If you want to see a fully-fleshed out example of using Gephi with research, please read on to the <%=link_to("Network Graphing Archived Websites With Gephi", "/derivatives/gephi")%> lesson.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
   </div>
 <% end %>
