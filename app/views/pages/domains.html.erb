@@ -4,13 +4,23 @@
   <div class="container">
     <h1 class="about_h1">Making Sense of the Domains Count</h1>
     <p class="about_p_italic">Tutorial by Ian Milligan (Archives Unleashed Team)</p>
-
-    <h3 class="about_h3">Introduction</h3>
+    <div class="toc">
+        <ul class="toc_list">
+          <li class="toc-li"><%=link_to('Introduction', anchor: '1toc') %></li>
+          <li class="toc-li"><%=link_to('What do we mean by domain frequency?', anchor: '2toc') %></li>
+          <li class="toc-li"><%=link_to('What can you learn from this sort of information?', anchor: '3toc') %></li>
+          <li class="toc-li"><%=link_to('The domain chart', anchor: '4toc') %></li>
+          <li class="toc-li"><%=link_to('The domain derivative download', anchor: '5toc') %></li>
+        </ul>
+    </div>
+    <br>
+    <h3 class="about_h3" id="1toc">Introduction</h3>
     <p class="about_p">We don't always know exactly what we've collected in our web archives, or as researchers, what we'll find inside a given collection. The web is a complex beast: a small web archive that aims to collect just one page might end up capturing embedded widgets and content from other websites just to make something play; alternatively, a crawl might have been corrupted and begun to find material that's far out of scope.</p>
     <p class="about_p">This tutorial explores what you can learn from the derivative file marked as "Domains" in your collections page, as well as the list of domains that are displayed right on the page itself.</p>
     <%= image_tag("Tutorial_domains.png", alt: "The download icon for domain counts as well as the top ten on the collection page", class:"body_img")%>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">What do we mean by domain frequency?</h3>
+    <h3 class="about_h3" id="2toc">What do we mean by domain frequency?</h3>
     <p class="about_p">The "domains" derivative provides a <strong>frequency count of the domains that have been captured by a web archive</strong>. Imagine a web archive that has five pages captured:</p>
     <ul class="about_ul">
       <li class="about_li">liberal.ca</li>
@@ -24,8 +34,9 @@
       <li class="about_li">liberal.ca, 3</li>
       <li class="about_li">greenparty.ca, 2</li>
     </ul>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">What can you learn from this sort of information?</h3>
+    <h3 class="about_h3" id="3toc">What can you learn from this sort of information?</h3>
     <p class="about_p">Imagine a few things that you might learn just by seeing the frequency of domains that have been collected:</p>
     <ul class="about_ul">
       <li class="about_li"><strong>The crawl contains certain kinds of sites</strong>. At a glance you can begin to explore questions such as whether a web archive is primarily composed of social media (say lots of occurrences of twitter.com and facebook.com)? Or is it a media archive (NewYorkTimes.com and GlobeandMail.com make up a large amount of it)? Or something else. Given the unevenness of some metadata, sometimes just seeing what has been collected is what you need to get a sense of a collection.</li>
@@ -33,18 +44,21 @@
       <li class="about_li"><strong>The web crawl has remained small and focused</strong>. Imagine a web archive that only has a few sites. They've been collected a few times. This means that the crawl has maintained focus on a small number of websites, and if you decide to subsequently work with the plain text or network graphs, you can interpret the results accordingly.</li>
     </ul>
     <p class="about_p">There are many other things you can learn from this information, of course, these are just a few.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">The domain chart</h3>
+    <h3 class="about_h3" id="4toc">The domain chart</h3>
     <p class="about_p">On each of our collection landing pages, we provide a frequency table to identify the <strong>top ten domains represented within each collection</strong>. By default, these are presented in declining order: the most frequently-collected domain at the top and the tenth-most frequently-collected domain at the bottom.</p>
     <p class="about_p">For a lot of users, this is probably going to be enough! You get a sense of the major sites and nodes of collections. For example, consider the output for the "Nova Scotia Municipal Governments" collection.</p>
     <%= image_tag("Tutorial_domain_chart.png", alt: "Top ten domains as presented on collection page", class:"body_img")%>
     <p class="about_p">Here we learn that the sites that are being collected are municipal government sites, as opposed to media outlets about municipal government sites, or research projects about governments that are being carried out at a university.</p>
     <p class="about_p">However, we only see the top ten. Sometimes we might need to be more granular and see beyond these.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">The domain derivative download</h3>
+    <h3 class="about_h3" id="5toc">The domain derivative download</h3>
     <p class="about_p">By clicking on the "Domains" button, users are provided with a text file that will be named something like 7485-fullurls.txt. You can open this file up in your text editor of choice. By default on MacOS, it will open in TextEdit and look like this:</p>
     <%= image_tag("Tutorial_domain_derivative_file.png", alt: "Screenshot of the domain derivative file in MacOS TextEdit", class:"body_img")%>
     <p class="about_p">Here we see our suspicions confirmed! The sites are all indeed Nova Scotian municipal governments, which are identified by the .ns.ca in the URL. Here we are already beginning to learn the relative sizes of the collection.</p>
     <p class="about_p">This will help support future analysis – if a collection contains a given website thousands of times, you need to keep that in mind when doing text analysis. If it only appears a fraction of what some of the other sites are doing, even if it is important it might be drowned out by all of the other information within an archive.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
   </div>
 <% end %>
