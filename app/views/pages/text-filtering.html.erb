@@ -4,8 +4,19 @@
   <div class="container">
     <h1 class="about_h1">Filtering the Full-Text Derivative File</h1>
     <p class="about_p_italic">Tutorial by Ian Milligan (Archives Unleashed Team)</p>
-
-    <h3 class="about_h3">Introduction</h3>
+    <div class="toc">
+        <ul class="toc_list">
+          <li class="toc-li"><%=link_to('Introduction', anchor: '1toc') %></li>
+          <li class="toc-li"><%=link_to('Using Grep', anchor: '2toc') %></li>
+          <li class="toc-li"><%=link_to('A Command Line Example: Finding the Derivatives', anchor: '3toc') %></li>
+          <li class="toc-li"><%=link_to('Finding Dates', anchor: '4toc') %></li>
+          <li class="toc-li"><%=link_to('Finding Specific Domains', anchor: '5toc') %></li>
+          <li class="toc-li"><%=link_to('Finding Keywords', anchor: '6toc') %></li>
+          <li class="toc-li"><%=link_to('Conclusion', anchor: '7toc') %></li>
+        </ul>
+    </div>
+    <br>
+    <h3 class="about_h3" id="1toc">Introduction</h3>
     <p class="about_p">We have some filtering tools already built into the Archives Unleashed Cloud -- for example, the "Text by Domain" button will give you a zip file of the text of the top ten domains within a web archive. Yet you may want to filter the derivative files further, so that they for example:</p>
     <ul class="about_ul">
       <li class="about_li">Only contain websites from a certain date (i.e. all sites collected on July 16th, 2009)</li>
@@ -13,13 +24,15 @@
       <li class="about_li">Only contain websites that have a certain keyword (i.e. every page that contains the word "elephant")</li>
     </ul>
     <p class="about_p">Fortunately, you can easily do this with some simple tools.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">Using Grep</h3>
+    <h3 class="about_h3" id="2toc">Using Grep</h3>
     <p class="about_p"><%= link_to('Grep','https://www.gnu.org/software/grep/manual/grep.html', target: '_blank') %> is a Unix utility that stands for "globally search a regular expression and print." In short, it lets you take a text file and find lines that match criteria that you specify. Grep is especially useful for working with the files that the Cloud generates because each line in the full-text file corresponds to one website in the collection.</p>
     <p class="about_p">If you are on Linux or MacOS, you have Grep already installed. If you're on Windows, you will need to install a program called "Git Bash." You will want to find the "full installer" <%= link_to('here','https://git-for-windows.github.io/', target: '_blank') %>, and follow <%= link_to('these instructions to install','https://openhatch.org/missions/windows-setup/install-git-bash', target: '_blank') %>.</p>
     <p class="about_p">The command line is powerful, but not always straightforward. Fortunately, there is a good walkthrough at the Programming Historian: <%= link_to('Introduction to Bash','https://programminghistorian.org/en/lessons/intro-to-bash', target: '_blank') %>. For the purposes of this tutorial, you will want to be able to "find" files in the command line.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">A Command Line Example: Finding the Derivatives</h3>
+    <h3 class="about_h3" id="3toc">A Command Line Example: Finding the Derivatives</h3>
     <p class="about_p">In addition to the resources above, an example might give you a sense of how relatively straightforward it can be to locate files. Imagine that in the Cloud interface, you download the "full text" file. On MacOS, this defaults to your "downloads" directory.</p>
     <p class="about_p">To open the command line on MacOS, we go to our "Applications" folder, "Utilities," and then select "Terminal." You will see this window (your colours might be different):</p>
     <%= image_tag("tutorial_terminal.png", alt: "Screenshot of a terminal window", class:"body_img")%>
@@ -28,8 +41,9 @@
     <p class="about_p">If you type:</p>
     <p class="about_p"><code>ls</code></p>
     <p class="about_p">You will then see a long list of all of the files in this directory. Amongst them should be the file you downloaded from the Cloud! You could begin working on it here, or you could move it somewhere else on your file system. For more information on this, see the Bash tutorial above.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">Finding Dates</h3>
+    <h3 class="about_h3" id="4toc">Finding Dates</h3>
     <p class="about_p">In the following example, I will use the files from the "Fort McMurray" collection. You can follow along with your own files, simply changing the collection number to your own (i.e. instead of 7368-fulltext.txt it might be 1234-fulltext.txt).</p>
     <p class="about_p">Let's imagine that we have a collection, but we just want part of it: in this case, the sites that match a certain date. This won't necessarily be the date that sites were created but will instead be the date that sites were crawled.</p>
     <p class="about_p">To do so, let's take a look at the basic structure of the full text file. We can do so by either opening up the file in a text editor, or in the command line, we can type a command that shows us the first x lines of a file.</p>
@@ -46,21 +60,24 @@
     <p class="about_p">The basic structure of this command is:</p>
     <p class="about_p"><code>grep PATTERN FILE-TO-ANALYZE > FILEOUTPUT.TXT</code></p>
     <p class="about_p">So in this case for the pattern, the quotation marks enclose the pattern we are looking for. <code>^</code> represents the "start of the line," and then since there is an opening parenthesis we look for that too. We then provide an output path for the results. In this case, there will now be a new file – 20160522-text.txt – that just contains the crawl text from 22 May 2016.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">Finding Specific Domains</h3>
+    <h3 class="about_h3" id="5toc">Finding Specific Domains</h3>
     <p class="about_p">If the domain is in the top ten, you can use our handy "text by domain" derivative to work with it out of the box. If you want to find a different domain, however, you may have to do a bit of work yourself.</p>
     <p class="about_p">The logic is similar to finding specific domains. We'll also use grep. In the example above, we saw two different domains. Let's use "www.rmwb.ca" as our example and get only websites from that domain.</p>
     <p class="about_p">We turn to grep again:</p>
     <p class="about_p"><code>grep ',www.rmwb.ca,' 7368-fulltext.txt > RMWB-text.txt</code></p>
     <p class="about_p">We now have a text file that just contains websites from the "www.rmwb.ca" domain.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">Finding Keywords</h3>
+    <h3 class="about_h3" id="6toc">Finding Keywords</h3>
     <p class="about_p">And of course, things are relatively similar with keywords. This can be the easiest one.</p>
     <p class="about_p"><code>grep 'helicopter' 7368-fulltext.txt > helicopter-text.txt</code></p>
     <p class="about_p">We now just have the text of all websites that contain the word "helicopter."</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-    <h3 class="about_h3">Conclusion</h3>
+    <h3 class="about_h3" id="7toc">Conclusion</h3>
     <p class="about_p">These relatively straightforward commands need a bit of practice, but before you know it, you'll be filtering your web archive files like an expert. You can then move on to subsequent analysis steps, or if it's small enough, maybe even just start reading.</p>
-
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
   </div>
 <% end %>
