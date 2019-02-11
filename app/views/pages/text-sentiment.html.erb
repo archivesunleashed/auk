@@ -4,14 +4,26 @@
  <div class="container">
   <h1 class="about_h1">Text Analysis Part Two: Sentiment Analysis With the Natural Language Toolkit</h1>
   <p class="about_p_italic">Tutorial by Sarah McTavish (PhD Candidate, University of Waterloo)</p>
-
-  <h3 class="about_h3">Introduction</h3>
+  <div class="toc">
+        <ul class="toc_list">
+          <li class="toc-li"><%=link_to('Introduction', anchor: '1toc') %></li>
+          <li class="toc-li"><%=link_to('Getting Started', anchor: '2toc') %></li>
+          <li class="toc-li"><%=link_to('Loading the Fort McMurray Wildfires Collection', anchor: '3toc') %></li>
+          <li class="toc-li"><%=link_to('Running NLTK in Jupyter Notebooks', anchor: '4toc') %></li>
+          <li class="toc-li"><%=link_to('What Can We Learn From Sentiment Analysis?', anchor: '5toc') %></li>
+        </ul>
+  </div>
+  <br />
+  <h3 class="about_h3" id="1toc">Introduction</h3>
   <p class="about_p">In Part 1 (link here), we examined how we can use text analysis software AntConc to investigate concordances and collocates in a large text file. This type of analysis is incredibly useful for examining keyword use, while maintaining the context within which the keyword appeared. In Part 2, we look at the use of the Python Natural Language Toolkit and how to do more complex <%= link_to('sentiment analysis', 'https://en.wikipedia.org/wiki/Sentiment_analysis', target: '_blank') %> on our large text source. With this type of analysis, we can calculate whether a word or phrase in our text is primarily positive, negative, or neutral. Sentiment analysis can shed light on the emotions expressed when discussing a given topic; when combined with other types of text analysis, such as that concordance and collation analysis, or combined with network analysis, sentiment analysis can be a powerful tool for bringing context to a large text source.</p>
-  <h3 class="about_h3">Getting Started</h3>
+  <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
+
+  <h3 class="about_h3" id="2toc">Getting Started</h3>
   <p class="about_p">In this tutorial, I use the web-based Jupyter Notebooks in the <%= link_to('Anaconda Navigator', 'https://www.anaconda.com/download/', target: '_blank') %> to write and run my code, instead of a text editor. Jupyter Notebooks helps keep all different parts and steps of a process in line, allows code to be ran directly in the editor, and makes it easy to share code with others. Using the Natural Language Toolkit (NLTK) requires some knowledge of coding in Python. The <%= link_to('NLTK Textbook', 'https://www.nltk.org/book/', target: '_blank') %> provides a lot of these basics in their codeface and chapter one, and it is worth working through their introductory exercises in order to get a feel for the code if you are a beginner to Python.</p>
   <p class="about_p">This tutorial builds on <%= link_to('this lesson', 'https://programminghistorian.org/en/lessons/sentiment-analysis', target: '_blank') %> on exploratory text analysis using sentiment analysis by Zoë Wilkinson Saldaña on The Programming Historian. This lesson explains how to load the NLTK libraries and perform sentiment analysis on sentence and paragraphs. You may find it useful to work through this lesson first, as it provides a good basis for working with smaller chunks of text, before moving on to larger text files.</p>
+  <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-  <h3 class="about_h3">Loading the Fort McMurray Wildfires Collection</h3>
+  <h3 class="about_h3" id="3toc">Loading the Fort McMurray Wildfires Collection</h3>
   <p class="about_p">In this tutorial, I will be working with the University of Alberta's Fort McMurray Wildfires Collection. These northern Alberta wildfires took place during early May 2016, and resulted in the evacuation of nearly 90 000 residents. The fires spreaded quickly over several days, leading to dramatic photographs and video footage of residents fleeing their homes as the fires engulfed parts of the city and the surrounding area.</p>
   <p class="about_p">The dramatic nature of the wildfires and evacuation sparked considerable media attention worldwide. This international interest compounded the expected online coverage from local and regional residents and officials, who used the internet to spread necessary information on evacuation efforts and the state of the city during the fires. The Fort McMurray Wildfires Collection contains sites crawled and collected during coverage of these wildfires; for the purposes of this tutorial, we will be using a raw text version of this collection, which is 2.6 gigabytes in size. By performing sentiment analysis on this text file, we can determine whether our chosen keywords appear more commonly in a positive, negative, or neutral context within this international media coverage.</p>
   <p class="about_p">These download files can be found in the Archives Unleashed Cloud's collection pages. See the button below.</p>
@@ -19,8 +31,9 @@
   <p class="about_p">In general, this type of analysis can handle files up to about 2 gigabytes in size. Because our file is 2.6 gigabytes, we'll have to split it into two. As with the previous tutorial, this requires the use of the command line. You can find a tutorial about how to use it <%= link_to('here', 'https://programminghistorian.org/en/lessons/intro-to-bash', target: '_blank') %>. Using the Terminal and navigating to the directory where I have downloaded the full text file, I enter the command:</p>
   <p class="about_p"><code>split -l 400000 7368-fulltext.txt</code></p>
   <p class="about_p">This splits into two files of 400,000 lines each, named <code>xaa</code> and <code>xab</code>. We're going to rename these files as <code>FMMWildfires-A.txt</code> and <code>FMMWildfires-B.txt</code>, to keep things straight.</p>
+  <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-  <h3 class="about_h3">Running NLTK in Jupyter Notebooks</h3>
+  <h3 class="about_h3" id="4toc">Running NLTK in Jupyter Notebooks</h3>
   <p class="about_p">After installing <%= link_to('Anaconda Navigator', 'https://anaconda.org/anaconda/anaconda-navigator', target: '_blank') %>, we then open the program and choose Jupyter Notebooks from the launch screen. It may be necessary to install Jupyter Notebooks the very first time that you run it.</p>
   <%= image_tag("Tutorial_anaconda.png", alt: "Anaconda Navigator launch screen", class:"body_img")%>
   <p class="about_p">Jupyter notebooks will then display a list of folders on your computer. You might find it helpful to create a new folder with just the text file that you wish to work with. In this example, I have created a folder on my Desktop called "FMMWildfires" that contains two files — the split full-text file.</p>
@@ -57,10 +70,12 @@
   <p class="about_p">Once we hit "Run," we can see the calculated positive, negative, and neutral scores for each sentence that contains the word "evacuation" in our text source. Many of these sentences have been calculated to be neutral, but we do see positive values for sentences where the evacuation was praised, and negative when discussing the destruction of homes and oil rigs. The scores are highlighted with red boxes below, which have been added to the screenshot.</p>
 .  <%= image_tag("Tutorial_anaconda_scores.png", alt: "This last step calculates negative, positive, and neutral scores for each sentence with the keyword in our text file", class:"body_img")%>
   <p class="about_p">Because we have split our very large text file into two parts, we have to repeat the above steps for the FMMWildfires-B.txt file.</p>
+  <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
-  <h3 class="about_h3">What Can We Learn From Sentiment Analysis?</h3>
+  <h3 class="about_h3" id="5toc">What Can We Learn From Sentiment Analysis?</h3>
   <p class="about_p">Though sentiment analysis can be a powerful tool for quickly determining the emotions expressed through text, there are limitations to what sentiment analysis can provide. Additionally, like all text analysis, we need to be cautious in interpreting the results. For example, sentences that contain profanity have a tendency to be interpreted by NLTK as negative; this can be a problem when using texts from social media, where profanity is often used for emphasis.</p>
   <p class="about_p">Similarly, many negative terms or insults that have been reclaimed by minority groups are flagged as negative when using sentiment analysis. In my own work on queer communities on the early Internet, I see examples of slurs that have been reclaimed by the queer community (indeed, even the word "queer" itself in some cases) being interpreted as negative, despite clearly positive ideas being communicated in the sentence. This can also be a problem when using texts from other parts of the world, where even words in English can mean different things depending on who is writing them.</p>
   <p class="about_p">However, these limitations are similar to other types of computer-mediated text analysis, or even traditional close reading done by human scholars. Overall, the strength of sentiment analysis using NLTK is in the ability to isolate a keyword and provide a quick reading on the positive and negative emotions expressed when using that word. When combined with other text analysis methodologies, sentiment analysis has the ability to allow scholars to really delve into very large text sources.</p>
+  <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
  </div>
 <% end %>
