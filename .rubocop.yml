@@ -50,6 +50,7 @@ Metrics/LineLength:
     - app/jobs/graphpass_job.rb
     - app/jobs/spark_job.rb
     - app/jobs/textfilter_job.rb
+    - app/jobs/wasapi_download_job.rb
     - app/jobs/wasapi_seed_job.rb
     - app/mailers/user_mailer.rb
     - test/helpers/collections_helper_test.rb

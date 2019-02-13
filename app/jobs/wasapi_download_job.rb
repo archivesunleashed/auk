@@ -14,6 +14,8 @@ class WasapiDownloadJob < ApplicationJob
     update_dashboard = Dashboard.find_by(job_id: job_id)
     update_dashboard.end_time = DateTime.now.utc
     update_dashboard.save
+    message = "Download of \"#{job.arguments.second.title}\" for #{job.arguments.first.auk_name} has finished."
+    SLACK.ping message
   end
 
   def perform(user_id, collection_id)

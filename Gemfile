@@ -84,5 +84,6 @@ gem 'rubocop', '~> 0.61.1'
 gem 'rubocop-rspec', '~> 1.30.1'
 gem 'rubyzip', '>= 1.2.2' # https://nvd.nist.gov/vuln/detail/CVE-2018-1000544
 gem 'sitemap_generator'
+gem 'slack-notifier'
 gem 'sys-filesystem'
 gem 'time_difference'

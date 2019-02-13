@@ -33,6 +33,7 @@ DASHBOARD_USER: "test"
 DASHBOARD_PASS: "test"
 BASE_HOSTNAME: "cloud.archivesunleashed.org" #if in development mode: localhost:3000
 BASE_HOST_URL: "https://cloud.archivesunleashed.org" #if in development mode: http://localhost:3000
+SLACK_WEBHOOK_URL: "https://hooks.slack.com/services/SOME/IDENTIFER" #https://slack.com/apps/A0F7XDUAZ-incoming-webhooks
 
 production:
   SECRET_KEY_BASE: "some secret key base"
