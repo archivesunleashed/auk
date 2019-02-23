@@ -10,7 +10,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3', '< 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -57,7 +57,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 ## AUK
 gem 'attr_encrypted'
-gem 'bootstrap', '~> 4.1.2' # https://nvd.nist.gov/vuln/detail/CVE-2018-14042
+gem 'bootstrap', '~> 4.3.1' # https://nvd.nist.gov/vuln/detail/CVE-2019-8331
 gem 'bootstrap_form',
     git: 'https://github.com/bootstrap-ruby/bootstrap_form.git',
     branch: 'master'
