@@ -28,6 +28,9 @@
           <button type="button" id="modal-scale-down" class="scale-down" data-toggle="tooltip" title="Scale down node sizes." disabled>
             <span class="fa fa-level-down"></span>
           </button>
+          <a href="#" id="modal-image-link" download="<%= @collection.id %>-image.png"><button type="button" id="modal-image" class="graph-image" data-toggle="tooltip" title="Download a screen shot.">
+            <span class="fa fa-image"></span>
+          </button></a>
           <div id="graph-modal"></div>
         </div>
       </div>
@@ -62,6 +65,9 @@
           <button type="button" id="scale-down" class="scale-down" data-toggle="tooltip" data-placement="top" title="Scale down node sizes." disabled>
             <span class="fa fa-level-down"></span>
           </button>
+          <a href="#" id="image-link" download="<%= @collection.id %>-image.png"><button type="button" id="modal-image" class="graph-image" data-toggle="tooltip" title="Download a screen shot.">
+            <span class="fa fa-image"></span>
+          </button></a>
           <div id="graph"></div>
         </div>
         <%= javascript_tag do %>

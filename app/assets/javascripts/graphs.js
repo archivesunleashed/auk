@@ -273,6 +273,20 @@ $(document).on('turbolinks:load', function () {
     }
   });
 
+  $('#image-link').on('click', function () {
+    var button = document.getElementById('image-link');
+    var canvas = $('.sigma-scene');
+    var img = canvas[1].toDataURL('image/png');
+    button.href = img;
+  });
+
+  $('#modal-image-link').on('click', function () {
+    var button = document.getElementById('modal-image-link');
+    var canvas = $('.sigma-scene');
+    var img = canvas[0].toDataURL('image/png');
+    button.href = img;
+  });
+
   $('span#modal-click').on('click', function () {
     goFullScreen();
   });
