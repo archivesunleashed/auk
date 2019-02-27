@@ -276,14 +276,24 @@ $(document).on('turbolinks:load', function () {
   $('#image-link').on('click', function () {
     var button = document.getElementById('image-link');
     var canvas = $('.sigma-scene');
+    var camera = so.camera;
+    var fn = button.getAttribute('download').replace('-image.png', '');
     var img = canvas[1].toDataURL('image/png');
+    button.setAttribute('download', fn + 'xyr-' + Math.abs(Math.round(camera.x))
+      + '-' + Math.abs(Math.round(camera.y)) + '-' + Math.abs(Math.round(camera.ratio))
+      + '-image.png');
     button.href = img;
   });
 
   $('#modal-image-link').on('click', function () {
     var button = document.getElementById('modal-image-link');
     var canvas = $('.sigma-scene');
+    var camera = gm.camera;
+    var fn = button.getAttribute('download').replace('-image.png', '');
     var img = canvas[0].toDataURL('image/png');
+    button.setAttribute('download', fn + 'xyr-' + Math.abs(Math.round(camera.x))
+      + '-' + Math.abs(Math.round(camera.y)) + '-' + Math.abs(Math.round(camera.ratio))
+      + '-image.png');
     button.href = img;
   });
 
