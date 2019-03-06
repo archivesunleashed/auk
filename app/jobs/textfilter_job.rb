@@ -14,10 +14,12 @@ class TextfilterJob < ApplicationJob
     update_dashboard = Dashboard.find_by(job_id: job_id)
     update_dashboard.end_time = DateTime.now.utc
     update_dashboard.save
-    user = User.find(job.arguments.first)
-    collection = Collection.find(job.arguments.second)
-    message = "Analysis of \"#{collection.title}\" for #{user.auk_name} has completed."
-    SLACK.ping message
+    if Rails.env.production?
+      user = User.find(job.arguments.first)
+      collection = Collection.find(job.arguments.second)
+      message = "Analysis of \"#{collection.title}\" for #{user.auk_name} has completed."
+      SLACK.ping message
+    end
   end
 
   def perform(user_id, collection_id)

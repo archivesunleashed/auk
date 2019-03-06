@@ -13,7 +13,8 @@
           <thead>
             <tr>
               <th>Title</th>
-              <th>Analyzed</th>
+              <th>Status</th>
+              <th>Date Analyzed</th>
               <th>Public</th>
               <th>Files</th>
               <th>Size</th>
@@ -23,6 +24,20 @@
             <% for collection in @collections %>
               <tr>
                 <td><%= link_to(collection.title, user_collection_path(@user, collection.collection_id)) %></td>
+                <% if !collection_queued(@user.id, collection.id).empty? %>
+                  <% if collection_queued(collection.id, @user.id).first == 'download' %>
+                    <td>Downloading</td>
+                  <% elsif collection_queued(collection.id, @user.id).first == 'cleanup' %>
+                    <td>Completed</td>
+                  <% else collection_queued(collection.id, @user.id).first == 'spark' || 'textfilter' || 'graphpass' %>
+                    <td>Analyzing</td>
+                  <% end %>
+                <% elsif if !collection_analyzed(collection.id, @user.id).nil? %>
+                  <td>Completed</td>
+                <% end %>
+                <% else %>
+                  <td />
+                <% end %>
                 <% if !collection_analyzed(collection.id, @user.id).nil? %>
                   <td sorttable_customkey="<%= collection_analyzed(collection.id, @user.id).last %>"><%= collection_analyzed(collection.id, @user.id).first %></td>
                 <% else %>

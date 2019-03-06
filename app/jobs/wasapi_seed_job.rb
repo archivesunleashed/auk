@@ -15,8 +15,10 @@ class WasapiSeedJob < ApplicationJob
     update_dashboard = Dashboard.find_by(job_id: job_id)
     update_dashboard.end_time = DateTime.now.utc
     update_dashboard.save
-    message = "Seed job for #{job.arguments.first.auk_name} at #{job.arguments.first.institution} has finished."
-    SLACK.ping message
+    if Rails.env.production?
+      message = "Seed job for #{job.arguments.first.auk_name} at #{job.arguments.first.institution} has finished."
+      SLACK.ping message
+    end
   end
 
   def perform(user)
