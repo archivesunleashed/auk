@@ -75,7 +75,10 @@
         <%= javascript_tag do %>
           $("#graph-modal").data("gexf_url", `<%= ENV['BASE_HOST_URL'] + user_collection_download_gexf_path(@user.id, @collection.id, @collection.account) %>`);
         <% end %>
-      <% end %>
+        <div class="container text-right">
+          <%= link_to('What does this graph show?', '#', data: { toggle: 'tooltip', title: 'This diagram visualizes the domains that are captured as well as any domains that they may link to. These linked-to domains may or may not be contained within the web archived collection. You can read more about this graph in our documentation.'}) %>
+          <% end %>
+        </div>
       <% unless !File.exists? domains_path(@user.id, @collection.id, @collection.account) %>
         <h2>Download Collection Derivatives</h2>
         <div class="text-center">
