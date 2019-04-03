@@ -11,7 +11,7 @@ before_install:
 before_script:
   - cp config/application.yml.example config/application.yml
 rvm:
-  - 2.4.5
+  - 2.4.6
   - 2.3.8
 cache: bundler
 script: bundle exec rake
