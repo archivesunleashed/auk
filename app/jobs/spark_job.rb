@@ -42,11 +42,31 @@ class SparkJob < ApplicationJob
       import io.archivesunleashed._
       import io.archivesunleashed.app._
       import io.archivesunleashed.matchbox._
+
       sc.setLogLevel("INFO")
-      RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => ExtractDomain(r.getUrl)).countItems().saveAsTextFile("#{collection_derivatives}/all-domains/output")
-      RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => (r.getCrawlDate, r.getDomain, r.getUrl, RemoveHTML(RemoveHttpHeader(r.getContentString)))).saveAsTextFile("#{collection_derivatives}/all-text/output")
-      val links = RecordLoader.loadArchives("#{collection_warcs}", sc).keepValidPages().map(r => (r.getCrawlDate, ExtractLinks(r.getUrl, r.getContentString))).flatMap(r => r._2.map(f => (r._1, ExtractDomain(f._1).replaceAll("^\\\\s*www\\\\.", ""), ExtractDomain(f._2).replaceAll("^\\\\s*www\\\\.", "")))).filter(r => r._2 != "" && r._3 != "").countItems().filter(r => r._2 > 5)
+
+      val validPages = RecordLoader
+        .loadArchives("#{collection_warcs}", sc)
+        .keepValidPages()
+
+      validPages
+        .map(r => ExtractDomain(r.getUrl))
+        .countItems()
+        .saveAsTextFile("#{collection_derivatives}/all-domains/output")
+
+      validPages
+        .map(r => (r.getCrawlDate, r.getDomain, r.getUrl, RemoveHTML(RemoveHttpHeader(r.getContentString))))
+        .saveAsTextFile("#{collection_derivatives}/all-text/output")
+
+      val links = validPages
+                    .map(r => (r.getCrawlDate, ExtractLinks(r.getUrl, r.getContentString)))
+                    .flatMap(r => r._2.map(f => (r._1, ExtractDomain(f._1).replaceAll("^\\\\s*www\\\\.", ""), ExtractDomain(f._2).replaceAll("^\\\\s*www\\\\.", ""))))
+                    .filter(r => r._2 != "" && r._3 != "")
+                    .countItems()
+                    .filter(r => r._2 > 5)
+
       WriteGraphML(links, "#{collection_derivatives}/gephi/#{c.collection_id}-gephi.graphml")
+
       sys.exit
       )
       File.open(collection_spark_job_file, 'w') { |file| file.write(spark_job) }
