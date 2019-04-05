@@ -38,6 +38,9 @@ class SparkJob < ApplicationJob
       spark_threads = ENV['SPARK_THREADS']
       spark_heartbeat_interval = ENV['SPARK_HEARTBEAT_INTERVAL']
       spark_driver_max_result_size = ENV['SPARK_DRIVER_MAXRESULTSIZE']
+      spark_rdd_compress = ENV['SPARK_RDD_COMPRESS']
+      spark_serializer = ENV['SPARK_SERIALIZER']
+      spark_shuffle_compress = ENV['SPARK_SHUFFLE_COMPRESS']
       spark_job = %(
       import io.archivesunleashed._
       import io.archivesunleashed.app._
@@ -70,7 +73,7 @@ class SparkJob < ApplicationJob
       sys.exit
       )
       File.open(collection_spark_job_file, 'w') { |file| file.write(spark_job) }
-      spark_job_cmd = spark_shell + ' --master local[' + spark_threads + '] --driver-memory ' + spark_memory_driver + ' --conf spark.network.timeout=' + spark_network_timeout + ' --conf spark.executor.heartbeatInterval=' + spark_heartbeat_interval + ' --conf spark.driver.maxResultSize=' + spark_driver_max_result_size + ' --packages "io.archivesunleashed:aut:' + aut_version + '" -i ' + collection_spark_job_file + ' | tee ' + collection_spark_job_file + '.log'
+      spark_job_cmd = spark_shell + ' --master local[' + spark_threads + '] --driver-memory ' + spark_memory_driver + ' --conf spark.network.timeout=' + spark_network_timeout + ' --conf spark.executor.heartbeatInterval=' + spark_heartbeat_interval + ' --conf spark.driver.maxResultSize=' + spark_driver_max_result_size + ' --conf spark.rdd.compress=' + spark_rdd_compress + ' --conf spark.serializer=' + spark_serializer + '  --conf spark.shuffle.compress=' + spark_shuffle_compress + ' --packages "io.archivesunleashed:aut:' + aut_version + '" -i ' + collection_spark_job_file + ' | tee ' + collection_spark_job_file + '.log'
       logger.info 'Executing: ' + spark_job_cmd
       system(spark_job_cmd)
       domain_success = collection_derivatives + '/all-domains/output/_SUCCESS'
