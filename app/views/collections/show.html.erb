@@ -97,7 +97,7 @@
           <% unless !File.exists? textfilter_path(@user.id, @collection.id, @collection.account) %>
             <%= link_to('Text by Domains<br />'.html_safe + number_to_human_size(File.size(textfilter_path(@user.id, @collection.id, @collection.account))), user_collection_download_textfilter_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A zip file that contains the text of the top ten domains within a web archive, each within their own text file. Within the files you can find the crawl date, full URL, and the plain text of each page within the file.') %>
           <% end %>
-          <p><small><%=link_to("Learn more about these files here.", "/derivatives")%> <%=link_to("We also have a prototype Jupyter Notebook service available.", "/documentation#notebooks")%></small></p>
+          <p><small><%=link_to("Learn more about these files here.", "/derivatives")%> <%=link_to("We also have prototype Archives Unleashed Cloud Jupyter Notebooks available.", "/documentation#notebooks")%></small></p>
         </div>
       <% end %>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
