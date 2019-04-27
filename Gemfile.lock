@@ -185,7 +185,7 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
-    os (1.0.0)
+    os (1.0.1)
     parallel (1.17.0)
     parser (2.6.2.0)
       ast (~> 2.4.0)
