@@ -282,7 +282,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.0)
+    sqlite3 (1.4.1)
     sys-filesystem (1.2.0)
       ffi
     thor (0.20.3)
