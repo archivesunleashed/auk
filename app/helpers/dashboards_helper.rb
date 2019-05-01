@@ -8,6 +8,10 @@ module DashboardsHelper
     TimeDifference.between(end_time, start_time).humanize
   end
 
+  def job_length_charts(start_time, end_time)
+    TimeDifference.between(end_time, start_time)
+  end
+
   def get_username(user_id)
     user = User.find(user_id)
     username = user.auk_name

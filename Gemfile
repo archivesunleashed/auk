@@ -61,6 +61,7 @@ gem 'bootstrap', '~> 4.3.1' # https://nvd.nist.gov/vuln/detail/CVE-2019-8331
 gem 'bootstrap_form',
     git: 'https://github.com/bootstrap-ruby/bootstrap_form.git',
     branch: 'master'
+gem 'chartkick'
 gem 'codecov', require: false, group: :test
 gem 'daemons'
 gem 'delayed-web'
@@ -68,6 +69,7 @@ gem 'delayed_job_active_record'
 gem 'ffi', '>= 1.9.24' # https://nvd.nist.gov/vuln/detail/CVE-2018-1000201
 gem 'figaro'
 gem 'font-awesome-rails'
+gem 'groupdate'
 gem 'http'
 gem 'humanize_boolean'
 gem 'jquery-rails'

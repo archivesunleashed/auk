@@ -16,7 +16,24 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :dashboards
+  get 'dashboards' => 'dashboards#index'
+  get 'dashboards/jobs' => 'dashboards#jobs'
+  get 'dashboards/graphs' => 'dashboards#graphs'
+  get 'dashboards/stats' => 'dashboards#stats'
+  get 'dashboards/users_chart' => 'dashboards#users_chart'
+  get 'dashboards/jobs_chart' => 'dashboards#jobs_chart'
+  get 'dashboards/spark_throughput_chart' =>
+    'dashboards#spark_throughput_chart'
+  get 'dashboards/download_throughput_chart' =>
+    'dashboards#download_throughput_chart'
+  get 'dashboards/graphpass_throughput_chart' =>
+    'dashboards#graphpass_throughput_chart'
+  get 'dashboards/textfilter_throughput_chart' =>
+    'dashboards#textfilter_throughput_chart'
+  get 'dashboards/seed_throughput_chart' =>
+    'dashboards#seed_throughput_chart'
+  get 'dashboards/cleanup_throughput_chart' =>
+    'dashboards#cleanup_throughput_chart'
 
   root 'pages#show', page: 'home'
   get '/pages/:page' => 'pages#show'

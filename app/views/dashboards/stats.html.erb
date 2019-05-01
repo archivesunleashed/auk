@@ -1,0 +1,60 @@
+<% provide(:title, 'AUK Stats') %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="card text-white bg-dark border-light mb-3 col-sm">
+      <h3 class="card-header text-center">Total Users</h3>
+      <h1 class="card-title text-center"><%= get_number_of_users %></h1>
+    </div>
+    <div class="card text-white bg-dark border-light mb-3 col-sm">
+      <h3 class="card-header text-center">Total Collections</h3>
+      <h1 class="card-title text-center"><%= get_total_number_of_collections %></h1>
+    </div>
+    <div class="card text-white bg-dark border-light mb-3 col-sm">
+      <h3 class="card-header text-center">Total Files</h3>
+      <h1 class="card-title text-center"><%= get_total_number_of_warcs %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card text-white bg-dark border-light mb-3 col-sm">
+      <h3 class="card-header text-center">Active Jobs</h3>
+      <h1 class="card-title text-center"><%= get_number_of_queued_jobs %></h1>
+    </div>
+    <div class="card text-white bg-dark border-light mb-3 col-sm">
+      <h3 class="card-header text-center">Jobs Completed</h3>
+      <h1 class="card-title text-center"><%= get_total_number_of_jobs_run %></h1>
+    </div>
+    <div class="card text-white bg-dark border-light mb-3 col-sm">
+      <h3 class="card-header text-center">Job Time</h3>
+      <h1 class="card-title text-center"><%= get_total_job_time %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card text-white bg-dark border-light mb-3 col-sm">
+      <h3 class="card-header text-center">Longest Job</h3>
+      <h1 class="card-title text-center"><%= get_longest_job_time %></h1>
+    </div>
+    <div class="card text-white bg-dark border-light mb-3 col-sm" data-toggle="tooltip" data-html="true" title="<%= get_most_jobs_user_institution %>">
+      <h3 class="card-header text-center">Most Jobs</h3>
+      <h1 class="card-title text-center"><%= get_most_jobs_user %></h3>
+    </div>
+    <div class="card text-white bg-dark border-light mb-3 col-sm" data-toggle="tooltip" data-html="true" title="<%= get_largest_collection_title %>">
+      <h3 class="card-header text-center">Largest Collection</h3>
+      <h1 class="card-title text-center"><%= get_largest_collection %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card text-white bg-dark border-light mb-3 col-sm">
+      <h3 class="card-header text-center">Space Used</h3>
+      <h1 class="card-title text-center"><%= get_space_used %></h1>
+    </div>
+    <div class="card text-white bg-dark border-light mb-3 col-sm">
+      <h3 class="card-header text-center">Space Available</h3>
+      <h1 class="card-title text-center"><%= get_space_available %></h1>
+    </div>
+    <div class="card text-white bg-dark border-light mb-3 col-sm">
+      <h3 class="card-header text-center">Data Analyzed</h3>
+      <h1 class="card-title text-center"><%= data_analyzed %></h1>
+    </div>
+  </div>
+</div>
