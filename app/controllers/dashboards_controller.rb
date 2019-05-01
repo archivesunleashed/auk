@@ -77,11 +77,6 @@ class DashboardsController < ApplicationController
     render json: job_times(queue_name).chart_json
   end
 
-  def seed_throughput_chart
-    queue_name = 'seed'
-    render json: job_throughput(queue_name).sort_by(&:last)
-  end
-
   def cleanup_times_chart
     queue_name = 'cleanup'
     render json: job_times(queue_name).chart_json

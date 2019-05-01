@@ -38,8 +38,6 @@ Rails.application.routes.draw do
     'dashboards#textfilter_throughput_chart'
   get 'dashboards/textfilter_times_chart' =>
     'dashboards#textfilter_times_chart'
-  get 'dashboards/seed_throughput_chart' =>
-    'dashboards#seed_throughput_chart'
   get 'dashboards/seed_times_chart' =>
     'dashboards#seed_times_chart'
   get 'dashboards/cleanup_throughput_chart' =>

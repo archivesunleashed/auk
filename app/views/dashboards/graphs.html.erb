@@ -83,22 +83,6 @@
   </div>
   <div class="row">
     <div class="card card-body">
-      <h2 class="card-header">Seed job length</h2>
-      <p class="card-body">
-        <%= area_chart dashboards_seed_times_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_seed_times_chart.png', background: '#ffffff'}  %>
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="card card-body">
-      <h2 class="card-header">Seed throughput</h2>
-      <p class="card-body">
-        <%= column_chart dashboards_seed_throughput_chart_path, curve: false, xtitle: 'Collection size (GB)', ytitle: 'Job length (minutes)', download: {filename: 'auk_seed_throughput_chart.png', background: '#ffffff'}  %>
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="card card-body">
       <h2 class="card-header">Clean-up job length</h2>
       <p class="card-body">
         <%= area_chart dashboards_cleanup_times_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_cleanup_times_chart.png', background: '#ffffff'}  %>
@@ -110,6 +94,14 @@
       <h2 class="card-header">Clean-up throughput</h2>
       <p class="card-body">
         <%= column_chart dashboards_cleanup_throughput_chart_path, curve: false, xtitle: 'Collection size (GB)', ytitle: 'Job length (minutes)', download: {filename: 'auk_cleanup_throughput_chart.png', background: '#ffffff'}  %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card card-body">
+      <h2 class="card-header">Seed job length</h2>
+      <p class="card-body">
+        <%= area_chart dashboards_seed_times_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_seed_times_chart.png', background: '#ffffff'}  %>
       </p>
     </div>
   </div>
