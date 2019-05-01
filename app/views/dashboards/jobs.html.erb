@@ -6,6 +6,7 @@
       <table class="table table-striped sortable">
         <thead>
           <tr>
+            <th>Id</th>
             <th>User</th>
             <th>Institution</th>
             <th>Collection</th>
@@ -19,6 +20,7 @@
         <tbody>
           <% @dashboards.each do |dashboard| %>
             <tr>
+              <td><%= dashboard.id %></td>
               <td><%= get_username(dashboard.user_id) %></td>
               <td><%= get_institution(dashboard.user_id) %></td>
               <% if dashboard.queue == 'seed' %>

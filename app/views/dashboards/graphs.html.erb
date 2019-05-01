@@ -19,9 +19,25 @@
   </div>
   <div class="row">
     <div class="card card-body">
+      <h2 class="card-header">Spark job length</h2>
+      <p class="card-body">
+        <%= area_chart dashboards_spark_times_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_spark_times_chart.png', background: '#ffffff'} %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card card-body">
       <h2 class="card-header">Spark throughput</h2>
       <p class="card-body">
-        <%= area_chart dashboards_spark_throughput_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_spark_throughput_chart.png', background: '#ffffff'} %>
+        <%= column_chart dashboards_spark_throughput_chart_path, curve: false, xtitle: 'Collection size (GB)', ytitle: 'Job length (minutes)', download: {filename: 'auk_spark_throughput_chart.png', background: '#ffffff'} %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card card-body">
+      <h2 class="card-header">Download job length</h2>
+      <p class="card-body">
+        <%= area_chart dashboards_download_times_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_download_times_chart.png', background: '#ffffff'} %>
       </p>
     </div>
   </div>
@@ -29,7 +45,15 @@
     <div class="card card-body">
       <h2 class="card-header">Download throughput</h2>
       <p class="card-body">
-        <%= area_chart dashboards_download_throughput_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_download_throughput_chart.png', background: '#ffffff'} %>
+        <%= column_chart dashboards_download_throughput_chart_path, curve: false, xtitle: 'Collection size (GB)', ytitle: 'Job length (minutes)', download: {filename: 'auk_download_throughput_chart.png', background: '#ffffff'} %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card card-body">
+      <h2 class="card-header">GraphPass job length</h2>
+      <p class="card-body">
+        <%= area_chart dashboards_graphpass_times_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_graphpass_times_chart.png', background: '#ffffff'}  %>
       </p>
     </div>
   </div>
@@ -37,7 +61,15 @@
     <div class="card card-body">
       <h2 class="card-header">GraphPass throughput</h2>
       <p class="card-body">
-        <%= area_chart dashboards_graphpass_throughput_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_graphpass_throughput_chart.png', background: '#ffffff'}  %>
+        <%= column_chart dashboards_graphpass_throughput_chart_path, curve: false, xtitle: 'Collection size (GB)', ytitle: 'Job length (minutes)', download: {filename: 'auk_graphpass_throughput_chart.png', background: '#ffffff'}  %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card card-body">
+      <h2 class="card-header">Text filter job length</h2>
+      <p class="card-body">
+        <%= area_chart dashboards_textfilter_times_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_text_filter_times_chart.png', background: '#ffffff'}  %>
       </p>
     </div>
   </div>
@@ -45,7 +77,15 @@
     <div class="card card-body">
       <h2 class="card-header">Text filter throughput</h2>
       <p class="card-body">
-        <%= area_chart dashboards_textfilter_throughput_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_text_filter_chart.png', background: '#ffffff'}  %>
+        <%= column_chart dashboards_textfilter_throughput_chart_path, curve: false, xtitle: 'Collection size (GB)', ytitle: 'Job length (minutes)', download: {filename: 'auk_text_filter_throughput_chart.png', background: '#ffffff'}  %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card card-body">
+      <h2 class="card-header">Seed job length</h2>
+      <p class="card-body">
+        <%= area_chart dashboards_seed_times_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_seed_times_chart.png', background: '#ffffff'}  %>
       </p>
     </div>
   </div>
@@ -53,7 +93,15 @@
     <div class="card card-body">
       <h2 class="card-header">Seed throughput</h2>
       <p class="card-body">
-        <%= area_chart dashboards_seed_throughput_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_seed_throughput_chart.png', background: '#ffffff'}  %>
+        <%= column_chart dashboards_seed_throughput_chart_path, curve: false, xtitle: 'Collection size (GB)', ytitle: 'Job length (minutes)', download: {filename: 'auk_seed_throughput_chart.png', background: '#ffffff'}  %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card card-body">
+      <h2 class="card-header">Clean-up job length</h2>
+      <p class="card-body">
+        <%= area_chart dashboards_cleanup_times_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_cleanup_times_chart.png', background: '#ffffff'}  %>
       </p>
     </div>
   </div>
@@ -61,7 +109,7 @@
     <div class="card card-body">
       <h2 class="card-header">Clean-up throughput</h2>
       <p class="card-body">
-        <%= area_chart dashboards_cleanup_throughput_chart_path, curve: false, ytitle: 'Job length (minutes)', download: {filename: 'auk_cleanup_throughput_chart.png', background: '#ffffff'}  %>
+        <%= column_chart dashboards_cleanup_throughput_chart_path, curve: false, xtitle: 'Collection size (GB)', ytitle: 'Job length (minutes)', download: {filename: 'auk_cleanup_throughput_chart.png', background: '#ffffff'}  %>
       </p>
     </div>
   </div>

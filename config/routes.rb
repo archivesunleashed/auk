@@ -24,16 +24,28 @@ Rails.application.routes.draw do
   get 'dashboards/jobs_chart' => 'dashboards#jobs_chart'
   get 'dashboards/spark_throughput_chart' =>
     'dashboards#spark_throughput_chart'
+  get 'dashboards/spark_times_chart' =>
+    'dashboards#spark_times_chart'
   get 'dashboards/download_throughput_chart' =>
     'dashboards#download_throughput_chart'
+  get 'dashboards/download_times_chart' =>
+    'dashboards#download_times_chart'
   get 'dashboards/graphpass_throughput_chart' =>
     'dashboards#graphpass_throughput_chart'
+  get 'dashboards/graphpass_times_chart' =>
+    'dashboards#graphpass_times_chart'
   get 'dashboards/textfilter_throughput_chart' =>
     'dashboards#textfilter_throughput_chart'
+  get 'dashboards/textfilter_times_chart' =>
+    'dashboards#textfilter_times_chart'
   get 'dashboards/seed_throughput_chart' =>
     'dashboards#seed_throughput_chart'
+  get 'dashboards/seed_times_chart' =>
+    'dashboards#seed_times_chart'
   get 'dashboards/cleanup_throughput_chart' =>
     'dashboards#cleanup_throughput_chart'
+  get 'dashboards/cleanup_times_chart' =>
+    'dashboards#cleanup_times_chart'
 
   root 'pages#show', page: 'home'
   get '/pages/:page' => 'pages#show'
