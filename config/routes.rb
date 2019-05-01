@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'dashboards/graphs' => 'dashboards#graphs'
   get 'dashboards/stats' => 'dashboards#stats'
   get 'dashboards/users_chart' => 'dashboards#users_chart'
+  get 'dashboards/users_pie_chart' => 'dashboards#users_pie_chart'
   get 'dashboards/jobs_chart' => 'dashboards#jobs_chart'
   get 'dashboards/spark_throughput_chart' =>
     'dashboards#spark_throughput_chart'

@@ -5,7 +5,15 @@
     <div class="card card-body">
       <h2 class="card-header">User registrations</h2>
       <p class="card-body">
-        <%= area_chart dashboards_users_chart_path, curve: false, download: {filename: 'auk_user_user_registration_chart.png', background: '#ffffff'} %>
+        <%= area_chart dashboards_users_chart_path, curve: false, download: {filename: 'auk_user_registration_chart.png', background: '#ffffff'} %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card card-body">
+      <h2 class="card-header">User ratio</h2>
+      <p class="card-body">
+        <%= pie_chart dashboards_users_pie_chart_path, download: {filename: 'auk_user_registration_ratio_chart.png', background: '#ffffff'} %>
       </p>
     </div>
   </div>

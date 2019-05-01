@@ -25,6 +25,10 @@ class DashboardsController < ApplicationController
     render json: User.group_by_month(:created_at).count
   end
 
+  def users_pie_chart
+    render json: user_ratio
+  end
+
   def jobs_chart
     render json: Dashboard.group(:queue)
                           .group_by_month(:created_at)
@@ -113,5 +117,21 @@ class DashboardsController < ApplicationController
       Hash[TimeDifference.between(k, v).in_minutes,
            (collection_size(cid, uid).to_f / 1_073_741_824).to_f]
     }.inject(:merge)
+  end
+
+  def user_ratio
+    number_of_users_with_archive_it = User
+                                      .where(
+                                        'encrypted_wasapi_username is not null'
+                                      ).count
+    number_of_users_without_archive_it = User
+                                         .where(
+                                           'encrypted_wasapi_username is null'
+                                         ).count
+
+    user_ratio_data = {}
+    user_ratio_data['Archive-It'] = number_of_users_with_archive_it
+    user_ratio_data['Non-Archive-It'] = number_of_users_without_archive_it
+    user_ratio_data
   end
 end
