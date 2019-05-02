@@ -42,6 +42,7 @@ Metrics/BlockLength:
 Metrics/ClassLength:
   Exclude:
     - app/controllers/dashboards_controller.rb
+    - app/controllers/collections_controller.rb
 
 Metrics/CyclomaticComplexity:
   Exclude:
