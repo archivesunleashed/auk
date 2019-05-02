@@ -114,8 +114,8 @@ class DashboardsController < ApplicationController
                   .pluck(:end_time, :start_time, :collection_id, :user_id)
 
     jt.map { |k, v, cid, uid|
-      Hash[TimeDifference.between(k, v).in_minutes,
-           (collection_size(cid, uid).to_f / 1_073_741_824).to_f]
+      Hash[(collection_size(cid, uid).to_f / 1_073_741_824).to_f.round(4),
+           TimeDifference.between(k, v).in_minutes]
     }.inject(:merge)
   end
 
