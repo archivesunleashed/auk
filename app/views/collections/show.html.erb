@@ -46,62 +46,73 @@
         <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size_human(@collection.id, @user) + "? \n\nDownloading large collections can take a long time depending on our connection to the Internet Archive, and the number of other users who are currently using the service. We ask for your patience."}, class: 'btn btn-primary btn-lg btn-block') %></p>
       <% end %>
       <% unless !File.exists? gexf_path(@user.id, @collection.id, @collection.account) %>
-        <h2>Hyperlink Diagram</h2>
-        <div id="graph-wrapper">
-          <span id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen">
-          <button type="button" data-toggle="tooltip" data-placement="top" title="Make graph full screen.">
-            <span class="fa fa-expand"></span>
-          </button></span>
-          <button type="button" id="zoom-in" class="zoom-in" data-toggle="tooltip" data-placement="top" title="Zoom in graph.">
-            <span class="fa fa-search-plus"></span>
-          </button>
-          <button type="button" id="zoom-out" class="zoom-out" data-toggle="tooltip" data-placement="top" title="Zoom out graph.">
-            <span class="fa fa-search-minus"></span>
-          </button>
-          <button type="button" id="default" class="default" data-toggle="tooltip" data-placement="top" title="Restore graph to original settings">
-            <span class="fa fa-refresh"></span>
-          </button>
-          <button type="button" id="scale-up" class="scale-up" data-toggle="tooltip" data-placement="top" title="Scale up node sizes.">
-            <span class="fa fa-level-up"></span>
-          </button>
-          <button type="button" id="scale-down" class="scale-down" data-toggle="tooltip" data-placement="top" title="Scale down node sizes." disabled>
-            <span class="fa fa-level-down"></span>
-          </button>
-          <a href="#" id="image-link" download="<%= @collection.id %>-image.png"><button type="button" id="modal-image" class="graph-image" data-toggle="tooltip" title="Download a screen shot.">
-            <span class="fa fa-image"></span>
-          </button></a>
-          <div id="graph"></div>
+        <div class="card card-body">
+          <h2 class="card-header">Hyperlink Diagram</h2>
+          <div id="card-body graph-wrapper">
+            <span id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen">
+            <button type="button" data-toggle="tooltip" data-placement="top" title="Make graph full screen.">
+              <span class="fa fa-expand"></span>
+            </button></span>
+            <button type="button" id="zoom-in" class="zoom-in" data-toggle="tooltip" data-placement="top" title="Zoom in graph.">
+              <span class="fa fa-search-plus"></span>
+            </button>
+            <button type="button" id="zoom-out" class="zoom-out" data-toggle="tooltip" data-placement="top" title="Zoom out graph.">
+              <span class="fa fa-search-minus"></span>
+            </button>
+            <button type="button" id="default" class="default" data-toggle="tooltip" data-placement="top" title="Restore graph to original settings">
+              <span class="fa fa-refresh"></span>
+            </button>
+            <button type="button" id="scale-up" class="scale-up" data-toggle="tooltip" data-placement="top" title="Scale up node sizes.">
+              <span class="fa fa-level-up"></span>
+            </button>
+            <button type="button" id="scale-down" class="scale-down" data-toggle="tooltip" data-placement="top" title="Scale down node sizes." disabled>
+              <span class="fa fa-level-down"></span>
+            </button>
+            <a href="#" id="image-link" download="<%= @collection.id %>-image.png"><button type="button" id="modal-image" class="graph-image" data-toggle="tooltip" title="Download a screen shot.">
+              <span class="fa fa-image"></span>
+            </button></a>
+            <div id="graph"></div>
+          </div>
         </div>
         <%= javascript_tag do %>
           $("#graph-modal").data("gexf_url", `<%= ENV['BASE_HOST_URL'] + user_collection_download_gexf_path(@user.id, @collection.id, @collection.account) %>`);
         <% end %>
         <div class="text-right">
-          <%= link_to('What does this graph show?', '#', data: { toggle: 'tooltip', title: 'This diagram visualizes the domains that are captured as well as any domains that they may link to. These linked-to domains may or may not be contained within the web archived collection. You can read more about this graph in our documentation.'}) %>
-          <% end %>
+          <%= link_to('What does this graph show?', '#', data: { toggle: 'tooltip', title: 'This diagram visualizes the domains that are captured as well as any domains that they may link to. These linked-to domains may or may not be contained within the web archive collection. You can read more about this graph in our documentation.'}) %>
         </div>
+      <% end %>
       <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
-        <h2>Domains</h2>
-        <%= column_chart user_collection_domains_chart_path(@user.id, @collection.id, @collection.account), download: {filename: 'domains_chart.png', background: '#ffffff'} %>
+        <div class="card card-body">
+          <h2 class="card-header">Domains</h2>
+          <p class="card-body">
+            <%= column_chart user_collection_domains_chart_path(@user.id, @collection.id, @collection.account), thousands: ",", download: {filename: 'domains_chart.png', background: '#ffffff'} %>
+          </p>
+        </div>
+        <div class="text-right">
+          <%= link_to('What does this graph show?', '#', data: { toggle: 'tooltip', title: 'This diagram visualizes the top 10 domains that occur in the web archive collection.'}) %>
+        </div>
       <% end %>
       <% unless !File.exists? domains_path(@user.id, @collection.id, @collection.account) %>
-        <h2>Download Collection Derivatives</h2>
-        <div class="text-center">
-          <% unless !File.exists? gexf_path(@user.id, @collection.id, @collection.account) %>
-            <%= link_to('Gephi<br />'.html_safe + number_to_human_size(File.size(gexf_path(@user.id, @collection.id, @collection.account))), user_collection_download_gexf_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A GEXF file which you can load with Gephi. It will have a basic layout courtesy of our GraphPass program, allowing you to see major nodes and communities in the network.') %>
-          <% end %>
-          <% unless !File.exists? graphml_path(@user.id, @collection.id, @collection.account) %>
-            <%= link_to('Raw Network<br />'.html_safe + number_to_human_size(File.size(graphml_path(@user.id, @collection.id, @collection.account))), user_collection_download_graphml_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A GraphML file which you can load with Gephi. It will not have any basic layouts or transformations done to it, requiring you to do so manually.') %>
-          <% end %>
-          <% unless !File.exists? domains_path(@user.id, @collection.id, @collection.account) %>
-            <%= link_to('Domains<br />'.html_safe + number_to_human_size(File.size(domains_path(@user.id, @collection.id, @collection.account))), user_collection_download_domains_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A csv file that explains the distribution of domains within the web archive.') %>
-          <% end %>
-          <% unless !File.exists? fulltext_path(@user.id, @collection.id, @collection.account) %>
-            <%= link_to('Full Text<br />'.html_safe + number_to_human_size(File.size(fulltext_path(@user.id, @collection.id, @collection.account))), user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A text file that contains the plain text extracted from HTML documents within the web archive. You can find the crawl date, full URL, and the plain text of each page within the file.') %>
-          <% end %>
-          <% unless !File.exists? textfilter_path(@user.id, @collection.id, @collection.account) %>
-            <%= link_to('Text by Domains<br />'.html_safe + number_to_human_size(File.size(textfilter_path(@user.id, @collection.id, @collection.account))), user_collection_download_textfilter_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A zip file that contains the text of the top ten domains within a web archive, each within their own text file. Within the files you can find the crawl date, full URL, and the plain text of each page within the file.') %>
-          <% end %>
-          <p><small><%=link_to("Learn more about these files here.", "/derivatives")%> <%=link_to("We also have prototype Archives Unleashed Cloud Jupyter Notebooks available.", "/documentation#notebooks")%></small></p>
+        <div class="card card-body">
+          <h2 class="card-header">Download Collection Derivatives</h2>
+          <div class="card-body text-center">
+            <% unless !File.exists? gexf_path(@user.id, @collection.id, @collection.account) %>
+              <%= link_to('Gephi<br />'.html_safe + number_to_human_size(File.size(gexf_path(@user.id, @collection.id, @collection.account))), user_collection_download_gexf_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A GEXF file which you can load with Gephi. It will have a basic layout courtesy of our GraphPass program, allowing you to see major nodes and communities in the network.') %>
+            <% end %>
+            <% unless !File.exists? graphml_path(@user.id, @collection.id, @collection.account) %>
+              <%= link_to('Raw Network<br />'.html_safe + number_to_human_size(File.size(graphml_path(@user.id, @collection.id, @collection.account))), user_collection_download_graphml_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A GraphML file which you can load with Gephi. It will not have any basic layouts or transformations done to it, requiring you to do so manually.') %>
+            <% end %>
+            <% unless !File.exists? domains_path(@user.id, @collection.id, @collection.account) %>
+              <%= link_to('Domains<br />'.html_safe + number_to_human_size(File.size(domains_path(@user.id, @collection.id, @collection.account))), user_collection_download_domains_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A csv file that explains the distribution of domains within the web archive.') %>
+            <% end %>
+            <% unless !File.exists? fulltext_path(@user.id, @collection.id, @collection.account) %>
+              <%= link_to('Full Text<br />'.html_safe + number_to_human_size(File.size(fulltext_path(@user.id, @collection.id, @collection.account))), user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A text file that contains the plain text extracted from HTML documents within the web archive. You can find the crawl date, full URL, and the plain text of each page within the file.') %>
+            <% end %>
+            <% unless !File.exists? textfilter_path(@user.id, @collection.id, @collection.account) %>
+              <%= link_to('Text by Domains<br />'.html_safe + number_to_human_size(File.size(textfilter_path(@user.id, @collection.id, @collection.account))), user_collection_download_textfilter_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A zip file that contains the text of the top ten domains within a web archive, each within their own text file. Within the files you can find the crawl date, full URL, and the plain text of each page within the file.') %>
+            <% end %>
+            <p><small><%=link_to("Learn more about these files here.", "/derivatives")%> <%=link_to("We also have prototype Archives Unleashed Cloud Jupyter Notebooks available.", "/documentation#notebooks")%></small></p>
+          </div>
         </div>
       <% end %>
     </main>
