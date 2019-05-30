@@ -77,6 +77,7 @@ gem 'kaminari'
 gem 'logstash-logger'
 gem 'loofah', '>= 2.2.3' # https://nvd.nist.gov/vuln/detail/CVE-2018-16468
 gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 gem 'os'
 gem 'parallel'

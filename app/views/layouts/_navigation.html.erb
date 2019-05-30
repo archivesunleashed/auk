@@ -18,8 +18,8 @@
       <%= link_to '<i class="fa fa-sign-out fa-2x align-middle" style="color: white;"></i>'.html_safe, logout_path, method: :delete, title: 'Logout' %>
     <% else %>
       <span style="font-size: large; color: white; padding-right: 5px;">Sign in with: </span>
-      <%= link_to '<i class="fa fa-twitter fa-2x align-middle" style="color: white; padding-right: 10px;"></i>'.html_safe, "/auth/twitter", title: 'Login with Twitter' %>
-      <%= link_to '<i class="fa fa-github fa-2x align-middle" style="color: white;"></i>'.html_safe, "/auth/github", title: 'Login with GitHub' %>
+      <%= link_to '<i class="fa fa-twitter fa-2x align-middle" style="color: white; padding-right: 10px;"></i>'.html_safe, "/auth/twitter", title: 'Login with Twitter', method: :post %>
+      <%= link_to '<i class="fa fa-github fa-2x align-middle" style="color: white;"></i>'.html_safe, "/auth/github", title: 'Login with GitHub', method: :post %>
     <% end %>
     <button class="navbar-toggler custom-toggler align-middle" type="button" data-toggle="collapse" data-target="#aboutpage" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon align-middle"></span>

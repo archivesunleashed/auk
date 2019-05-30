@@ -15,7 +15,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     get root_path
     assert_response :success
     assert_select 'span', 'Sign in with:'
-    get '/auth/twitter'
+    post '/auth/twitter'
     twitter_sign_in
     assert_response :redirect
   end
@@ -24,7 +24,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     get root_path
     assert_response :success
     assert_select 'span', 'Sign in with:'
-    get '/auth/github'
+    post '/auth/github'
     github_sign_in
     assert_response :redirect
   end
