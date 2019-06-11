@@ -7,23 +7,23 @@
 
   <h3 class=about_h3>Project Overview</h3>
     <p class="about_p">The Archives Unleashed Cloud is an open source cloud-based analysis tool that helps researchers and scholars conduct web archive analysis.</p>
-    <p class="about_p">The Cloud is a component of the <%= link_to('Archives Unleashed Project', 'https://archivesunleashed.org', target: '_blank') %>, which aims to allow researchers, scholars, librarians and archivists the ability to access and investigate their web archival collections. As accessibility is a main priority of the project, the Cloud supports this goal by providing a web-based front end for users to access the <%= link_to('most-recent version', 'https://github.com/archivesunleashed/aut/releases', target: '_blank') %> of the <%= link_to('Archives Unleashed Toolkit', 'https://archivesunleashed.org/aut/', target: '_blank') %>.
+    <p class="about_p">The Cloud is part of the <%= link_to('Archives Unleashed Project', 'https://archivesunleashed.org', target: '_blank') %>, which allows researchers, scholars, librarians and archivists the ability to access and investigate their web archives. The Cloud supports this goal by providing a web-based front end for users to access the <%= link_to('most-recent version', 'https://github.com/archivesunleashed/aut/releases', target: '_blank') %> of the <%= link_to('Archives Unleashed Toolkit', 'https://archivesunleashed.org/aut/', target: '_blank') %>.
     <p class="about_p">While we are exploring integration with other services in the future, the Cloud currently requires <%= link_to('Archive-It', 'https://archive-it.org', target: '_blank') %> credentials to use.</p>
 
   <h3 class=about_h3>What is Web Archiving, what are WARCS, and why should I care?</h3>
-    <p class="about_p"><strong>Web archiving</strong> is the process of preserving born-digital content on the World Wide Web. Thinking about how curated content is organized, there are two main components:</p>
+    <p class="about_p"><strong>Web archiving</strong> is the process of preserving born-digital content on the World Wide Web. Curated components are organized in two main ways:</p>
     <ul class="about_ul">
       <li class="about_li"><strong>WARCs (Web ARChive)</strong>: the <%= link_to('ISO Standard (28500:2017)', 'https://www.iso.org/obp/ui/#iso:std:iso:28500:ed-2:v1:en', target: '_blank') %> file format that will house one or more WARC records.</li>
       <li class="about_li"><strong>WARC record</strong>: contains all of the data of a webpage and contains a record header and the record content block.</li>
     </ul>
-    <p class="about_p">The exponential rise of digitally-born data offers a unique opportunity for scholarly inquiry. However the sheer scale of web archives can be an overwhelming process for librarians, archivists, and other curators who face several challenges when working with this material. One of the largest challenges relates to accessibility. This includes a shortage of tools or tools that are largely beyond the skill base of researchers.</p>
-    <p class="about_p">The Archives Unleashed Project was born out of the need to create accessible and user-friendly tools in order to work with web archives. As a web-based interface, the Archives Unleashed Cloud allows researchers an opportunity to handle and analyze web archives without having to spend time delving into the technical world.</p>
+    <p class="about_p">The exponential rise of digitally-born data offers a unique opportunity for scholarly inquiry. However, the sheer scale of web archives can be an overwhelming process for librarians, archivists, and other curators who face several challenges when working with this material. One of the largest challenges relates to accessibility. This includes a shortage of tools or tools that are largely beyond the skill base of researchers.</p>
+    <p class="about_p">The Archives Unleashed Project was born out of the need to create accessible and user-friendly tools to work with web archives. As a web-based interface, the Archives Unleashed Cloud allows researchers an opportunity to handle and analyze web archives without having to spend time delving into the technical world.</p>
 
   <h3 class=about_h3>How can I use the Cloud?</h3>
-    <p class="about_p">Start by reading our <%=link_to('detailed documentation','/documentation') %>! If you have technical support questions, please join our <%= link_to('Slack channel', 'http://slack.archivesunleashed.org', target: '_blank') %> and add the #auk-support channel.</p>
+    <p class="about_p">Start by reading our <%=link_to('detailed documentation','/documentation') %>! For any technical support questions, please join our <%= link_to('Slack channel', 'http://slack.archivesunleashed.org', target: '_blank') %> and add the #auk-support channel.</p>
 
   <h3 class=about_h3>Who can use the Cloud?</h3>
-    <p class="about_p">Currently, those who maintain an <%= link_to('Archive-It', 'https://archive-it.org', target: '_blank') %> account will be able to ingest, download, and analyze their web archives collections in the Cloud. The Archives Unleashed team is looking at ways to expand future functionality of Cloud users.</p>
+    <p class="about_p">Currently, those who maintain an <%= link_to('Archive-It', 'https://archive-it.org', target: '_blank') %> account will be able to ingest, download, and analyze their web archives collections in the Cloud. As noted above, we are exploring further service integrations.</p>
 
   <h3 class=about_h3>What can I do in the Cloud?</h3>
     <p class="about_p">Our goal is to get users to a point where they can really dig down into WARC files to explore their research questions. The core features of the Cloud include:</p>
@@ -41,9 +41,9 @@
       <li class="about_li"><strong><%= link_to('Ian Milligan', 'http://ianmilligan.ca', target: '_blank') %></strong>, Primary Investigator and Cloud Developer</li>
       <li class="about_li"><strong><%= link_to('Jimmy Lin', 'https://cs.uwaterloo.ca/~jimmylin/', target: '_blank') %></strong>, Co-Investigator and <%= link_to('Toolkit', 'https://github.com/archivesunleashed/aut', target: '_blank') %> Lead</li>
       <li class="about_li"><strong><%= link_to('Samantha Fritz', 'https://uwaterloo.ca/web-archive-group/people-profiles/samantha-fritz', target: '_blank') %></strong>, Project Manager</li>
-      <li class="about_li"><strong><%= link_to('Ryan Deschamps', 'https://uwaterloo.ca/web-archive-group/people-profiles/ryan-deschamps', target: '_blank') %></strong> Cloud Tester and <%= link_to('GraphPass Developer', 'https://github.com/archivesunleashed/graphpass', target: '_blank') %></li>
     </ul>
-    <p class="about_p">A special thank you to Sarah McTavish, a PhD Candidate at the University of Waterloo, who  developed the <%=link_to("Archives Unleashed Cloud Learning Guides", "/derivatives/")%>.</p>
+    <p class="about_p">We would like to acknowledge our research assistants from the University of Waterloo. Sarah McTavish developed the <%=link_to("Archives Unleashed Cloud Learning Guides", "/derivatives/")%> and Rebecca MacAlpine has provided quality assurance support as well as pedagogical development.</p>
+    <p class="about_p">Finally, sincere thanks as well to Ryan Deschamps, who developed <%= link_to('GraphPass', 'https://github.com/archivesunleashed/graphpass', target: '_blank') %> and who served as a postdoctoral fellow on the project between 2017 and 2019.</p>
     <p class="about_p">We would also like to acknowledge the groups and individuals who have inspired and informed our work:</p>
     <ul class="about_ul">
       <li class="about_li"><%= link_to('Web Archives for Longitudinal Knowledge (WALK) Portal', 'http://webarchives.ca', target: '_blank') %></li>

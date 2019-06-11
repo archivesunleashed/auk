@@ -28,8 +28,8 @@
 
     <h3 class="about_h3" id="2toc">Using Grep</h3>
     <p class="about_p"><%= link_to('Grep','https://www.gnu.org/software/grep/manual/grep.html', target: '_blank') %> is a Unix utility that stands for "globally search a regular expression and print." In short, it lets you take a text file and find lines that match criteria that you specify. Grep is especially useful for working with the files that the Cloud generates because each line in the full-text file corresponds to one website in the collection.</p>
-    <p class="about_p">If you are on Linux or MacOS, you have Grep already installed. If you're on Windows, you will need to install a program called "Git Bash." You will want to find the "full installer" <%= link_to('here','https://git-for-windows.github.io/', target: '_blank') %>, and follow <%= link_to('these instructions to install','https://openhatch.org/missions/windows-setup/install-git-bash', target: '_blank') %>.</p>
-    <p class="about_p">The command line is powerful, but not always straightforward. Fortunately, there is a good walkthrough at the Programming Historian: <%= link_to('Introduction to Bash','https://programminghistorian.org/en/lessons/intro-to-bash', target: '_blank') %>. For the purposes of this tutorial, you will want to be able to "find" files in the command line.</p>
+    <p class="about_p">If you are on Linux or MacOS, you have Grep already installed. If you're on Windows, you will need to install a program called "Git Bash." You can install this via their "full installer" <%= link_to('here','https://git-for-windows.github.io/', target: '_blank') %>. Follow <%= link_to('these instructions to install','https://openhatch.org/missions/windows-setup/install-git-bash', target: '_blank') %>.</p>
+    <p class="about_p">One catch is that Grep only runs on the command line. The command line is powerful, but not always straightforward. Fortunately, there is a good walkthrough at the Programming Historian: <%= link_to('Introduction to Bash','https://programminghistorian.org/en/lessons/intro-to-bash', target: '_blank') %>. For the purposes of this tutorial, you will want to be able to "find" files in the command line.</p>
     <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
     <h3 class="about_h3" id="3toc">A Command Line Example: Finding the Derivatives</h3>
@@ -59,7 +59,7 @@
     <p class="about_p"><code>grep '^(20160522' 7368-fulltext.txt > 20160522-text.txt</code></p>
     <p class="about_p">The basic structure of this command is:</p>
     <p class="about_p"><code>grep PATTERN FILE-TO-ANALYZE > FILEOUTPUT.TXT</code></p>
-    <p class="about_p">So in this case for the pattern, the quotation marks enclose the pattern we are looking for. <code>^</code> represents the "start of the line," and then since there is an opening parenthesis we look for that too. We then provide an output path for the results. In this case, there will now be a new file – 20160522-text.txt – that just contains the crawl text from 22 May 2016.</p>
+    <p class="about_p">For the example pattern above, the quotation marks enclose the pattern we are looking for. <code>^</code> represents the "start of the line," and then since there is an opening parenthesis we look for that too. We then provide an output path for the results. In this case, there will now be a new file – 20160522-text.txt – that just contains the crawl text from 22 May 2016.</p>
     <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
     <h3 class="about_h3" id="5toc">Finding Specific Domains</h3>
