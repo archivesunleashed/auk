@@ -1,0 +1,77 @@
+<% provide(:title, 'Getting Started with the Archives Unleashed Cloud Jupyter Notebooks') %>
+
+<% cache do %>
+  <div class="container">
+    <h1 class="about_h1">Getting Started with the Archives Unleashed Cloud Jupyter Notebooks</h1>
+    <p class="about_p_italic">Tutorial by Sarah McTavish (University of Waterloo)</p>
+    <div class="toc">
+        <ul class="toc_list">
+          <li class="toc-li"><%=link_to('Introduction', anchor: '1toc') %></li>
+          <li class="toc-li"><%=link_to('Getting Started', anchor: '2toc') %></li>
+          <li class="toc-li"><%=link_to('Using the Notebooks', anchor: '3toc') %></li>
+          <li class="toc-li"><%=link_to('Generating the Derivatives', anchor: '4toc') %></li>
+          <li class="toc-li"><%=link_to('User Configuration', anchor: '5toc') %></li>
+        </ul>
+    </div>
+    <br />
+    <h3 class="about_h3" id="1toc">Introduction</h3>
+    <p class="about_p">The Archives Unleashed Cloud Notebooks require the use of Anaconda Distribution’s Jupyter Notebooks, as well as a working knowledge of the command line. For an introduction to the command line, see Ian Milligan and James Baker’s <%= link_to('Introduction to the Bash Command Line', 'https://programminghistorian.org/en/lessons/intro-to-bash', target: '_blank') %>.</p>
+    <p class="about_p">The Cloud Notebooks also require the use of the Archives Unleashed Cloud and an Archive-It account, in order to run and process Archives Unleashed WARC files. The Archives Unleashed Cloud <%= link_to('documentation', '/documentation', target: '_blank') %> will get you started on creating an account and linking your Archive-It account to the Archives Unleashed Cloud. We will be using the Archives Unleashed Cloud in order to generate the derivatives used with the Cloud Notebooks for text, domain, and network analysis.</p>
+    <p class="about_p">This tutorial was originally created to be used with the Mac OS.  There are minor differences to running commands on Windows or Linux, as per the <%= link_to('lesson here', 'https://programminghistorian.org/en/lessons/intro-to-bash', target: '_blank') %>. Once the Cloud notebooks have been cloned to your system, the minor operating system differences should disappear!</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
+
+    <h3 class="about_h3" id="2toc">Getting Started</h3>
+    <p class="about_p">In order to use the Cloud Notebooks, you’re first going to need to download and install the Python 3.7 version of <%= link_to('Anaconda Distribution', '”https://www.anaconda.com/distribution/', target: '_blank') %>. Anaconda Distribution is free open-source software which includes Jupyter Notebooks and will be used for the Cloud Notebooks.</p>
+    <%= image_tag("Notebook-01.png", alt: "The download page for Anaconda distribution", class:"body_img")%>
+    <p class="about_p">Once you have downloaded the Anaconda Distribution installer, open the file to install Anaconda on to your own computer.  Once the install is complete, you can move on to the next step of cloning the Cloud Notebooks and running them in Jupyter.</p>
+    <p class="about_p">To run the Cloud Notebooks, you will need to enter some code in the command line.  Open up your terminal, copy and paste the following commands one at a time, pressing enter after each command:</p>
+    <p class="about_p"><code>
+        git clone https://github.com/archivesunleashed/auk-notebooks.git
+        cd auk-notebooks
+        pip install -r requirements.txt
+        python -m nltk.downloader punkt vader_lexicon stopwords
+        jupyter notebook</code>
+    </p>
+    <p class="about_note"><strong>What is this code doing?</strong> It is telling your computer to copy the Cloud Notebooks from GitHub and on to your own computer in the folder auk-notebooks. It then installs the Natural Language Toolkit (NLTK) and necessary libraries.</p>
+    <%= image_tag("Notebook-02.png", alt: "A terminal window showing the installation process for the Cloud notebooks.", class:"body_img")%>
+    <p class="about_p">
+    <p class="about_note"><strong>Potential Issue</strong>: If you are using MacOS, you may get an “inactive valid developer path” error after running the first line of code. This error means that you don’t have command line tools installed on your Mac OS. In order to install these tools, simply run the following command in your terminal window: <code>xcode-select --install</code>. This will install the necessary developer tools to proceed with Cloud Notebooks.  After completing the developer tools installation, go back and copy and paste the above section of code again.  You should now be able to clone the Cloud Notebooks from GitHub.</p>
+    <p class="about_p">After running <code>jupyter notebook</code>, the following window should appear:</p>
+    <%= image_tag("Notebook-03.png", alt: "The Jupyter Notebook opening page.", class:"body_img")%>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
+
+    <h3 class="about_h3" id="3toc">Using the Notebooks</h3>
+    <p class="about_p">Congratulations!  You’ve now opened the Cloud Notebooks directory in Jupyter.  There are three notebooks to choose from:</p>
+    <ul class="about_ul">
+      <li class="about_li"><strong>auk-notebook-domains</strong>: This notebook allows you to perform domain-level analysis on an archived collection.  This includes analyzing which domains appear most frequently within the collection.</li>
+      <li class="about_li"><strong>auk-notebook-network</strong>: This notebook provides basic network analysis and visualization of linkages between domains within the collection.</li>
+      <li class="about_li"><strong>auk-notebook-text</strong>: This notebook uses Python’s Natural Language Toolkit (NLTK) to perform text analysis, including concordance analysis, sentiment analysis, and dispersion plots.</li>
+    </ul>
+    <p class="about_p">For more information on what each notebook can do, see Ryan Deschamps’s <%= link_to('"Exploring Web Archival Data through Archives Unleashed Cloud Jupyter Notebook"', 'https://news.archivesunleashed.org/exploring-web-archival-data-through-archives-unleashed-cloud-jupyter-notebooks-7605c6ca2b33', target: '_blank') %>.</p>
+    <p class="about_p">Notebooks contain code and visualizations like the following one from <strong>auk-notebook-network</strong>:</p>
+    <%= image_tag("Notebook-04.png", alt: "The Jupyter Notebook Network example.", class:"body_img")%>
+    <p class="about_p">In order to use each notebook, click on the notebook from the directory list — the notebook  will open in a new tab or window.  Each notebook has been pre-loaded with sample data from the B.C. Teachers' Labor Dispute (2014) collection from the University of Victoria Libraries. This  data is great to play with in order to learn how the tools work!  Once you are ready to load your own data, there are a few extra steps to load it into the notebooks.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
+
+    <h3 class="about_h3" id="4toc">Generating the Derivatives</h3>
+    <p class="about_p">In order to use the Cloud Notebooks with your own data, you will first need to analyze your collection using the Archives Unleashed Cloud, as described in the Cloud <%= link_to('documentation', '/documentation', target: '_blank') %>. This process can take several hours, depending on the queue of jobs running at the time.  You will receive an email notification once the analysis is complete.</p>
+    <p class="about_p">Once the analysis is complete, you can view some basic network and domain analysis for the collection within the Cloud. At the bottom of the analysis page, there is the option to download the derivatives for the collection. Download each of these files to your computer.</p>
+    <%= image_tag("Notebook-05.png", alt: "The download buttons in the Archives Unleashed Cloud, showing the different types of derivatives.", class:"body_img")%>
+    <p class="about_p">The next step is to move these files to the Cloud notebooks data folder.  This folder is located within the auk-notebooks folder and was created within the home directory — <code>C:\</code> on a Windows computer and within the named home folder on  MacOS — when the Cloud notebooks were cloned from GitHub. To easily access this folder on a Mac, use the keystroke shortcut Shift+Command+H. As you can see below, the auk-notebooks directory contains the Jupyter Notebooks file, as well as the data folder.</p>
+    <%= image_tag("Notebook-06.png", alt: "The MacOS finder showing the auk-notebooks directory.", class:"body_img")%>
+    <p class="about_p">Move the files that you downloaded from the Archives Unleashed Cloud into the data folder within the auk-notebooks directory. You do not need to delete the sample data provided, as you can have data from multiple collections housed in this folder. See below:</p>
+    <%= image_tag("Notebook-07.png", alt: "The MacOS finder showing the data directory.", class:"body_img")%>
+    <p class="about_p">You are now ready to move back to the Jupyter Notebook.  In each of the text, domains, and network notebooks, the first cell allows you to change the collection ID in order to use your own Archive-It data.  The number in the beginning of each file name that you downloaded from the Cloud is the collection ID for your analyzed collection.  This cell tells the notebook which collection you want to use from your data directory.</p>
+    <%= image_tag("Notebook-08.png", alt: "Changing the notebook cell.", class:"body_img")%>
+    <p class="about_p">The first step within the notebook is to change the collection ID to the collection that you wish to analyze. Once you are done changing values in each cell, click the "Run" button in the top toolbar to run the new code. You can also run all cells in a notebook by choosing "Run All" from the "Cell" menu.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
+
+    <h3 class="about_h3" id="5toc">User Configuration</h3>
+    <p class="about_p">For each notebook, the User Configuration cell contains a number of variables that will affect each cell below it.  For example, for the <strong>auk-notebook-network</strong> and <strong>auk-notebook-text</strong> notebooks, the maximum number of results is set at 30; this number can be changed as necessary in order to generate more results.  However, increasing this variable will cause the analysis to take longer to run and could generate an error if the number is set too high.  You can experiment with any of these variables to see how it changes the results.</p>
+    <%= image_tag("Notebook-09.png", alt: "The large user configuration section.", class:"body_img")%>
+    <p class="about_p">Each cell in each notebook contains detailed documentation for what type of analysis is generated by each cell, and how changing the code will alter the analysis. In most cases, it is not necessary to change the code, unless you wish to tailor the analysis towards your own research questions.</p>
+    <p class="about_p">The Archives Unleashed Cloud Jupyter Notebooks provide some pretty powerful web archive analysis tools with only a minimal amount of coding experience needed. By changing only a small number of variables, it is possible to quickly analyze a large data collection and generate some compelling visuals.</p>
+    <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
+
+  </div>
+<% end %>
