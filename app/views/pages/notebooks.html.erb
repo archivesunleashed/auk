@@ -21,16 +21,18 @@
     <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
     <h3 class="about_h3" id="2toc">Getting Started</h3>
-    <p class="about_p">In order to use the Cloud Notebooks, you’re first going to need to download and install the Python 3.7 version of <%= link_to('Anaconda Distribution', '”https://www.anaconda.com/distribution/', target: '_blank') %>. Anaconda Distribution is free open-source software which includes Jupyter Notebooks and will be used for the Cloud Notebooks.</p>
+    <p class="about_note"><strong>Want to try out the notebooks on sample data?</strong> If so, you can jump right in by launching our notebooks in a <%= link_to('binder environment','https://mybinder.org/v2/gh/archivesunleashed/auk-notebooks/master', target: '_blank') %>. If you want to use your own data, please follow these instructions.</p> 
+    <p class="about_p">In order to use the Cloud Notebooks, you’re first going to need to download and install the Python 3.7 version of <%= link_to('Anaconda Distribution', 'https://www.anaconda.com/distribution/', target: '_blank') %>. Anaconda Distribution is free open-source software which includes Jupyter Notebooks and will be used for the Cloud Notebooks.</p>
     <%= image_tag("Notebook-01.png", alt: "The download page for Anaconda distribution", class:"body_img")%>
     <p class="about_p">Once you have downloaded the Anaconda Distribution installer, open the file to install Anaconda on to your own computer.  Once the install is complete, you can move on to the next step of cloning the Cloud Notebooks and running them in Jupyter.</p>
-    <p class="about_p">To run the Cloud Notebooks, you will need to enter some code in the command line.  Open up your terminal, copy and paste the following commands one at a time, pressing enter after each command:</p>
-    <p class="about_p"><code>
+    <p class="about_p">To run the Cloud Notebooks, you will need to enter some code in the command line.  Open up your terminal, copy and paste the following commands one at a time, pressing enter after each command:
+    <pre>
         git clone https://github.com/archivesunleashed/auk-notebooks.git
         cd auk-notebooks
         pip install -r requirements.txt
         python -m nltk.downloader punkt vader_lexicon stopwords
-        jupyter notebook</code>
+        jupyter notebook
+    </pre>
     </p>
     <p class="about_note"><strong>What is this code doing?</strong> It is telling your computer to copy the Cloud Notebooks from GitHub and on to your own computer in the folder auk-notebooks. It then installs the Natural Language Toolkit (NLTK) and necessary libraries.</p>
     <%= image_tag("Notebook-02.png", alt: "A terminal window showing the installation process for the Cloud notebooks.", class:"body_img")%>
@@ -47,7 +49,7 @@
       <li class="about_li"><strong>auk-notebook-network</strong>: This notebook provides basic network analysis and visualization of linkages between domains within the collection.</li>
       <li class="about_li"><strong>auk-notebook-text</strong>: This notebook uses Python’s Natural Language Toolkit (NLTK) to perform text analysis, including concordance analysis, sentiment analysis, and dispersion plots.</li>
     </ul>
-    <p class="about_p">For more information on what each notebook can do, see Ryan Deschamps’s <%= link_to('"Exploring Web Archival Data through Archives Unleashed Cloud Jupyter Notebook"', 'https://news.archivesunleashed.org/exploring-web-archival-data-through-archives-unleashed-cloud-jupyter-notebooks-7605c6ca2b33', target: '_blank') %>.</p>
+    <p class="about_p">For more information on what each notebook can do, see Ryan Deschamps’s <%= link_to('"Exploring Web Archival Data through Archives Unleashed Cloud Jupyter Notebook."', 'https://news.archivesunleashed.org/exploring-web-archival-data-through-archives-unleashed-cloud-jupyter-notebooks-7605c6ca2b33', target: '_blank') %></p>
     <p class="about_p">Notebooks contain code and visualizations like the following one from <strong>auk-notebook-network</strong>:</p>
     <%= image_tag("Notebook-04.png", alt: "The Jupyter Notebook Network example.", class:"body_img")%>
     <p class="about_p">In order to use each notebook, click on the notebook from the directory list — the notebook  will open in a new tab or window.  Each notebook has been pre-loaded with sample data from the B.C. Teachers' Labor Dispute (2014) collection from the University of Victoria Libraries. This  data is great to play with in order to learn how the tools work!  Once you are ready to load your own data, there are a few extra steps to load it into the notebooks.</p>
