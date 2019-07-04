@@ -75,8 +75,8 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'title', 'Network Graphing with Gephi | Archives Unleashed'
   end
 
-  test 'should get basic notebook page' do
-    get derivatives_notebook_path
+  test 'should get notebooks page' do
+    get derivatives_notebooks_path
     assert_response :success
     assert_select 'title', 'Getting Started with the Archives Unleashed Cloud Jupyter Notebooks | Archives Unleashed'
   end
