@@ -55,12 +55,12 @@ class TextfilterJob < ApplicationJob
           grep_command = '-a ' + grep_query + ' ' + collection_fulltext +
                          ' > ' + domain_textfilter
           `grep #{grep_command}`
-          filtered_text_zip = collection_filtered_text_path + '/' +
-                              collection_id.to_s + '-filtered_text.zip'
-          zip_command = '-j ' + filtered_text_zip + ' ' +
-                        collection_filtered_text_path + '/*.txt'
-          `zip #{zip_command}`
         end
+        filtered_text_zip = collection_filtered_text_path + '/' +
+                            collection_id.to_s + '-filtered_text.zip'
+        zip_command = '-j ' + filtered_text_zip + ' ' +
+                      collection_filtered_text_path + '/*.txt'
+        `zip #{zip_command}`
       end
     end
   end
