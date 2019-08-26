@@ -69,7 +69,7 @@ class SparkJob < ApplicationJob
                     .countItems()
                     .filter(r => r._2 > 5)
 
-      WriteGraphML(links, "#{collection_derivatives}/gephi/#{c.collection_id}-gephi.graphml")
+      WriteGraph.asGraphml(links, "#{collection_derivatives}/gephi/#{c.collection_id}-gephi.graphml")
 
       sys.exit
       )

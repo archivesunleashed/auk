@@ -9,7 +9,7 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
-AUT_VERSION: "0.17.0"
+AUT_VERSION: "0.18.0"
 BASE_HOSTNAME: "cloud.archivesunleashed.org" #if in development mode: localhost:3000
 BASE_HOST_URL: "https://cloud.archivesunleashed.org" #if in development mode: http://localhost:3000
 DASHBOARD_PASS: "test"
