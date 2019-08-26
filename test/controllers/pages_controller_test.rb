@@ -27,6 +27,12 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'title', 'FAQ | Archives Unleashed'
   end
 
+  test 'should get privacy policy page' do
+    get privacypolicy_path
+    assert_response :success
+    assert_select 'title', 'Privacy Policy | Archives Unleashed'
+  end
+
   test 'should get derivatives page' do
     get derivatives_path
     assert_response :success
@@ -61,5 +67,17 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get derivatives_text_sentiment_path
     assert_response :success
     assert_select 'title', 'Sentiment Analysis With the Natural Language Toolkit | Archives Unleashed'
+  end
+
+  test 'should get basic gephi page' do
+    get derivatives_basic_gephi_path
+    assert_response :success
+    assert_select 'title', 'Network Graphing with Gephi | Archives Unleashed'
+  end
+
+  test 'should get notebooks page' do
+    get derivatives_notebooks_path
+    assert_response :success
+    assert_select 'title', 'Getting Started with the Archives Unleashed Cloud Jupyter Notebooks | Archives Unleashed'
   end
 end

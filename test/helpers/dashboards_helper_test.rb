@@ -4,7 +4,7 @@ require 'test_helper'
 
 class DashboardsHelperTest < ActionView::TestCase
   def setup
-    ENV['DOWNLOAD_PATH'] = '/tmp'
+    ENV['DOWNLOAD_PATH'] = 'test/fixtures/files'
     @dashboards_one = dashboards(:one)
     @dashboards_two = dashboards(:two)
   end
@@ -56,7 +56,7 @@ class DashboardsHelperTest < ActionView::TestCase
   end
 
   test 'get largest collection' do
-    assert_equal '650 KB', get_largest_collection
+    assert_equal '462 KB', get_largest_collection
   end
 
   test 'get largest collection title' do

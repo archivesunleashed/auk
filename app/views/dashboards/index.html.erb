@@ -1,98 +1,18 @@
 <% provide(:title, 'AUK Dashboard') %>
 
 <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="panel panel-default">
-      <div class="btn-group-justified">
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
-          <h3>Users</h3>
-          <h1><%= get_number_of_users %></h1>
-        </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
-          <h3>Collections</h3>
-          <h1><%= get_total_number_of_collections %></h1>
-        </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
-          <h3>Files</h3>
-          <h1><%= get_total_number_of_warcs %></h1>
-        </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
-          <h3>Active Jobs</h3>
-          <h1><%= get_number_of_queued_jobs %></h1>
-        </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
-          <h3>Jobs Completed</h3>
-          <h1><%= get_total_number_of_jobs_run %></h1>
-        </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
-          <h3>Job Time</h3>
-          <h1><%= get_total_job_time %></h1>
-        </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
-          <h3>Longest Job</h3>
-          <h1><%= get_longest_job_time %></h1>
-        </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active" data-toggle="tooltip" data-html="true" title="<%= get_most_jobs_user_institution %>">
-          <h3>Most Jobs</h3>
-          <h1><%= get_most_jobs_user %></h3>
-        </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active" data-toggle="tooltip" data-html="true" title="<%= get_largest_collection_title %>">
-          <h3>Largest Collection</h3>
-          <h1><%= get_largest_collection %></h1>
-        </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
-          <h3>Space Used</h3>
-          <h1><%= get_space_used %></h1>
-        </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
-          <h3>Space Available</h3>
-          <h1><%= get_space_available %></h1>
-        </button>
-        <button type="button" class="btn-primary btn dashboard-btn btn-md active">
-          <h3>Data Analyzed</h3>
-          <h1><%= data_analyzed %></h1>
-        </button>
-      </div>
+  <div class="row">
+    <div class="col-sm">
+      <h1 class="card-header"><%= link_to('Jobs', '/dashboards/jobs') %></h1>
+    </div>
+    <div class="col-sm">
+      <h1 class="card-header"><%= link_to('Stats', '/dashboards/stats') %></h1>
+    </div>
+    <div class="col-sm">
+      <h1 class="card-header"><%= link_to('Graphs', '/dashboards/graphs') %></h1>
     </div>
   </div>
   <div class="row">
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Institution</th>
-            <th>Collection</th>
-            <th>Queue</th>
-            <th>Start Time</th>
-            <th>End Time</th>
-            <th>Total Run Time</th>
-            <th>Download</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @dashboards.each do |dashboard| %>
-            <tr>
-              <td><%= get_username(dashboard.user_id) %></td>
-              <td><%= get_institution(dashboard.user_id) %></td>
-              <% if dashboard.queue == 'seed' %>
-                <td></td>
-              <% end %>
-              <% if dashboard.queue != 'seed' %>
-                <td><%= link_to(get_collection_name(dashboard.collection_id), archiveit_collection_url(dashboard.collection_id), target: '_blank') %></td>
-              <% end %>
-              <td><%= dashboard.queue %></td>
-              <td><%= dashboard.start_time %></td>
-              <td><%= dashboard.end_time %></td>
-              <td><%= job_length(dashboard.start_time, dashboard.end_time) %></td>
-              <% if dashboard.queue == 'download' %>
-                <td><%= collection_size_human(dashboard.collection_id, dashboard.user_id) %></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+    <%= image_tag("https://camo.githubusercontent.com/148a43ac461f352346f8cd894af8bb5845a831fb/68747470733a2f2f7777772e6f6c64626f6f6b696c6c757374726174696f6e732e636f6d2f77702d636f6e74656e742f686967682d7265732f313836372f6772616e6476696c6c652d61756b2d313630302e6a7067", class: "mx-auto d-block img-fluid") %>
   </div>
 </div>
-<%= paginate @dashboards %>

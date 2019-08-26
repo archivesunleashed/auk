@@ -3,16 +3,20 @@
 # Collection controller methods.
 class CollectionsController < ApplicationController
   before_action :set_collection, only: %i[show]
-  before_action :set_user, only: %i[show download]
-  before_action :set_collection_id, only: %i[download]
+  before_action :set_user, only: %i[show download domains_chart]
+  before_action :set_collection_id, only: %i[download domains_chart]
+  before_action :set_account, only: %i[domains_chart]
   before_action :gexf_path, only: %i[download_gexf]
   before_action :graphml_path, only: %i[download_graphml]
   before_action :domains_path, only: %i[download_domains]
+  before_action :domains_chart_data, only: %i[domains_chart]
   before_action :fulltext_path, only: %i[download_fulltext]
   before_action :textfilter_path, only: %i[download_textfilter]
   before_action :correct_user, only: %i[show download download_gexf
                                         download_fulltext download_domains
                                         download_textfilter]
+
+  include CollectionsHelper
 
   def download
     WasapiDownloadJob.set(queue: :download)
@@ -61,6 +65,10 @@ class CollectionsController < ApplicationController
     )
   end
 
+  def domains_chart
+    render json: domains_chart_data
+  end
+
   def show; end
 
   private
@@ -75,6 +83,12 @@ class CollectionsController < ApplicationController
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def set_account
+    @account = Collection.where(user_id: params[:user_id],
+                                collection_id: params[:collection_id])
+                         .pluck(:account)
   end
 
   def collection_params
@@ -119,5 +133,9 @@ class CollectionsController < ApplicationController
   def correct_user
     @user = User.find(params[:user_id])
     redirect_to(root_url) unless current_user?(@user)
+  end
+
+  def domains_chart_data
+    display_domains(@user.id, @collection_id.id, @account[0])
   end
 end

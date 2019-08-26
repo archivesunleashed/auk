@@ -103,6 +103,15 @@ body {
   font-size: 18px;
 }
 
+.about.ul {
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  line-height: 1.4;
+  font-family: helvetica;
+  font-size: 18px;
+}
+
 .about_note {
   margin-bottom: 15px;
   padding: 4px 12px;
@@ -220,6 +229,93 @@ body {
 }
 
 /*
+ * AUK FAQ Page - Bootstrap Customization for Accordian layout
+ */
+.auk_faq_accord {
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.auk_faq_accord-header {
+  font-family: helvetica;
+  font-size: 22px;
+  border-radius: 5px;
+  text-align: left;
+  max-width: auto;
+}
+
+.auk_faq_accord_body {
+  font-family: helvetica;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.auk_faq_tbody_table, {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.8;
+  vertical-align: center;
+}
+
+.auk_faq_tr_table, .auk_faq_td_table {
+  table-layout: auto;
+  width: 10%;
+  border: solid 1px grey;
+  padding: 15px;
+  text-align:left;
+  }
+/*
+ * AUK Derivative Pages - table of contents customization.
+ */
+
+.toc{
+  border-style: dotted;
+  border-radius: 5px;
+  background-color:#cce6ff;
+  border-collapse: collapse;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.toc_title{
+  font-family: helvetica;
+  font-size: 18px;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 1.4;
+  margin-left: 20px;
+  margin-right: 25px;
+}
+
+.toc_list{
+  padding-left: auto;
+  padding-top: 10px;
+  line-height: 1.4;
+  font-family: helvetica;
+  font-size: 18px;
+}
+
+.toc-li{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 1.4;
+
+}
+
+.top_toc{
+  font-family: helvetica;
+  font-size: 12px;
+  text-align: right;
+}
+
+/*
  * Footer
  */
 
@@ -236,7 +332,7 @@ body {
 }
 
 .footer_img {
-  height: 70px;
+  height: 50px;
 }
 
 /*
@@ -387,7 +483,7 @@ div.tooltip-inner {
  */
 
 table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
-  content: " \25B4\25BE"
+  content: " \25B4\25BE";
 }
 
 /*

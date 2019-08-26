@@ -15,9 +15,9 @@ module CollectionsHelper
       text = File.open(collection_domains).read
       csv_text = text.delete! '()'
       csv = CSV.parse(csv_text, headers: false)
-      csv.take(10).each do |row|
-        row
-      end
+               .sort_by { |line| line[1].to_i }
+               .reverse
+      csv.take(10)
     end
   end
 

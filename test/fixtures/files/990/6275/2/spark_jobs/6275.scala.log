@@ -1,0 +1,860 @@
+2018-12-11 19:16:35 WARN  Utils:66 - Your hostname, roo resolves to a loopback address: 127.0.1.1; using 172.17.0.1 instead (on interface docker0)
+2018-12-11 19:16:35 WARN  Utils:66 - Set SPARK_LOCAL_IP if you need to bind to another address
+2018-12-11 19:16:36 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Spark context Web UI available at http://172.17.0.1:4040
+Spark context available as 'sc' (master = local[2], app id = local-1544573807482).
+Spark session available as 'spark'.
+Loading /home/nruest/Projects/tmp/990/6275/1/spark_jobs/6275.scala...
+import io.archivesunleashed._
+import io.archivesunleashed.app._
+import io.archivesunleashed.matchbox._
+2018-12-11 19:16:53 INFO  MemoryStore:54 - Block broadcast_0 stored as values in memory (estimated size 275.5 KB, free 3.0 GB)
+2018-12-11 19:16:53 INFO  MemoryStore:54 - Block broadcast_0_piece0 stored as bytes in memory (estimated size 23.0 KB, free 3.0 GB)
+2018-12-11 19:16:53 INFO  BlockManagerInfo:54 - Added broadcast_0_piece0 in memory on 172.17.0.1:35407 (size: 23.0 KB, free: 3.0 GB)
+2018-12-11 19:16:53 INFO  SparkContext:54 - Created broadcast 0 from newAPIHadoopFile at package.scala:66
+2018-12-11 19:16:53 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-12-11 19:16:53 INFO  deprecation:1173 - mapred.output.dir is deprecated. Instead, use mapreduce.output.fileoutputformat.outputdir
+2018-12-11 19:16:53 INFO  FileOutputCommitter:108 - File Output Committer Algorithm version is 1
+2018-12-11 19:16:53 INFO  SparkContext:54 - Starting job: runJob at SparkHadoopWriter.scala:78
+2018-12-11 19:16:54 INFO  DAGScheduler:54 - Registering RDD 5 (map at package.scala:88)
+2018-12-11 19:16:54 INFO  DAGScheduler:54 - Registering RDD 7 (sortBy at package.scala:90)
+2018-12-11 19:16:54 INFO  DAGScheduler:54 - Got job 0 (runJob at SparkHadoopWriter.scala:78) with 1 output partitions
+2018-12-11 19:16:54 INFO  DAGScheduler:54 - Final stage: ResultStage 2 (runJob at SparkHadoopWriter.scala:78)
+2018-12-11 19:16:54 INFO  DAGScheduler:54 - Parents of final stage: List(ShuffleMapStage 1)
+2018-12-11 19:16:54 INFO  DAGScheduler:54 - Missing parents: List(ShuffleMapStage 1)
+2018-12-11 19:16:54 INFO  DAGScheduler:54 - Submitting ShuffleMapStage 0 (MapPartitionsRDD[5] at map at package.scala:88), which has no missing parents
+2018-12-11 19:16:54 INFO  MemoryStore:54 - Block broadcast_1 stored as values in memory (estimated size 4.7 KB, free 3.0 GB)
+2018-12-11 19:16:54 INFO  MemoryStore:54 - Block broadcast_1_piece0 stored as bytes in memory (estimated size 2.7 KB, free 3.0 GB)
+2018-12-11 19:16:54 INFO  BlockManagerInfo:54 - Added broadcast_1_piece0 in memory on 172.17.0.1:35407 (size: 2.7 KB, free: 3.0 GB)
+2018-12-11 19:16:54 INFO  SparkContext:54 - Created broadcast 1 from broadcast at DAGScheduler.scala:1039
+2018-12-11 19:16:54 INFO  DAGScheduler:54 - Submitting 1 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[5] at map at package.scala:88) (first 15 tasks are for partitions Vector(0))
+2018-12-11 19:16:54 INFO  TaskSchedulerImpl:54 - Adding task set 0.0 with 1 tasks
+2018-12-11 19:16:54 INFO  TaskSetManager:54 - Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 7989 bytes)
+2018-12-11 19:16:54 INFO  Executor:54 - Running task 0.0 in stage 0.0 (TID 0)
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.poi_poi-ooxml-schemas-3.13.jar with timestamp 1544573807448
+2018-12-11 19:16:54 INFO  TransportClientFactory:267 - Successfully created connection to /172.17.0.1:38957 after 33 ms (0 ms spent in bootstraps)
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.poi_poi-ooxml-schemas-3.13.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3596390370723093841.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.poi_poi-ooxml-schemas-3.13.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.github.fommil.netlib_core-1.1.2.jar with timestamp 1544573807445
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.github.fommil.netlib_core-1.1.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7634457744930211976.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.github.fommil.netlib_core-1.1.2.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.httpcomponents_httpcore-4.3.jar with timestamp 1544573807446
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.httpcomponents_httpcore-4.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3919569656513671400.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.httpcomponents_httpcore-4.3.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/c3p0_c3p0-0.9.1.1.jar with timestamp 1544573807449
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/c3p0_c3p0-0.9.1.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp610927446147269574.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/c3p0_c3p0-0.9.1.1.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.chuusai_shapeless_2.11-2.3.2.jar with timestamp 1544573807438
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.chuusai_shapeless_2.11-2.3.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2545613687844184483.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.chuusai_shapeless_2.11-2.3.2.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.apple_AppleJavaExtensions-1.4.jar with timestamp 1544573807446
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.apple_AppleJavaExtensions-1.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2833642605162508856.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.apple_AppleJavaExtensions-1.4.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.jackson_jackson-xc-1.9.13.jar with timestamp 1544573807442
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.jackson_jackson-xc-1.9.13.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5176540185422727724.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.codehaus.jackson_jackson-xc-1.9.13.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.sis.storage_sis-netcdf-0.5.jar with timestamp 1544573807448
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.sis.storage_sis-netcdf-0.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp133911377774996957.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.sis.storage_sis-netcdf-0.5.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/log4j_log4j-1.2.17.jar with timestamp 1544573807442
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/log4j_log4j-1.2.17.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7372497661994535440.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/log4j_log4j-1.2.17.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/commons-lang_commons-lang-2.6.jar with timestamp 1544573807441
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/commons-lang_commons-lang-2.6.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp643215926223623157.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/commons-lang_commons-lang-2.6.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.bouncycastle_bcprov-jdk15on-1.52.jar with timestamp 1544573807447
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.bouncycastle_bcprov-jdk15on-1.52.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp9086917499307544506.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.bouncycastle_bcprov-jdk15on-1.52.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.scalanlp_breeze_2.11-0.13.1.jar with timestamp 1544573807439
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.scalanlp_breeze_2.11-0.13.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6432219961989007406.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.scalanlp_breeze_2.11-0.13.1.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.httpcomponents_httpmime-4.2.6.jar with timestamp 1544573807449
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.httpcomponents_httpmime-4.2.6.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8850504121739145700.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.httpcomponents_httpmime-4.2.6.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.gnu.inet_libidn-1.15.jar with timestamp 1544573807446
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.gnu.inet_libidn-1.15.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4480930263712536984.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.gnu.inet_libidn-1.15.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-auth-2.6.5.jar with timestamp 1544573807443
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-auth-2.6.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7206054670510920673.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.hadoop_hadoop-auth-2.6.5.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.poi_poi-scratchpad-3.13.jar with timestamp 1544573807447
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.poi_poi-scratchpad-3.13.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7020085152191153792.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.poi_poi-scratchpad-3.13.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.itadaki_bzip2-0.9.1.jar with timestamp 1544573807449
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.itadaki_bzip2-0.9.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6715431381532405221.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.itadaki_bzip2-0.9.1.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/net.sourceforge.jmatio_jmatio-1.0.jar with timestamp 1544573807447
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/net.sourceforge.jmatio_jmatio-1.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4297129699881360171.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/net.sourceforge.jmatio_jmatio-1.0.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.mortbay.jetty_jetty-util-6.1.26.jar with timestamp 1544573807441
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.mortbay.jetty_jetty-util-6.1.26.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2027127063441917027.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.mortbay.jetty_jetty-util-6.1.26.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1544573807439
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5923059048430385713.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/commons-logging_commons-logging-1.1.3.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.sonatype.sisu.inject_cglib-2.2.1-v20090111.jar with timestamp 1544573807442
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.sonatype.sisu.inject_cglib-2.2.1-v20090111.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8161232429647621445.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.sonatype.sisu.inject_cglib-2.2.1-v20090111.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.james_apache-mime4j-dom-0.7.2.jar with timestamp 1544573807447
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.james_apache-mime4j-dom-0.7.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4671922146994003498.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.james_apache-mime4j-dom-0.7.2.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.fasterxml.jackson.core_jackson-databind-2.8.8.jar with timestamp 1544573807440
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.fasterxml.jackson.core_jackson-databind-2.8.8.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2289053159771049176.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.fasterxml.jackson.core_jackson-databind-2.8.8.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.httpcomponents_httpclient-4.2.6.jar with timestamp 1544573807449
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.httpcomponents_httpclient-4.2.6.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2548844221410156466.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.httpcomponents_httpclient-4.2.6.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.htrace_htrace-core-3.0.4.jar with timestamp 1544573807444
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.htrace_htrace-core-3.0.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2750493556733197715.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.htrace_htrace-core-3.0.4.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.google.inject.extensions_guice-servlet-3.0.jar with timestamp 1544573807441
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.google.inject.extensions_guice-servlet-3.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3360810717465446163.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.google.inject.extensions_guice-servlet-3.0.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.tika_tika-core-1.12.jar with timestamp 1544573807439
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.tika_tika-core-1.12.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3322582807990670591.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.tika_tika-core-1.12.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.slf4j_jul-to-slf4j-1.7.24.jar with timestamp 1544573807439
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.slf4j_jul-to-slf4j-1.7.24.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8574676587858606169.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.slf4j_jul-to-slf4j-1.7.24.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.cxf_cxf-rt-frontend-jaxrs-3.0.3.jar with timestamp 1544573807448
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.cxf_cxf-rt-frontend-jaxrs-3.0.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp536636336131757541.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.cxf_cxf-rt-frontend-jaxrs-3.0.3.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.io7m.xom_xom-1.2.10.jar with timestamp 1544573807446
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.io7m.xom_xom-1.2.10.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2737136628711167521.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.io7m.xom_xom-1.2.10.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/net.java.dev.jna_jna-4.1.0.jar with timestamp 1544573807449
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/net.java.dev.jna_jna-4.1.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp382484121034587977.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/net.java.dev.jna_jna-4.1.0.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.rometools_rome-utils-1.5.1.jar with timestamp 1544573807448
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.rometools_rome-utils-1.5.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2682627394323481376.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.rometools_rome-utils-1.5.1.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.ws.xmlschema_xmlschema-core-2.1.0.jar with timestamp 1544573807449
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.ws.xmlschema_xmlschema-core-2.1.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2410911932923832207.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.ws.xmlschema_xmlschema-core-2.1.0.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.jersey_jersey-server-1.9.jar with timestamp 1544573807442
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.jersey_jersey-server-1.9.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2110755387704451497.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.sun.jersey_jersey-server-1.9.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.rogach_scallop_2.11-3.1.2.jar with timestamp 1544573807439
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.rogach_scallop_2.11-3.1.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3813839628792618630.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.rogach_scallop_2.11-3.1.2.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.beust_jcommander-1.35.jar with timestamp 1544573807449
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.beust_jcommander-1.35.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7942058738770174948.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.beust_jcommander-1.35.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.googlecode.juniversalchardet_juniversalchardet-1.0.3.jar with timestamp 1544573807446
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.googlecode.juniversalchardet_juniversalchardet-1.0.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3059398992918936458.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.googlecode.juniversalchardet_juniversalchardet-1.0.3.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/aopalliance_aopalliance-1.0.jar with timestamp 1544573807442
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/aopalliance_aopalliance-1.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1295332720290569894.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/aopalliance_aopalliance-1.0.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.martiansoftware_jsap-2.1.jar with timestamp 1544573807446
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.martiansoftware_jsap-2.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp58209621436109440.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.martiansoftware_jsap-2.1.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang_scala-reflect-2.11.8.jar with timestamp 1544573807440
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang_scala-reflect-2.11.8.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7195845750166042734.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.scala-lang_scala-reflect-2.11.8.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/net.jcip_jcip-annotations-1.0.jar with timestamp 1544573807449
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/net.jcip_jcip-annotations-1.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp643514025748528673.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/net.jcip_jcip-annotations-1.0.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.lucene_lucene-queries-4.10.3.jar with timestamp 1544573807446
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.lucene_lucene-queries-4.10.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1700931777133577779.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.lucene_lucene-queries-4.10.3.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_jj2000-5.2.jar with timestamp 1544573807449
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_jj2000-5.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4170063218338712383.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/edu.ucar_jj2000-5.2.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.james_apache-mime4j-core-0.7.2.jar with timestamp 1544573807447
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.james_apache-mime4j-core-0.7.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8992837144784109040.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.james_apache-mime4j-core-0.7.2.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.twitter_chill-java-0.8.4.jar with timestamp 1544573807440
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.twitter_chill-java-0.8.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7897500068479788831.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.twitter_chill-java-0.8.4.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.spire-math_spire_2.11-0.13.0.jar with timestamp 1544573807446
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.spire-math_spire_2.11-0.13.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3760150814826586980.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.spire-math_spire_2.11-0.13.0.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.pdfbox_pdfbox-1.8.10.jar with timestamp 1544573807447
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.pdfbox_pdfbox-1.8.10.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp985689814165082793.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.pdfbox_pdfbox-1.8.10.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.jersey.contribs_jersey-guice-1.9.jar with timestamp 1544573807442
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.jersey.contribs_jersey-guice-1.9.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7838840381264098825.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.sun.jersey.contribs_jersey-guice-1.9.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.xml.bind_jaxb-impl-2.2.3-1.jar with timestamp 1544573807443
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.xml.bind_jaxb-impl-2.2.3-1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8953921976686270854.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.sun.xml.bind_jaxb-impl-2.2.3-1.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/commons-cli_commons-cli-1.2.jar with timestamp 1544573807442
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/commons-cli_commons-cli-1.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7437093578630149045.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/commons-cli_commons-cli-1.2.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.sis.core_sis-referencing-0.5.jar with timestamp 1544573807449
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.sis.core_sis-referencing-0.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4035927905909268663.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.sis.core_sis-referencing-0.5.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.google.code.gson_gson-2.3.1.jar with timestamp 1544573807440
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.google.code.gson_gson-2.3.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6282248958635951243.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.google.code.gson_gson-2.3.1.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.scalanlp_breeze-macros_2.11-0.13.1.jar with timestamp 1544573807445
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.scalanlp_breeze-macros_2.11-0.13.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5086676306148771578.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.scalanlp_breeze-macros_2.11-0.13.1.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/asm_asm-3.2.jar with timestamp 1544573807442
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/asm_asm-3.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5268131683081417268.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/asm_asm-3.2.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.esotericsoftware_minlog-1.3.0.jar with timestamp 1544573807440
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.esotericsoftware_minlog-1.3.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3924380092186035508.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.esotericsoftware_minlog-1.3.0.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.rometools_rome-1.5.1.jar with timestamp 1544573807447
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.rometools_rome-1.5.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5309676043948712726.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.rometools_rome-1.5.1.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.twitter_chill_2.11-0.8.4.jar with timestamp 1544573807438
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.twitter_chill_2.11-0.8.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5479568369311014236.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.twitter_chill_2.11-0.8.4.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.jackson_jackson-mapper-asl-1.5.2.jar with timestamp 1544573807439
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.jackson_jackson-mapper-asl-1.5.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6780823477410762826.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.codehaus.jackson_jackson-mapper-asl-1.5.2.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.cxf_cxf-core-3.0.3.jar with timestamp 1544573807448
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.cxf_cxf-core-3.0.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1842445933266531685.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.cxf_cxf-core-3.0.3.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.htmlparser_htmlparser-1.6.jar with timestamp 1544573807446
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.htmlparser_htmlparser-1.6.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7876983628152209094.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.htmlparser_htmlparser-1.6.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.spire-math_spire-macros_2.11-0.13.0.jar with timestamp 1544573807446
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.spire-math_spire-macros_2.11-0.13.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2202597206757974685.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.spire-math_spire-macros_2.11-0.13.0.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/javax.inject_javax.inject-1.jar with timestamp 1544573807442
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/javax.inject_javax.inject-1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7129493326981161218.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/javax.inject_javax.inject-1.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/net.java.dev.jets3t_jets3t-0.6.1.jar with timestamp 1544573807439
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/net.java.dev.jets3t_jets3t-0.6.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5271404966609516805.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/net.java.dev.jets3t_jets3t-0.6.1.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.maven.scm_maven-scm-provider-svn-commons-1.4.jar with timestamp 1544573807448
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.maven.scm_maven-scm-provider-svn-commons-1.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2554309332768368761.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.maven.scm_maven-scm-provider-svn-commons-1.4.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.fasterxml.jackson.core_jackson-annotations-2.8.8.jar with timestamp 1544573807440
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.fasterxml.jackson.core_jackson-annotations-2.8.8.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6438518274561862120.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.fasterxml.jackson.core_jackson-annotations-2.8.8.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.esotericsoftware_kryo-shaded-3.0.3.jar with timestamp 1544573807440
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.esotericsoftware_kryo-shaded-3.0.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3917169949804404632.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.esotericsoftware_kryo-shaded-3.0.3.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.jackson_jackson-core-asl-1.9.13.jar with timestamp 1544573807441
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.jackson_jackson-core-asl-1.9.13.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3163077876659067612.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.codehaus.jackson_jackson-core-asl-1.9.13.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.maven.scm_maven-scm-provider-svnexe-1.4.jar with timestamp 1544573807448
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.maven.scm_maven-scm-provider-svnexe-1.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3939318884216011382.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.maven.scm_maven-scm-provider-svnexe-1.4.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-compress-1.16.jar with timestamp 1544573807439
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-compress-1.16.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1820000189254592875.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.commons_commons-compress-1.16.jar to class loader
+2018-12-11 19:16:54 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-csv-1.0.jar with timestamp 1544573807448
+2018-12-11 19:16:54 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-csv-1.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4888506192917907683.tmp
+2018-12-11 19:16:54 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.commons_commons-csv-1.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.jackson_jackson-jaxrs-1.9.13.jar with timestamp 1544573807442
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.jackson_jackson-jaxrs-1.9.13.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp870089493654394262.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.codehaus.jackson_jackson-jaxrs-1.9.13.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.curator_curator-client-2.6.0.jar with timestamp 1544573807443
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.curator_curator-client-2.6.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp83447576627167299.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.curator_curator-client-2.6.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang_scalap-2.11.0.jar with timestamp 1544573807440
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang_scalap-2.11.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp200806121697364646.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.scala-lang_scalap-2.11.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-annotations-2.6.5.jar with timestamp 1544573807441
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-annotations-2.6.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8060362131422469532.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.hadoop_hadoop-annotations-2.6.5.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.quartz-scheduler_quartz-2.2.0.jar with timestamp 1544573807449
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.quartz-scheduler_quartz-2.2.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1571014618643761812.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.quartz-scheduler_quartz-2.2.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.opengis_geoapi-3.0.0.jar with timestamp 1544573807448
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.opengis_geoapi-3.0.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp188282087851796917.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.opengis_geoapi-3.0.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.google.protobuf_protobuf-java-3.2.0.jar with timestamp 1544573807446
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.google.protobuf_protobuf-java-3.2.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3339308719189219563.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.google.protobuf_protobuf-java-3.2.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.thoughtworks.paranamer_paranamer-2.8.jar with timestamp 1544573807440
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.thoughtworks.paranamer_paranamer-2.8.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7525456156133287405.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.thoughtworks.paranamer_paranamer-2.8.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-vfs2-2.0.jar with timestamp 1544573807448
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-vfs2-2.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3443225318360962426.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.commons_commons-vfs2-2.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/commons-net_commons-net-1.4.1.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/commons-net_commons-net-1.4.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4766253556673783687.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/commons-net_commons-net-1.4.1.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.poi_poi-3.13.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.poi_poi-3.13.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7778991753604958692.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.poi_poi-3.13.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/jline_jline-0.9.94.jar with timestamp 1544573807440
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/jline_jline-0.9.94.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1073581616671743802.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/jline_jline-0.9.94.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-lang3-3.3.1.jar with timestamp 1544573807446
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-lang3-3.3.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1637898454706588417.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.commons_commons-lang3-3.3.1.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.jettison_jettison-1.1.jar with timestamp 1544573807443
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.jettison_jettison-1.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2817208799088467398.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.codehaus.jettison_jettison-1.1.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.pff_java-libpst-0.8.1.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.pff_java-libpst-0.8.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2114331879445297846.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.pff_java-libpst-0.8.1.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/joda-time_joda-time-2.2.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/joda-time_joda-time-2.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp779275251046796509.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/joda-time_joda-time-2.2.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/it.unimi.dsi_fastutil-6.5.2.jar with timestamp 1544573807446
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/it.unimi.dsi_fastutil-6.5.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8157148766212359219.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/it.unimi.dsi_fastutil-6.5.2.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.mortbay.jetty_jetty-6.1.26.jar with timestamp 1544573807443
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.mortbay.jetty_jetty-6.1.26.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8892342295420402665.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.mortbay.jetty_jetty-6.1.26.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.opennlp_opennlp-tools-1.5.3.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.opennlp_opennlp-tools-1.5.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3547072251594833554.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.opennlp_opennlp-tools-1.5.3.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.healthmarketscience.jackcess_jackcess-2.1.2.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.healthmarketscience.jackcess_jackcess-2.1.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5639081961729410138.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.healthmarketscience.jackcess_jackcess-2.1.2.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.bouncycastle_bcmail-jdk15on-1.52.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.bouncycastle_bcmail-jdk15on-1.52.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5484185930707833701.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.bouncycastle_bcmail-jdk15on-1.52.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang_scala-parser-combinators-2.11.0-M4.jar with timestamp 1544573807438
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang_scala-parser-combinators-2.11.0-M4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4186921860132009237.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.scala-lang_scala-parser-combinators-2.11.0-M4.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-yarn-common-2.6.5.jar with timestamp 1544573807441
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-yarn-common-2.6.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2570127249016442314.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.hadoop_hadoop-yarn-common-2.6.5.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.healthmarketscience.jackcess_jackcess-encrypt-2.1.1.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.healthmarketscience.jackcess_jackcess-encrypt-2.1.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3192865237625134976.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.healthmarketscience.jackcess_jackcess-encrypt-2.1.1.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.json4s_json4s-ast_2.11-3.2.11.jar with timestamp 1544573807440
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.json4s_json4s-ast_2.11-3.2.11.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5697125959040181170.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.json4s_json4s-ast_2.11-3.2.11.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/io.netty_netty-3.6.2.Final.jar with timestamp 1544573807441
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/io.netty_netty-3.6.2.Final.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4787867757928701318.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/io.netty_netty-3.6.2.Final.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/javax.measure_jsr-275-0.9.3.jar with timestamp 1544573807449
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/javax.measure_jsr-275-0.9.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3485487834090177381.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/javax.measure_jsr-275-0.9.3.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.woodstox_woodstox-core-asl-4.4.1.jar with timestamp 1544573807449
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.woodstox_woodstox-core-asl-4.4.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3940222500103499960.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.codehaus.woodstox_woodstox-core-asl-4.4.1.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.aspectj_aspectjrt-1.8.0.jar with timestamp 1544573807448
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.aspectj_aspectjrt-1.8.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp100830280914262864.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.aspectj_aspectjrt-1.8.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/commons-codec_commons-codec-1.9.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/commons-codec_commons-codec-1.9.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6702378093994287010.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/commons-codec_commons-codec-1.9.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.zookeeper_zookeeper-3.4.6.jar with timestamp 1544573807444
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.zookeeper_zookeeper-3.4.6.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8348030573131347914.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.zookeeper_zookeeper-3.4.6.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/oro_oro-2.0.8.jar with timestamp 1544573807449
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/oro_oro-2.0.8.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5902760169467415142.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/oro_oro-2.0.8.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.plexus_plexus-utils-1.5.6.jar with timestamp 1544573807448
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.plexus_plexus-utils-1.5.6.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6764925074118389711.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.codehaus.plexus_plexus-utils-1.5.6.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.lucene_lucene-analyzers-common-4.10.3.jar with timestamp 1544573807446
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.lucene_lucene-analyzers-common-4.10.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5958781281977930984.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.lucene_lucene-analyzers-common-4.10.3.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.sis.storage_sis-storage-0.5.jar with timestamp 1544573807449
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.sis.storage_sis-storage-0.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp577900660284478942.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.sis.storage_sis-storage-0.5.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/de.jollyday_jollyday-0.4.9.jar with timestamp 1544573807446
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/de.jollyday_jollyday-0.4.9.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7357284343063029470.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/de.jollyday_jollyday-0.4.9.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/commons-io_commons-io-2.4.jar with timestamp 1544573807442
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/commons-io_commons-io-2.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3823602843192724090.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/commons-io_commons-io-2.4.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/net.sf.jwordnet_jwnl-1.3.3.jar with timestamp 1544573807449
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/net.sf.jwordnet_jwnl-1.3.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4333576748759673518.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/net.sf.jwordnet_jwnl-1.3.3.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.ow2.asm_asm-5.0.4.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.ow2.asm_asm-5.0.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4754055370522839063.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.ow2.asm_asm-5.0.4.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.fasterxml.jackson.module_jackson-module-scala_2.11-2.8.8.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.fasterxml.jackson.module_jackson-module-scala_2.11-2.8.8.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3704331506637830738.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.fasterxml.jackson.module_jackson-module-scala_2.11-2.8.8.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.json_json-20140107.jar with timestamp 1544573807440
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.json_json-20140107.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8418194477043195534.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.json_json-20140107.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-mapreduce-client-core-2.6.5.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-mapreduce-client-core-2.6.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5482958929953321163.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.hadoop_hadoop-mapreduce-client-core-2.6.5.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.github.junrar_junrar-0.7.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.github.junrar_junrar-0.7.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3705504231105001428.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.github.junrar_junrar-0.7.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/commons-collections_commons-collections-3.2.2.jar with timestamp 1544573807443
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/commons-collections_commons-collections-3.2.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6273924046347108036.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/commons-collections_commons-collections-3.2.2.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/tomcat_jasper-compiler-5.5.23.jar with timestamp 1544573807445
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/tomcat_jasper-compiler-5.5.23.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2923487585422876786.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/tomcat_jasper-compiler-5.5.23.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.xerial.snappy_snappy-java-1.1.4.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.xerial.snappy_snappy-java-1.1.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1751136605267296871.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.xerial.snappy_snappy-java-1.1.4.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/tomcat_jasper-runtime-5.5.23.jar with timestamp 1544573807445
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/tomcat_jasper-runtime-5.5.23.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3046657679549049992.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/tomcat_jasper-runtime-5.5.23.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/net.sf.opencsv_opencsv-2.3.jar with timestamp 1544573807445
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/net.sf.opencsv_opencsv-2.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp145174090760126983.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/net.sf.opencsv_opencsv-2.3.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.github.rwl_jtransforms-2.4.0.jar with timestamp 1544573807445
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.github.rwl_jtransforms-2.4.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2245567839255414091.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.github.rwl_jtransforms-2.4.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_netcdf4-4.5.5.jar with timestamp 1544573807448
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_netcdf4-4.5.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4363106601077031504.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/edu.ucar_netcdf4-4.5.5.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/xerces_xercesImpl-2.11.0.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/xerces_xercesImpl-2.11.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2831696869283866790.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/xerces_xercesImpl-2.11.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/javax.ws.rs_javax.ws.rs-api-2.0.1.jar with timestamp 1544573807449
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/javax.ws.rs_javax.ws.rs-api-2.0.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7448035121671180725.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/javax.ws.rs_javax.ws.rs-api-2.0.1.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/javax.xml.bind_jaxb-api-2.2.7.jar with timestamp 1544573807446
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/javax.xml.bind_jaxb-api-2.2.7.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7582448023764943084.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/javax.xml.bind_jaxb-api-2.2.7.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/it.unimi.dsi_dsiutils-2.0.12.jar with timestamp 1544573807446
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/it.unimi.dsi_dsiutils-2.0.12.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp352857556143989632.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/it.unimi.dsi_dsiutils-2.0.12.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.typelevel_machinist_2.11-0.6.1.jar with timestamp 1544573807446
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.typelevel_machinist_2.11-0.6.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp225617434200396857.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.typelevel_machinist_2.11-0.6.1.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.pdfbox_fontbox-1.8.10.jar with timestamp 1544573807448
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.pdfbox_fontbox-1.8.10.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5071136869364124815.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.pdfbox_fontbox-1.8.10.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.directory.api_api-util-1.0.0-M20.jar with timestamp 1544573807444
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.directory.api_api-util-1.0.0-M20.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2886091317001192196.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.directory.api_api-util-1.0.0-M20.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/xml-apis_xml-apis-1.4.01.jar with timestamp 1544573807449
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/xml-apis_xml-apis-1.4.01.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp359618847340869270.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/xml-apis_xml-apis-1.4.01.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.googlecode.json-simple_json-simple-1.1.1.jar with timestamp 1544573807448
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.googlecode.json-simple_json-simple-1.1.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp135558424618995260.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.googlecode.json-simple_json-simple-1.1.1.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_cdm-4.5.5.jar with timestamp 1544573807448
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_cdm-4.5.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4793843974284983350.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/edu.ucar_cdm-4.5.5.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.gagravarr_vorbis-java-tika-0.6.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.gagravarr_vorbis-java-tika-0.6.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp334979565757906987.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.gagravarr_vorbis-java-tika-0.6.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.syncthemall_boilerpipe-1.2.2.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.syncthemall_boilerpipe-1.2.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4932030375780058014.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.syncthemall_boilerpipe-1.2.2.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.lucene_lucene-core-4.10.3.jar with timestamp 1544573807446
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.lucene_lucene-core-4.10.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp926659947511383998.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.lucene_lucene-core-4.10.3.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/junit_junit-4.8.2.jar with timestamp 1544573807438
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/junit_junit-4.8.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2805345418200637160.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/junit_junit-4.8.2.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/commons-el_commons-el-1.0.jar with timestamp 1544573807445
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/commons-el_commons-el-1.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1303061190763008803.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/commons-el_commons-el-1.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.jdom_jdom-2.0.2.jar with timestamp 1544573807448
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.jdom_jdom-2.0.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4808690783715474507.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.jdom_jdom-2.0.2.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/edu.stanford.nlp_stanford-corenlp-3.8.0.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/edu.stanford.nlp_stanford-corenlp-3.8.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6359238819647781138.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/edu.stanford.nlp_stanford-corenlp-3.8.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.jcraft_jsch-0.1.42.jar with timestamp 1544573807443
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.jcraft_jsch-0.1.42.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp624823847922974192.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.jcraft_jsch-0.1.42.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.slf4j_jcl-over-slf4j-1.7.24.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.slf4j_jcl-over-slf4j-1.7.24.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1933487490329557035.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.slf4j_jcl-over-slf4j-1.7.24.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-math3-3.2.jar with timestamp 1544573807440
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-math3-3.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp228384726694919516.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.commons_commons-math3-3.2.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.jsoup_jsoup-1.7.3.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.jsoup_jsoup-1.7.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1294450738855113871.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.jsoup_jsoup-1.7.3.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/tl.lin_lintools-datatypes-1.0.0.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/tl.lin_lintools-datatypes-1.0.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp135398342849596680.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/tl.lin_lintools-datatypes-1.0.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.woodstox_stax2-api-3.1.4.jar with timestamp 1544573807449
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.codehaus.woodstox_stax2-api-3.1.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3490525522099192770.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.codehaus.woodstox_stax2-api-3.1.4.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.fasterxml.jackson.core_jackson-core-2.8.8.jar with timestamp 1544573807440
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.fasterxml.jackson.core_jackson-core-2.8.8.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2667157239193120962.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.fasterxml.jackson.core_jackson-core-2.8.8.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.googlecode.efficient-java-matrix-library_ejml-0.23.jar with timestamp 1544573807446
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.googlecode.efficient-java-matrix-library_ejml-0.23.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6415714724824226709.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.googlecode.efficient-java-matrix-library_ejml-0.23.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.sis.core_sis-metadata-0.5.jar with timestamp 1544573807448
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.sis.core_sis-metadata-0.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4128431794905466767.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.sis.core_sis-metadata-0.5.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.jersey_jersey-core-1.9.jar with timestamp 1544573807441
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.jersey_jersey-core-1.9.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1406029755963486037.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.sun.jersey_jersey-core-1.9.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-common-2.6.5.jar with timestamp 1544573807439
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-common-2.6.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8838604916025515695.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.hadoop_hadoop-common-2.6.5.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_udunits-4.5.5.jar with timestamp 1544573807449
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_udunits-4.5.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6970539129401872422.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/edu.ucar_udunits-4.5.5.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.jdom_jdom2-2.0.4.jar with timestamp 1544573807449
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.jdom_jdom2-2.0.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8672920382523759972.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.jdom_jdom2-2.0.4.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/commons-httpclient_commons-httpclient-3.1.jar with timestamp 1544573807443
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/commons-httpclient_commons-httpclient-3.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp9084980111676430384.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/commons-httpclient_commons-httpclient-3.1.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/xalan_xalan-2.7.0.jar with timestamp 1544573807446
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/xalan_xalan-2.7.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5870235124617503301.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/xalan_xalan-2.7.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang_scala-compiler-2.11.0.jar with timestamp 1544573807440
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang_scala-compiler-2.11.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1392600260377757831.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.scala-lang_scala-compiler-2.11.0.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.ccil.cowan.tagsoup_tagsoup-1.2.1.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.ccil.cowan.tagsoup_tagsoup-1.2.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5765627877159089427.tmp
+2018-12-11 19:16:55 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.ccil.cowan.tagsoup_tagsoup-1.2.1.jar to class loader
+2018-12-11 19:16:55 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.googlecode.mp4parser_isoparser-1.0.2.jar with timestamp 1544573807447
+2018-12-11 19:16:55 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.googlecode.mp4parser_isoparser-1.0.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7713838035732860178.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.googlecode.mp4parser_isoparser-1.0.2.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.xmlbeans_xmlbeans-2.6.0.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.xmlbeans_xmlbeans-2.6.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8977263558257692176.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.xmlbeans_xmlbeans-2.6.0.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.tukaani_xz-1.5.jar with timestamp 1544573807447
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.tukaani_xz-1.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7633365950086682049.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.tukaani_xz-1.5.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.jersey_jersey-client-1.9.jar with timestamp 1544573807441
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.jersey_jersey-client-1.9.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2102852403399939156.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.sun.jersey_jersey-client-1.9.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.drewnoakes_metadata-extractor-2.8.0.jar with timestamp 1544573807447
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.drewnoakes_metadata-extractor-2.8.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8853694088326143090.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.drewnoakes_metadata-extractor-2.8.0.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.curator_curator-framework-2.6.0.jar with timestamp 1544573807444
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.curator_curator-framework-2.6.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5541493540737533736.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.curator_curator-framework-2.6.0.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.slf4j_slf4j-log4j12-1.7.5.jar with timestamp 1544573807441
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.slf4j_slf4j-log4j12-1.7.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7056387688866250400.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.slf4j_slf4j-log4j12-1.7.5.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.json4s_json4s-core_2.11-3.2.11.jar with timestamp 1544573807440
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.json4s_json4s-core_2.11-3.2.11.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5909867170848727915.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.json4s_json4s-core_2.11-3.2.11.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.curator_curator-recipes-2.6.0.jar with timestamp 1544573807444
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.curator_curator-recipes-2.6.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5350011785590918210.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.curator_curator-recipes-2.6.0.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.objenesis_objenesis-2.6.jar with timestamp 1544573807449
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.objenesis_objenesis-2.6.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7106715400635022341.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.objenesis_objenesis-2.6.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.directory.server_apacheds-i18n-2.0.0-M15.jar with timestamp 1544573807444
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.directory.server_apacheds-i18n-2.0.0-M15.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2458560107012744556.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.directory.server_apacheds-i18n-2.0.0-M15.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.lucene_lucene-sandbox-4.10.3.jar with timestamp 1544573807446
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.lucene_lucene-sandbox-4.10.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6569014048777755578.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.lucene_lucene-sandbox-4.10.3.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.adobe.xmp_xmpcore-5.1.2.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.adobe.xmp_xmpcore-5.1.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6397730623865497201.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.adobe.xmp_xmpcore-5.1.2.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/regexp_regexp-1.3.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/regexp_regexp-1.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6472211308789655677.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/regexp_regexp-1.3.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/net.sourceforge.nekohtml_nekohtml-1.9.20.jar with timestamp 1544573807449
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/net.sourceforge.nekohtml_nekohtml-1.9.20.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2493155034137120450.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/net.sourceforge.nekohtml_nekohtml-1.9.20.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/javax.servlet.jsp_jsp-api-2.1.jar with timestamp 1544573807445
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/javax.servlet.jsp_jsp-api-2.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp396854900607542217.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/javax.servlet.jsp_jsp-api-2.1.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-yarn-api-2.6.5.jar with timestamp 1544573807441
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.hadoop_hadoop-yarn-api-2.6.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp725366790405803608.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.hadoop_hadoop-yarn-api-2.6.5.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_httpservices-4.5.5.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_httpservices-4.5.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5465102109465195420.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/edu.ucar_httpservices-4.5.5.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.google.guava_guava-18.0.jar with timestamp 1544573807449
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.google.guava_guava-18.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp37695607540463176.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.google.guava_guava-18.0.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/de.l3s.boilerpipe_boilerpipe-1.1.0.jar with timestamp 1544573807447
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/de.l3s.boilerpipe_boilerpipe-1.1.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp992671515748595986.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/de.l3s.boilerpipe_boilerpipe-1.1.0.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.json4s_json4s-jackson_2.11-3.2.11.jar with timestamp 1544573807439
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.json4s_json4s-jackson_2.11-3.2.11.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8828347358475465828.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.json4s_json4s-jackson_2.11-3.2.11.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/io.archivesunleashed_aut-0.17.0.jar with timestamp 1544573807437
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/io.archivesunleashed_aut-0.17.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp351434920004628792.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/io.archivesunleashed_aut-0.17.0.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/net.sf.ehcache_ehcache-core-2.6.2.jar with timestamp 1544573807449
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/net.sf.ehcache_ehcache-core-2.6.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5951418135477026858.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/net.sf.ehcache_ehcache-core-2.6.2.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.fasterxml.jackson.module_jackson-module-paranamer-2.8.8.jar with timestamp 1544573807440
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.fasterxml.jackson.module_jackson-module-paranamer-2.8.8.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7467802278485528088.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.fasterxml.jackson.module_jackson-module-paranamer-2.8.8.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.google.inject_guice-3.0.jar with timestamp 1544573807442
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.google.inject_guice-3.0.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3408245609762898653.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.google.inject_guice-3.0.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/javax.annotation_javax.annotation-api-1.2.jar with timestamp 1544573807449
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/javax.annotation_javax.annotation-api-1.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4566551984883278645.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/javax.annotation_javax.annotation-api-1.2.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.codelibs_jhighlight-1.0.2.jar with timestamp 1544573807447
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.codelibs_jhighlight-1.0.2.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp620257217123759759.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.codelibs_jhighlight-1.0.2.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.google.code.findbugs_jsr305-1.3.9.jar with timestamp 1544573807442
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.google.code.findbugs_jsr305-1.3.9.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4810655591397208743.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.google.code.findbugs_jsr305-1.3.9.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_grib-4.5.5.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/edu.ucar_grib-4.5.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4211797229988911067.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/edu.ucar_grib-4.5.5.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.slf4j_slf4j-api-1.7.24.jar with timestamp 1544573807439
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.slf4j_slf4j-api-1.7.24.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4454173016918170326.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.slf4j_slf4j-api-1.7.24.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.netpreserve.commons_webarchive-commons-1.1.8.jar with timestamp 1544573807439
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.netpreserve.commons_webarchive-commons-1.1.8.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp543924389271728406.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.netpreserve.commons_webarchive-commons-1.1.8.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-exec-1.3.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.commons_commons-exec-1.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5229434337241566469.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.commons_commons-exec-1.3.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.jersey_jersey-json-1.9.jar with timestamp 1544573807442
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/com.sun.jersey_jersey-json-1.9.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3174817752622220970.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/com.sun.jersey_jersey-json-1.9.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.opennlp_opennlp-maxent-3.0.3.jar with timestamp 1544573807449
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.opennlp_opennlp-maxent-3.0.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8361520634004858224.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.opennlp_opennlp-maxent-3.0.3.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.maven.scm_maven-scm-api-1.4.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.maven.scm_maven-scm-api-1.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp9189278386964689575.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.maven.scm_maven-scm-api-1.4.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.poi_poi-ooxml-3.13.jar with timestamp 1544573807447
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.poi_poi-ooxml-3.13.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4763020792562134829.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.poi_poi-ooxml-3.13.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.avro_avro-1.7.4.jar with timestamp 1544573807441
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.avro_avro-1.7.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3268680761377851248.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.avro_avro-1.7.4.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.gagravarr_vorbis-java-core-0.6.jar with timestamp 1544573807447
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.gagravarr_vorbis-java-core-0.6.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4647728607419134753.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.gagravarr_vorbis-java-core-0.6.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.glassfish_javax.json-1.0.4.jar with timestamp 1544573807446
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.glassfish_javax.json-1.0.4.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5887371631534763475.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.glassfish_javax.json-1.0.4.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang.modules_scala-xml_2.11-1.0.6.jar with timestamp 1544573807440
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang.modules_scala-xml_2.11-1.0.6.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6916583930341015458.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.scala-lang.modules_scala-xml_2.11-1.0.6.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/javax.servlet_servlet-api-2.5.jar with timestamp 1544573807441
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/javax.servlet_servlet-api-2.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2396732289376852597.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/javax.servlet_servlet-api-2.5.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/xmlenc_xmlenc-0.52.jar with timestamp 1544573807443
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/xmlenc_xmlenc-0.52.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3122897207684641111.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/xmlenc_xmlenc-0.52.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.cxf_cxf-rt-transports-http-3.0.3.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.cxf_cxf-rt-transports-http-3.0.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp8727909783460916704.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.cxf_cxf-rt-transports-http-3.0.3.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.sis.core_sis-utility-0.5.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.sis.core_sis-utility-0.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7737629447561379628.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.sis.core_sis-utility-0.5.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.lucene_lucene-queryparser-4.10.3.jar with timestamp 1544573807446
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.lucene_lucene-queryparser-4.10.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp6711053081132151310.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.lucene_lucene-queryparser-4.10.3.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang.modules_scala-parser-combinators_2.11-1.0.5.jar with timestamp 1544573807439
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.scala-lang.modules_scala-parser-combinators_2.11-1.0.5.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4750655911912725865.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.scala-lang.modules_scala-parser-combinators_2.11-1.0.5.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.cxf_cxf-rt-rs-client-3.0.3.jar with timestamp 1544573807447
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.cxf_cxf-rt-rs-client-3.0.3.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp7768253069188252303.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.cxf_cxf-rt-rs-client-3.0.3.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.directory.server_apacheds-kerberos-codec-2.0.0-M15.jar with timestamp 1544573807444
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.directory.server_apacheds-kerberos-codec-2.0.0-M15.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp5056400293625768836.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.directory.server_apacheds-kerberos-codec-2.0.0-M15.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/javax.servlet_javax.servlet-api-3.0.1.jar with timestamp 1544573807440
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/javax.servlet_javax.servlet-api-3.0.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1105262335762645336.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/javax.servlet_javax.servlet-api-3.0.1.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.tika_tika-parsers-1.12.jar with timestamp 1544573807439
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.tika_tika-parsers-1.12.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp4649879719607604969.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.tika_tika-parsers-1.12.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.bouncycastle_bcpkix-jdk15on-1.52.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.bouncycastle_bcpkix-jdk15on-1.52.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3056383430757140177.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.bouncycastle_bcpkix-jdk15on-1.52.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.pdfbox_jempbox-1.8.10.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.pdfbox_jempbox-1.8.10.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp2689627899193423760.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.pdfbox_jempbox-1.8.10.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.directory.api_api-asn1-api-1.0.0-M20.jar with timestamp 1544573807444
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/org.apache.directory.api_api-asn1-api-1.0.0-M20.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp1595016767849583147.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/org.apache.directory.api_api-asn1-api-1.0.0-M20.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/commons-configuration_commons-configuration-1.8.jar with timestamp 1544573807446
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/commons-configuration_commons-configuration-1.8.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp3166018455798503122.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/commons-configuration_commons-configuration-1.8.jar to class loader
+2018-12-11 19:16:56 INFO  Executor:54 - Fetching spark://172.17.0.1:38957/jars/commons-logging_commons-logging-api-1.1.jar with timestamp 1544573807448
+2018-12-11 19:16:56 INFO  Utils:54 - Fetching spark://172.17.0.1:38957/jars/commons-logging_commons-logging-api-1.1.jar to /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/fetchFileTemp101126383504101654.tmp
+2018-12-11 19:16:56 INFO  Executor:54 - Adding file:/tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/userFiles-499fbef5-3822-4ed1-847a-d97c1c0c0013/commons-logging_commons-logging-api-1.1.jar to class loader
+2018-12-11 19:16:56 INFO  NewHadoopRDD:54 - Input split: file:/home/nruest/Projects/tmp/990/6275/warcs/ARCHIVEIT-6275-ONE_TIME-JOB172992-20150915191745019-00000.warc.gz:0+144367
+2018-12-11 19:16:56 INFO  Executor:54 - Finished task 0.0 in stage 0.0 (TID 0). 1108 bytes result sent to driver
+2018-12-11 19:16:56 INFO  TaskSetManager:54 - Finished task 0.0 in stage 0.0 (TID 0) in 2214 ms on localhost (executor driver) (1/1)
+2018-12-11 19:16:56 INFO  TaskSchedulerImpl:54 - Removed TaskSet 0.0, whose tasks have all completed, from pool 
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - ShuffleMapStage 0 (map at package.scala:88) finished in 2.333 s
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - looking for newly runnable stages
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - running: Set()
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - waiting: Set(ShuffleMapStage 1, ResultStage 2)
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - failed: Set()
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - Submitting ShuffleMapStage 1 (MapPartitionsRDD[7] at sortBy at package.scala:90), which has no missing parents
+2018-12-11 19:16:56 INFO  MemoryStore:54 - Block broadcast_2 stored as values in memory (estimated size 4.4 KB, free 3.0 GB)
+2018-12-11 19:16:56 INFO  MemoryStore:54 - Block broadcast_2_piece0 stored as bytes in memory (estimated size 2.5 KB, free 3.0 GB)
+2018-12-11 19:16:56 INFO  BlockManagerInfo:54 - Added broadcast_2_piece0 in memory on 172.17.0.1:35407 (size: 2.5 KB, free: 3.0 GB)
+2018-12-11 19:16:56 INFO  SparkContext:54 - Created broadcast 2 from broadcast at DAGScheduler.scala:1039
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - Submitting 1 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[7] at sortBy at package.scala:90) (first 15 tasks are for partitions Vector(0))
+2018-12-11 19:16:56 INFO  TaskSchedulerImpl:54 - Adding task set 1.0 with 1 tasks
+2018-12-11 19:16:56 INFO  TaskSetManager:54 - Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 0, PROCESS_LOCAL, 7638 bytes)
+2018-12-11 19:16:56 INFO  Executor:54 - Running task 0.0 in stage 1.0 (TID 1)
+2018-12-11 19:16:56 INFO  ShuffleBlockFetcherIterator:54 - Getting 0 non-empty blocks out of 1 blocks
+2018-12-11 19:16:56 INFO  ShuffleBlockFetcherIterator:54 - Started 0 remote fetches in 4 ms
+2018-12-11 19:16:56 INFO  Executor:54 - Finished task 0.0 in stage 1.0 (TID 1). 1194 bytes result sent to driver
+2018-12-11 19:16:56 INFO  TaskSetManager:54 - Finished task 0.0 in stage 1.0 (TID 1) in 44 ms on localhost (executor driver) (1/1)
+2018-12-11 19:16:56 INFO  TaskSchedulerImpl:54 - Removed TaskSet 1.0, whose tasks have all completed, from pool 
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - ShuffleMapStage 1 (sortBy at package.scala:90) finished in 0.060 s
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - looking for newly runnable stages
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - running: Set()
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - waiting: Set(ResultStage 2)
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - failed: Set()
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - Submitting ResultStage 2 (MapPartitionsRDD[10] at saveAsTextFile at <console>:34), which has no missing parents
+2018-12-11 19:16:56 INFO  MemoryStore:54 - Block broadcast_3 stored as values in memory (estimated size 72.6 KB, free 3.0 GB)
+2018-12-11 19:16:56 INFO  MemoryStore:54 - Block broadcast_3_piece0 stored as bytes in memory (estimated size 26.2 KB, free 3.0 GB)
+2018-12-11 19:16:56 INFO  BlockManagerInfo:54 - Added broadcast_3_piece0 in memory on 172.17.0.1:35407 (size: 26.2 KB, free: 3.0 GB)
+2018-12-11 19:16:56 INFO  SparkContext:54 - Created broadcast 3 from broadcast at DAGScheduler.scala:1039
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[10] at saveAsTextFile at <console>:34) (first 15 tasks are for partitions Vector(0))
+2018-12-11 19:16:56 INFO  TaskSchedulerImpl:54 - Adding task set 2.0 with 1 tasks
+2018-12-11 19:16:56 INFO  TaskSetManager:54 - Starting task 0.0 in stage 2.0 (TID 2, localhost, executor driver, partition 0, PROCESS_LOCAL, 7649 bytes)
+2018-12-11 19:16:56 INFO  Executor:54 - Running task 0.0 in stage 2.0 (TID 2)
+2018-12-11 19:16:56 INFO  ShuffleBlockFetcherIterator:54 - Getting 0 non-empty blocks out of 1 blocks
+2018-12-11 19:16:56 INFO  ShuffleBlockFetcherIterator:54 - Started 0 remote fetches in 2 ms
+2018-12-11 19:16:56 INFO  FileOutputCommitter:108 - File Output Committer Algorithm version is 1
+2018-12-11 19:16:56 INFO  FileOutputCommitter:535 - Saved output of task 'attempt_20181211191653_0010_m_000000_0' to file:/home/nruest/Projects/tmp/990/6275/1/derivatives/all-domains/output/_temporary/0/task_20181211191653_0010_m_000000
+2018-12-11 19:16:56 INFO  SparkHadoopMapRedUtil:54 - attempt_20181211191653_0010_m_000000_0: Committed
+2018-12-11 19:16:56 INFO  Executor:54 - Finished task 0.0 in stage 2.0 (TID 2). 1459 bytes result sent to driver
+2018-12-11 19:16:56 INFO  TaskSetManager:54 - Finished task 0.0 in stage 2.0 (TID 2) in 95 ms on localhost (executor driver) (1/1)
+2018-12-11 19:16:56 INFO  TaskSchedulerImpl:54 - Removed TaskSet 2.0, whose tasks have all completed, from pool 
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - ResultStage 2 (runJob at SparkHadoopWriter.scala:78) finished in 0.117 s
+2018-12-11 19:16:56 INFO  DAGScheduler:54 - Job 0 finished: runJob at SparkHadoopWriter.scala:78, took 2.726146 s
+2018-12-11 19:16:56 INFO  SparkHadoopWriter:54 - Job job_20181211191653_0010 committed.
+2018-12-11 19:16:57 INFO  MemoryStore:54 - Block broadcast_4 stored as values in memory (estimated size 275.5 KB, free 3.0 GB)
+2018-12-11 19:16:57 INFO  MemoryStore:54 - Block broadcast_4_piece0 stored as bytes in memory (estimated size 23.0 KB, free 3.0 GB)
+2018-12-11 19:16:57 INFO  BlockManagerInfo:54 - Added broadcast_4_piece0 in memory on 172.17.0.1:35407 (size: 23.0 KB, free: 3.0 GB)
+2018-12-11 19:16:57 INFO  SparkContext:54 - Created broadcast 4 from newAPIHadoopFile at package.scala:66
+2018-12-11 19:16:57 INFO  FileOutputCommitter:108 - File Output Committer Algorithm version is 1
+2018-12-11 19:16:57 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-12-11 19:16:57 INFO  SparkContext:54 - Starting job: runJob at SparkHadoopWriter.scala:78
+2018-12-11 19:16:57 INFO  DAGScheduler:54 - Got job 1 (runJob at SparkHadoopWriter.scala:78) with 1 output partitions
+2018-12-11 19:16:57 INFO  DAGScheduler:54 - Final stage: ResultStage 3 (runJob at SparkHadoopWriter.scala:78)
+2018-12-11 19:16:57 INFO  DAGScheduler:54 - Parents of final stage: List()
+2018-12-11 19:16:57 INFO  DAGScheduler:54 - Missing parents: List()
+2018-12-11 19:16:57 INFO  DAGScheduler:54 - Submitting ResultStage 3 (MapPartitionsRDD[16] at saveAsTextFile at <console>:34), which has no missing parents
+2018-12-11 19:16:57 INFO  MemoryStore:54 - Block broadcast_5 stored as values in memory (estimated size 72.4 KB, free 3.0 GB)
+2018-12-11 19:16:57 INFO  MemoryStore:54 - Block broadcast_5_piece0 stored as bytes in memory (estimated size 26.0 KB, free 3.0 GB)
+2018-12-11 19:16:57 INFO  BlockManagerInfo:54 - Added broadcast_5_piece0 in memory on 172.17.0.1:35407 (size: 26.0 KB, free: 3.0 GB)
+2018-12-11 19:16:57 INFO  SparkContext:54 - Created broadcast 5 from broadcast at DAGScheduler.scala:1039
+2018-12-11 19:16:57 INFO  DAGScheduler:54 - Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[16] at saveAsTextFile at <console>:34) (first 15 tasks are for partitions Vector(0))
+2018-12-11 19:16:57 INFO  TaskSchedulerImpl:54 - Adding task set 3.0 with 1 tasks
+2018-12-11 19:16:57 INFO  TaskSetManager:54 - Starting task 0.0 in stage 3.0 (TID 3, localhost, executor driver, partition 0, PROCESS_LOCAL, 8000 bytes)
+2018-12-11 19:16:57 INFO  Executor:54 - Running task 0.0 in stage 3.0 (TID 3)
+2018-12-11 19:16:57 INFO  NewHadoopRDD:54 - Input split: file:/home/nruest/Projects/tmp/990/6275/warcs/ARCHIVEIT-6275-ONE_TIME-JOB172992-20150915191745019-00000.warc.gz:0+144367
+2018-12-11 19:16:57 INFO  FileOutputCommitter:108 - File Output Committer Algorithm version is 1
+2018-12-11 19:16:57 INFO  FileOutputCommitter:535 - Saved output of task 'attempt_20181211191657_0016_m_000000_0' to file:/home/nruest/Projects/tmp/990/6275/1/derivatives/all-text/output/_temporary/0/task_20181211191657_0016_m_000000
+2018-12-11 19:16:57 INFO  SparkHadoopMapRedUtil:54 - attempt_20181211191657_0016_m_000000_0: Committed
+2018-12-11 19:16:57 INFO  Executor:54 - Finished task 0.0 in stage 3.0 (TID 3). 1072 bytes result sent to driver
+2018-12-11 19:16:57 INFO  TaskSetManager:54 - Finished task 0.0 in stage 3.0 (TID 3) in 47 ms on localhost (executor driver) (1/1)
+2018-12-11 19:16:57 INFO  TaskSchedulerImpl:54 - Removed TaskSet 3.0, whose tasks have all completed, from pool 
+2018-12-11 19:16:57 INFO  DAGScheduler:54 - ResultStage 3 (runJob at SparkHadoopWriter.scala:78) finished in 0.067 s
+2018-12-11 19:16:57 INFO  DAGScheduler:54 - Job 1 finished: runJob at SparkHadoopWriter.scala:78, took 0.070072 s
+2018-12-11 19:16:57 INFO  SparkHadoopWriter:54 - Job job_20181211191657_0016 committed.
+2018-12-11 19:16:57 INFO  MemoryStore:54 - Block broadcast_6 stored as values in memory (estimated size 275.5 KB, free 3.0 GB)
+2018-12-11 19:16:57 INFO  MemoryStore:54 - Block broadcast_6_piece0 stored as bytes in memory (estimated size 23.0 KB, free 3.0 GB)
+2018-12-11 19:16:57 INFO  BlockManagerInfo:54 - Added broadcast_6_piece0 in memory on 172.17.0.1:35407 (size: 23.0 KB, free: 3.0 GB)
+2018-12-11 19:16:57 INFO  SparkContext:54 - Created broadcast 6 from newAPIHadoopFile at package.scala:66
+2018-12-11 19:16:57 INFO  FileInputFormat:283 - Total input paths to process : 1
+links: org.apache.spark.rdd.RDD[((String, String, String), Int)] = MapPartitionsRDD[29] at filter at <console>:33
+2018-12-11 19:16:58 INFO  SparkContext:54 - Starting job: collect at WriteGraphML.scala:55
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Registering RDD 24 (map at package.scala:88)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Registering RDD 26 (sortBy at package.scala:90)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Got job 2 (collect at WriteGraphML.scala:55) with 1 output partitions
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Final stage: ResultStage 6 (collect at WriteGraphML.scala:55)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Parents of final stage: List(ShuffleMapStage 5)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Missing parents: List(ShuffleMapStage 5)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Submitting ShuffleMapStage 4 (MapPartitionsRDD[24] at map at package.scala:88), which has no missing parents
+2018-12-11 19:16:58 INFO  MemoryStore:54 - Block broadcast_7 stored as values in memory (estimated size 4.8 KB, free 3.0 GB)
+2018-12-11 19:16:58 INFO  MemoryStore:54 - Block broadcast_7_piece0 stored as bytes in memory (estimated size 2.5 KB, free 3.0 GB)
+2018-12-11 19:16:58 INFO  BlockManagerInfo:54 - Added broadcast_7_piece0 in memory on 172.17.0.1:35407 (size: 2.5 KB, free: 3.0 GB)
+2018-12-11 19:16:58 INFO  SparkContext:54 - Created broadcast 7 from broadcast at DAGScheduler.scala:1039
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Submitting 1 missing tasks from ShuffleMapStage 4 (MapPartitionsRDD[24] at map at package.scala:88) (first 15 tasks are for partitions Vector(0))
+2018-12-11 19:16:58 INFO  TaskSchedulerImpl:54 - Adding task set 4.0 with 1 tasks
+2018-12-11 19:16:58 INFO  TaskSetManager:54 - Starting task 0.0 in stage 4.0 (TID 4, localhost, executor driver, partition 0, PROCESS_LOCAL, 7989 bytes)
+2018-12-11 19:16:58 INFO  Executor:54 - Running task 0.0 in stage 4.0 (TID 4)
+2018-12-11 19:16:58 INFO  NewHadoopRDD:54 - Input split: file:/home/nruest/Projects/tmp/990/6275/warcs/ARCHIVEIT-6275-ONE_TIME-JOB172992-20150915191745019-00000.warc.gz:0+144367
+2018-12-11 19:16:58 INFO  Executor:54 - Finished task 0.0 in stage 4.0 (TID 4). 1022 bytes result sent to driver
+2018-12-11 19:16:58 INFO  TaskSetManager:54 - Finished task 0.0 in stage 4.0 (TID 4) in 28 ms on localhost (executor driver) (1/1)
+2018-12-11 19:16:58 INFO  TaskSchedulerImpl:54 - Removed TaskSet 4.0, whose tasks have all completed, from pool 
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - ShuffleMapStage 4 (map at package.scala:88) finished in 0.038 s
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - looking for newly runnable stages
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - running: Set()
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - waiting: Set(ShuffleMapStage 5, ResultStage 6)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - failed: Set()
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Submitting ShuffleMapStage 5 (MapPartitionsRDD[26] at sortBy at package.scala:90), which has no missing parents
+2018-12-11 19:16:58 INFO  MemoryStore:54 - Block broadcast_8 stored as values in memory (estimated size 3.9 KB, free 3.0 GB)
+2018-12-11 19:16:58 INFO  MemoryStore:54 - Block broadcast_8_piece0 stored as bytes in memory (estimated size 2.3 KB, free 3.0 GB)
+2018-12-11 19:16:58 INFO  BlockManagerInfo:54 - Added broadcast_8_piece0 in memory on 172.17.0.1:35407 (size: 2.3 KB, free: 3.0 GB)
+2018-12-11 19:16:58 INFO  SparkContext:54 - Created broadcast 8 from broadcast at DAGScheduler.scala:1039
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Submitting 1 missing tasks from ShuffleMapStage 5 (MapPartitionsRDD[26] at sortBy at package.scala:90) (first 15 tasks are for partitions Vector(0))
+2018-12-11 19:16:58 INFO  TaskSchedulerImpl:54 - Adding task set 5.0 with 1 tasks
+2018-12-11 19:16:58 INFO  TaskSetManager:54 - Starting task 0.0 in stage 5.0 (TID 5, localhost, executor driver, partition 0, PROCESS_LOCAL, 7638 bytes)
+2018-12-11 19:16:58 INFO  Executor:54 - Running task 0.0 in stage 5.0 (TID 5)
+2018-12-11 19:16:58 INFO  ShuffleBlockFetcherIterator:54 - Getting 0 non-empty blocks out of 1 blocks
+2018-12-11 19:16:58 INFO  ShuffleBlockFetcherIterator:54 - Started 0 remote fetches in 0 ms
+2018-12-11 19:16:58 INFO  Executor:54 - Finished task 0.0 in stage 5.0 (TID 5). 1194 bytes result sent to driver
+2018-12-11 19:16:58 INFO  TaskSetManager:54 - Finished task 0.0 in stage 5.0 (TID 5) in 8 ms on localhost (executor driver) (1/1)
+2018-12-11 19:16:58 INFO  TaskSchedulerImpl:54 - Removed TaskSet 5.0, whose tasks have all completed, from pool 
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - ShuffleMapStage 5 (sortBy at package.scala:90) finished in 0.015 s
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - looking for newly runnable stages
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - running: Set()
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - waiting: Set(ResultStage 6)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - failed: Set()
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Submitting ResultStage 6 (MapPartitionsRDD[30] at map at WriteGraphML.scala:51), which has no missing parents
+2018-12-11 19:16:58 INFO  MemoryStore:54 - Block broadcast_9 stored as values in memory (estimated size 4.0 KB, free 3.0 GB)
+2018-12-11 19:16:58 INFO  MemoryStore:54 - Block broadcast_9_piece0 stored as bytes in memory (estimated size 2.3 KB, free 3.0 GB)
+2018-12-11 19:16:58 INFO  BlockManagerInfo:54 - Added broadcast_9_piece0 in memory on 172.17.0.1:35407 (size: 2.3 KB, free: 3.0 GB)
+2018-12-11 19:16:58 INFO  SparkContext:54 - Created broadcast 9 from broadcast at DAGScheduler.scala:1039
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Submitting 1 missing tasks from ResultStage 6 (MapPartitionsRDD[30] at map at WriteGraphML.scala:51) (first 15 tasks are for partitions Vector(0))
+2018-12-11 19:16:58 INFO  TaskSchedulerImpl:54 - Adding task set 6.0 with 1 tasks
+2018-12-11 19:16:58 INFO  TaskSetManager:54 - Starting task 0.0 in stage 6.0 (TID 6, localhost, executor driver, partition 0, PROCESS_LOCAL, 7649 bytes)
+2018-12-11 19:16:58 INFO  Executor:54 - Running task 0.0 in stage 6.0 (TID 6)
+2018-12-11 19:16:58 INFO  ShuffleBlockFetcherIterator:54 - Getting 0 non-empty blocks out of 1 blocks
+2018-12-11 19:16:58 INFO  ShuffleBlockFetcherIterator:54 - Started 0 remote fetches in 0 ms
+2018-12-11 19:16:58 INFO  Executor:54 - Finished task 0.0 in stage 6.0 (TID 6). 1138 bytes result sent to driver
+2018-12-11 19:16:58 INFO  TaskSetManager:54 - Finished task 0.0 in stage 6.0 (TID 6) in 8 ms on localhost (executor driver) (1/1)
+2018-12-11 19:16:58 INFO  TaskSchedulerImpl:54 - Removed TaskSet 6.0, whose tasks have all completed, from pool 
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - ResultStage 6 (collect at WriteGraphML.scala:55) finished in 0.014 s
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Job 2 finished: collect at WriteGraphML.scala:55, took 0.073789 s
+2018-12-11 19:16:58 INFO  SparkContext:54 - Starting job: collect at WriteGraphML.scala:59
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Registering RDD 32 (distinct at WriteGraphML.scala:59)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Got job 3 (collect at WriteGraphML.scala:59) with 1 output partitions
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Final stage: ResultStage 10 (collect at WriteGraphML.scala:59)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Parents of final stage: List(ShuffleMapStage 9)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Missing parents: List(ShuffleMapStage 9)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Submitting ShuffleMapStage 9 (MapPartitionsRDD[32] at distinct at WriteGraphML.scala:59), which has no missing parents
+2018-12-11 19:16:58 INFO  MemoryStore:54 - Block broadcast_10 stored as values in memory (estimated size 4.9 KB, free 3.0 GB)
+2018-12-11 19:16:58 INFO  MemoryStore:54 - Block broadcast_10_piece0 stored as bytes in memory (estimated size 2.8 KB, free 3.0 GB)
+2018-12-11 19:16:58 INFO  BlockManagerInfo:54 - Added broadcast_10_piece0 in memory on 172.17.0.1:35407 (size: 2.8 KB, free: 3.0 GB)
+2018-12-11 19:16:58 INFO  SparkContext:54 - Created broadcast 10 from broadcast at DAGScheduler.scala:1039
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Submitting 1 missing tasks from ShuffleMapStage 9 (MapPartitionsRDD[32] at distinct at WriteGraphML.scala:59) (first 15 tasks are for partitions Vector(0))
+2018-12-11 19:16:58 INFO  TaskSchedulerImpl:54 - Adding task set 9.0 with 1 tasks
+2018-12-11 19:16:58 INFO  TaskSetManager:54 - Starting task 0.0 in stage 9.0 (TID 7, localhost, executor driver, partition 0, PROCESS_LOCAL, 7638 bytes)
+2018-12-11 19:16:58 INFO  Executor:54 - Running task 0.0 in stage 9.0 (TID 7)
+2018-12-11 19:16:58 INFO  ShuffleBlockFetcherIterator:54 - Getting 0 non-empty blocks out of 1 blocks
+2018-12-11 19:16:58 INFO  ShuffleBlockFetcherIterator:54 - Started 0 remote fetches in 1 ms
+2018-12-11 19:16:58 INFO  Executor:54 - Finished task 0.0 in stage 9.0 (TID 7). 1237 bytes result sent to driver
+2018-12-11 19:16:58 INFO  TaskSetManager:54 - Finished task 0.0 in stage 9.0 (TID 7) in 13 ms on localhost (executor driver) (1/1)
+2018-12-11 19:16:58 INFO  TaskSchedulerImpl:54 - Removed TaskSet 9.0, whose tasks have all completed, from pool 
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - ShuffleMapStage 9 (distinct at WriteGraphML.scala:59) finished in 0.018 s
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - looking for newly runnable stages
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - running: Set()
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - waiting: Set(ResultStage 10)
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - failed: Set()
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Submitting ResultStage 10 (MapPartitionsRDD[34] at distinct at WriteGraphML.scala:59), which has no missing parents
+2018-12-11 19:16:58 INFO  MemoryStore:54 - Block broadcast_11 stored as values in memory (estimated size 4.0 KB, free 3.0 GB)
+2018-12-11 19:16:58 INFO  MemoryStore:54 - Block broadcast_11_piece0 stored as bytes in memory (estimated size 2.3 KB, free 3.0 GB)
+2018-12-11 19:16:58 INFO  BlockManagerInfo:54 - Added broadcast_11_piece0 in memory on 172.17.0.1:35407 (size: 2.3 KB, free: 3.0 GB)
+2018-12-11 19:16:58 INFO  SparkContext:54 - Created broadcast 11 from broadcast at DAGScheduler.scala:1039
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Submitting 1 missing tasks from ResultStage 10 (MapPartitionsRDD[34] at distinct at WriteGraphML.scala:59) (first 15 tasks are for partitions Vector(0))
+2018-12-11 19:16:58 INFO  TaskSchedulerImpl:54 - Adding task set 10.0 with 1 tasks
+2018-12-11 19:16:58 INFO  TaskSetManager:54 - Starting task 0.0 in stage 10.0 (TID 8, localhost, executor driver, partition 0, PROCESS_LOCAL, 7649 bytes)
+2018-12-11 19:16:58 INFO  Executor:54 - Running task 0.0 in stage 10.0 (TID 8)
+2018-12-11 19:16:58 INFO  ShuffleBlockFetcherIterator:54 - Getting 0 non-empty blocks out of 1 blocks
+2018-12-11 19:16:58 INFO  ShuffleBlockFetcherIterator:54 - Started 0 remote fetches in 0 ms
+2018-12-11 19:16:58 INFO  Executor:54 - Finished task 0.0 in stage 10.0 (TID 8). 1138 bytes result sent to driver
+2018-12-11 19:16:58 INFO  TaskSetManager:54 - Finished task 0.0 in stage 10.0 (TID 8) in 12 ms on localhost (executor driver) (1/1)
+2018-12-11 19:16:58 INFO  TaskSchedulerImpl:54 - Removed TaskSet 10.0, whose tasks have all completed, from pool 
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - ResultStage 10 (collect at WriteGraphML.scala:59) finished in 0.018 s
+2018-12-11 19:16:58 INFO  DAGScheduler:54 - Job 3 finished: collect at WriteGraphML.scala:59, took 0.040952 s
+res3: Boolean = true
+2018-12-11 19:16:58 INFO  SparkContext:54 - Invoking stop() from shutdown hook
+2018-12-11 19:16:58 INFO  AbstractConnector:318 - Stopped Spark@758c35b3{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+2018-12-11 19:16:58 INFO  SparkUI:54 - Stopped Spark web UI at http://172.17.0.1:4040
+2018-12-11 19:16:58 INFO  MapOutputTrackerMasterEndpoint:54 - MapOutputTrackerMasterEndpoint stopped!
+2018-12-11 19:16:58 INFO  MemoryStore:54 - MemoryStore cleared
+2018-12-11 19:16:58 INFO  BlockManager:54 - BlockManager stopped
+2018-12-11 19:16:58 INFO  BlockManagerMaster:54 - BlockManagerMaster stopped
+2018-12-11 19:16:58 INFO  OutputCommitCoordinator$OutputCommitCoordinatorEndpoint:54 - OutputCommitCoordinator stopped!
+2018-12-11 19:16:58 INFO  SparkContext:54 - Successfully stopped SparkContext
+2018-12-11 19:16:58 INFO  ShutdownHookManager:54 - Shutdown hook called
+2018-12-11 19:16:58 INFO  ShutdownHookManager:54 - Deleting directory /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d
+2018-12-11 19:16:58 INFO  ShutdownHookManager:54 - Deleting directory /tmp/spark-407b060a-01dc-436b-8a85-03dfd506aa7d/repl-67233f7e-bdec-4167-ab55-76bc51667312
+2018-12-11 19:16:58 INFO  ShutdownHookManager:54 - Deleting directory /tmp/spark-d888428d-2ad5-4d37-ab51-f9015075c457

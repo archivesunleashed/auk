@@ -22,6 +22,7 @@ module WasapiFilesHelper
     if account.first.blank?
       return 0
     end
+
     if account.first.present?
       account_path = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s
       number_to_human_size(`du -sb "#{account_path}"`.split("\t").first.to_i)
@@ -46,10 +47,16 @@ module WasapiFilesHelper
               collection_id.to_s + '/' + user_id.to_s +
               '/derivatives/all-domains/' + collection_id.to_s +
               '-fullurls.txt'
+    if File.exist?(gexf) && !File.empty?(gexf) ||
+       File.exist?(graphml) && !File.empty?(graphml) ||
+       File.exist?(fulltext) && !File.empty?(fulltext) ||
+       File.exist?(domains) && !File.empty?(domains) == true
 
-    File.exist?(gexf) && !File.empty?(gexf) ||
-      File.exist?(graphml) && !File.empty?(graphml) ||
-      File.exist?(fulltext) && !File.empty?(fulltext) ||
-      File.exist?(domains) && !File.empty?(domains)
+      spark_log = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+                  collection_id.to_s + '/' + user_id.to_s + '/spark_jobs/' +
+                  collection_id.to_s + '.scala.log'
+      [File.mtime(spark_log).strftime('%B %-d, %Y'),
+       File.mtime(spark_log).strftime('%Y%m%d')]
+    end
   end
 end

@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -38,9 +38,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
   gem 'simplecov'
 end
 
@@ -52,7 +49,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '0.21.0'
+  gem 'pg', '1.1.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -60,10 +57,11 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 ## AUK
 gem 'attr_encrypted'
-gem 'bootstrap', '~> 4.1.2' # https://nvd.nist.gov/vuln/detail/CVE-2018-14042
+gem 'bootstrap', '~> 4.3.1' # https://nvd.nist.gov/vuln/detail/CVE-2019-8331
 gem 'bootstrap_form',
     git: 'https://github.com/bootstrap-ruby/bootstrap_form.git',
     branch: 'master'
+gem 'chartkick'
 gem 'codecov', require: false, group: :test
 gem 'daemons'
 gem 'delayed-web'
@@ -71,6 +69,7 @@ gem 'delayed_job_active_record'
 gem 'ffi', '>= 1.9.24' # https://nvd.nist.gov/vuln/detail/CVE-2018-1000201
 gem 'figaro'
 gem 'font-awesome-rails'
+gem 'groupdate'
 gem 'http'
 gem 'humanize_boolean'
 gem 'jquery-rails'
@@ -78,14 +77,16 @@ gem 'kaminari'
 gem 'logstash-logger'
 gem 'loofah', '>= 2.2.3' # https://nvd.nist.gov/vuln/detail/CVE-2018-16468
 gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 gem 'os'
 gem 'parallel'
 gem 'rack', '>= 2.0.6' # https://nvd.nist.gov/vuln/detail/CVE-2018-16471 https://nvd.nist.gov/vuln/detail/CVE-2018-16470
 gem 'rails-html-sanitizer', '~> 1.0.4' # https://nvd.nist.gov/vuln/detail/CVE-2018-3741
-gem 'rubocop', '~> 0.48.1'
-gem 'rubocop-rspec', '~> 1.15.0'
+gem 'rubocop', '~> 0.66.0'
+gem 'rubocop-rspec', '~> 1.32.0'
 gem 'rubyzip', '>= 1.2.2' # https://nvd.nist.gov/vuln/detail/CVE-2018-1000544
 gem 'sitemap_generator'
+gem 'slack-notifier'
 gem 'sys-filesystem'
 gem 'time_difference'

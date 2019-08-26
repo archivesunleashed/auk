@@ -13,4 +13,9 @@ module UsersHelper
       "https://gravatar.com/avatar/#{gravatar}.png?s=#{size}&d=#{CGI.escape(default_url)}"
     end
   end
+
+  def collection_queued(user_id, collection_id)
+    Delayed::Job.where("handler LIKE '%#{user_id}%' AND handler LIKE '%#{collection_id}%'")
+                .pluck(:queue)
+  end
 end

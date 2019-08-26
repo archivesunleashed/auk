@@ -14,6 +14,12 @@ class TextfilterJob < ApplicationJob
     update_dashboard = Dashboard.find_by(job_id: job_id)
     update_dashboard.end_time = DateTime.now.utc
     update_dashboard.save
+    if Rails.env.production?
+      user = User.find(job.arguments.first)
+      collection = Collection.find(job.arguments.second)
+      message = "Analysis of \"#{collection.title}\" for #{user.auk_name} has completed."
+      SLACK.ping message
+    end
   end
 
   def perform(user_id, collection_id)
@@ -49,12 +55,12 @@ class TextfilterJob < ApplicationJob
           grep_command = '-a ' + grep_query + ' ' + collection_fulltext +
                          ' > ' + domain_textfilter
           `grep #{grep_command}`
-          filtered_text_zip = collection_filtered_text_path + '/' +
-                              collection_id.to_s + '-filtered_text.zip'
-          zip_command = '-j ' + filtered_text_zip + ' ' +
-                        collection_filtered_text_path + '/*.txt'
-          `zip #{zip_command}`
         end
+        filtered_text_zip = collection_filtered_text_path + '/' +
+                            collection_id.to_s + '-filtered_text.zip'
+        zip_command = '-j ' + filtered_text_zip + ' ' +
+                      collection_filtered_text_path + '/*.txt'
+        `zip #{zip_command}`
       end
     end
   end

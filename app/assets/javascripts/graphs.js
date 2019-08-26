@@ -67,10 +67,10 @@ function zoomOut(instance) {
 function scaleUp(instance) {
   var nodes = instance.graph.nodes();
   nodes.forEach(x => {
-    if (isFinite(Math.log(x.size + 2))) {
+    if (isFinite(Math.log(x.size + 2))) { // eslint-disable-line no-restricted-globals
       x.size = Math.log(x.size + 2);
     } else {
-      x.size = x.size;
+      x.size = x.size; // eslint-disable-line no-self-assign
     }
   });
   instance.refresh();
@@ -79,12 +79,12 @@ function scaleUp(instance) {
 function scaleDown(instance) {
   var nodes = instance.graph.nodes();
   nodes.forEach(x => {
-    if (isFinite(Math.exp(x.size) - 2)) {
+    if (isFinite(Math.exp(x.size) - 2)) { // eslint-disable-line no-restricted-globals
       x.size = Math.exp(x.size) - 2;
     } else if (Math.exp(x.size) - 2 < 1) {
       x.size = 1;
     } else {
-      x.size = x.size;
+      x.size = x.size; // eslint-disable-line no-self-assign
     }
   });
   instance.refresh();
@@ -143,17 +143,19 @@ $(document).on('turbolinks:load', function () {
       return neighbors;
     });
   }
-  so = new sigma({ renderers: [ // eslint-disable-line new-cap
-    {
-      container: document.getElementById('graph'),
-      type: 'canvas' // sigma.renderers.canvas works as well
-    }]
+  so = new sigma({ // eslint-disable-line new-cap
+    renderers: [
+      {
+        container: document.getElementById('graph'),
+        type: 'canvas' // sigma.renderers.canvas works as well
+      }]
   });
-  gm = new sigma({ renderers: [ // eslint-disable-line new-cap
-    {
-      container: document.getElementById('graph-modal'),
-      type: 'canvas'
-    }]
+  gm = new sigma({ // eslint-disable-line new-cap
+    renderers: [
+      {
+        container: document.getElementById('graph-modal'),
+        type: 'canvas'
+      }]
   });
 
   graphRender(so);
@@ -269,6 +271,30 @@ $(document).on('turbolinks:load', function () {
     } else {
       $('.scale-down').prop('disabled', true);
     }
+  });
+
+  $('#image-link').on('click', function () {
+    var button = document.getElementById('image-link');
+    var canvas = $('.sigma-scene');
+    var camera = so.camera;
+    var fn = button.getAttribute('download').replace('-image.png', '');
+    var img = canvas[1].toDataURL('image/png');
+    button.setAttribute('download', fn + 'xyr-' + Math.abs(Math.round(camera.x))
+      + '-' + Math.abs(Math.round(camera.y)) + '-' + Math.abs(Math.round(camera.ratio))
+      + '-image.png');
+    button.href = img;
+  });
+
+  $('#modal-image-link').on('click', function () {
+    var button = document.getElementById('modal-image-link');
+    var canvas = $('.sigma-scene');
+    var camera = gm.camera;
+    var fn = button.getAttribute('download').replace('-image.png', '');
+    var img = canvas[0].toDataURL('image/png');
+    button.setAttribute('download', fn + 'xyr-' + Math.abs(Math.round(camera.x))
+      + '-' + Math.abs(Math.round(camera.y)) + '-' + Math.abs(Math.round(camera.ratio))
+      + '-image.png');
+    button.href = img;
   });
 
   $('span#modal-click').on('click', function () {

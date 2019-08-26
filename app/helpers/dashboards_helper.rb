@@ -4,7 +4,12 @@
 module DashboardsHelper
   def job_length(start_time, end_time)
     return if start_time.blank? || end_time.blank?
+
     TimeDifference.between(end_time, start_time).humanize
+  end
+
+  def job_length_charts(start_time, end_time)
+    TimeDifference.between(end_time, start_time)
   end
 
   def get_username(user_id)
@@ -37,7 +42,7 @@ module DashboardsHelper
   def get_most_jobs_user
     user_id = Dashboard.group(:user_id)
                        .select(:user_id)
-                       .order('count(*) desc')
+                       .order(Arel.sql('count(*) desc'))
                        .first.user_id
     user = User.find(user_id)
     username = user.auk_name
@@ -51,7 +56,7 @@ module DashboardsHelper
   def get_most_jobs_user_institution
     user_id = Dashboard.group(:user_id)
                        .select(:user_id)
-                       .order('count(*) desc')
+                       .order(Arel.sql('count(*) desc'))
                        .first.user_id
     user = User.find(user_id)
     user.institution
@@ -74,7 +79,11 @@ module DashboardsHelper
   end
 
   def get_total_number_of_warcs
-    WasapiFile.distinct.count(:filename)
+    total_warcs = <<-QUERY
+      SELECT COUNT(*) FROM (SELECT DISTINCT "wasapi_files"."filename"
+      FROM "wasapi_files") AS temp;
+    QUERY
+    ActiveRecord::Base.connection.execute(total_warcs).first.first.second
   end
 
   def get_total_number_of_collections
