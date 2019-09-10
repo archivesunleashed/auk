@@ -51,16 +51,24 @@ class TextfilterJob < ApplicationJob
           domain_textfilter = collection_filtered_text_path + '/' +
                               collection_id.to_s + '-' + row[0].parameterize +
                               '.txt'
+          interim_file = collection_filtered_text_path + '/' +
+                         collection_id.to_s + '-' + row[0].parameterize +
+                         '.tmp'
           grep_query = "'," + row[0] + ",'"
-          grep_command = '-a ' + grep_query + ' ' + collection_fulltext +
-                         ' > ' + domain_textfilter
-          `grep #{grep_command}`
+          grep_filter = '-a ' + grep_query + ' ' + collection_fulltext +
+                        ' > ' + interim_file
+          grep_binary_filter = '-vanPe \'^((?!.*$)|.*\0)\' ' + interim_file +
+                               ' > ' + domain_textfilter
+          `grep #{grep_filter}`
+          `grep #{grep_binary_filter}`
         end
         filtered_text_zip = collection_filtered_text_path + '/' +
                             collection_id.to_s + '-filtered_text.zip'
         zip_command = '-j ' + filtered_text_zip + ' ' +
                       collection_filtered_text_path + '/*.txt'
         `zip #{zip_command}`
+        `find #{collection_filtered_text_path} -type f -name '*.txt' -delete`
+        `find #{collection_filtered_text_path} -type f -name '*.tmp' -delete`
       end
     end
   end

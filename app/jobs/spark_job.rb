@@ -49,9 +49,12 @@ class SparkJob < ApplicationJob
 
       sc.setLogLevel("INFO")
 
+      val statusCodes = Set("200")
+
       val validPages = RecordLoader
         .loadArchives("#{collection_warcs}", sc)
         .keepValidPages()
+        .keepHttpStatus(statusCodes)
 
       validPages
         .map(r => ExtractDomain(r.getUrl))
