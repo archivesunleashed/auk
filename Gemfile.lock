@@ -67,7 +67,7 @@ GEM
     builder (3.2.3)
     byebug (11.0.1)
     chartkick (3.2.2)
-    codecov (0.1.15)
+    codecov (0.1.16)
       json
       simplecov
       url
