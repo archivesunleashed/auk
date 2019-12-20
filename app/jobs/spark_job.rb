@@ -33,8 +33,8 @@ class SparkJob < ApplicationJob
       FileUtils.mkdir_p collection_spark_jobs_path
       FileUtils.mkdir_p collection_derivatives + '/gephi'
       aut_version = ENV['AUT_VERSION']
+      aut_jar_path = ENV['AUT_JAR_PATH']
       spark_driver_max_result_size = ENV['SPARK_DRIVER_MAXRESULTSIZE']
-      spark_heartbeat_interval = ENV['SPARK_HEARTBEAT_INTERVAL']
       spark_kryoserializer_buffer_max = ENV['SPARK_KRYOSERIALIZER_BUFFER_MAX']
       spark_memory_driver = ENV['SPARK_MEMORY_DRIVER']
       spark_network_timeout = ENV['SPARK_NETWORK_TIMEOUT']
@@ -57,17 +57,17 @@ class SparkJob < ApplicationJob
         .keepHttpStatus(statusCodes)
 
       validPages
-        .map(r => ExtractDomain(r.getUrl))
+        .map(r => ExtractDomainRDD(r.getUrl))
         .countItems()
         .saveAsTextFile("#{collection_derivatives}/all-domains/output")
 
       validPages
-        .map(r => (r.getCrawlDate, r.getDomain, r.getUrl, RemoveHTML(RemoveHttpHeader(r.getContentString))))
+        .map(r => (r.getCrawlDate, r.getDomain, r.getUrl, RemoveHTMLRDD(RemoveHTTPHeaderRDD(r.getContentString))))
         .saveAsTextFile("#{collection_derivatives}/all-text/output")
 
       val links = validPages
-                    .map(r => (r.getCrawlDate, ExtractLinks(r.getUrl, r.getContentString)))
-                    .flatMap(r => r._2.map(f => (r._1, ExtractDomain(f._1).replaceAll("^\\\\s*www\\\\.", ""), ExtractDomain(f._2).replaceAll("^\\\\s*www\\\\.", ""))))
+                    .map(r => (r.getCrawlDate, ExtractLinksRDD(r.getUrl, r.getContentString)))
+                    .flatMap(r => r._2.map(f => (r._1, ExtractDomainRDD(f._1).replaceAll("^\\\\s*www\\\\.", ""), ExtractDomainRDD(f._2).replaceAll("^\\\\s*www\\\\.", ""))))
                     .filter(r => r._2 != "" && r._3 != "")
                     .countItems()
                     .filter(r => r._2 > 5)
@@ -77,7 +77,7 @@ class SparkJob < ApplicationJob
       sys.exit
       )
       File.open(collection_spark_job_file, 'w') { |file| file.write(spark_job) }
-      spark_job_cmd = spark_shell + ' --master local[' + spark_threads + '] --driver-memory ' + spark_memory_driver + ' --conf spark.network.timeout=' + spark_network_timeout + ' --conf spark.executor.heartbeatInterval=' + spark_heartbeat_interval + ' --conf spark.driver.maxResultSize=' + spark_driver_max_result_size + ' --conf spark.rdd.compress=' + spark_rdd_compress + ' --conf spark.serializer=' + spark_serializer + '  --conf spark.shuffle.compress=' + spark_shuffle_compress + ' --conf spark.kryoserializer.buffer.max=' + spark_kryoserializer_buffer_max + ' --packages "io.archivesunleashed:aut:' + aut_version + '" -i ' + collection_spark_job_file + ' 2>&1 | tee ' + collection_spark_job_file + '.log'
+      spark_job_cmd = spark_shell + ' --master local[' + spark_threads + '] --driver-memory ' + spark_memory_driver + ' --conf spark.network.timeout=' + spark_network_timeout + ' --conf spark.driver.maxResultSize=' + spark_driver_max_result_size + ' --conf spark.rdd.compress=' + spark_rdd_compress + ' --conf spark.serializer=' + spark_serializer + '  --conf spark.shuffle.compress=' + spark_shuffle_compress + ' --conf spark.kryoserializer.buffer.max=' + spark_kryoserializer_buffer_max + ' --jars ' + aut_jar_path + 'aut-' + aut_version + '-fatjar.jar -i ' + collection_spark_job_file + ' 2>&1 | tee ' + collection_spark_job_file + '.log'
       logger.info 'Executing: ' + spark_job_cmd
       system(spark_job_cmd)
       domain_success = collection_derivatives + '/all-domains/output/_SUCCESS'
