@@ -33,7 +33,7 @@
               <td><%= dashboard.start_time %></td>
               <td><%= dashboard.end_time %></td>
               <td><%= job_length(dashboard.start_time, dashboard.end_time) %></td>
-              <% if dashboard.queue == 'download' %>
+              <% if (dashboard.queue == 'download' || dashboard.queue == 'spark') %>
                 <td><%= collection_size_human(dashboard.collection_id, dashboard.user_id) %></td>
               <% end %>
             </tr>
