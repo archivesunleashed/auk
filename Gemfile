@@ -52,9 +52,6 @@ group :production do
   gem 'pg', '1.1.4'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
 ## AUK
 gem 'attr_encrypted'
 gem 'bootstrap', '~> 4.3.1' # https://nvd.nist.gov/vuln/detail/CVE-2019-8331
