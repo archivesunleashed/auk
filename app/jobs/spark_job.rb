@@ -65,8 +65,8 @@ class SparkJob < ApplicationJob
       // Gephi GraphML.
       val links = warcs.map(r => (r.getCrawlDate, ExtractLinksRDD(r.getUrl, r.getContentString)))
         .flatMap(r => r._2.map(f => (r._1,
-                               ExtractDomainRDD(f._1).replaceAll("^\\\\s*www\\\\.", ""),
-                               ExtractDomainRDD(f._2).replaceAll("^\\\\s*www\\\\.", ""))))
+                               ExtractDomainRDD(f._1).replaceAll("^\\s*www\\.", ""),
+                               ExtractDomainRDD(f._2).replaceAll("^\\s*www\\.", ""))))
         .filter(r => r._2 != "" && r._3 != "")
         .countItems()
         .filter(r => r._2 > 5)
