@@ -44,11 +44,11 @@
     <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
     <h3 class="about_h3" id="4toc">Finding Dates</h3>
-    <p class="about_p">In the following example, I will use the files from the "Fort McMurray" collection. You can follow along with your own files, simply changing the collection number to your own (i.e. instead of 7368-fulltext.txt it might be 1234-fulltext.txt).</p>
+    <p class="about_p">In the following example, I will use the files from the "Fort McMurray" collection. You can follow along with your own files, simply changing the collection number to your own (i.e. instead of 7368-fulltext.csv it might be 1234-fulltext.csv).</p>
     <p class="about_p">Let's imagine that we have a collection, but we just want part of it: in this case, the sites that match a certain date. This won't necessarily be the date that sites were created but will instead be the date that sites were crawled.</p>
     <p class="about_p">To do so, let's take a look at the basic structure of the full text file. We can do so by either opening up the file in a text editor, or in the command line, we can type a command that shows us the first x lines of a file.</p>
     <p class="about_p">In the directory where the file was downloaded (i.e. your "downloads" directory above or somewhere else), type the following command. It will just show the first two lines of a file, or in our case, the first two websites.</p>
-    <p class="about_p"><code>head -n 2 7368-fulltext.txt</code></p>
+    <p class="about_p"><code>head -n 2 7368-fulltext.csv</code></p>
     <p class="about_p">Here we see the results:</p>
     <%= image_tag("tutorial_terminal_results.png", alt: "Two lines of a text file", class:"body_img")%>
     <p class="about_p">The first two results aren't helpful to a researcher – the first document is a 301 error which was crawled but was redirecting browsers elsewhere, and the second is an error message from another 302. But what they do show is the basic structure of the file.</p>
@@ -56,23 +56,23 @@
     <p class="about_p"><code>(DATE,DOMAIN,URL,TEXT)</code></p>
     <p class="about_p">So for date, if we wanted only sites that were crawled on 22 May 2016, we would need to convert them into a standardized format. In our case, dates are arranged like so YYYYMMDD, or Year-Month-Day. So 22 May 2016 is <code>20160522</code>.</p>
     <p class="about_p">To find these sites, let's construct a grep command. I will provide it below and then explain what it does.</p>
-    <p class="about_p"><code>grep '^(20160522' 7368-fulltext.txt > 20160522-text.txt</code></p>
+    <p class="about_p"><code>grep '^(20160522' 7368-fulltext.csv > 20160522-text.csv</code></p>
     <p class="about_p">The basic structure of this command is:</p>
-    <p class="about_p"><code>grep PATTERN FILE-TO-ANALYZE > FILEOUTPUT.TXT</code></p>
-    <p class="about_p">For the example pattern above, the quotation marks enclose the pattern we are looking for. <code>^</code> represents the "start of the line," and then since there is an opening parenthesis we look for that too. We then provide an output path for the results. In this case, there will now be a new file – 20160522-text.txt – that just contains the crawl text from 22 May 2016.</p>
+    <p class="about_p"><code>grep PATTERN FILE-TO-ANALYZE > FILEOUTPUT.CSV</code></p>
+    <p class="about_p">For the example pattern above, the quotation marks enclose the pattern we are looking for. <code>^</code> represents the "start of the line," and then since there is an opening parenthesis we look for that too. We then provide an output path for the results. In this case, there will now be a new file – 20160522-text.csv – that just contains the crawl text from 22 May 2016.</p>
     <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
     <h3 class="about_h3" id="5toc">Finding Specific Domains</h3>
     <p class="about_p">If the domain is in the top ten, you can use our handy "text by domain" derivative to work with it out of the box. If you want to find a different domain, however, you may have to do a bit of work yourself.</p>
     <p class="about_p">The logic is similar to finding specific domains. We'll also use grep. In the example above, we saw two different domains. Let's use "www.rmwb.ca" as our example and get only websites from that domain.</p>
     <p class="about_p">We turn to grep again:</p>
-    <p class="about_p"><code>grep ',www.rmwb.ca,' 7368-fulltext.txt > RMWB-text.txt</code></p>
+    <p class="about_p"><code>grep ',www.rmwb.ca,' 7368-fulltext.csv > RMWB-text.csv</code></p>
     <p class="about_p">We now have a text file that just contains websites from the "www.rmwb.ca" domain.</p>
     <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
     <h3 class="about_h3" id="6toc">Finding Keywords</h3>
     <p class="about_p">And of course, things are relatively similar with keywords. This can be the easiest one.</p>
-    <p class="about_p"><code>grep 'helicopter' 7368-fulltext.txt > helicopter-text.txt</code></p>
+    <p class="about_p"><code>grep 'helicopter' 7368-fulltext.csv > helicopter-text.csv</code></p>
     <p class="about_p">We now just have the text of all websites that contain the word "helicopter."</p>
     <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 

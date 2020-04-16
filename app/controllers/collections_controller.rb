@@ -113,14 +113,14 @@ class CollectionsController < ApplicationController
     @domains_path = ENV['DOWNLOAD_PATH'] + '/' + params[:format].to_s + '/' +
                     params[:collection_id].to_s + '/' + params[:user_id].to_s +
                     '/derivatives/all-domains/' + params[:collection_id].to_s +
-                    '-fullurls.txt'
+                    '-fullurls.csv'
   end
 
   def fulltext_path
     @fulltext_path = ENV['DOWNLOAD_PATH'] + '/' + params[:format].to_s + '/' +
                      params[:collection_id].to_s + '/' + params[:user_id].to_s +
                      '/derivatives/all-text/' + params[:collection_id].to_s +
-                     '-fulltext.txt'
+                     '-fulltext.csv'
   end
 
   def textfilter_path

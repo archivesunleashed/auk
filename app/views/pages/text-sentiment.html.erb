@@ -29,8 +29,8 @@
   <p class="about_p">These download files can be found in the Archives Unleashed Cloud's collection pages. See the button below.</p>
   <%= image_tag("Tutorial_full_text_icon.png", alt: "The derivative download buttons with the Full Text one highlighted", class:"body_small_img")%>
   <p class="about_p">In general, this type of analysis can handle files up to about 2 gigabytes in size. Because our file is 2.6 gigabytes, we'll have to split it into two. As with the previous tutorial, this requires the use of the command line. You can find a tutorial about how to use it <%= link_to('here', 'https://programminghistorian.org/en/lessons/intro-to-bash', target: '_blank') %>. Using the Terminal and navigating to the directory where I have downloaded the full text file, I enter the command:</p>
-  <p class="about_p"><code>split -l 400000 7368-fulltext.txt</code></p>
-  <p class="about_p">This splits into two files of 400,000 lines each, named <code>xaa</code> and <code>xab</code>. We're going to rename these files as <code>FMMWildfires-A.txt</code> and <code>FMMWildfires-B.txt</code>, to keep things straight.</p>
+  <p class="about_p"><code>split -l 400000 7368-fulltext.csv</code></p>
+  <p class="about_p">This splits into two files of 400,000 lines each, named <code>xaa</code> and <code>xab</code>. We're going to rename these files as <code>FMMWildfires-A.csv</code> and <code>FMMWildfires-B.csv</code>, to keep things straight.</p>
   <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
   <h3 class="about_h3" id="4toc">Running NLTK in Jupyter Notebooks</h3>
@@ -55,7 +55,7 @@
   <p class="about_p">We will also initialize our 'english.pickle' word tokenizer function and give it a short name, 'tokenizer.'</p>
   <p class="about_p"><code>tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')</code></p>
   <p class="about_p">At this point, we then open up our first text file, and designate it as 'fmwildfires1.'</p>
-  <p class="about_p"><code>f = open('WMMWildfires-A.txt')<br />
+  <p class="about_p"><code>f = open('WMMWildfires-A.csv')<br />
   fmwildfires1 = f.read()</code></p>
   <p class="about_p">We then tell our tokenizer to break up our text file, 'fmwildfires,' into a list of sentences.</p>
   <p class="about_p"><code>sentences = tokenizer.tokenize(fmwildfires1)</code></p>
@@ -69,7 +69,7 @@
   <p class="about_p"><code>for sentence in evacuationlist:<br />&emsp;print(sentence)<br />&emsp;scores = sid.polarity_scores(sentence)<br />&emsp;for key in sorted(scores):<br />&emsp;&emsp;print('{0}: {1}, '.format(key, scores[key]), end='')<br />&emsp;print()</code></p>
   <p class="about_p">Once we hit "Run," we can see the calculated positive, negative, and neutral scores for each sentence that contains the word "evacuation" in our text source. Many of these sentences have been calculated to be neutral, but we do see positive values for sentences where the evacuation was praised, and negative when discussing the destruction of homes and oil rigs. The scores are highlighted with red boxes below, which have been added to the screenshot.</p>
 .  <%= image_tag("Tutorial_anaconda_scores.png", alt: "This last step calculates negative, positive, and neutral scores for each sentence with the keyword in our text file", class:"body_img")%>
-  <p class="about_p">Because we have split our very large text file into two parts, we have to repeat the above steps for the FMMWildfires-B.txt file.</p>
+  <p class="about_p">Because we have split our very large text file into two parts, we have to repeat the above steps for the FMMWildfires-B.csv file.</p>
   <p class="top_toc"><%=link_to('Back to Top', anchor: '#toc-top') %></p>
 
   <h3 class="about_h3" id="5toc">What Can We Learn From Sentiment Analysis?</h3>

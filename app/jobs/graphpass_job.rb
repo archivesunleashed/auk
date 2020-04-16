@@ -28,11 +28,11 @@ class GraphpassJob < ApplicationJob
       graphpass_cmd = graphpass + graphpass_flags
       logger.info 'Executing: ' + graphpass_cmd
       system(graphpass_cmd)
-      combine_full_url_output_cmd = 'find ' + collection_derivatives + '/all-domains/output -iname "part*" -type f -exec cat {} > ' + collection_derivatives + '/all-domains/' + c.collection_id.to_s + '-fullurls.txt \;'
+      combine_full_url_output_cmd = 'find ' + collection_derivatives + '/all-domains/output -iname "part*" -type f -exec cat {} > ' + collection_derivatives + '/all-domains/' + c.collection_id.to_s + '-fullurls.csv \;'
       logger.info 'Executing: ' + combine_full_url_output_cmd
       system(combine_full_url_output_cmd)
       FileUtils.rm_rf(collection_derivatives + '/all-domains/output')
-      combine_full_text_output_cmd = 'find ' + collection_derivatives + '/all-text/output -iname "part*" -type f -exec cat {} > ' + collection_derivatives + '/all-text/' + c.collection_id.to_s + '-fulltext.txt \;'
+      combine_full_text_output_cmd = 'find ' + collection_derivatives + '/all-text/output -iname "part*" -type f -exec cat {} > ' + collection_derivatives + '/all-text/' + c.collection_id.to_s + '-fulltext.csv \;'
       logger.info 'Executing: ' + combine_full_text_output_cmd
       system(combine_full_text_output_cmd)
       FileUtils.rm_rf(collection_derivatives + '/all-text/output')

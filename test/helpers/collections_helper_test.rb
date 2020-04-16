@@ -32,22 +32,22 @@ class CollectionsHelperTest < ActionView::TestCase
   end
 
   test 'fulltext path helper' do
-    assert_equal 'test/fixtures/files/401/1234/1/derivatives/all-text/1234-fulltext.txt',
+    assert_equal 'test/fixtures/files/401/1234/1/derivatives/all-text/1234-fulltext.csv',
                  fulltext_path(@collections_one.user_id,
                                @collections_one.collection_id,
                                @collections_one.account)
-    assert_equal 'test/fixtures/files/990/6275/2/derivatives/all-text/6275-fulltext.txt',
+    assert_equal 'test/fixtures/files/990/6275/2/derivatives/all-text/6275-fulltext.csv',
                  fulltext_path(@collections_two.user_id,
                                @collections_two.collection_id,
                                @collections_two.account)
   end
 
   test 'domains path helper' do
-    assert_equal 'test/fixtures/files/401/1234/1/derivatives/all-domains/1234-fullurls.txt',
+    assert_equal 'test/fixtures/files/401/1234/1/derivatives/all-domains/1234-fullurls.csv',
                  domains_path(@collections_one.user_id,
                               @collections_one.collection_id,
                               @collections_one.account)
-    assert_equal 'test/fixtures/files/990/6275/2/derivatives/all-domains/6275-fullurls.txt',
+    assert_equal 'test/fixtures/files/990/6275/2/derivatives/all-domains/6275-fullurls.csv',
                  domains_path(@collections_two.user_id,
                               @collections_two.collection_id,
                               @collections_two.account)
