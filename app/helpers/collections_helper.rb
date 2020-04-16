@@ -10,11 +10,10 @@ module CollectionsHelper
                       '/' + collection_id.to_s + '/'
     collection_domains = collection_path +
                          user_id.to_s + '/derivatives/all-domains/' +
-                         collection_id.to_s + '-fullurls.txt'
+                         collection_id.to_s + '-fullurls.csv'
     unless File.zero?(collection_domains) || !File.file?(collection_domains)
       text = File.open(collection_domains).read
-      csv_text = text.delete! '()'
-      csv = CSV.parse(csv_text, headers: false)
+      csv = CSV.parse(text, headers: false)
                .sort_by { |line| line[1].to_i }
                .reverse
       csv.take(10)
@@ -52,7 +51,7 @@ module CollectionsHelper
                       '/' + account.to_s +
                       '/' + collection_id.to_s + '/'
     collection_path + user_id.to_s + '/derivatives/all-text/' +
-      collection_id.to_s + '-fulltext.txt'
+      collection_id.to_s + '-fulltext.csv'
   end
 
   def domains_path(user_id, collection_id, account)
@@ -60,6 +59,6 @@ module CollectionsHelper
                       '/' + account.to_s +
                       '/' + collection_id.to_s + '/'
     collection_path + user_id.to_s + '/derivatives/all-domains/' +
-      collection_id.to_s + '-fullurls.txt'
+      collection_id.to_s + '-fullurls.csv'
   end
 end

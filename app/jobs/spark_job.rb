@@ -44,34 +44,33 @@ class SparkJob < ApplicationJob
       spark_threads = ENV['SPARK_THREADS']
       spark_job = %(
       import io.archivesunleashed._
+      import io.archivesunleashed.df._
       import io.archivesunleashed.app._
-      import io.archivesunleashed.matchbox._
 
       sc.setLogLevel("INFO")
 
-      // Web archive collection.
-      val warcs = RecordLoader.loadArchives("#{collection_warcs}", sc)
-        .keepValidPages()
+      val webpages = RecordLoader.loadArchives("#{collection_warcs}", sc).webpages()
+      val webgraph = RecordLoader.loadArchives("#{collection_warcs}", sc).webgraph()
 
-      // Domains file.
-      warcs.map(r => ExtractDomainRDD(r.getUrl))
-        .countItems()
-        .saveAsTextFile("#{collection_derivatives}/all-domains/output")
+      webpages.groupBy(ExtractDomainDF($"Url").alias("url"))
+        .count()
+        .sort($"count".desc)
+        .write.csv("#{collection_derivatives}/all-domains/output")
 
-      // Full-text.
-      warcs.map(r => (r.getCrawlDate, r.getDomain, r.getUrl, RemoveHTMLRDD(RemoveHTTPHeaderRDD(r.getContentString))))
-        .saveAsTextFile("#{collection_derivatives}/all-text/output")
+      webpages.select($"crawl_date", ExtractDomainDF(($"url").alias("domain")), $"url", RemoveHTMLDF(RemoveHTTPHeaderDF(($"content"))))
+        .write.csv("#{collection_derivatives}/all-text/output")
 
-      // Gephi GraphML.
-      val links = warcs.map(r => (r.getCrawlDate, ExtractLinksRDD(r.getUrl, r.getContentString)))
-        .flatMap(r => r._2.map(f => (r._1,
-                               ExtractDomainRDD(f._1).replaceAll("^\\\\s*www\\\\.", ""),
-                               ExtractDomainRDD(f._2).replaceAll("^\\\\s*www\\\\.", ""))))
-        .filter(r => r._2 != "" && r._3 != "")
-        .countItems()
-        .filter(r => r._2 > 5)
+      val graph = webgraph.groupBy(
+                            $"crawl_date",
+                            RemovePrefixWWWDF(ExtractDomainDF($"src")).as("src_domain"),
+                            RemovePrefixWWWDF(ExtractDomainDF($"dest")).as("dest_domain"))
+                    .count()
+                    .filter(!($"dest_domain"===""))
+                    .filter(!($"src_domain"===""))
+                    .filter($"count" > 5)
+                    .orderBy(desc("count"))
 
-      WriteGraph.asGraphml(links, "#{collection_derivatives}/gephi/#{c.collection_id}-gephi.graphml")
+      WriteGraphML(graph.collect(), "#{collection_derivatives}/gephi/#{c.collection_id}-gephi.graphml")
 
       sys.exit
       )

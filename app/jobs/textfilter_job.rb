@@ -36,21 +36,20 @@ class TextfilterJob < ApplicationJob
                         '/' + c.collection_id.to_s + '/'
       collection_derivatives = collection_path + c.user_id.to_s + '/derivatives'
       collection_domains = collection_derivatives + '/all-domains/' +
-                           c.collection_id.to_s + '-fullurls.txt'
+                           c.collection_id.to_s + '-fullurls.csv'
       collection_fulltext = collection_derivatives + '/all-text/' +
-                            c.collection_id.to_s + '-fulltext.txt'
+                            c.collection_id.to_s + '-fulltext.csv'
       collection_filtered_text_path = collection_derivatives + '/filtered-text'
       FileUtils.mkdir_p collection_filtered_text_path
       unless File.zero?(collection_domains) || !File.file?(collection_domains)
         text = File.open(collection_domains).read
-        csv_text = text.delete! '()'
-        csv = CSV.parse(csv_text, headers: false)
+        csv = CSV.parse(text, headers: false)
         csv.take(10).each do |row|
           # THIS IS UGLY.
           # WE PROBABLY SHOULDN'T EXEC OUT TO GREP AND ZIP.
           domain_textfilter = collection_filtered_text_path + '/' +
                               collection_id.to_s + '-' + row[0].parameterize +
-                              '.txt'
+                              '.csv'
           interim_file = collection_filtered_text_path + '/' +
                          collection_id.to_s + '-' + row[0].parameterize +
                          '.tmp'
@@ -65,9 +64,9 @@ class TextfilterJob < ApplicationJob
         filtered_text_zip = collection_filtered_text_path + '/' +
                             collection_id.to_s + '-filtered_text.zip'
         zip_command = '-j ' + filtered_text_zip + ' ' +
-                      collection_filtered_text_path + '/*.txt'
+                      collection_filtered_text_path + '/*.csv'
         `zip #{zip_command}`
-        `find #{collection_filtered_text_path} -type f -name '*.txt' -delete`
+        `find #{collection_filtered_text_path} -type f -name '*.csv' -delete`
         `find #{collection_filtered_text_path} -type f -name '*.tmp' -delete`
       end
     end

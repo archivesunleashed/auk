@@ -41,12 +41,12 @@ module WasapiFilesHelper
 
     fulltext = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
                collection_id.to_s + '/' + user_id.to_s +
-               '/derivatives/all-text/' + collection_id.to_s + '-fulltext.txt'
+               '/derivatives/all-text/' + collection_id.to_s + '-fulltext.csv'
 
     domains = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
               collection_id.to_s + '/' + user_id.to_s +
               '/derivatives/all-domains/' + collection_id.to_s +
-              '-fullurls.txt'
+              '-fullurls.csv'
     if File.exist?(gexf) && !File.empty?(gexf) ||
        File.exist?(graphml) && !File.empty?(graphml) ||
        File.exist?(fulltext) && !File.empty?(fulltext) ||
