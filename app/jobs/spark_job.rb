@@ -52,7 +52,7 @@ class SparkJob < ApplicationJob
       val webpages = RecordLoader.loadArchives("#{collection_warcs}", sc).webpages()
       val webgraph = RecordLoader.loadArchives("#{collection_warcs}", sc).webgraph()
 
-      webpages.groupBy(ExtractDomainDF($"Url").alias("url"))
+      webpages.groupBy(RemovePrefixWWWDF(ExtractDomainDF($"Url")).alias("url"))
         .count()
         .sort($"count".desc)
         .write.csv("#{collection_derivatives}/all-domains/output")
