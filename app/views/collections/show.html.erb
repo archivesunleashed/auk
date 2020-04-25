@@ -1,95 +1,34 @@
 <div id="graph-full-screen"></div>
 <% provide(:title, @collection.title) %>
 
-<!-- Fullscreen Modal -->
-<div class="modal fade" id="sigma-fullscreen">
-  <div id="graph-modal-container" class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4><%= @collection.title %> Hyperlink Diagram</h4>
-      </div>
-      <div id="graph-modal-body" class="modal-body">
-        <div id="graph-modal-wrapper">
-          <button type="button" id="modal-exit-fullscreen" data-dismiss="modal" data-toggle="tooltip" title="Exit full screen">
-            <span class="fa fa-compress"></span>
-          </button>
-          <button type="button" id="modal-zoom-in" class="zoom-in" data-toggle="tooltip" title="Zoom in graph.">
-            <span class="fa fa-search-plus"></span>
-          </button>
-          <button type="button" id="modal-zoom-out" class="zoom-out" data-toggle="tooltip" title="Zoom out graph.">
-            <span class="fa fa-search-minus"></span>
-          </button>
-          <button type="button" id="modal-default" class="default" data-toggle="tooltip" title="Restore graph to original settings">
-            <span class="fa fa-refresh"></span>
-          </button>
-          <button type="button" id="modal-scale-up" class="scale-up" data-toggle="tooltip" title="Scale up node sizes.">
-            <span class="fa fa-level-up"></span>
-          </button>
-          <button type="button" id="modal-scale-down" class="scale-down" data-toggle="tooltip" title="Scale down node sizes." disabled>
-            <span class="fa fa-level-down"></span>
-          </button>
-          <a href="#" id="modal-image-link" download="<%= @collection.id %>-image.png"><button type="button" id="modal-image" class="graph-image" data-toggle="tooltip" title="Download a screen shot.">
-            <span class="fa fa-image"></span>
-          </button></a>
-          <div id="graph-modal"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="container-fluid">
   <div class="row">
     <%= render "layouts/sidebar" %>
     <main class="col-sm-9 col-md-10">
       <h1><%= @collection.title %></h1>
-      <% if !collection_queued(@user.id, @collection.id).first.present? %>
-        <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size_human(@collection.id, @user) + "? \n\nDownloading large collections can take a long time depending on our connection to the Internet Archive, and the number of other users who are currently using the service. We ask for your patience."}, class: 'btn btn-primary btn-lg btn-block') %></p>
-      <% end %>
-      <% unless !File.exists? gexf_path(@user.id, @collection.id, @collection.account) %>
+      <h2>Analysis Options</h2>
+      <% if collection_downloaded(@collection.id, @user.id) %>
         <div class="card card-body">
-          <h2 class="card-header">Hyperlink Diagram</h2>
-          <div id="card-body graph-wrapper">
-            <span id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen">
-            <button type="button" data-toggle="tooltip" data-placement="top" title="Make graph full screen.">
-              <span class="fa fa-expand"></span>
-            </button></span>
-            <button type="button" id="zoom-in" class="zoom-in" data-toggle="tooltip" data-placement="top" title="Zoom in graph.">
-              <span class="fa fa-search-plus"></span>
-            </button>
-            <button type="button" id="zoom-out" class="zoom-out" data-toggle="tooltip" data-placement="top" title="Zoom out graph.">
-              <span class="fa fa-search-minus"></span>
-            </button>
-            <button type="button" id="default" class="default" data-toggle="tooltip" data-placement="top" title="Restore graph to original settings">
-              <span class="fa fa-refresh"></span>
-            </button>
-            <button type="button" id="scale-up" class="scale-up" data-toggle="tooltip" data-placement="top" title="Scale up node sizes.">
-              <span class="fa fa-level-up"></span>
-            </button>
-            <button type="button" id="scale-down" class="scale-down" data-toggle="tooltip" data-placement="top" title="Scale down node sizes." disabled>
-              <span class="fa fa-level-down"></span>
-            </button>
-            <a href="#" id="image-link" download="<%= @collection.id %>-image.png"><button type="button" id="modal-image" class="graph-image" data-toggle="tooltip" title="Download a screen shot.">
-              <span class="fa fa-image"></span>
-            </button></a>
-            <div id="graph"></div>
-          </div>
+          <h3>Graphs</h3>
+          <p><%= button_to("Image Graph", user_collection_imagegraph_path(@user, @collection), data: {confirm: "Create an image graph?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
+          <p><%= button_to("Web Graph", user_collection_webgraph_path(@user, @collection), data: {confirm: "Create a web graph?" }, class: 'btn btn-primary btn-lg btn-block') %></p>
+          <p><%= button_to("Domain Frequency", user_collection_domainfrequency_path(@user, @collection), data: {confirm: "Create a domain frequency graph?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
+          <p><%= button_to("Domain Graph", user_collection_domaingraph_path(@user, @collection), data: {confirm: "Create an domain graph?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
         </div>
-        <%= javascript_tag do %>
-          $("#graph-modal").data("gexf_url", `<%= ENV['BASE_HOST_URL'] + user_collection_download_gexf_path(@user.id, @collection.id, @collection.account) %>`);
-        <% end %>
-        <div class="text-right">
-          <%= link_to('What does this graph show?', '#', data: { toggle: 'tooltip', title: 'This diagram visualizes the domains that are captured as well as any domains that they may link to. These linked-to domains may or may not be contained within the web archive collection. You can read more about this graph in our documentation.'}) %>
-        </div>
-      <% end %>
-      <% unless display_domains(@user.id, @collection.id, @collection.account).blank? %>
         <div class="card card-body">
-          <h2 class="card-header">Domains</h2>
-          <p class="card-body">
-            <%= column_chart user_collection_domains_chart_path(@user.id, @collection.id, @collection.account), thousands: ",", download: {filename: 'domains_chart.png', background: '#ffffff'} %>
-          </p>
+          <h3>Text</h3>
+          <p><%= button_to("Web Page Text", user_collection_webpage_text_path(@user, @collection), data: {confirm: "Create web page text?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
+          <p><%= button_to("Web Pages", user_collection_webpages_path(@user, @collection), data: {confirm: "Create an image graph?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
         </div>
-        <div class="text-right">
-          <%= link_to('What does this graph show?', '#', data: { toggle: 'tooltip', title: 'This diagram visualizes the top 10 domains that occur in the web archive collection.'}) %>
+        <div class="card card-body">
+          <h3>Binaries</h3>
+          <p><%= button_to("Audio", user_collection_audio_path(@user, @collection), data: {confirm: "Create an image graph" + collection_size_human(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
+          <p><%= button_to("Images", user_collection_images_path(@user, @collection), data: {confirm: "Create an image graph" + collection_size_human(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
+          <p><%= button_to("PDFs", user_collection_pdfs_path(@user, @collection), data: {confirm: "Create an image graph" + collection_size_human(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
+          <p><%= button_to("Presentation Program Files", user_collection_presentationprogram_path(@user, @collection), data: {confirm: "Create an image graph" + collection_size_human(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
+          <p><%= button_to("Spreadsheets", user_collection_spreadsheets_path(@user, @collection), data: {confirm: "Create an image graph" + collection_size_human(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
+          <p><%= button_to("Videos", user_collection_videos_path(@user, @collection), data: {confirm: "Create an image graph" + collection_size_human(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
+          <p><%= button_to("Word Processor Files", user_collection_wordprocessor_path(@user, @collection), data: {confirm: "Create an image graph" + collection_size_human(@collection.id, @user) + "?"}, class: 'btn btn-primary btn-lg btn-block') %></p>
         </div>
       <% end %>
       <% unless !File.exists? domains_path(@user.id, @collection.id, @collection.account) %>

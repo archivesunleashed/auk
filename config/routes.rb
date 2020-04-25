@@ -6,8 +6,22 @@ Rails.application.routes.draw do
     username == ENV['DJW_USERNAME'] && password == ENV['DJW_PASSWORD']
   end
   resources :users do
+    post :download
     resources :collections do
+      post :audio
+      post :images
+      post :pdfs
+      post :spreadsheets
+      post :wordprocessor
+      post :videos
+      post :presentationprogram
+      post :domainfrequency
+      post :domaingraph
       post :download
+      post :imagegraph
+      post :webgraph
+      post :webpages
+      post :webpage_text
       get :download_domains
       get :download_gexf
       get :download_graphml

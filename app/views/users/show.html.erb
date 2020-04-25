@@ -13,17 +13,25 @@
           <thead>
             <tr>
               <th>Title</th>
+              <th>uh</th>
               <th>Status</th>
               <th>Date Analyzed</th>
               <th>Public</th>
               <th>Files</th>
+              <th>Files on disk</th>
               <th>Size</th>
+              <th>Download</th>
             </tr>
           </thead>
           <tbody>
             <% for collection in @collections %>
               <tr>
-                <td><%= link_to(collection.title, user_collection_path(@user, collection.collection_id)) %></td>
+                <% if collection_downloaded(collection.collection_id, @user) %>
+                  <td><%= link_to(collection.title, user_collection_path(@user, collection.collection_id)) %></td>
+                <% else %>
+                  <td><%= collection.title %></td>
+                <% end %>
+                <td><%= collection_downloaded(collection.collection_id, @user) %></td>
                 <% if !collection_queued(@user.id, collection.id).empty? %>
                   <% if collection_queued(collection.id, @user.id).first == 'download' %>
                     <td>Downloading</td>
@@ -45,7 +53,9 @@
                 <% end %>
                 <td><%= collection.public.humanize %></td>
                 <td><%= collection_count(collection.id, @user) %></td>
+                <td><%= collection_count_on_disk(collection.id, @user) %></td>
                 <td sorttable_customkey="<%= collection_size(collection.id, @user) %>"><%= collection_size_human(collection.id, @user) %></td>
+                <td><%= link_to("Download", user_collection_download_path(@user, collection.collection_id), method: :post, data: {confirm: "Download " + collection_size_human(collection.collection_id, @user) + "? \n\nDownloading large collections can take a long time depending on our connection to the Internet Archive, and the number of other users who are currently using the service. We ask for your patience.\n\nAn e-mail will be sent to " + @user.email + " once it is complete."}) %></td>
               </tr>
             <% end %>
           </tbody>

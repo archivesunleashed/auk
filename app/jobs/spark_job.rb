@@ -27,11 +27,13 @@ class SparkJob < ApplicationJob
       collection_derivatives = collection_path + c.user_id.to_s + '/derivatives'
       collection_spark_jobs_path = collection_path + c.user_id.to_s + '/spark_jobs'
       collection_spark_job_file = collection_spark_jobs_path + '/' + c.collection_id.to_s + '.scala'
+      ## Move this to the download job
       FileUtils.rm_rf collection_derivatives
       FileUtils.rm_rf collection_spark_jobs_path
       FileUtils.mkdir_p collection_derivatives
       FileUtils.mkdir_p collection_spark_jobs_path
       FileUtils.mkdir_p collection_derivatives + '/gephi'
+      ### Move
       aut_version = ENV['AUT_VERSION']
       spark_driver_max_result_size = ENV['SPARK_DRIVER_MAXRESULTSIZE']
       spark_heartbeat_interval = ENV['SPARK_HEARTBEAT_INTERVAL']

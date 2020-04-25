@@ -29,6 +29,13 @@ module WasapiFilesHelper
     end
   end
 
+  def collection_count_on_disk(collection_id, user_id)
+    account = WasapiFile.where(user_id: user_id).distinct.pluck(:account)
+    warcs_path = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+                 collection_id.to_s + '/warcs'
+    `ls -1 "#{warcs_path}" | wc -l`
+  end
+
   def collection_analyzed(collection_id, user_id)
     account = WasapiFile.where(user_id: user_id).distinct.pluck(:account)
     gexf = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
@@ -58,5 +65,11 @@ module WasapiFilesHelper
       [File.mtime(spark_log).strftime('%B %-d, %Y'),
        File.mtime(spark_log).strftime('%Y%m%d')]
     end
+  end
+
+  def collection_downloaded(collection_id, user_id)
+    collection_count(collection_id, user_id)
+      .to_i
+      .equal? collection_count_on_disk(collection_id, user_id).to_i
   end
 end

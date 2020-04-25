@@ -56,8 +56,6 @@ class WasapiDownloadJob < ApplicationJob
                              wasapi_password, download_path_filename)
       end
     end
-    SparkJob.set(queue: :spark)
-            .perform_later(user_id.id, collection_id.id)
   end
 
   protected
