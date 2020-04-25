@@ -21,19 +21,46 @@ Metrics/AbcSize:
     - app/helpers/collections_helper.rb
     - app/helpers/dashboards_helper.rb
     - app/helpers/wasapi_files_helper.rb
+    - app/jobs/audio_job.rb
     - app/jobs/cleanup_job.rb
+    - app/jobs/domainfrequency_job.rb
+    - app/jobs/domaingraph_job.rb
     - app/jobs/graphpass_job.rb
+    - app/jobs/imagegraph_job.rb
+    - app/jobs/images_job.rb
+    - app/jobs/pdfs_job.rb
+    - app/jobs/presentation_program_job.rb
     - app/jobs/spark_job.rb
+    - app/jobs/spreadsheets_job.rb
     - app/jobs/textfilter_job.rb
+    - app/jobs/videos_job.rb
     - app/jobs/wasapi_download_job.rb
     - app/jobs/wasapi_seed_job.rb
+    - app/jobs/webgraph_job.rb
+    - app/jobs/webpage_text_job.rb
+    - app/jobs/webpages_job.rb
+    - app/jobs/word_processor_job.rb
 
 Metrics/BlockLength:
   Exclude:
+    - app/jobs/audio_job.rb
+    - app/jobs/domainfrequency_job.rb
+    - app/jobs/domaingraph_job.rb
+    - app/jobs/imagegraph_job.rb
+    - app/jobs/images_job.rb
+    - app/jobs/pdfs_job.rb
+    - app/jobs/presentation_program_job.rb
     - app/jobs/spark_job.rb
+    - app/jobs/spreadsheets_job.rb
     - app/jobs/textfilter_job.rb
+    - app/jobs/videos_job.rb
     - app/jobs/wasapi_download_job.rb
     - app/jobs/wasapi_seed_job.rb
+    - app/jobs/webgraph_job.rb
+    - app/jobs/webpage_text_job.rb
+    - app/jobs/webpages_job.rb
+    - app/jobs/webpages_job.rb
+    - app/jobs/word_processor_job.rb
     - config/environments/development.rb
     - config/environments/production.rb
     - config/environments/test.rb
@@ -51,17 +78,31 @@ Metrics/CyclomaticComplexity:
 Metrics/LineLength:
   Exclude:
     - app/helpers/users_helper.rb
+    - app/jobs/audio_job.rb
     - app/jobs/cleanup_job.rb
+    - app/jobs/domainfrequency_job.rb
+    - app/jobs/domaingraph_job.rb
     - app/jobs/graphpass_job.rb
+    - app/jobs/imagegraph_job.rb
+    - app/jobs/images_job.rb
+    - app/jobs/pdfs_job.rb
+    - app/jobs/presentation_program_job.rb
     - app/jobs/spark_job.rb
+    - app/jobs/spreadsheets_job.rb
     - app/jobs/textfilter_job.rb
+    - app/jobs/videos_job.rb
     - app/jobs/wasapi_download_job.rb
     - app/jobs/wasapi_seed_job.rb
+    - app/jobs/webgraph_job.rb
+    - app/jobs/webpage_text_job.rb
+    - app/jobs/webpages_job.rb
+    - app/jobs/webpages_job.rb
+    - app/jobs/word_processor_job.rb
     - app/mailers/user_mailer.rb
-    - test/helpers/collections_helper_test.rb
     - test/controllers/dashboards_controller_test.rb
     - test/controllers/pages_controller_test.rb
     - test/helpers/auth_helper.rb
+    - test/helpers/collections_helper_test.rb
     - test/helpers/users_helper_test.rb
 
 Metrics/MethodLength:
@@ -71,12 +112,26 @@ Metrics/MethodLength:
     - app/helpers/collections_helper.rb
     - app/helpers/dashboards_helper.rb
     - app/helpers/wasapi_files_helper.rb
+    - app/jobs/audio_job.rb
     - app/jobs/cleanup_job.rb
+    - app/jobs/domainfrequency_job.rb
+    - app/jobs/domaingraph_job.rb
     - app/jobs/graphpass_job.rb
+    - app/jobs/imagegraph_job.rb
+    - app/jobs/images_job.rb
+    - app/jobs/pdfs_job.rb
+    - app/jobs/presentation_program_job.rb
     - app/jobs/spark_job.rb
+    - app/jobs/spreadsheets_job.rb
     - app/jobs/textfilter_job.rb
+    - app/jobs/videos_job.rb
     - app/jobs/wasapi_download_job.rb
     - app/jobs/wasapi_seed_job.rb
+    - app/jobs/webgraph_job.rb
+    - app/jobs/webpage_text_job.rb
+    - app/jobs/webpages_job.rb
+    - app/jobs/webpages_job.rb
+    - app/jobs/word_processor_job.rb
 
 Metrics/ModuleLength:
   Exclude:

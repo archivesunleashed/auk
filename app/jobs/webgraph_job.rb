@@ -36,7 +36,7 @@ class WebgraphJob < ApplicationJob
       spark_threads = ENV['SPARK_THREADS']
       spark_log = ENV['SPARK_LOG_PATH']
       webgraph_job = spark_home +
-                    '/bin/spark-submit --master local[' +
+                     '/bin/spark-submit --master local[' +
                      spark_threads +
                      '] --driver-memory ' +
                      spark_memory_driver +

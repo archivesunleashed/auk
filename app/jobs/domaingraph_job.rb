@@ -63,9 +63,9 @@ class DomaingraphJob < ApplicationJob
       system(domaingraph_job)
       success = collection_derivatives + '/domaingraph/GRAPHML.graphml'
       graphml = collection_derivatives +
-               '/domaingraph/' +
+                '/domaingraph/' +
                 collection_id.id.to_s +
-               '.graphml'
+                '.graphml'
       if File.exist?(success)
         FileUtils.mv(success, graphml)
         logger.info 'Executed: Domain Graph cleanup.'

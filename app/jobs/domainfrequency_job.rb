@@ -36,29 +36,29 @@ class DomainfrequencyJob < ApplicationJob
       spark_threads = ENV['SPARK_THREADS']
       spark_log = ENV['SPARK_LOG_PATH']
       domainfrequency_job = spark_home +
-                       '/bin/spark-submit --master local[' +
-                       spark_threads +
-                       '] --driver-memory ' +
-                       spark_memory_driver +
-                       ' --conf spark.network.timeout=' +
-                       spark_network_timeout +
-                       ' --conf spark.executor.heartbeatInterval=' +
-                       spark_heartbeat_interval +
-                       ' --conf spark.driver.maxResultSize=0 --class io.archivesunleashed.app.CommandLineAppRunner ' +
-                       aut_jar_path +
-                       '/aut-' +
-                       aut_version +
-                       '-fatjar.jar --extractor DomainFrequencyExtractor --input ' +
-                       collection_warcs +
-                       ' --output ' +
-                       collection_derivatives +
-                       '/domainfrequency 2>&1 | tee ' +
-                       spark_log +
-                       '/' +
-                       collection_id.id.to_s +
-                       '-domainfrequency-' +
-                       DateTime.now.utc.strftime('%Y%m%d%H%M') +
-                       '.log'
+                            '/bin/spark-submit --master local[' +
+                            spark_threads +
+                            '] --driver-memory ' +
+                            spark_memory_driver +
+                            ' --conf spark.network.timeout=' +
+                            spark_network_timeout +
+                            ' --conf spark.executor.heartbeatInterval=' +
+                            spark_heartbeat_interval +
+                            ' --conf spark.driver.maxResultSize=0 --class io.archivesunleashed.app.CommandLineAppRunner ' +
+                            aut_jar_path +
+                            '/aut-' +
+                            aut_version +
+                            '-fatjar.jar --extractor DomainFrequencyExtractor --input ' +
+                            collection_warcs +
+                            ' --output ' +
+                            collection_derivatives +
+                            '/domainfrequency 2>&1 | tee ' +
+                            spark_log +
+                            '/' +
+                            collection_id.id.to_s +
+                            '-domainfrequency-' +
+                            DateTime.now.utc.strftime('%Y%m%d%H%M') +
+                            '.log'
       logger.info 'Executing: ' + domainfrequency_job
       system(domainfrequency_job)
       success = collection_derivatives + '/domainfrequency/_SUCCESS'

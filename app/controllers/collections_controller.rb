@@ -12,7 +12,8 @@ class CollectionsController < ApplicationController
                                              download domains_chart
                                              images imagegraph pdfs spreadsheets
                                              webgraph videos wordprocessor
-                                             webpages webpage_text presentationprogram]
+                                             webpages webpage_text
+                                             presentationprogram]
   before_action :set_account, only: %i[domains_chart]
   before_action :gexf_path, only: %i[download_gexf]
   before_action :graphml_path, only: %i[download_graphml]
@@ -26,7 +27,8 @@ class CollectionsController < ApplicationController
                                         download_domains download_textfilter
                                         pdfs spreadsheets videos
                                         wordprocessor webgraph
-                                        webpages webpage_text presentationprogram]
+                                        webpages webpage_text
+                                        presentationprogram]
 
   include CollectionsHelper
 
