@@ -12,7 +12,7 @@
     </div>
     <p>Hi <%= @user.auk_name %>,</p>
     <p>
-      The <%= @collection.title %> collection has been downloaded, and analysis will now begin. Look out for another email from us soon!<br>
+      The <%= @collection.title %> collection has been downloaded, and you can choose what type of analysis you would like to preform on the collection. Analysis options are available on your dashboard: <%= link_to(user_collection_url(@user, @collection), user_collection_url(@user, @collection)) %>.
     </p>
     <p>Thanks for using the Archives Unleashed Cloud, and have a great day!</p>
   </body>

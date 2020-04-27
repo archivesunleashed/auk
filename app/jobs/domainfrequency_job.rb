@@ -4,10 +4,20 @@
 class DomainfrequencyJob < ApplicationJob
   queue_as :domainfrequency
 
-  after_perform do
+  after_perform do |job|
+    spark_name = 'Domain frequency extraction'
+    UserMailer.notify_collection_analyzed(job.arguments.first,
+                                          job.arguments.second,
+                                          spark_name).deliver_now
     update_dashboard = Dashboard.find_by(job_id: job_id)
     update_dashboard.end_time = DateTime.now.utc
     update_dashboard.save
+    if Rails.env.production?
+      user = User.find(job.arguments.first)
+      collection = Collection.find(job.arguments.second)
+      message = "#{spark_name} on \"#{collection.title}\" for #{user.auk_name} has completed."
+      SLACK.ping message
+    end
   end
 
   def perform(user_id, collection_id)

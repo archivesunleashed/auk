@@ -6,8 +6,13 @@ class UserMailerTest < ActionMailer::TestCase
   test 'notify_collection_analyzed' do
     user = users(:one)
     collection = collections(:one)
-    mail = UserMailer.notify_collection_analyzed(user.id, collection.id)
-    assert_equal collection.title + ' has been analyzed!', mail.subject
+    spark_name = 'Audio information extraction'
+    mail = UserMailer.notify_collection_analyzed(user,
+                                                 collection,
+                                                 spark_name)
+    assert_equal spark_name + ' on ' +
+                 collection.title +
+                 ' has finished!', mail.subject
   end
 
   test 'notify_collection_downloaded' do

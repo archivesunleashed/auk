@@ -2,13 +2,15 @@
 
 # Methods for User Mailer
 class UserMailer < ApplicationMailer
-  def notify_collection_analyzed(user_id, collection_id)
+  def notify_collection_analyzed(user_id,
+                                 collection_id,
+                                 spark_name)
     attachments.inline['AUK-Logo-full.png'] =
       File.read('app/assets/images/AUK-Logo-full.png')
-    @user = User.find(user_id)
-    @collection = Collection.find(collection_id)
-    mail(to: @user.email, subject: @collection.title +
-         ' has been analyzed!') do |format|
+    @user = User.find(user_id.id)
+    @collection = Collection.find(collection_id.id)
+    mail(to: @user.email, subject: spark_name + ' on ' +
+         @collection.title + ' has finished!') do |format|
       format.text
       format.html
     end
