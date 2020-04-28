@@ -41,8 +41,9 @@ Metrics/BlockLength:
 
 Metrics/ClassLength:
   Exclude:
-    - app/controllers/dashboards_controller.rb
     - app/controllers/collections_controller.rb
+    - app/controllers/dashboards_controller.rb
+    - app/jobs/spark_job.rb
 
 Metrics/CyclomaticComplexity:
   Exclude:

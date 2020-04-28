@@ -151,7 +151,7 @@ module DashboardsHelper
     total_data_analyzed = total_data.inject(0) { |sum, x| sum + x }
     # 90_000_000_000_000 is the rough estimate of the total amount of data
     # analyzed before the dashboard was implemented.
-    grand_total_data_analyzed = total_data_analyzed + 90_000_000_000_000
+    grand_total_data_analyzed = (total_data_analyzed + 90_000_000_000_000) * 3
     number_to_human_size(grand_total_data_analyzed)
   end
 end

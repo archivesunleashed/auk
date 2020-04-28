@@ -106,12 +106,12 @@
               <%= link_to('Domains<br />'.html_safe + number_to_human_size(File.size(domains_path(@user.id, @collection.id, @collection.account))), user_collection_download_domains_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A csv file that contains two columns; the domain, and number of occurrences (the distribution of domains within the web archive).') %>
             <% end %>
             <% unless !File.exists? fulltext_path(@user.id, @collection.id, @collection.account) %>
-              <%= link_to('Full Text<br />'.html_safe + number_to_human_size(File.size(fulltext_path(@user.id, @collection.id, @collection.account))), user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A csv file that contains four columns; the crawl date, domain, URL, and the content (full-text) of a given web page.') %>
+              <%= link_to('Web Page Text<br />'.html_safe + number_to_human_size(File.size(fulltext_path(@user.id, @collection.id, @collection.account))), user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A csv file that contains six columns; the crawl date, domain, MIME type (web server, and Apache Tika), URL, and the content (full-text) of a given web page.') %>
             <% end %>
             <% unless !File.exists? textfilter_path(@user.id, @collection.id, @collection.account) %>
               <%= link_to('Text by Domains<br />'.html_safe + number_to_human_size(File.size(textfilter_path(@user.id, @collection.id, @collection.account))), user_collection_download_textfilter_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A zip file that contains a "Full Text" derivative of the top ten domains within a given web archive collection. Each csv file contains the same columns as the "Full Text" derivative; the crawl date, domain, URL, and the content (full-text) of a given web page.') %>
             <% end %>
-            <p><small><%=link_to("Learn more about these files here.", "/derivatives")%> <%=link_to("We also have prototype Archives Unleashed Cloud Jupyter Notebooks available.", "/documentation#notebooks")%></small></p>
+            <p><small><%=link_to("Learn more about these files here.", "/derivatives")%></small></p>
           </div>
         </div>
       <% end %>
