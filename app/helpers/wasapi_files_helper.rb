@@ -52,11 +52,12 @@ module WasapiFilesHelper
        File.exist?(fulltext) && !File.empty?(fulltext) ||
        File.exist?(domains) && !File.empty?(domains) == true
 
-      spark_log = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
-                  collection_id.to_s + '/' + user_id.to_s + '/spark_jobs/' +
-                  collection_id.to_s + '.scala.log'
-      [File.mtime(spark_log).strftime('%B %-d, %Y'),
-       File.mtime(spark_log).strftime('%Y%m%d')]
+      filtered_text = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
+                      collection_id.to_s + '/' + user_id.to_s +
+                      '/derivatives/filtered-text/' +
+                      collection_id.to_s + '-filtered_text.zip'
+      [File.mtime(filtered_text).strftime('%B %-d, %Y'),
+       File.mtime(filtered_text).strftime('%Y%m%d')]
     end
   end
 end

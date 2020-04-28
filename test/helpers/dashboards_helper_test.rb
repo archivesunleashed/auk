@@ -80,7 +80,7 @@ class DashboardsHelperTest < ActionView::TestCase
   end
 
   test 'get total data analyzed' do
-    assert_equal '81.9 TB', data_analyzed
+    assert_equal '246 TB', data_analyzed
   end
 
   test 'get total number of warcs' do
