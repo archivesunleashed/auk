@@ -22,7 +22,7 @@ class SparkJob < ApplicationJob
       collection_path = ENV['DOWNLOAD_PATH'] +
                         '/' + c.account.to_s +
                         '/' + c.collection_id.to_s + '/'
-      collection_warcs = collection_path + 'warcs/*.gz'
+      collection_warcs = collection_path + 'warcs'
       collection_derivatives = collection_path + c.user_id.to_s + '/derivatives'
       collection_logs = collection_path + c.user_id.to_s + '/logs'
       FileUtils.mkdir_p collection_logs
