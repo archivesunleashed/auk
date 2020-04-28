@@ -111,8 +111,8 @@ class SparkJob < ApplicationJob
                     '.log'
 
       Parallel.map([spark_domains, spark_text, spark_gephi], in_threads: 3) do |auk_job|
-        system(auk_job)
         logger.info 'Executing: ' + auk_job
+        system(auk_job)
       end
 
       domain_success = collection_derivatives + '/all-domains/output/_SUCCESS'
