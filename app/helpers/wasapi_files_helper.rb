@@ -54,8 +54,7 @@ module WasapiFilesHelper
 
       filtered_text = ENV['DOWNLOAD_PATH'] + '/' + account.first.to_s + '/' +
                       collection_id.to_s + '/' + user_id.to_s +
-                      '/derivatives/filtered-text/' +
-                      collection_id.to_s + '-filtered_text.zip'
+                      '/derivatives/filtered-text'
       [File.mtime(filtered_text).strftime('%B %-d, %Y'),
        File.mtime(filtered_text).strftime('%Y%m%d')]
     end
