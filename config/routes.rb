@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get :download_fulltext
       get :download_textfilter
       get :domains_chart
+      get :crawl_dates_chart
     end
   end
 

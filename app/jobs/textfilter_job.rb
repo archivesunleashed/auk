@@ -40,6 +40,10 @@ class TextfilterJob < ApplicationJob
       collection_fulltext = collection_derivatives + '/all-text/' +
                             c.collection_id.to_s + '-fulltext.csv'
       collection_filtered_text_path = collection_derivatives + '/filtered-text'
+      crawl_date_count_file = collection_filtered_text_path +
+                              '/' +
+                              c.collection_id.to_s +
+                              '-crawl-date-count.csv'
       FileUtils.mkdir_p collection_filtered_text_path
       unless File.zero?(collection_domains) || !File.file?(collection_domains)
         text = File.open(collection_domains).read
@@ -69,6 +73,11 @@ class TextfilterJob < ApplicationJob
         `find #{collection_filtered_text_path} -type f -name '*.csv' -delete`
         `find #{collection_filtered_text_path} -type f -name '*.tmp' -delete`
       end
+      # THIS IS PURE COMEDY.
+      # YOLO!
+      yolo = "cat '#{collection_fulltext}' | cut -d, -f1 | sort | uniq -c | sort -nr | awk '{ print $2 \",\" $1}' | sort > '#{crawl_date_count_file}'"
+      logger.info yolo
+      system(yolo)
     end
   end
 end

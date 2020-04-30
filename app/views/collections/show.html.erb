@@ -45,9 +45,43 @@
       <% if !collection_queued(@user.id, @collection.id).first.present? %>
         <p><%= button_to("Analyze Collection", user_collection_download_path(@user, @collection), data: {confirm: "Download and analyze " + collection_size_human(@collection.id, @user) + "? \n\nDownloading large collections can take a long time depending on our connection to the Internet Archive, and the number of other users who are currently using the service. We ask for your patience."}, class: 'btn btn-primary btn-lg btn-block') %></p>
       <% end %>
+      <% unless !File.exists? domains_path(@user.id, @collection.id, @collection.account) %>
+        <div class="card card-body">
+          <h2 class="card-header">Download Collection Derivatives</h2>
+          <div class="card-body text-center">
+            <% unless !File.exists? gexf_path(@user.id, @collection.id, @collection.account) %>
+              <%= link_to('Gephi<br />'.html_safe + number_to_human_size(File.size(gexf_path(@user.id, @collection.id, @collection.account))), user_collection_download_gexf_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A GEXF file which you can load with Gephi. It will have a basic layout courtesy of our GraphPass program, allowing you to see major nodes and communities in the network.') %>
+            <% end %>
+            <% unless !File.exists? graphml_path(@user.id, @collection.id, @collection.account) %>
+              <%= link_to('Raw Network<br />'.html_safe + number_to_human_size(File.size(graphml_path(@user.id, @collection.id, @collection.account))), user_collection_download_graphml_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A GraphML file which you can load with Gephi. It will not have any basic layouts or transformations done to it, requiring you to do so manually.') %>
+            <% end %>
+            <% unless !File.exists? domains_path(@user.id, @collection.id, @collection.account) %>
+              <%= link_to('Domains<br />'.html_safe + number_to_human_size(File.size(domains_path(@user.id, @collection.id, @collection.account))), user_collection_download_domains_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A csv file that contains two columns: the domain, and number of occurrences (the distribution of domains within the web archive).') %>
+            <% end %>
+            <% unless !File.exists? fulltext_path(@user.id, @collection.id, @collection.account) %>
+              <%= link_to('Web Page Text<br />'.html_safe + number_to_human_size(File.size(fulltext_path(@user.id, @collection.id, @collection.account))), user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A csv file that contains six columns: the crawl date, domain, MIME type from the web server, MIME type as identified by Apache Tika, URL, and the content (full-text) of a given web page.') %>
+            <% end %>
+            <% unless !File.exists? textfilter_path(@user.id, @collection.id, @collection.account) %>
+              <%= link_to('Text by Domains<br />'.html_safe + number_to_human_size(File.size(textfilter_path(@user.id, @collection.id, @collection.account))), user_collection_download_textfilter_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A zip file that contains a "Full Text" derivative of the top ten domains within a given web archive collection. Each csv file contains the same columns as the "Full Text" derivative: the crawl date, domain, MIME type from the web server  , MIME type as identified by Apache Tika, URL, and the content (full-text) of a given web page.') %>
+            <% end %>
+            <p><small><%=link_to("Learn more about these files here.", "/derivatives")%></small></p>
+          </div>
+        </div>
+      <% end %>
+      <% unless display_crawl_dates(@user.id, @collection.id, @collection.account).blank? %>
+        <div class="card card-body">
+          <h2 class="card-header">Crawl Frequency</h2>
+          <p class="card-body">
+            <%= area_chart user_collection_crawl_dates_chart_path(@user.id, @collection.id, @collection.account), thousands: ',', download: {filename: 'crawl_date_chart.png', background: '#ffffff'} %>
+          </p>
+        </div>
+        <div class="text-right">
+          <%= link_to('What does this graph show?', '#', data: { toggle: 'tooltip', title: 'This diagram visualizes the frequency of web pages crawled based on the crawl dates available in the Web Pages Text derivative.'}) %>
+        </div>
+      <% end %>
       <% unless !File.exists? gexf_path(@user.id, @collection.id, @collection.account) %>
         <div class="card card-body">
-          <h2 class="card-header">Hyperlink Diagram</h2>
+          <h2 class="card-header">Hyperlink Graph</h2>
           <div id="card-body graph-wrapper">
             <span id="modal-click" data-toggle="modal" data-target="#sigma-fullscreen">
             <button type="button" data-toggle="tooltip" data-placement="top" title="Make graph full screen.">
@@ -90,29 +124,6 @@
         </div>
         <div class="text-right">
           <%= link_to('What does this graph show?', '#', data: { toggle: 'tooltip', title: 'This diagram visualizes the top 10 domains that occur in the web archive collection.'}) %>
-        </div>
-      <% end %>
-      <% unless !File.exists? domains_path(@user.id, @collection.id, @collection.account) %>
-        <div class="card card-body">
-          <h2 class="card-header">Download Collection Derivatives</h2>
-          <div class="card-body text-center">
-            <% unless !File.exists? gexf_path(@user.id, @collection.id, @collection.account) %>
-              <%= link_to('Gephi<br />'.html_safe + number_to_human_size(File.size(gexf_path(@user.id, @collection.id, @collection.account))), user_collection_download_gexf_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A GEXF file which you can load with Gephi. It will have a basic layout courtesy of our GraphPass program, allowing you to see major nodes and communities in the network.') %>
-            <% end %>
-            <% unless !File.exists? graphml_path(@user.id, @collection.id, @collection.account) %>
-              <%= link_to('Raw Network<br />'.html_safe + number_to_human_size(File.size(graphml_path(@user.id, @collection.id, @collection.account))), user_collection_download_graphml_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A GraphML file which you can load with Gephi. It will not have any basic layouts or transformations done to it, requiring you to do so manually.') %>
-            <% end %>
-            <% unless !File.exists? domains_path(@user.id, @collection.id, @collection.account) %>
-              <%= link_to('Domains<br />'.html_safe + number_to_human_size(File.size(domains_path(@user.id, @collection.id, @collection.account))), user_collection_download_domains_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A csv file that contains two columns: the domain, and number of occurrences (the distribution of domains within the web archive).') %>
-            <% end %>
-            <% unless !File.exists? fulltext_path(@user.id, @collection.id, @collection.account) %>
-              <%= link_to('Web Page Text<br />'.html_safe + number_to_human_size(File.size(fulltext_path(@user.id, @collection.id, @collection.account))), user_collection_download_fulltext_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A csv file that contains six columns: the crawl date, domain, MIME type from the web server, MIME type as identified by Apache Tika, URL, and the content (full-text) of a given web page.') %>
-            <% end %>
-            <% unless !File.exists? textfilter_path(@user.id, @collection.id, @collection.account) %>
-              <%= link_to('Text by Domains<br />'.html_safe + number_to_human_size(File.size(textfilter_path(@user.id, @collection.id, @collection.account))), user_collection_download_textfilter_path(@user.id, @collection.id, @collection.account), class: 'btn btn-primary', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'A zip file that contains a "Full Text" derivative of the top ten domains within a given web archive collection. Each csv file contains the same columns as the "Full Text" derivative: the crawl date, domain, MIME type from the web server  , MIME type as identified by Apache Tika, URL, and the content (full-text) of a given web page.') %>
-            <% end %>
-            <p><small><%=link_to("Learn more about these files here.", "/derivatives")%></small></p>
-          </div>
         </div>
       <% end %>
     </main>

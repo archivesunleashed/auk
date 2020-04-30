@@ -20,6 +20,30 @@ module CollectionsHelper
     end
   end
 
+  def display_crawl_dates(user_id, collection_id, account)
+    collection_path = ENV['DOWNLOAD_PATH'] +
+                      '/' + account.to_s +
+                      '/' + collection_id.to_s + '/'
+    crawl_dates = collection_path +
+                  user_id.to_s +
+                  '/derivatives/filtered-text/' +
+                  collection_id.to_s +
+                  '-crawl-date-count.csv'
+    unless File.zero?(crawl_dates) || !File.file?(crawl_dates)
+      text = File.open(crawl_dates).read
+      csv = CSV.parse(text, headers: false)
+      csv
+    end
+  end
+
+  def crawl_date_path(user_id, collection_id, account)
+    collection_path = ENV['DOWNLOAD_PATH'] +
+                      '/' + account.to_s +
+                      '/' + collection_id.to_s + '/'
+    collection_path + user_id.to_s + '/derivatives/filtered-text/' +
+      collection_id.to_s + '-crawl-date-count.txt'
+  end
+
   def textfilter_path(user_id, collection_id, account)
     collection_path = ENV['DOWNLOAD_PATH'] +
                       '/' + account.to_s +
