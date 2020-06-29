@@ -4,7 +4,7 @@ notifications:
   email: false
 branches:
   only:
-    - master
+    - main
 before_install:
   - nvm install node
   - npm install
