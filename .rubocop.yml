@@ -27,6 +27,7 @@ Metrics/AbcSize:
     - app/jobs/textfilter_job.rb
     - app/jobs/wasapi_download_job.rb
     - app/jobs/wasapi_seed_job.rb
+    - app/mailers/user_mailer.rb
 
 Metrics/BlockLength:
   Exclude:
@@ -44,6 +45,7 @@ Metrics/ClassLength:
     - app/controllers/collections_controller.rb
     - app/controllers/dashboards_controller.rb
     - app/jobs/spark_job.rb
+    - app/jobs/wasapi_seed_job.rb
 
 Metrics/CyclomaticComplexity:
   Exclude:

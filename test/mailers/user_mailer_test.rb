@@ -27,6 +27,7 @@ class UserMailerTest < ActionMailer::TestCase
     user = users(:one)
     collection = collections(:one)
     mail = UserMailer.notify_collection_failed(user.id, collection.id)
-    assert_equal 'We had a problem analyzing Sample Collection', mail.subject
+    assert_equal 'We had a problem analyzing Sample Collection (1234)',
+                 mail.subject
   end
 end

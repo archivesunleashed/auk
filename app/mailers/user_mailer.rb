@@ -43,7 +43,7 @@ class UserMailer < ApplicationMailer
     @user = User.find(user_id)
     @collection = Collection.find(collection_id)
     mail(to: 'nick@archivesunleashed.org',
-         subject: 'We had a problem analyzing ' + @collection.title + '(' + @collection + ')') do |format|
+         subject: 'We had a problem analyzing ' + @collection.title + ' (' + @collection.id.to_s + ')') do |format|
       format.text
       format.html
     end

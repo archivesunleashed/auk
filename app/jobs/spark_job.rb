@@ -31,9 +31,6 @@ class SparkJob < ApplicationJob
       aut_version = ENV['AUT_VERSION']
       aut_jar_path = ENV['AUT_PATH']
       spark_home = ENV['SPARK_HOME']
-      spark_heartbeat_interval = ENV['SPARK_HEARTBEAT_INTERVAL']
-      spark_memory_driver = ENV['SPARK_MEMORY_DRIVER']
-      spark_network_timeout = ENV['SPARK_NETWORK_TIMEOUT']
       spark_threads = ENV['SPARK_THREADS']
 
       spark_domains = spark_home +
