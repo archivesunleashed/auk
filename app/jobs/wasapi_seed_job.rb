@@ -53,6 +53,7 @@ class WasapiSeedJob < ApplicationJob
       )
     end
     paginate = wasapi_results['next']
+    page_count = 1
     if paginate.present?
       loop do
         wasapi_paged_request = HTTP.basic_auth(user: user.wasapi_username,
@@ -78,9 +79,13 @@ class WasapiSeedJob < ApplicationJob
             user_id: user.id
           )
         end
+        page_count += 1
+        logger.info 'Seed job: Page ' + page_count.to_s
         break if paginate.blank?
       end
     end
+    logger.info 'Seed job: STARTING COLLECTION API.'
+    page_count = 0
     WasapiFile.distinct.select('user_id, collection_id', 'account').each do |cid|
       collection_api_request_url = AI_COLLECTION_API_URL + cid.collection_id.to_s
       collection_api_request_code = HTTP.basic_auth(user: user.wasapi_username,
@@ -91,6 +96,8 @@ class WasapiSeedJob < ApplicationJob
                                                  pass: user.wasapi_password)
                                      .get(collection_api_request_url)
         collection_api_results = JSON.parse(collection_api_request)
+        page_count += 1
+        logger.info 'Collection job: Page ' + page_count.to_s
         Collection.find_or_create_by!(
           collection_id: cid.collection_id,
           user_id: cid.user_id,
@@ -100,5 +107,6 @@ class WasapiSeedJob < ApplicationJob
         )
       end
     end
+    logger.info 'COLLECTION API END LOOP'
   end
 end

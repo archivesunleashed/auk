@@ -1,6 +1,6 @@
 # AUK; Archives Unleashed Cloud
-[![Build Status](https://travis-ci.org/archivesunleashed/auk.svg?branch=master)](https://travis-ci.org/archivesunleashed/auk)
-[![codecov](https://codecov.io/gh/archivesunleashed/auk/branch/master/graph/badge.svg)](https://codecov.io/gh/archivesunleashed/auk)
+[![Build Status](https://travis-ci.org/archivesunleashed/auk.svg?branch=main)](https://travis-ci.org/archivesunleashed/auk)
+[![codecov](https://codecov.io/gh/archivesunleashed/auk/branch/main/graph/badge.svg)](https://codecov.io/gh/archivesunleashed/auk)
 [![Contribution Guidelines](http://img.shields.io/badge/CONTRIBUTING-Guidelines-blue.svg)](./CONTRIBUTING.md)
 [![LICENSE](https://img.shields.io/badge/license-Apache-blue.svg?style=flat-square)](./LICENSE.txt)
 [![Depfu](https://badges.depfu.com/badges/6e91514923de3f13c37a564add79abf7/overview.svg)](https://depfu.com/github/archivesunleashed/auk?project_id=6474)
@@ -74,7 +74,7 @@ irb(main):001:0> Delayed::Job.find(1234).retry!
 
 This application makes use of [figaro](https://github.com/laserlemon/figaro).
 
-You will need a [`config/application.yml`](https://github.com/archivesunleashed/auk/blob/master/config/application.yml.example) file in the root of the application.
+You will need a [`config/application.yml`](https://github.com/archivesunleashed/auk/blob/main/config/application.yml.example) file in the root of the application.
 
 #### Dashboard
 
@@ -100,7 +100,7 @@ You can also run `bin/console` for an interactive prompt that will allow you to 
 
 ## Contributing
 
-Please see [contributing guidelines](https://github.com/archivesunleashed/auk/blob/master/CONTRIBUTING.md) for details.
+Please see [contributing guidelines](https://github.com/archivesunleashed/auk/blob/main/CONTRIBUTING.md) for details.
 * [Bug reports](https://github.com/archivesunleashed/auk/issues)
 * [Pull requests](https://github.com/archivesunleashed/auk/pulls) are welcome on AUK
 

@@ -9,8 +9,8 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
-AUT_PATH: "/home/nruest/Projects/au/aut/target"
-AUT_VERSION: "0.50.0"
+AUT_PATH: "/path/to/aut-fatjar"
+AUT_VERSION: "0.80.0"
 BASE_HOSTNAME: "cloud.archivesunleashed.org" #if in development mode: localhost:3000
 BASE_HOST_URL: "https://cloud.archivesunleashed.org" #if in development mode: http://localhost:3000
 DASHBOARD_PASS: "test"
@@ -26,10 +26,7 @@ GITHUB_KEY: "SOME KEY"
 GITHUB_SECRET: "SOME SECRET"
 GRAPHPASS: "/path/to/graphpass/directory/graphpass"
 SLACK_WEBHOOK_URL: "https://hooks.slack.com/services/SOME/IDENTIFER" #https://slack.com/apps/A0F7XDUAZ-incoming-webhooks
-SPARK_HEARTBEAT_INTERVAL: "600s"
 SPARK_HOME: "/home/nruest/bin/spark-2.4.5-bin-hadoop2.7"
-SPARK_MEMORY_DRIVER: "5G"
-SPARK_NETWORK_TIMEOUT: "10000000"
 SPARK_THREADS: "*"
 TWITTER_KEY: "SOME KEY"
 TWITTER_SECRET: "SOME SECRET"

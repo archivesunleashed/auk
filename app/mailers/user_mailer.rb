@@ -42,9 +42,8 @@ class UserMailer < ApplicationMailer
       File.read('app/assets/images/AUK-Logo-full.png')
     @user = User.find(user_id)
     @collection = Collection.find(collection_id)
-    mail(to: @user.email,
-         cc: 'nick@archivesunleashed.org',
-         subject: 'We had a problem analyzing ' + @collection.title) do |format|
+    mail(to: 'nick@archivesunleashed.org',
+         subject: 'We had a problem analyzing ' + @collection.title + '(' + @collection + ')') do |format|
       format.text
       format.html
     end

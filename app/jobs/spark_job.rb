@@ -39,13 +39,7 @@ class SparkJob < ApplicationJob
       spark_domains = spark_home +
                       '/bin/spark-submit --master local[' +
                       spark_threads +
-                      '] --driver-memory ' +
-                      spark_memory_driver +
-                      ' --conf spark.network.timeout=' +
-                      spark_network_timeout +
-                      ' --conf spark.executor.heartbeatInterval=' +
-                      spark_heartbeat_interval +
-                      ' --conf spark.driver.maxResultSize=0 --class io.archivesunleashed.app.CommandLineAppRunner ' +
+                      '] --class io.archivesunleashed.app.CommandLineAppRunner ' +
                       aut_jar_path +
                       '/aut-' +
                       aut_version +
@@ -63,13 +57,7 @@ class SparkJob < ApplicationJob
       spark_text = spark_home +
                    '/bin/spark-submit --master local[' +
                    spark_threads +
-                   '] --driver-memory ' +
-                   spark_memory_driver +
-                   ' --conf spark.network.timeout=' +
-                   spark_network_timeout +
-                   ' --conf spark.executor.heartbeatInterval=' +
-                   spark_heartbeat_interval +
-                   ' --conf spark.driver.maxResultSize=0 --class io.archivesunleashed.app.CommandLineAppRunner ' +
+                   '] --class io.archivesunleashed.app.CommandLineAppRunner ' +
                    aut_jar_path +
                    '/aut-' +
                    aut_version +
@@ -88,13 +76,7 @@ class SparkJob < ApplicationJob
       spark_gephi = spark_home +
                     '/bin/spark-submit --master local[' +
                     spark_threads +
-                    '] --driver-memory ' +
-                    spark_memory_driver +
-                    ' --conf spark.network.timeout=' +
-                    spark_network_timeout +
-                    ' --conf spark.executor.heartbeatInterval=' +
-                    spark_heartbeat_interval +
-                    ' --conf spark.driver.maxResultSize=0 --class io.archivesunleashed.app.CommandLineAppRunner ' +
+                    '] --class io.archivesunleashed.app.CommandLineAppRunner ' +
                     aut_jar_path +
                     '/aut-' +
                     aut_version +
