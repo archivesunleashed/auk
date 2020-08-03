@@ -107,7 +107,7 @@ GEM
       railties (>= 3.2, < 6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    groupdate (5.0.0)
+    groupdate (5.1.0)
       activesupport (>= 5)
     hashie (3.6.0)
     http (4.4.1)
@@ -122,7 +122,7 @@ GEM
       ffi-compiler (>= 1.0, < 2.0)
     humanize_boolean (0.0.2)
       i18n
-    i18n (1.8.2)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
     jbuilder (2.10.0)
