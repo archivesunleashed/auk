@@ -60,7 +60,7 @@ class TextfilterJob < ApplicationJob
           grep_query = "'," + row[0] + ",'"
           grep_filter = '-a ' + grep_query + ' ' + collection_fulltext +
                         ' > ' + interim_file
-          grep_binary_filter = '-vanPe \'^((?!.*$)|.*\0)\' ' + interim_file +
+          grep_binary_filter = '-vaPe \'^((?!.*$)|.*\0)\' ' + interim_file +
                                ' > ' + domain_textfilter
           `grep #{grep_filter}`
           `grep #{grep_binary_filter}`
