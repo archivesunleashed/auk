@@ -19,6 +19,8 @@ jobs:
         run: npm install
       - name: Setup auk config
         run: cp config/application.yml.example config/application.yml
+      - name: Setup auk
+        run: bundle install
       - name: Run tests
         run: bundle exec rake
       - name: Upload coverage report to Codecov
