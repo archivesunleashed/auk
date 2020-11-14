@@ -23,4 +23,5 @@ jobs:
         run: cp config/application.yml.example config/application.yml
       - name: Run tests
         run: bundle exec rake
-
+      - name: Upload coverage report to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
