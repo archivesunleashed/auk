@@ -1,0 +1,26 @@
+name: AUK Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Setup Node
+        run: |
+          nvm install node
+          npm install
+      - name: Setup auk config
+        run: cp config/application.yml.example config/application.yml
+      - name: Run tests
+        run: bundle exec rake
+
