@@ -16,9 +16,7 @@ jobs:
         with:
           ruby-version: 2.6
       - name: Setup Node
-        run: |
-          nvm install node
-          npm install
+        run: npm install
       - name: Setup auk config
         run: cp config/application.yml.example config/application.yml
       - name: Run tests
