@@ -1,5 +1,4 @@
 # AUK; Archives Unleashed Cloud
-[![Build Status](https://travis-ci.org/archivesunleashed/auk.svg?branch=main)](https://travis-ci.org/archivesunleashed/auk)
 [![codecov](https://codecov.io/gh/archivesunleashed/auk/branch/main/graph/badge.svg)](https://codecov.io/gh/archivesunleashed/auk)
 [![Contribution Guidelines](http://img.shields.io/badge/CONTRIBUTING-Guidelines-blue.svg)](./CONTRIBUTING.md)
 [![LICENSE](https://img.shields.io/badge/license-Apache-blue.svg?style=flat-square)](./LICENSE.txt)
