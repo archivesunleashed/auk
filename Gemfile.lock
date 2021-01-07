@@ -290,7 +290,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
-    sys-filesystem (1.4.0)
+    sys-filesystem (1.4.1)
       ffi (~> 1.1)
     thor (1.0.1)
     thread_safe (0.3.6)
