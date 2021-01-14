@@ -1,0 +1,23 @@
+<% provide(:title, 'Our Transition to Archive-It') %>
+
+<% cache do %>
+<div class="container">
+  <h1 class=about_h1>Our Transition to Archive-It</h1>
+    <p class="about_p"><em>On 30 June 2021, the Cloud will be decomissioned. A new Archive-It service will take its place.</em></p>
+
+  <h3 class=about_h3>What does this mean?</h3>
+    <p class="about_p">Supported by a new grant by <%= link_to('The Andrew W. Mellon Foundation', 'https://mellon.org/', target: '_blank') %>, Archives Unleashed is partnering with our colleagues at the <%= link_to('Internet Archive', 'https://archive.org/', target: '_blank') %>. We will be integrating the Cloud with their <%= link_to('Archive-It Service', 'https://archive-it.org/', target: '_blank') %> service in order to ensure the project’s long-term sustainability, as well as enhance usability and accessibility.</p>
+    <p class="about_p">As you already had to be an Archive-It subscriber to use the Archives Unleashed Cloud, we hope this won't prove too disruptive. Similar functionality to the Cloud will be available through a new "Datasets" tab there, replacing the existing <%= link_to('Archive-It Research Services', 'https://support.archive-it.org/hc/en-us/articles/209671666-Introduction-to-Archive-It-Research-Services-ARS-', target: '_blank') %> offerings.</p>
+    <p class="about_p">For more details, you can always subscribe to our <%= link_to('project newsletter', 'http://eepurl.com/dfpU7j', target: '_blank') %> or follow our <%= link_to('project blog', 'https://news.archivesunleashed.org', target: '_blank') %>. We're excited about this next stage!</p>
+
+  <h3 class=about_h3>What do I need to do? What will happen to my data after 30 June 2021?</h3>
+    <p class="about_p">On 30 June 2021, we will delete the Cloud, including all of your derivative files and user data. <strong>If you want to keep a copy of your derivative datasets</strong>, we encourage you to download them before the Cloud shuts down.</p>
+    <p class="about_p">As our project has not routinely stored ARC or WARC files beyond the time needed to process them into derivative files, you do not need to worry about any of your data remaining.</p>
+
+    <h3 class=about_h3>I have questions! Who can I contact?</h3>
+    <p class="about_p">We would love to hear from you. You can always join our <%= link_to('Slack team', 'http://slack.archivesunleashed.org', target: '_blank') %> if you want to chat about the project today and in the future. You can also follow us on <%= link_to('Twitter', 'https://twitter.com/unleasharchives', target: '_blank') %>!</p>
+    <p class="about_p">Alternatively, please connect with us via e-mail at <%= link_to('sam.fritz@archivesunleashed.org', 'mailto:sam.fritz@archivesunleashed.org', target: '_blank') %>.</p>
+
+
+</div>
+<% end %>
