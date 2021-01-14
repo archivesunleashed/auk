@@ -82,7 +82,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get archive-it page' do
-    get archive_it_path
+    get archive-it_path
     assert_response :success
     assert_select 'title', 'Our Transition to Archive-It | Archives Unleashed'
   end
