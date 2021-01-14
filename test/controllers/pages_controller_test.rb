@@ -86,5 +86,4 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'title', 'Our Transition to Archive-It | Archives Unleashed'
   end
-
 end
