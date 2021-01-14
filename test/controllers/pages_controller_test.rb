@@ -81,8 +81,8 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'title', 'Getting Started with the Archives Unleashed Cloud Jupyter Notebooks | Archives Unleashed'
   end
 
-  test 'should get archive-it page' do
-    get archive-it_path
+  test 'should get archiveit page' do
+    get archiveit_path
     assert_response :success
     assert_select 'title', 'Our Transition to Archive-It | Archives Unleashed'
   end

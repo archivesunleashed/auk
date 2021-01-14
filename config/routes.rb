@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   root 'pages#show', page: 'home'
   get '/pages/:page' => 'pages#show'
   get 'about' => 'pages#about'
-  get 'archive-it' => 'pages#archive-it'
+  get 'archiveit' => 'pages#archiveit'
   get 'documentation' => 'pages#documentation'
   get 'faq' => 'pages#faq'
   get 'privacypolicy' => 'pages#privacypolicy'
