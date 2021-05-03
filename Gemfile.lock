@@ -67,7 +67,7 @@ GEM
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
-    chartkick (4.0.3)
+    chartkick (4.0.4)
     codecov (0.5.2)
       simplecov (>= 0.15, < 0.22)
     coffee-rails (4.2.2)
