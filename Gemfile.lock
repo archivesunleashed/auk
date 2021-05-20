@@ -200,7 +200,8 @@ GEM
     popper_js (1.16.0)
     psych (3.1.0)
     public_suffix (4.0.6)
-    puma (3.12.6)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -347,7 +348,7 @@ DEPENDENCIES
   os
   parallel
   pg (= 1.1.4)
-  puma (~> 3.7)
+  puma (~> 4.3)
   rack (>= 2.0.6)
   rails (~> 5.2.3)
   rails-html-sanitizer (~> 1.0.4)
